@@ -60,8 +60,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         SousType st19 = new SousType("Sauce Allégée");
         SousType st20 = new SousType("Sauce Vinaigrette Huile d'olive et Vinaigre Balsamique");
         SousType st21 = new SousType("Sauce Cesar");
-        
-        
+
         //Associations
         //Persist
         em.persist(menuHappyMeal);
@@ -93,20 +92,39 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proManhattanVeggie = new Produit("Salade Manhattan Veggie ", 6.7F, "De délicieuses galettes panées aux légumes 100% français, des tomates cerises, des grains de raisins, des cranberries et un mélange de salades : romaine, batavia et radicchio. Veggie = Végétarien Cranberries = Canneberges. Suggestion de présentation. Durée limitée", "Normal", 0, "");
         Produit proManhattan = new Produit("Salade Manhattan", 6.3F, "Salade composée d'un mélange de romaine, de batavia et de raddichio, de 2 spécialités panées au poulet, de tomates-cerises et de morceaux de pommes et grains de raisins. Proposée avec sa sauce Manhattan. ", "Normal", 0, "");
         Produit proManhattanPouletCroustillant = new Produit("Salade Manhattan au Poulet Croustillant", 6.9F, "", "Normal", 0, "");
-        Produit proSignature= new Produit("Signature", 4.95F, "", "Normal", 0, "");
-//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
-//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
-//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
-//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
-//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
-//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
-//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
+        Produit proSignature280OriginalBeef = new Produit("Signature 280 Original Beef BBQ Burger", 5.4F, "Laissez-vous tenter par le savoureux 280™ Original. Un pain ciabatta cuit sur pierre, un steak haché 100% pur bœuf *, de l'emmental et du cheddar fondus, des oignons frais, deux rondelles de tomates, du ketchup et une sauce légerement citronnee. Durée limitée.  comme tout steak hache.", "Normal", 0, "");
+        Produit proDoubleBlueCheese = new Produit("Double Blue Cheese & Bacon", 5.5F, "Le burger gourmet signé McDonald's™. Découvrez la recette : de la Fourme d'Ambert AOP, de la viande Charolaise, du long bacon fumé au bois de hêtre, des oignons fondants, le tout dans un pain spécial. Durée Limitée. Double Blue Cheese & Bacon = 2 steaks hachés & Fourme d'Ambert AOP", "Normal", 0, "");
+        Produit proBeefBbq = new Produit("Beef BQQ", 5.3F, "Découvrez une recette généreuse et des ingrédients de qualité : de la viande charolaise, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Beef BBQ Burger = Steak haché et sauce goût barbecue. ", "Normal", 0, "");
+        Produit proChickenBbq = new Produit("Chicken BQQ", 5.4F, "Découvrez une recette généreuse et des ingrédients de qualité : un filet de poulet origine France, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Chicken BBQ = filet de poulet origine France", "Normal", 0, "");
+        Produit proRoyalDeLuxe = new Produit("Royal™ deluxe", 5.6F, "Le luxe de la sauce à la moutarde à l'ancienne. Craquez pour un savoureux steak haché avec du cheddar fondu, de la salade croquante et des oignons frais, le tout accompagné d'une délicieuse sauce à la moutarde à l'ancienne qui lui donne son goût si original. Pain spécial, steak haché, salade, oignon, fromage fondu, tomate, sauce.", "Normal", 0, "");
+        Produit proMcWrap = new Produit("Mc Wrap™ Chèvre", 8F, "Deux chèvres croustillants et chauds, une sauce onctueuse, des oignons frits, des rondelles de tomates, de la salade, le tout enveloppé dans une galette de blé. Chèvre = spécialité panée à base de fromage de chèvre", "Normal", 0, "");
+        Produit proMcFish = new Produit("McFish", 4.1F, "Le petit frère du Filet-O-Fish. Caché au fond du Happy Meal, le McFish gagne à être connu : un pain lisse autour d'un poisson pané délicieusement croustillant et un peu de ketchup. Idéal pour s'initier au poisson ! Pain spécial, préparation de poisson pané, ketchup.", "Normal", 0, "");
+        Produit proCroqueMcDo = new Produit("Croque McDo™", 2.1F, "A croquer ! Un croque monsieur tout rond, tout en simplicité : deux tranches d'emmental fondu, une tranche de jambon supérieur, dans un pain retourné et toasté. Il ne lui en faut pas plus pour être bon. Pain spécial, fromage fondu, jambon.", "Normal", 0, "");
+        Produit proHamburger = new Produit("Hamburger", 1.5F, "Un indémodable, tout simplement. Un steak haché, une rondelle de cornichon, des oignons, de la moutarde douce et du ketchup, retrouvez tout l'esprit de McDonald's dans ce classique au goût inimitable. Pain spécial, steack haché, oignon, cornichon, moutarde, ketchup.", "Normal", 0, "");
+        Produit proCheeseBurger = new Produit("CheeseBurger", 1.9F, "Le « Cheese » pour les intimes. Un steak haché, une tranche de cheddar fondu, une rondelle de cornichon, des oignons, du ketchup et de la moutarde douce dans un pain classique : fondez pour son goût unique et emblématique. Pain spécial, steack haché, fromage fondu, oignon, cornichon, moutarde, ketchup.", "Normal", 0, "");
+        Produit proCocaCola25 = new Produit("COCA-COLA® Original", 1.9F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Normal", 25, "");
+        Produit proCocaCola40 = new Produit("COCA-COLA® Original", 2.3F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Moyen", 40, "");
+        Produit proCocaCola50 = new Produit("COCA-COLA® Original", 2.8F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Grand", 50, "");
+        Produit proCocaColaZéro25 = new Produit("COCA-COLA ZÉRO® ", 1.9F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Normal", 25, "");
+        Produit proCocaColaZéro40 = new Produit("COCA-COLA ZÉRO® ", 2.3F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Moyen", 40, "");
+        Produit proCocaColaZéro50 = new Produit("COCA-COLA ZÉRO® ", 2.8F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Grand", 50, "");
+        Produit proCocaColaLight25 = new Produit("COCA-COLA LIGHT® ", 1.9F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Normal", 25, "");
+        Produit proCocaColaLight40 = new Produit("COCA-COLA LIGHT® ", 2.3F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Moyen", 40, "");
+        Produit proCocaColaLight50 = new Produit("COCA-COLA LIGHT® ", 2.8F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Grand", 50, "");
+        Produit proSpriteZero25 = new Produit("Sprite Zéro®", 1.9F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Normal", 25, "");
+        Produit proSpriteZero40 = new Produit("Sprite Zéro®", 2.3F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Moyen", 40, "");
+        Produit proSpriteZero50 = new Produit("Sprite Zéro®", 2.8F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Grand", 50, "");
+        Produit proEvian33 = new Produit("Evian®", 2.3F, "Une petite soif ? Notre corps est constitué  à 60% d'eau. Il est donc essentiel de boire suffisamment d'eau tous les jours. evian®, véritable trésor de pureté, fruit de plus de 15 années de filtration au cœur des Alpes, est une eau faiblement minéralisée qui répond à vos besoins quotidiens. McDonald's s'associe à evian® pour vous proposer les bouteilles 50cl et 33cl afin d'accompagner vos menus de fraîcheur et de légèreté. evian® 50cl vous apporte un tiers de vos besoins quotidiens en eau et vous accompagne partout à la sortie du restaurant. Dans les menus Happy Meal, retrouvez également evian® 33cl, une petite bouteille parfaitement adaptée aux mains des enfants et un format idéal pour les petites soifs. valeur nutritionnelle pour une boisson moyenne", "Normal", 33, "");
+        Produit proEvian50 = new Produit("Evian®", 2.7F, "Une petite soif ? Notre corps est constitué  à 60% d'eau. Il est donc essentiel de boire suffisamment d'eau tous les jours. evian®, véritable trésor de pureté, fruit de plus de 15 années de filtration au cœur des Alpes, est une eau faiblement minéralisée qui répond à vos besoins quotidiens. McDonald's s'associe à evian® pour vous proposer les bouteilles 50cl et 33cl afin d'accompagner vos menus de fraîcheur et de légèreté. evian® 50cl vous apporte un tiers de vos besoins quotidiens en eau et vous accompagne partout à la sortie du restaurant. Dans les menus Happy Meal, retrouvez également evian® 33cl, une petite bouteille parfaitement adaptée aux mains des enfants et un format idéal pour les petites soifs. valeur nutritionnelle pour une boisson moyenne", "Moyen", 50, "");
+        Produit proBadoit33 = new Produit("Badoit®", 2.3F, "BADOIT® est une eau minérale naturelle gazeuse, appréciée pour sa saveur unique et sa multitude de fines bulles. Reconnue depuis 1778 pour ses vertus, elle jaillit à Saint Galmier, dans la Loire, après un long parcours souterrain qui l'enrichit naturellement de ses sels minéraux essentiels et de sa fine pétillance, renforcée par l'adjonction de gaz carbonique pour le plaisir du palais. Badoit souligne avec élégance et subtilité tous vos repas. Choisissez sa fine pétillance pour faire pétiller vos menus. Badoit est disponible chez McDo en formats 33cl et 50cl. Badoit, buvez de la joie ! valeur nutritionnelle pour une boisson moyenne", "Normal", 33, "");
+        Produit proBadoit50 = new Produit("Badoit®", 2.7F, "BADOIT® est une eau minérale naturelle gazeuse, appréciée pour sa saveur unique et sa multitude de fines bulles. Reconnue depuis 1778 pour ses vertus, elle jaillit à Saint Galmier, dans la Loire, après un long parcours souterrain qui l'enrichit naturellement de ses sels minéraux essentiels et de sa fine pétillance, renforcée par l'adjonction de gaz carbonique pour le plaisir du palais. Badoit souligne avec élégance et subtilité tous vos repas. Choisissez sa fine pétillance pour faire pétiller vos menus. Badoit est disponible chez McDo en formats 33cl et 50cl. Badoit, buvez de la joie ! valeur nutritionnelle pour une boisson moyenne", "Moyen", 50, "");
+        Produit proLiptonIceTea25 = new Produit("Lipton Ice Tea®", 2.3F, "LIPTON ICE TEA® Envie d'une boisson rafraîchissante ? Laissez-vous tenter par la recette délicieusement fruitée de Lipton Ice Tea saveur Pêche et profitez de son association de thé glacé et d'arômes fruités ! Ce parfait équilibre des extraits de thé et du délicieux goût pêche en feront la boisson idéale pour accompagner votre menu et ravir vos papilles ! Comme toute la gamme Lipton Ice Tea, cette recette est sans colorant. Alors n'hésitez plus en venant chez McDonald's, et adoptez l'esprit Drink Positive* de Lipton Ice Tea à n'importe quel moment de la journée ! Retrouvez Lipton Ice Tea sur http://www.liptonicetea.com/fr-FR/products pour tout savoir sur cette boisson ! *Buvez Positif Valeurs nutritionnelles pour une boisson de 25cl", "Normal", 25, "");
+        Produit proMinuteMaid20 = new Produit("Minute Maid® Orange", 1.9F, "MINUTE MAID® ORANGE A tout moment de la journée, Minute Maid vous apporte une délicieuse dose de vitalité avec son jus d'orange à base de concentré avec pulpe. Faites-vous plaisir et comblez votre envie de fruits grâce à Minute Maid Orange. Ce jus à base de concentré est 100% teneur en fruits, sans sucres ajoutés, sans colorant et sans conservateur (conformément à la réglementation, contient naturellement le sucre des fruits). Le saviez-vous ? Boire un verre de Minute Maid Orange vous apporte l'équivalent d'une des 5 portions de fruits et légumes recommandées par jour. Minute Maid Orange est un jus à base de concentré. Minute Maid est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 20cl. Jus d'orange à base de jus d'orange concentré", "Normal", 20, "");
+        Produit proFanta25 = new Produit("Fanta", 1.9F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Normal", 25, "");
+        Produit proFanta40 = new Produit("Fanta", 2.3F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Moyen", 40, "");
+        Produit proFanta50 = new Produit("Fanta", 2.8F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Grand", 50, "");
 
         // ************************** Associations *****************************
- 
-        
-        
-        
         //**************************** Persist *********************************
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
@@ -126,20 +144,37 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proManhattanVeggie);
         em.persist(proManhattan);
         em.persist(proManhattanPouletCroustillant);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanPouletFrit);
-        
+        em.persist(proSignature280OriginalBeef);
+        em.persist(proDoubleBlueCheese);
+        em.persist(proBeefBbq);
+        em.persist(proChickenBbq);
+        em.persist(proRoyalDeLuxe);
+        em.persist(proMcWrap);
+        em.persist(proMcFish);
+        em.persist(proCroqueMcDo);
+        em.persist(proHamburger);
+        em.persist(proCheeseBurger);
+        em.persist(proCocaCola25);
+        em.persist(proCocaCola40);
+        em.persist(proCocaCola50);
+        em.persist(proCocaColaZéro25);
+        em.persist(proCocaColaZéro40);
+        em.persist(proCocaColaZéro50);
+        em.persist(proCocaColaLight25);
+        em.persist(proCocaColaLight40);
+        em.persist(proCocaColaLight50);
+        em.persist(proSpriteZero25);
+        em.persist(proSpriteZero40);
+        em.persist(proSpriteZero50);
+        em.persist(proEvian33);
+        em.persist(proEvian50);
+        em.persist(proBadoit33);
+        em.persist(proBadoit50);
+        em.persist(proLiptonIceTea25);
+        em.persist(proMinuteMaid20);
+        em.persist(proFanta25);
+        em.persist(proFanta40);
+        em.persist(proFanta50);
 
 // ---------------------------------Nourdine------------------------------------
         //Creation des objets
@@ -148,9 +183,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 // ----------------------------------- Edem ------------------------------------
         // ************************ Creation des objets ************************
         // ********* Les ItemsARetirer *********
-        
         // ********* Les Allergenes *********
-        
         // ********* Les ItemsARetirer *********
         ItemARetire itaeSteak = new ItemARetire("Steak", "En 2016, la viande bovine dans nos restaurants est d'origine française pour 54,51%*. Ainsi, nous avons utilisé plus de 25 078 tonnes de viande bovine française. Le volume restant provient d'Irlande et des Pays-Bas selon le même cahier des charges et les mêmes contrôles qu'en France. Nos fournisseurs s'approvisionnent uniquement auprès de fournisseurs référencés selon des critères très exigeants, et utilisent principalement des muscles issus de l'avant des bovins comme par exemple, l'épaule, le collier, le plat de côte");
         ItemARetire itaeFrommage = new ItemARetire("Frommage");
@@ -162,7 +195,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARetire itaePoulet = new ItemARetire("Poulet", null);
         ItemARetire itaeBacon = new ItemARetire("Bacon", null);
         ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes", null);
-        
+
         // ************************** Associations *****************************
         // ****************************** Persist ******************************
         em.persist(itaeSteak);
