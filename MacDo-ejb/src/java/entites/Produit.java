@@ -88,10 +88,20 @@ public class Produit implements Serializable {
         abonnes = new ArrayList();
     }
 
+    public Produit(String nom) {
+        this.nom = nom;
+    }
+
     public Produit(String nom, Float prix) {
         this();
         this.nom = nom;
         this.prix = prix;
+    }
+
+    public Produit(String nom, Float prix, String description) {
+        this.nom = nom;
+        this.prix = prix;
+        this.description = description;
     }
 
     public Produit(String nom, Float prix, String description

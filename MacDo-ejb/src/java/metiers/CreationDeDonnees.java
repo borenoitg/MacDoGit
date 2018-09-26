@@ -3,6 +3,7 @@ package metiers;
 import entites.Allergene;
 import entites.Infos;
 import entites.Ingredient;
+import static entites.Ingredient_.produit;
 import entites.ItemARajoute;
 import entites.ItemARetire;
 import entites.LigneDeCommande;
@@ -10,6 +11,7 @@ import entites.Menu;
 import entites.Produit;
 import entites.Promotion;
 import entites.SousType;
+import entites.Tva;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -182,8 +184,54 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         //Persist
 // ----------------------------------- Edem ------------------------------------
         // ************************ Creation des objets ************************
-        // ********* Les ItemsARetirer *********
-        // ********* Les Allergenes *********
+        // ********* Les Produits *********
+        Produit proLeTheRouge = new Produit("THÉ FRUITS ROUGES GRAND FORMAT", 2.70F);
+        Produit proLeTheVertGrand = new Produit("THÉ VERT A LA MENTHE GRAND FORMAT", 2.70F);
+        Produit proLeTheVert = new Produit("THÉ VERT A LA MENTHE", 2.20F);
+        Produit proLeTheGrey = new Produit("THÉ EARL GREY", 2.20F);
+        Produit proLeTheGreyGrand = new Produit("THÉ EARL GREY GRAND FORMAT", 2.70F);
+        //******************
+        Produit proGrandCafe = new Produit("GRAND CAFE", 2F);
+        Produit proGrandCafeGrand = new Produit("GRAND CAFE GRAND FORMAT", 2.5F);
+        //******************
+        Produit proCappuccino = new Produit("CAPPUCCINO", 2.40F);
+        Produit proCappuccinoGrand = new Produit("CAPPUCCINO GRAND FORMAT", 2.90F);
+        //******************
+        Produit proCappuccinoDaim = new Produit("CAPPUCCINO DAIM", 2.50F);
+        Produit proCappuccinDaimoGrand = new Produit("CAPPUCCINO DAIM GRAND FORMAT", 3F);
+        //******************
+        Produit proDoubleLatte = new Produit("DOUBLE LATTE", 2.30F);
+        Produit proproDoubleLatteGrand = new Produit("DOUBLE LATTE GRAND FORMAT", 2.80F);
+        //******************
+        Produit proLatteMacchiato = new Produit("LATTE MACCHIATO SAVEUR CHOCOLAT", 2.5F);
+        Produit proExpresso = new Produit("EXPRESSO", 1.5F);
+        Produit proNoisette = new Produit("NOISETTE", 1.70F);
+        Produit proRISTRETTO = new Produit("RISTRETTO", 1.50F);
+        Produit proChocolatChaud = new Produit("CHOCOLAT CHAUD", 2.20F);
+        //******************
+        Produit proGrandesCrousties = new Produit("GRANDES CROUSTIES", 2.90F);
+        Produit proMoyenneCrousties = new Produit("MOYENNE CROUSTIES", 2.5F);
+        Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.90F);
+        Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.5F);
+        Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F);
+        //******************
+        Produit proSauceBarbecue = new Produit("SAUCE CLASSIC BARBECUE", 0.20F);
+        Produit proSauceChinoise = new Produit("SAUCE CHINOISE", 0.20F);
+        Produit proSauceCurry = new Produit("SAUCE CURRY", 0.20F);
+        Produit proVinaigretteAHuile = new Produit("VINAIGRETTE A L'HUILE DE NOISETTE", 0.20F);
+        Produit proSaucePommeFrites = new Produit("SAUCE POMME FRITES");
+        Produit proKetchup = new Produit("KETCHUP");
+        Produit proBioABoire = new Produit("BIO A BOIRE FRUITS ROUGES");
+        Produit proLePetitDuoRaisins = new Produit("LE PETIT DUO DE RAISINS");
+//        Produit pro = new Produit("", );
+//        Produit pro = new Produit("", );
+//        Produit pro = new Produit("", );
+//        Produit pro = new Produit("", );
+        
+        // ********* La TVA *********
+//        Tva tvaEmporter = new Tva(0.196F);
+//        Tva tvaSurPlace = new Tva(0.055F);
+        
         // ********* Les ItemsARetirer *********
         ItemARetire itaeSteak = new ItemARetire("Steak", "En 2016, la viande bovine dans nos restaurants est d'origine française pour 54,51%*. Ainsi, nous avons utilisé plus de 25 078 tonnes de viande bovine française. Le volume restant provient d'Irlande et des Pays-Bas selon le même cahier des charges et les mêmes contrôles qu'en France. Nos fournisseurs s'approvisionnent uniquement auprès de fournisseurs référencés selon des critères très exigeants, et utilisent principalement des muscles issus de l'avant des bovins comme par exemple, l'épaule, le collier, le plat de côte");
         ItemARetire itaeFrommage = new ItemARetire("Frommage");
@@ -198,6 +246,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
         // ************************** Associations *****************************
         // ****************************** Persist ******************************
+         // ********* Les ItemsARetirer *********
         em.persist(itaeSteak);
         em.persist(itaeFrommage);
         em.persist(itaeSalade);
@@ -209,5 +258,42 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(itaeCornichon);
         em.persist(itaeBacon);
         em.persist(itaeCacahuètes);
+        
+        // ********* La TVA *********
+//        em.persist(tvaEmporter);
+//        em.persist(tvaSurPlace);
+        
+        // ********* Les Produits *********
+        em.persist(proLeTheRouge);
+        em.persist(proLeTheVertGrand);
+        em.persist(proLeTheVert);
+        em.persist(proLeTheGrey);
+        em.persist(proLeTheGreyGrand);
+        em.persist(proGrandCafe);
+        em.persist(proGrandCafeGrand);
+        em.persist(proCappuccino);
+        em.persist(proCappuccinoGrand);
+        em.persist(proCappuccinoDaim);
+        em.persist(proCappuccinDaimoGrand);
+        em.persist(proDoubleLatte);
+        em.persist(proproDoubleLatteGrand);
+        em.persist(proLatteMacchiato);
+        em.persist(proExpresso);
+        em.persist(proNoisette);
+        em.persist(proRISTRETTO);
+        em.persist(proChocolatChaud);
+        em.persist(proGrandesCrousties);
+        em.persist(proMoyenneCrousties);
+        em.persist(proMoyenneFrite);
+        em.persist(proGrandeFrite);
+        em.persist(proPetiteFrite);
+        em.persist(proSauceBarbecue);
+        em.persist(proSauceChinoise);
+        em.persist(proSauceCurry);
+        em.persist(proVinaigretteAHuile);
+        em.persist(proSaucePommeFrites);
+        em.persist(proKetchup);
+        em.persist(proBioABoire);
+        em.persist(proLePetitDuoRaisins);
     }
 }
