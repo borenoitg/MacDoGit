@@ -74,22 +74,72 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 // -------------------------------- Thierry ------------------------------------
         // ************************ Creation des objets ************************
         // ********* Les ItemsARajoute *********
-        ItemARajoute itemARajoute = new ItemARajoute("Cafe", 2F);
+        ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0F);
+        ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0F);
+        ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0F);
+
         // ********* Les Produits *********
-        Produit produit = new Produit("Coca", 3F);
-        // ********* Les LignesDeCommande *********
-        LigneDeCommande ligneDeCommande = new LigneDeCommande(5.5F, 1, 6F);
+        Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "");
+        Produit proPoissonRanch = new Produit("Poisson Ranch", 3.5F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "");
+        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.5F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "Normal", 0, "");
+        Produit proPouletRanch = new Produit("Poulet Ranch Ketchup", 3.5F, "Pain spécial aux graines de sésame et de pavot, spécialité panée au poulet, cheddar fondu, oignons, cornichons, salade, ketchup, sauce Ranch.", "Normal", 0, "");
+        Produit proChickenMcNuggets4 = new Produit("Chicken McNuggets x4", 3.1F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x4", 0, "");
+        Produit proChickenMcNuggets6 = new Produit("Chicken McNuggets x6", 4.2F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x6", 0, "");
+        Produit proChickenMcNuggets9 = new Produit("Chicken McNuggets x9", 5.3F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x9", 0, "");
+        Produit proChickenMcNuggets20 = new Produit("Chicken McNuggets x20", 9.9F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x20", 0, "");
+        Produit proSummer = new Produit("Salade Summer Veggie", 6.3F, "Une délicieuse salade estivale et végétarienne avec ses galettes panées aux légumes 100% français, son duo de poivrons jaunes et rouges confits, son mélange de choux rouge et blanc origine Normandie, ses dés de fromage de brebis, ses tomates fraîches et son mélange de salades.\n\nSalade Summer­ Veggie­ = Salade estivale et végétarienne.", "Normal", 0, "");
+        Produit proNewYorkCaesar = new Produit("Salade New York Caesar au Poulet Croustillant", 6.5F, "", "Normal", 0, "");
+        Produit proManhattanPouletFrit = new Produit("Salade Manhattan au Poulet Mariné et Frit", 6.8F, "", "Normal", 0, "");
+        Produit proManhattanVeggie = new Produit("Salade Manhattan Veggie ", 6.7F, "De délicieuses galettes panées aux légumes 100% français, des tomates cerises, des grains de raisins, des cranberries et un mélange de salades : romaine, batavia et radicchio. Veggie = Végétarien Cranberries = Canneberges. Suggestion de présentation. Durée limitée", "Normal", 0, "");
+        Produit proManhattan = new Produit("Salade Manhattan", 6.3F, "Salade composée d'un mélange de romaine, de batavia et de raddichio, de 2 spécialités panées au poulet, de tomates-cerises et de morceaux de pommes et grains de raisins. Proposée avec sa sauce Manhattan. ", "Normal", 0, "");
+        Produit proManhattanPouletCroustillant = new Produit("Salade Manhattan au Poulet Croustillant", 6.9F, "", "Normal", 0, "");
+        Produit proSignature= new Produit("Signature", 4.95F, "", "Normal", 0, "");
+//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
+//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
+//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
+//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
+//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
+//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
+//        Produit proPoissonRanch = new Produit("Poisson Ranch", 4.95F, "", "Normal", 0, "");
 
         // ************************** Associations *****************************
-//        itemARajoute.setSousLigneDeCommande(sousLigneDeCommande);
-//        itemARajoute.setStatut(statut);
-        itemARajoute.getProduits().add(produit);
-        produit.getItemARajoutes().add(itemARajoute);
+ 
+        
+        
+        
+        //**************************** Persist *********************************
+        em.persist(itARaNappageChocolat);
+        em.persist(itARaNappageCaramel);
+        em.persist(itARaNappageAbricot);
 
-        //Persist
-        em.persist(itemARajoute);
-        em.persist(produit);
-        em.persist(ligneDeCommande);
+        em.persist(proBigMac);
+        em.persist(proPoissonRanch);
+        em.persist(proPouletRanch);
+        em.persist(proBoeufRanch);
+        em.persist(proChickenMcNuggets4);
+        em.persist(proChickenMcNuggets6);
+        em.persist(proChickenMcNuggets9);
+        em.persist(proChickenMcNuggets20);
+        em.persist(proSummer);
+        em.persist(proNewYorkCaesar);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanVeggie);
+        em.persist(proManhattan);
+        em.persist(proManhattanPouletCroustillant);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanPouletFrit);
+        
 
 // ---------------------------------Nourdine------------------------------------
         //Creation des objets
