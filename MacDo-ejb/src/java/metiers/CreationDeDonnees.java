@@ -4,6 +4,7 @@ import entites.Allergene;
 import entites.Infos;
 import entites.Ingredient;
 import entites.ItemARajoute;
+import entites.ItemARetire;
 import entites.LigneDeCommande;
 import entites.Menu;
 import entites.Produit;
@@ -96,18 +97,34 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         //Persist
 // ----------------------------------- Edem ------------------------------------
         // ************************ Creation des objets ************************
-        // ********* Les Ingredients *********
-        Ingredient ingredientPain = new Ingredient("Pain");
+        // ********* Les ItemsARetirer *********
+        
         // ********* Les Allergenes *********
-        Allergene allergeneSoja = new Allergene("Soja");
-        // ********* Les Infos *********
-        Infos infosCoca = new Infos("Le coca est Bon");
-
+        
+        // ********* Les ItemsARetirer *********
+        ItemARetire itaeSteak = new ItemARetire("Steak", "En 2016, la viande bovine dans nos restaurants est d'origine française pour 54,51%*. Ainsi, nous avons utilisé plus de 25 078 tonnes de viande bovine française. Le volume restant provient d'Irlande et des Pays-Bas selon le même cahier des charges et les mêmes contrôles qu'en France. Nos fournisseurs s'approvisionnent uniquement auprès de fournisseurs référencés selon des critères très exigeants, et utilisent principalement des muscles issus de l'avant des bovins comme par exemple, l'épaule, le collier, le plat de côte");
+        ItemARetire itaeFrommage = new ItemARetire("Frommage");
+        ItemARetire itaeSalade = new ItemARetire("Salade", null);
+        ItemARetire itaeOignon = new ItemARetire("Oignon", null);
+        ItemARetire itaeCornichon = new ItemARetire("Cornichon", null);
+        ItemARetire itaeTomate = new ItemARetire("Tomate", null);
+        ItemARetire itaePoisson = new ItemARetire("Poisson", null);
+        ItemARetire itaePoulet = new ItemARetire("Poulet", null);
+        ItemARetire itaeBacon = new ItemARetire("Bacon", null);
+        ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes", null);
+        
         // ************************** Associations *****************************
         // ****************************** Persist ******************************
-        em.persist(ingredientPain);
-        em.persist(allergeneSoja);
-        em.persist(infosCoca);
+        em.persist(itaeSteak);
+        em.persist(itaeFrommage);
+        em.persist(itaeSalade);
+        em.persist(itaeOignon);
+        em.persist(itaeCornichon);
+        em.persist(itaeTomate);
+        em.persist(itaePoisson);
+        em.persist(itaePoulet);
+        em.persist(itaeCornichon);
+        em.persist(itaeBacon);
+        em.persist(itaeCacahuètes);
     }
-
 }
