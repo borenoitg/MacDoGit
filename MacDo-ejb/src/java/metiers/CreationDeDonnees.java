@@ -221,12 +221,32 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proVinaigretteAHuile = new Produit("VINAIGRETTE A L'HUILE DE NOISETTE", 0.20F);
         Produit proSaucePommeFrites = new Produit("SAUCE POMME FRITES");
         Produit proKetchup = new Produit("KETCHUP");
+        //******************
         Produit proBioABoire = new Produit("BIO A BOIRE FRUITS ROUGES");
         Produit proLePetitDuoRaisins = new Produit("LE PETIT DUO DE RAISINS");
-//        Produit pro = new Produit("", );
-//        Produit pro = new Produit("", );
-//        Produit pro = new Produit("", );
-//        Produit pro = new Produit("", );
+        Produit proCornetNappageChocolat = new Produit("LE CORNET NAPPAGE SAVEUR CHOCOLAT");
+        Produit proLeCookieFourreChoconuts = new Produit("LE COOKIE FOURRÉ CHOCONUTS");
+        Produit proLePetitMuffinPepiteChocolat = new Produit("lE P'TIT MUFFIN AUX PÉPITES DE CHOCOLAT");
+        Produit proLeSundae = new Produit("LE SUNDAE");
+        Produit proLeSundaeChocolat = new Produit("LE SUNDAE CHOCOLAT");
+        Produit proLeSundaeCaramel = new Produit("LE SUNDAE  CARAMEL");
+        Produit proLeSundaeAbricot = new Produit("LE SUNDAE ABRICOT");
+        Produit proLeMcFlurryKitKat = new Produit("Le McFLURRY KIKAT");
+        Produit proLeMcFlurryDaim = new Produit("Le McFLURRY DAIM");
+        Produit proLeMcFlurryOreo = new Produit("Le McFLURRY OREO");
+        Produit proLeMcFlurrySpeculoos = new Produit("Le McFLURRY SPECULOOS");
+        Produit proLeVeryParfait = new Produit("LE VERY PARFAIT");
+        //Produit proLeVeryParfait = new Produit("LE VERY PARFAIT");
+//        Produit proFrappe = new Produit("FRAPPE ");
+//        Produit proFrappe = new Produit("FRAPPE ");
+//        Produit proFrappe = new Produit("FRAPPE ");
+//        Produit proFrappe = new Produit("FRAPPE ");
+        Produit proDonnutNature = new Produit("LE DONUT NATURE");
+        Produit proLeDonutSaveurChocolat = new Produit("LE DONUT SAVEUR CHOCOLAT");
+        Produit proLeBrownieChocolatNoisettes = new Produit("LE BROWNIE CHOCOLAT NOISETTES");
+        Produit proLeCookieChocolatLaitNoisettes = new Produit("LE COOKIE CHOCOLAT AU LAIT ET NOISETTES");
+        Produit proLaPetiteMelon = new Produit("LA P'TITE MELON");
+        Produit proLeBerlingoFruitPommePeche = new Produit("LE BERLINGO'FRUITS POMME PÊCHE");
         
         // ********* La TVA *********
 //        Tva tvaEmporter = new Tva(0.196F);
@@ -295,5 +315,23 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proKetchup);
         em.persist(proBioABoire);
         em.persist(proLePetitDuoRaisins);
+        em.persist(proCornetNappageChocolat);
+        em.persist(proDonnutNature);
+        em.persist(proLeCookieFourreChoconuts);
+        em.persist(proLePetitMuffinPepiteChocolat);
+        em.persist(proLeSundae);
+        em.persist(proLeSundaeChocolat);
+        em.persist(proLeSundaeCaramel);
+        em.persist(proLeSundaeAbricot);
+        em.persist(proLeMcFlurryKitKat);
+        em.persist(proLeMcFlurryDaim);
+        em.persist(proLeDonutSaveurChocolat);
+        em.persist(proLeBrownieChocolatNoisettes);
+        em.persist(proLeMcFlurryOreo);
+        em.persist(proLeCookieChocolatLaitNoisettes);
+        em.persist(proLaPetiteMelon);
+        em.persist(proLeMcFlurrySpeculoos);
+        em.persist(proLeVeryParfait);
+        em.persist(proLeBerlingoFruitPommePeche);
     }
 }
