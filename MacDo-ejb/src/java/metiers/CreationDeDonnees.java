@@ -38,7 +38,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
         Promotion p02 = new Promotion("2 Menus MaxiBestOf  pour 12 Euros");
         Promotion p03 = new Promotion("2 Menus HappyMeal pour 6 Euros");
-        Promotion p04 = new Promotion("1 MacCafé pour 1 Euro pour tout menu acheté!");
+        Promotion p04 = new Promotion("1 MacCafé pour 1 Euro pour tout menu acheté !");
 
         SousType st01 = new SousType("Coca Zero");
         SousType st02 = new SousType("Coca Cola");
@@ -60,7 +60,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         SousType st18 = new SousType("Sauce Classic Barbecue");
         SousType st19 = new SousType("Sauce Allégée");
         SousType st20 = new SousType("Sauce Vinaigrette Huile d'olive et Vinaigre Balsamique");
-        SousType st21 = new SousType("Sauce Cesar");
+        SousType st21 = new SousType("Sauce  sCesar");
 
         //Associations
         //Persist
@@ -74,9 +74,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 // -------------------------------- Thierry ------------------------------------
         // ************************ Creation des objets ************************
         // ********* Les ItemsARajoute *********
-        ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0F);
-        ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0F);
-        ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0F);
+        ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0.2F);
+        ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
+        ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0.2F);
 
         // ********* Les Produits *********
         Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "");
@@ -180,6 +180,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
 // ---------------------------------Nourdine------------------------------------
         //Creation des objets
+        
         //Associations
         //Persist
 // ----------------------------------- Edem ------------------------------------
