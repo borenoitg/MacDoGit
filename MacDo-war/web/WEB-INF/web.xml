@@ -7,6 +7,10 @@
             <param-name>CreationDeDonneesCtrl</param-name>
             <param-value>sousControleurs.CreationDeDonneesCtrl</param-value>
         </init-param>
+        <init-param>
+            <param-name>CatalogueCtrl</param-name>
+            <param-value>sousControleurs.CatalogueCtrl</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontControleur</servlet-name>
@@ -22,5 +26,17 @@
         <ejb-ref-type>Session</ejb-ref-type>
         <local>metiers.CreationDeDonneesLocal</local>
         <ejb-link>MacDo-ejb.jar#CreationDeDonnees</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>Catalogue</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.CatalogueLocal</local>
+        <ejb-link>MacDo-ejb.jar#Catalogue</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>Catalogue1</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.CatalogueLocal</local>
+        <ejb-link>MacDo-ejb.jar#Catalogue</ejb-link>
     </ejb-local-ref>
 </web-app>
