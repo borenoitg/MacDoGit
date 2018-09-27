@@ -44,8 +44,8 @@ public class Menu implements Serializable {
     @OneToMany(mappedBy = "menu")
     private Collection<LigneDeCommande> lignesDeCommande;
    
-    @ManyToOne  
-    private Tva tva;
+    @ManyToMany(mappedBy = "menus")
+    private Collection<Tva> tvas;
     
     @ManyToOne  
     private Statut statut;
@@ -55,6 +55,7 @@ public class Menu implements Serializable {
         types = new ArrayList();
         abonnes = new ArrayList();
         lignesDeCommande = new ArrayList();
+        tvas = new ArrayList();
     }
 
     public Menu(String nom, Float prix) {
@@ -110,6 +111,46 @@ public class Menu implements Serializable {
 
     public void setPrix(Float prix) {
         this.prix = prix;
+    }
+
+    public Collection<Type> getTypes() {
+        return types;
+    }
+
+    public void setTypes(Collection<Type> types) {
+        this.types = types;
+    }
+
+    public Collection<Abonne> getAbonnes() {
+        return abonnes;
+    }
+
+    public void setAbonnes(Collection<Abonne> abonnes) {
+        this.abonnes = abonnes;
+    }
+
+    public Collection<LigneDeCommande> getLignesDeCommande() {
+        return lignesDeCommande;
+    }
+
+    public void setLignesDeCommande(Collection<LigneDeCommande> lignesDeCommande) {
+        this.lignesDeCommande = lignesDeCommande;
+    }
+
+    public Collection<Tva> getTvas() {
+        return tvas;
+    }
+
+    public void setTvas(Collection<Tva> tvas) {
+        this.tvas = tvas;
+    }
+
+    public Statut getStatut() {
+        return statut;
+    }
+
+    public void setStatut(Statut statut) {
+        this.statut = statut;
     }
 
     //--------------------------- Autres Méthode -------------------------------

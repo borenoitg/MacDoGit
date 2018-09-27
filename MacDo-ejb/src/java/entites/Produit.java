@@ -25,7 +25,6 @@ public class Produit implements Serializable {
     @Column(length = 150, nullable = false)
     private String nom;
 
-    @Column(nullable = false)
     private Float prix;
 
     @Column(length = 1000, nullable = true)
@@ -43,8 +42,8 @@ public class Produit implements Serializable {
     @ManyToOne
     private Promotion promotion;
 
-    @ManyToOne
-    private Tva tva;
+    @ManyToMany(mappedBy = "produits")
+    private Collection<Tva> tvas;
 
     @OneToMany(mappedBy = "produit")
     private Collection<Ingredient> ingredients;
@@ -86,9 +85,11 @@ public class Produit implements Serializable {
         itemARajoutes = new ArrayList();
         itemARetires = new ArrayList();
         abonnes = new ArrayList();
+        tvas = new ArrayList();
     }
 
     public Produit(String nom) {
+        this();
         this.nom = nom;
     }
 
@@ -99,6 +100,7 @@ public class Produit implements Serializable {
     }
 
     public Produit(String nom, Float prix, String description) {
+        this();
         this.nom = nom;
         this.prix = prix;
         this.description = description;
@@ -178,14 +180,6 @@ public class Produit implements Serializable {
 
     public void setPromotion(Promotion promotion) {
         this.promotion = promotion;
-    }
-
-    public Tva getTva() {
-        return tva;
-    }
-
-    public void setTva(Tva tva) {
-        this.tva = tva;
     }
 
     public Collection<Ingredient> getIngredients() {
@@ -268,6 +262,14 @@ public class Produit implements Serializable {
         this.abonnes = abonnes;
     }
 
+    public Collection<Tva> getTvas() {
+        return tvas;
+    }
+
+    public void setTvas(Collection<Tva> tvas) {
+        this.tvas = tvas;
+    }
+
     // Autres Methodes
     @Override
     public int hashCode() {
@@ -294,7 +296,7 @@ public class Produit implements Serializable {
         return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" 
                 + prix + ", description=" + description + ", taille=" 
                 + taille + ", volume=" + volume + ", imageUrl=" + imageUrl 
-                + ", promo=" + promotion + ", tva=" + tva + ", ingredients=" 
+                + ", promo=" + promotion + ", tva=" + tvas + ", ingredients=" 
                 + ingredients + ", allergenes=" + allergenes + ", statut=" 
                 + statut + ", infos=" + infos + ", soustype=" + soustype + '}';
     }

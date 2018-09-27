@@ -3,7 +3,6 @@ package metiers;
 import entites.Allergene;
 import entites.Infos;
 import entites.Ingredient;
-import static entites.Ingredient_.produit;
 import entites.ItemARajoute;
 import entites.ItemARetire;
 import entites.LigneDeCommande;
@@ -128,10 +127,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
         // ************************** Associations *****************************
         
-        
-        
-        
-        
         //**************************** Persist *********************************
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
@@ -193,21 +188,26 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         // ********* Les Produits *********
         Produit proLeTheRouge = new Produit("THÉ FRUITS ROUGES GRAND FORMAT", 2.70F);
         Produit proLeTheVertGrand = new Produit("THÉ VERT A LA MENTHE GRAND FORMAT", 2.70F);
+        proLeTheVertGrand.setTaille("Grande");
         Produit proLeTheVert = new Produit("THÉ VERT A LA MENTHE", 2.20F);
         Produit proLeTheGrey = new Produit("THÉ EARL GREY", 2.20F);
         Produit proLeTheGreyGrand = new Produit("THÉ EARL GREY GRAND FORMAT", 2.70F);
         //******************
         Produit proGrandCafe = new Produit("GRAND CAFE", 2F);
         Produit proGrandCafeGrand = new Produit("GRAND CAFE GRAND FORMAT", 2.5F);
+        proGrandCafeGrand.setTaille("Grand");
         //******************
         Produit proCappuccino = new Produit("CAPPUCCINO", 2.40F);
         Produit proCappuccinoGrand = new Produit("CAPPUCCINO GRAND FORMAT", 2.90F);
+        proCappuccinoGrand.setTaille("Grand");
         //******************
         Produit proCappuccinoDaim = new Produit("CAPPUCCINO DAIM", 2.50F);
         Produit proCappuccinDaimoGrand = new Produit("CAPPUCCINO DAIM GRAND FORMAT", 3F);
+        proCappuccinDaimoGrand.setTaille("Grand");
         //******************
         Produit proDoubleLatte = new Produit("DOUBLE LATTE", 2.30F);
         Produit proproDoubleLatteGrand = new Produit("DOUBLE LATTE GRAND FORMAT", 2.80F);
+        proproDoubleLatteGrand.setTaille("Grand");
         //******************
         Produit proLatteMacchiato = new Produit("LATTE MACCHIATO SAVEUR CHOCOLAT", 2.5F);
         Produit proExpresso = new Produit("EXPRESSO", 1.5F);
@@ -216,10 +216,15 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proChocolatChaud = new Produit("CHOCOLAT CHAUD", 2.20F);
         //******************
         Produit proGrandesCrousties = new Produit("GRANDES CROUSTIES", 2.90F);
+        proGrandesCrousties.setTaille("Grande");
         Produit proMoyenneCrousties = new Produit("MOYENNE CROUSTIES", 2.5F);
+        proMoyenneCrousties.setTaille("Moyenne");
         Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.90F);
+        proMoyenneFrite.setTaille("Moyenne");
         Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.5F);
+        proGrandeFrite.setTaille("Grande");
         Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F);
+        proPetiteFrite.setTaille("Petite");
         //******************
         Produit proSauceBarbecue = new Produit("SAUCE CLASSIC BARBECUE", 0.20F);
         Produit proSauceChinoise = new Produit("SAUCE CHINOISE", 0.20F);
@@ -228,47 +233,54 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proSaucePommeFrites = new Produit("SAUCE POMME FRITES");
         Produit proKetchup = new Produit("KETCHUP");
         //******************
-        Produit proBioABoire = new Produit("BIO A BOIRE FRUITS ROUGES");
-        Produit proLePetitDuoRaisins = new Produit("LE PETIT DUO DE RAISINS");
-        Produit proCornetNappageChocolat = new Produit("LE CORNET NAPPAGE SAVEUR CHOCOLAT");
-        Produit proLeCookieFourreChoconuts = new Produit("LE COOKIE FOURRÉ CHOCONUTS");
-        Produit proLePetitMuffinPepiteChocolat = new Produit("lE P'TIT MUFFIN AUX PÉPITES DE CHOCOLAT");
-        Produit proLeSundae = new Produit("LE SUNDAE");
-        Produit proLeSundaeChocolat = new Produit("LE SUNDAE CHOCOLAT");
-        Produit proLeSundaeCaramel = new Produit("LE SUNDAE  CARAMEL");
-        Produit proLeSundaeAbricot = new Produit("LE SUNDAE ABRICOT");
-        Produit proLeMcFlurryKitKat = new Produit("Le McFLURRY KIKAT");
-        Produit proLeMcFlurryDaim = new Produit("Le McFLURRY DAIM");
-        Produit proLeMcFlurryOreo = new Produit("Le McFLURRY OREO");
-        Produit proLeMcFlurrySpeculoos = new Produit("Le McFLURRY SPECULOOS");
-        Produit proLeVeryParfait = new Produit("LE VERY PARFAIT");
-        //Produit proLeVeryParfait = new Produit("LE VERY PARFAIT");
-//        Produit proFrappe = new Produit("FRAPPE ");
-//        Produit proFrappe = new Produit("FRAPPE ");
-//        Produit proFrappe = new Produit("FRAPPE ");
-//        Produit proFrappe = new Produit("FRAPPE ");
-        Produit proDonnutNature = new Produit("LE DONUT NATURE");
-        Produit proLeDonutSaveurChocolat = new Produit("LE DONUT SAVEUR CHOCOLAT");
-        Produit proLeBrownieChocolatNoisettes = new Produit("LE BROWNIE CHOCOLAT NOISETTES");
-        Produit proLeCookieChocolatLaitNoisettes = new Produit("LE COOKIE CHOCOLAT AU LAIT ET NOISETTES");
-        Produit proLaPetiteMelon = new Produit("LA P'TITE MELON");
-        Produit proLeBerlingoFruitPommePeche = new Produit("LE BERLINGO'FRUITS POMME PÊCHE");
+        Produit proBioABoire = new Produit("BIO A BOIRE FRUITS ROUGES", 1.80F);
+        Produit proPetitDuoRaisins = new Produit("PETIT DUO DE RAISINS", 2F);
+        Produit proCornetNappageChocolat = new Produit("CORNET NAPPAGE SAVEUR CHOCOLAT", 2F);
+        Produit proLeCookieFourreChoconuts = new Produit("COOKIE FOURRÉ CHOCONUTS");
+        Produit proLePetitMuffinPepiteChocolat = new Produit("P'TIT MUFFIN AUX PÉPITES DE CHOCOLAT");
+        Produit proSundaeNature = new Produit("SUNDAE NATURE", 2.70F);
+        Produit proSundaeChocolat = new Produit("SUNDAE NAPPAGE SAVEUR CHOCOLAT", 2.70F);
+        Produit proSundaeCaramel = new Produit("SUNDAE NAPPAGE SAVEUR CARAMEL", 2.70F);
+        Produit proLeSundaeAbricot = new Produit("SUNDAE NAPPAGE SAVEUR ABRICOT", 2.70F);
+        Produit proMcFlurryKitKat = new Produit("McFLURRY KIKAT", 3.20F);
+        Produit proMcFlurryDaim = new Produit("McFLURRY DAIM", 3.20F);
+        Produit proMcFlurryOreo = new Produit("McFLURRY OREO", 3.20F);
+        Produit proMcFlurrySpeculoos = new Produit("McFLURRY SPECULOOS", 3.20F);
+        Produit proVeryParfaitNoixDeCajou = new Produit("VERY PARFAIT NOIX DE CAJOU CARAMÉLISÉES", 3.30F);
+        Produit proVeryParfaitCoulisAbricot = new Produit("VERY PARFAIT COULIS ABRICOT", 3.30F);
+        Produit proVeryParfaitNature = new Produit("VERY PARFAIT NATURE", 3.30F);
+        Produit proVeryParfaitNappageSaveurChocolat = new Produit("VERY PARFAIT NAPPAGE SAVEUR CHOCOLAT ", 3.30F);
+        Produit proVeryParfaitNappageSaveurCaramel = new Produit("VERY PARFAIT NAPPAGE SAVEUR CARAMEL", 3.30F);
+        Produit proFrappeSaveurChocolat = new Produit("FRAPPE SAVEUR CHOCOLAT", 2F);
+        Produit proFrappeSaveurMarshmallow = new Produit("FRAPPE SAVEUR MARSHMALLOW", 2F);
+        Produit proFrappeSaveurVanille = new Produit("FRAPPE SAVEUR VANILLE", 2F);
+        Produit proFrappeSaveurMyrtille = new Produit("FRAPPE ", 2F);
+        Produit proDonnutNature = new Produit("DONUT NATURE", 1.5F);
+        Produit proDonutSaveurChocolat = new Produit("DONUT SAVEUR CHOCOLAT", 2F);
+        Produit proBrownieChocolatNoisettes = new Produit("BROWNIE CHOCOLAT NOISETTES", 2F);
+        Produit proCookieChocolatLaitNoisettes = new Produit("COOKIE CHOCOLAT AU LAIT ET NOISETTES", 2F);
+        Produit proPetiteMelon = new Produit("P'TITE MELON", 1.50F);
+        Produit proBerlingoFruitPommePeche = new Produit("BERLINGO'FRUITS POMME PÊCHE", 1.60F);
+        //******************
+        Produit proLivre = new Produit("LIVRE", 0.72F);
+        Produit proJouet = new Produit("JOUET", 1F);
+        Produit proBallon = new Produit("BALLON", 2F);
         
         // ********* La TVA *********
-//        Tva tvaEmporter = new Tva(0.196F);
-//        Tva tvaSurPlace = new Tva(0.055F);
+        Tva tvaEmporter = new Tva(0.1F);
+        Tva tvaSurPlace = new Tva(0.2F);
         
         // ********* Les ItemsARetirer *********
         ItemARetire itaeSteak = new ItemARetire("Steak", "En 2016, la viande bovine dans nos restaurants est d'origine française pour 54,51%*. Ainsi, nous avons utilisé plus de 25 078 tonnes de viande bovine française. Le volume restant provient d'Irlande et des Pays-Bas selon le même cahier des charges et les mêmes contrôles qu'en France. Nos fournisseurs s'approvisionnent uniquement auprès de fournisseurs référencés selon des critères très exigeants, et utilisent principalement des muscles issus de l'avant des bovins comme par exemple, l'épaule, le collier, le plat de côte");
         ItemARetire itaeFrommage = new ItemARetire("Frommage");
-        ItemARetire itaeSalade = new ItemARetire("Salade", null);
-        ItemARetire itaeOignon = new ItemARetire("Oignon", null);
-        ItemARetire itaeCornichon = new ItemARetire("Cornichon", null);
-        ItemARetire itaeTomate = new ItemARetire("Tomate", null);
-        ItemARetire itaePoisson = new ItemARetire("Poisson", null);
-        ItemARetire itaePoulet = new ItemARetire("Poulet", null);
+        ItemARetire itaeSalade = new ItemARetire("Salade");
+        ItemARetire itaeOignon = new ItemARetire("Oignon");
+        ItemARetire itaeCornichon = new ItemARetire("Cornichon");
+        ItemARetire itaeTomate = new ItemARetire("Tomate");
+        ItemARetire itaePoisson = new ItemARetire("Poisson");
+        ItemARetire itaePoulet = new ItemARetire("Poulet");
         ItemARetire itaeBacon = new ItemARetire("Bacon", null);
-        ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes", null);
+        ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes");
 
         // ************************** Associations *****************************
         // ****************************** Persist ******************************
@@ -286,8 +298,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(itaeCacahuètes);
         
         // ********* La TVA *********
-//        em.persist(tvaEmporter);
-//        em.persist(tvaSurPlace);
+        em.persist(tvaEmporter);
+        em.persist(tvaSurPlace);
         
         // ********* Les Produits *********
         em.persist(proLeTheRouge);
@@ -320,24 +332,35 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proSaucePommeFrites);
         em.persist(proKetchup);
         em.persist(proBioABoire);
-        em.persist(proLePetitDuoRaisins);
+        em.persist(proPetitDuoRaisins);
         em.persist(proCornetNappageChocolat);
         em.persist(proDonnutNature);
         em.persist(proLeCookieFourreChoconuts);
         em.persist(proLePetitMuffinPepiteChocolat);
-        em.persist(proLeSundae);
-        em.persist(proLeSundaeChocolat);
-        em.persist(proLeSundaeCaramel);
+        em.persist(proSundaeNature);
+        em.persist(proSundaeChocolat);
+        em.persist(proSundaeCaramel);
         em.persist(proLeSundaeAbricot);
-        em.persist(proLeMcFlurryKitKat);
-        em.persist(proLeMcFlurryDaim);
-        em.persist(proLeDonutSaveurChocolat);
-        em.persist(proLeBrownieChocolatNoisettes);
-        em.persist(proLeMcFlurryOreo);
-        em.persist(proLeCookieChocolatLaitNoisettes);
-        em.persist(proLaPetiteMelon);
-        em.persist(proLeMcFlurrySpeculoos);
-        em.persist(proLeVeryParfait);
-        em.persist(proLeBerlingoFruitPommePeche);
+        em.persist(proMcFlurryKitKat);
+        em.persist(proMcFlurryDaim);
+        em.persist(proDonutSaveurChocolat);
+        em.persist(proBrownieChocolatNoisettes);
+        em.persist(proMcFlurryOreo);
+        em.persist(proCookieChocolatLaitNoisettes);
+        em.persist(proPetiteMelon);
+        em.persist(proMcFlurrySpeculoos);
+        em.persist(proBerlingoFruitPommePeche);
+        em.persist(proLivre);
+        em.persist(proJouet);
+        em.persist(proBallon);
+        em.persist(proVeryParfaitNoixDeCajou);
+        em.persist(proVeryParfaitCoulisAbricot);
+        em.persist(proVeryParfaitNature);
+        em.persist(proVeryParfaitNappageSaveurChocolat);
+        em.persist(proVeryParfaitNappageSaveurCaramel);
+        em.persist(proFrappeSaveurChocolat);
+        em.persist(proFrappeSaveurMarshmallow);
+        em.persist(proFrappeSaveurVanille);
+        em.persist(proFrappeSaveurMyrtille);
     }
 }

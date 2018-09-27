@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -23,10 +24,10 @@ public class Tva implements Serializable {
     private Float taux;
 
     // dépendances pour les associations
-    @OneToMany(mappedBy = "tva")
+    @ManyToMany
     private Collection<Menu> menus;
 
-    @OneToMany(mappedBy = "tva")
+    @ManyToMany
     private Collection<Produit> produits;
 
     // Constructeurs
