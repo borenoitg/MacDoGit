@@ -11,35 +11,20 @@ import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import metiers.CatalogueLocal;
-import metiers.CreationDeDonneesLocal;
 
-public class CreationDeDonneesCtrl implements SousControleurInterface, Serializable {
+public class CatalogueCtrl implements SousControleurInterface, Serializable {
 
     CatalogueLocal catalogue = lookupCatalogueLocal();
 
     @Override
-    public String execute(HttpServletRequest request,
-             HttpServletResponse response) {
-
-        CreationDeDonneesLocal creationDeDonnees = lookupCreationDeDonneesLocal();
-
-        creationDeDonnees.creationDonnees();
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
 
         CatalogueLocal catalogue = lookupCatalogueLocal();
         List<Produit> produits = catalogue.listeProduit();
         request.setAttribute("catalogue", produits);
 
         return "/WEB-INF/Acceuil.jsp";
-    }
 
-    private CreationDeDonneesLocal lookupCreationDeDonneesLocal() {
-        try {
-            Context c = new InitialContext();
-            return (CreationDeDonneesLocal) c.lookup("java:global/MacDo/MacDo-ejb/CreationDeDonnees!metiers.CreationDeDonneesLocal");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
     }
 
     private CatalogueLocal lookupCatalogueLocal() {
