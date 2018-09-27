@@ -61,7 +61,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         SousType st18 = new SousType("Sauce Classic Barbecue");
         SousType st19 = new SousType("Sauce Allégée");
         SousType st20 = new SousType("Sauce Vinaigrette Huile d'olive et Vinaigre Balsamique");
-        SousType st21 = new SousType("Sauce Cesar");
+        SousType st21 = new SousType("Sauce  sCesar");
 
         //Associations
         //Persist
