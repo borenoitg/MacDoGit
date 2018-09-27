@@ -3,7 +3,6 @@ package metiers;
 import entites.Allergene;
 import entites.Infos;
 import entites.Ingredient;
-import static entites.Ingredient_.produit;
 import entites.ItemARajoute;
 import entites.ItemARetire;
 import entites.LigneDeCommande;
@@ -249,8 +248,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proLeBerlingoFruitPommePeche = new Produit("LE BERLINGO'FRUITS POMME PÊCHE");
         
         // ********* La TVA *********
-//        Tva tvaEmporter = new Tva(0.196F);
-//        Tva tvaSurPlace = new Tva(0.055F);
+        Tva tvaEmporter = new Tva(0.1F);
+        Tva tvaSurPlace = new Tva(0.2F);
         
         // ********* Les ItemsARetirer *********
         ItemARetire itaeSteak = new ItemARetire("Steak", "En 2016, la viande bovine dans nos restaurants est d'origine française pour 54,51%*. Ainsi, nous avons utilisé plus de 25 078 tonnes de viande bovine française. Le volume restant provient d'Irlande et des Pays-Bas selon le même cahier des charges et les mêmes contrôles qu'en France. Nos fournisseurs s'approvisionnent uniquement auprès de fournisseurs référencés selon des critères très exigeants, et utilisent principalement des muscles issus de l'avant des bovins comme par exemple, l'épaule, le collier, le plat de côte");
@@ -280,8 +279,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(itaeCacahuètes);
         
         // ********* La TVA *********
-//        em.persist(tvaEmporter);
-//        em.persist(tvaSurPlace);
+        em.persist(tvaEmporter);
+        em.persist(tvaSurPlace);
         
         // ********* Les Produits *********
         em.persist(proLeTheRouge);
