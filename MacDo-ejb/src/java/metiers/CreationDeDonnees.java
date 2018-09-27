@@ -254,9 +254,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proFrappeSaveurMarshmallow = new Produit("FRAPPE SAVEUR MARSHMALLOW", 2F);
         Produit proFrappeSaveurVanille = new Produit("FRAPPE SAVEUR VANILLE", 2F);
         Produit proFrappeSaveurMyrtille = new Produit("FRAPPE ", 2F);
-        Produit proDonnutNature = new Produit("DONUT NATURE");
-        Produit proDonutSaveurChocolat = new Produit("DONUT SAVEUR CHOCOLAT");
-        Produit proBrownieChocolatNoisettes = new Produit("BROWNIE CHOCOLAT NOISETTES");
+        Produit proDonnutNature = new Produit("DONUT NATURE", 1.5F);
+        Produit proDonutSaveurChocolat = new Produit("DONUT SAVEUR CHOCOLAT", 2F);
+        Produit proBrownieChocolatNoisettes = new Produit("BROWNIE CHOCOLAT NOISETTES", 2F);
         Produit proCookieChocolatLaitNoisettes = new Produit("COOKIE CHOCOLAT AU LAIT ET NOISETTES", 2F);
         Produit proPetiteMelon = new Produit("P'TITE MELON", 1.50F);
         Produit proBerlingoFruitPommePeche = new Produit("BERLINGO'FRUITS POMME PÊCHE", 1.60F);
