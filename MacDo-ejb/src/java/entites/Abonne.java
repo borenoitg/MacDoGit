@@ -16,7 +16,7 @@ public class Abonne implements Serializable {
     
 //---------------------------------- Attributs ---------------------------------    
     @Id
-    @Column(length = 10,unique = true)
+    @Column(length = 10)
     private String id;
     
     @Column(length = 150,nullable = false)

@@ -28,7 +28,7 @@ public class Produit implements Serializable {
     @Column(nullable = false)
     private Float prix;
 
-    @Column(length = 250, nullable = true)
+    @Column(length = 1000, nullable = true)
     private String description;
 
     @Column(length = 100)
