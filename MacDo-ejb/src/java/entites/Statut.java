@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -41,7 +43,7 @@ public class Statut implements Serializable {
 
     @OneToMany(mappedBy = "statut")
     private Collection<Promotion> promotions;
-    
+
     @OneToMany(mappedBy = "statut")
     private Collection<ItemARajoute> itemARajoutes;
 

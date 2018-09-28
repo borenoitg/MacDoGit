@@ -4,6 +4,7 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ public class Abonne implements Serializable {
     
 //---------------------------------- Attributs ---------------------------------    
     @Id
-    @Column(length = 10)
+    @Column(length = 100)
     private String id;
     
     @Column(length = 150,nullable = false)
@@ -32,7 +33,7 @@ public class Abonne implements Serializable {
     
     //------ gestion des associations ------
     
-    @ManyToOne
+    @ManyToOne (cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     private Statut statut;
     
     @ManyToMany
@@ -54,6 +55,15 @@ public class Abonne implements Serializable {
         produits = new ArrayList<>();
         promotions = new ArrayList<>();
     }
+
+    public Abonne(String id, String nom, int points, String prenom, String email) {
+        this.id = id;
+        this.nom = nom;
+        this.points = points;
+        this.prenom = prenom;
+        this.email = email;
+    }
+    
    
     public Abonne(String id, String nom, String prenom, String email) {
         this();

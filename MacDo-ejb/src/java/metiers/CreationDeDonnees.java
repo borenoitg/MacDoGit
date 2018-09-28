@@ -16,10 +16,10 @@ import javax.persistence.PersistenceContext;
 
 @Singleton
 public class CreationDeDonnees implements CreationDeDonneesLocal {
-
+    
     @PersistenceContext(unitName = "MacDo-ejbPU")
     private EntityManager em;
-
+    
     @Override
     public void creationDonnees() {
 // ----------------------------------- Alexandre -------------------------------
@@ -33,7 +33,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Menu m07 = new Menu("Menu GrandChickenClassic", 8.30F);
         Menu m08 = new Menu("Menu QuarterPounder", 8.00F);
         Menu m09 = new Menu("Menu QuarterPounder", 8.90F);
-
+        
         Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
         Promotion p02 = new Promotion("2 Menus MaxiBestOf  pour 12 Euros");
         Promotion p03 = new Promotion("2 Menus HappyMeal pour 6 Euros");
@@ -103,12 +103,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proFanta50 = new Produit("Fanta", 2.8F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Grand", 50, "./Images/fanta.jpg");
 
         // ************************** Associations *****************************
-        
         //**************************** Persist *********************************
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
         em.persist(itARaNappageAbricot);
-
+        
         em.persist(proBigMac);
         em.persist(proPoissonRanch);
         em.persist(proPouletRanch);
@@ -157,21 +156,20 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
 // ---------------------------------Nourdine------------------------------------
         //Creation des objets
-        
         // Les types
-        Type typPrincipal = new Type ("principal");
-        Type typAccompagnement = new Type ("Accompagnement");
-        Type typBoisson = new Type ("Boisson");
-        Type typDessert = new Type ("Dessert");
-        Type typSauce = new Type ("Sauce");
-        
+        Type typPrincipal = new Type("principal");
+        Type typAccompagnement = new Type("Accompagnement");
+        Type typBoisson = new Type("Boisson");
+        Type typDessert = new Type("Dessert");
+        Type typSauce = new Type("Sauce");
+
         // Les abonnés
-//        Abonne aboNourdine = new Abonne("BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
-//        Abonne aboThierry = new Abonne("MARTINEZ", 5, "Thierry", "thierry@thierry.com");
-//        Abonne aboEdem = new Abonne("ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
-//        Abonne aboAlex = new Abonne("CHARBIT", 80, "Alex", "alex@alex.com");
-//        Abonne aboMomo = new Abonne("EL MASTOUR", 33, "Momo", "momo@momo.com");
-        
+//        Abonne aboNourdine = new Abonne("nourdine@nourdine.com","BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
+//        Abonne aboThierry = new Abonne("thierry@thierry.com","MARTINEZ", 5, "Thierry", "thierry@thierry.com");
+//        Abonne aboEdem = new Abonne("edem@edem.com","ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
+//        Abonne aboAlex = new Abonne("alex@alex.com","CHARBIT", 80, "Alex", "alex@alex.com");
+        Abonne aboMomo = new Abonne("momo@momo.com", "EL MASTOUR", 33, "Momo", "momo@momo.com");
+
         // Les allergènes
         Allergene allAnhydride = new Allergene("Anhydride sulfureux et sulfites");
         Allergene allArachide = new Allergene("Arachides");
@@ -187,12 +185,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Allergene allOeufs = new Allergene("Oeufs");
         Allergene allPoissons = new Allergene("Poissons");
         Allergene allSoja = new Allergene("Soja");
-        
-       
+
         //Associations
-        
-//        aboMomo.setStatut(new Statut());
-        
+        Statut s = new Statut(01L, "trtyt");
+        aboMomo.setStatut(s);
+
         //Persist
         em.persist(typPrincipal);
         em.persist(typAccompagnement);
@@ -203,7 +200,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 //        em.persist(aboThierry);
 //        em.persist(aboEdem);
 //        em.persist(aboAlex);
-//        em.persist(aboMomo);
+        em.persist(aboMomo);
         em.persist(allAnhydride);
         em.persist(allArachide);
         em.persist(allCrustaces);
@@ -217,9 +214,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(allOeufs);
         em.persist(allPoissons);
         em.persist(allSoja);
-        
-        
-        
+
 // ----------------------------------- Edem ------------------------------------
         // ************************ Creation des objets ************************
         // ********* Les Produits *********
@@ -302,11 +297,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proLivre = new Produit("LIVRE", 0.72F);
         Produit proJouet = new Produit("JOUET", 1F);
         Produit proBallon = new Produit("BALLON", 2F);
-        
+
         // ********* La TVA *********
         Tva tvaEmporter = new Tva(0.1F);
         Tva tvaSurPlace = new Tva(0.2F);
-        
+
         // ********* Les ItemsARetirer *********
         ItemARetire itaeSteak = new ItemARetire("Steak", "En 2016, la viande bovine dans nos restaurants est d'origine française pour 54,51%*. Ainsi, nous avons utilisé plus de 25 078 tonnes de viande bovine française. Le volume restant provient d'Irlande et des Pays-Bas selon le même cahier des charges et les mêmes contrôles qu'en France. Nos fournisseurs s'approvisionnent uniquement auprès de fournisseurs référencés selon des critères très exigeants, et utilisent principalement des muscles issus de l'avant des bovins comme par exemple, l'épaule, le collier, le plat de côte");
         ItemARetire itaeFrommage = new ItemARetire("Frommage");
@@ -321,7 +316,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
         // ************************** Associations *****************************
         // ****************************** Persist ******************************
-         // ********* Les ItemsARetirer *********
+        // ********* Les ItemsARetirer *********
         em.persist(itaeSteak);
         em.persist(itaeFrommage);
         em.persist(itaeSalade);
@@ -333,11 +328,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(itaeCornichon);
         em.persist(itaeBacon);
         em.persist(itaeCacahuètes);
-        
+
         // ********* La TVA *********
         em.persist(tvaEmporter);
         em.persist(tvaSurPlace);
-        
+
         // ********* Les Produits *********
         em.persist(proLeTheRouge);
         em.persist(proLeTheVertGrand);
