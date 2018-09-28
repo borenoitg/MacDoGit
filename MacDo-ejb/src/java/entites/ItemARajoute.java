@@ -109,6 +109,10 @@ public class ItemARajoute implements Serializable {
         this.statut = statut;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
     // Autres Methodes
     
     @Override

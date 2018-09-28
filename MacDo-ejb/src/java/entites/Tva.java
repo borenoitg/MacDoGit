@@ -27,14 +27,13 @@ public class Tva implements Serializable {
     @ManyToMany
     private Collection<Menu> menus;
 
-    @ManyToMany
-    private Collection<Produit> produits;
+    @OneToMany(mappedBy = "tvas")
+    private Produit produits;
 
     // Constructeurs
 
     public Tva() {
         menus = new ArrayList<>();
-        produits = new ArrayList<>();
     }
 
     public Tva(Float taux) {
@@ -67,15 +66,14 @@ public class Tva implements Serializable {
         this.menus = menus;
     }
 
-    public Collection<Produit> getProduits() {
+    public Produit getProduits() {
         return produits;
     }
 
-    public void setProduits(Collection<Produit> produits) {
+    public void setProduits(Produit produits) {
         this.produits = produits;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 0;

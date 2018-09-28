@@ -15,8 +15,6 @@ import metiers.CreationDeDonneesLocal;
 
 public class CreationDeDonneesCtrl implements SousControleurInterface, Serializable {
 
-    CatalogueLocal catalogue = lookupCatalogueLocal();
-
     @Override
     public String execute(HttpServletRequest request,
              HttpServletResponse response) {

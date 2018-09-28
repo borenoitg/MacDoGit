@@ -43,7 +43,7 @@ public class Produit implements Serializable {
     @ManyToOne
     private Promotion promotion;
 
-    @ManyToMany(mappedBy = "produits")
+    @ManyToOne
     private Collection<Tva> tvas;
 
     @OneToMany(mappedBy = "produit")
@@ -94,18 +94,31 @@ public class Produit implements Serializable {
         this.nom = nom;
     }
 
+    public Produit(String nom, String imageUrl) {
+        this();
+        this.nom = nom;
+        this.imageUrl = imageUrl;
+    }
+
     public Produit(String nom, Float prix) {
         this();
         this.nom = nom;
         this.prix = prix;
     }
 
-    public Produit(String nom, Float prix, String description) {
+    public Produit(String nom, Float prix, String imageUrl) {
         this();
         this.nom = nom;
         this.prix = prix;
-        this.description = description;
+        this.imageUrl = imageUrl;
     }
+
+//    public Produit(String nom, Float prix, String description) {
+//        this();
+//        this.nom = nom;
+//        this.prix = prix;
+//        this.description = description;
+//    }
 
     public Produit(String nom, Float prix, String description
             , String taille, int volume, String imageUrl) {
@@ -271,6 +284,22 @@ public class Produit implements Serializable {
         this.tvas = tvas;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public void setLignesDeCommande(Collection<LigneDeCommande> lignesDeCommande) {
+        this.lignesDeCommande = lignesDeCommande;
+    }
+
+    public void setItemARajoutes(Collection<ItemARajoute> itemARajoutes) {
+        this.itemARajoutes = itemARajoutes;
+    }
+
+    public void setItemARetires(Collection<ItemARetire> itemARetires) {
+        this.itemARetires = itemARetires;
+    }
+
     // Autres Methodes
     @Override
     public int hashCode() {
@@ -292,8 +321,6 @@ public class Produit implements Serializable {
         return true;
     }
 
-        
-        
     @Override
     public String toString() {
         return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" 
