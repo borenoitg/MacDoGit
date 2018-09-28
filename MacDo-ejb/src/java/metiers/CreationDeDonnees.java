@@ -7,6 +7,7 @@ import entites.ItemARetire;
 import entites.Menu;
 import entites.Produit;
 import entites.Promotion;
+import entites.Statut;
 import entites.Tva;
 import entites.Type;
 import javax.ejb.Singleton;
@@ -165,11 +166,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Type typSauce = new Type ("Sauce");
         
         // Les abonnés
-        Abonne aboNourdine = new Abonne("BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
-        Abonne aboThierry = new Abonne("MARTINEZ", 5, "Thierry", "thierry@thierry.com");
-        Abonne aboEdem = new Abonne("ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
-        Abonne aboAlex = new Abonne("CHARBIT", 80, "Alex", "alex@alex.com");
-        Abonne aboMomo = new Abonne("EL MASTOUR", 35, "Momo", "momo@momo.com");
+//        Abonne aboNourdine = new Abonne("BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
+//        Abonne aboThierry = new Abonne("MARTINEZ", 5, "Thierry", "thierry@thierry.com");
+//        Abonne aboEdem = new Abonne("ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
+//        Abonne aboAlex = new Abonne("CHARBIT", 80, "Alex", "alex@alex.com");
+//        Abonne aboMomo = new Abonne("EL MASTOUR", 33, "Momo", "momo@momo.com");
         
         // Les allergènes
         Allergene allAnhydride = new Allergene("Anhydride sulfureux et sulfites");
@@ -189,17 +190,20 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         
        
         //Associations
+        
+//        aboMomo.setStatut(new Statut());
+        
         //Persist
         em.persist(typPrincipal);
         em.persist(typAccompagnement);
         em.persist(typBoisson);
         em.persist(typDessert);
         em.persist(typSauce);
-        em.persist(aboNourdine);
-        em.persist(aboThierry);
-        em.persist(aboEdem);
-        em.persist(aboAlex);
-        em.persist(aboMomo);
+//        em.persist(aboNourdine);
+//        em.persist(aboThierry);
+//        em.persist(aboEdem);
+//        em.persist(aboAlex);
+//        em.persist(aboMomo);
         em.persist(allAnhydride);
         em.persist(allArachide);
         em.persist(allCrustaces);

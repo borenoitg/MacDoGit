@@ -17,7 +17,7 @@ public class Statut implements Serializable {
     @Id
     private Long id;
 
-    @Column(length = 255, nullable = false)
+    @Column(length = 255, nullable = true)
     private String description;
 
 //------ gestion des associations ------
