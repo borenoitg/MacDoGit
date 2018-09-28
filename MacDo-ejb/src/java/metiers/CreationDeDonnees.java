@@ -11,6 +11,7 @@ import entites.Produit;
 import entites.Promotion;
 import entites.SousType;
 import entites.Tva;
+import java.util.Collection;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -280,18 +281,23 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
         // ************************** Associations *****************************
         //// ********* McFleury vers Items à rajouter *********
-//        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageAbricot);
-//        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageCaramel);
-//        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageChocolat);
-//        proMcFlurryDaim.getItemARajoutes().add(itARaNappageAbricot);
-//        proMcFlurryDaim.getItemARajoutes().add(itARaNappageCaramel);
-//        proMcFlurryDaim.getItemARajoutes().add(itARaNappageChocolat);
-//        proMcFlurryOreo.getItemARajoutes().add(itARaNappageAbricot);
-//        proMcFlurryOreo.getItemARajoutes().add(itARaNappageCaramel);
-//        proMcFlurryOreo.getItemARajoutes().add(itARaNappageChocolat);
-//        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageAbricot);
-//        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageCaramel);
-//        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageChocolat);
+        //proMcFlurryKitKat.getItemARajoutes().add(itARaNappageAbricot);
+        Collection<ItemARajoute> itemsARajouterKitKat = proMcFlurryKitKat.getItemARajoutes();
+        itemsARajouterKitKat.add(itARaNappageAbricot);
+        itemsARajouterKitKat.add(itARaNappageCaramel);
+        itemsARajouterKitKat.add(itARaNappageChocolat);
+        Collection<ItemARajoute> itemsARajouterDaim = proMcFlurryDaim.getItemARajoutes();
+        itemsARajouterDaim.add(itARaNappageAbricot);
+        itemsARajouterDaim.add(itARaNappageCaramel);
+        itemsARajouterDaim.add(itARaNappageChocolat);
+        Collection<ItemARajoute> itemsARajouterOreo = proMcFlurryOreo.getItemARajoutes();
+        itemsARajouterOreo.add(itARaNappageAbricot);
+        itemsARajouterOreo.add(itARaNappageCaramel);
+        itemsARajouterOreo.add(itARaNappageChocolat);
+        Collection<ItemARajoute> itemsARajouterSpeculoos = proMcFlurrySpeculoos.getItemARajoutes();
+        itemsARajouterSpeculoos.add(itARaNappageAbricot);
+        itemsARajouterSpeculoos.add(itARaNappageCaramel);
+        itemsARajouterSpeculoos.add(itARaNappageChocolat);
         
         // ****************************** Persist ******************************
         // ********* Les ItemsARetirer *********
