@@ -164,10 +164,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Type typSauce = new Type("Sauce");
 
         // Les abonnés
-//        Abonne aboNourdine = new Abonne("nourdine@nourdine.com","BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
-//        Abonne aboThierry = new Abonne("thierry@thierry.com","MARTINEZ", 5, "Thierry", "thierry@thierry.com");
-//        Abonne aboEdem = new Abonne("edem@edem.com","ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
-//        Abonne aboAlex = new Abonne("alex@alex.com","CHARBIT", 80, "Alex", "alex@alex.com");
+        Abonne aboNourdine = new Abonne("nourdine@nourdine.com","BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
+        Abonne aboThierry = new Abonne("thierry@thierry.com","MARTINEZ", 5, "Thierry", "thierry@thierry.com");
+        Abonne aboEdem = new Abonne("edem@edem.com","ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
+        Abonne aboAlex = new Abonne("alex@alex.com","CHARBIT", 80, "Alex", "alex@alex.com");
         Abonne aboMomo = new Abonne("momo@momo.com", "EL MASTOUR", 33, "Momo", "momo@momo.com");
 
         // Les allergènes
@@ -196,13 +196,14 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(typBoisson);
         em.persist(typDessert);
         em.persist(typSauce);
-//        em.persist(aboNourdine);
-//        em.persist(aboThierry);
-//        em.persist(aboEdem);
-//        em.persist(aboAlex);
+        em.persist(aboNourdine);
+        em.persist(aboThierry);
+        em.persist(aboEdem);
+        em.persist(aboAlex);
         em.persist(aboMomo);
         em.persist(allAnhydride);
         em.persist(allArachide);
+        em.persist(allCeleri);
         em.persist(allCrustaces);
         em.persist(allFruitsACoques);
         em.persist(allGluten);
