@@ -282,19 +282,23 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         // ************************** Associations *****************************
         //// ********* McFleury vers Items à rajouter *********
         //proMcFlurryKitKat.getItemARajoutes().add(itARaNappageAbricot);
-        Collection<ItemARajoute> itemsARajouterKitKat = proMcFlurryKitKat.getItemARajoutes();
+        Collection<ItemARajoute> itemsARajouterKitKat = proMcFlurryKitKat
+                .getItemARajoutes();
         itemsARajouterKitKat.add(itARaNappageAbricot);
         itemsARajouterKitKat.add(itARaNappageCaramel);
         itemsARajouterKitKat.add(itARaNappageChocolat);
-        Collection<ItemARajoute> itemsARajouterDaim = proMcFlurryDaim.getItemARajoutes();
+        Collection<ItemARajoute> itemsARajouterDaim = proMcFlurryDaim
+                .getItemARajoutes();
         itemsARajouterDaim.add(itARaNappageAbricot);
         itemsARajouterDaim.add(itARaNappageCaramel);
         itemsARajouterDaim.add(itARaNappageChocolat);
-        Collection<ItemARajoute> itemsARajouterOreo = proMcFlurryOreo.getItemARajoutes();
+        Collection<ItemARajoute> itemsARajouterOreo = proMcFlurryOreo
+                .getItemARajoutes();
         itemsARajouterOreo.add(itARaNappageAbricot);
         itemsARajouterOreo.add(itARaNappageCaramel);
         itemsARajouterOreo.add(itARaNappageChocolat);
-        Collection<ItemARajoute> itemsARajouterSpeculoos = proMcFlurrySpeculoos.getItemARajoutes();
+        Collection<ItemARajoute> itemsARajouterSpeculoos = proMcFlurrySpeculoos
+                .getItemARajoutes();
         itemsARajouterSpeculoos.add(itARaNappageAbricot);
         itemsARajouterSpeculoos.add(itARaNappageCaramel);
         itemsARajouterSpeculoos.add(itARaNappageChocolat);
@@ -336,6 +340,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proNoisette);
         em.persist(proRISTRETTO);
         em.persist(proChocolatChaud);
+        //******************
         em.persist(proGrandesCrousties);
         em.persist(proMoyenneCrousties);
         em.persist(proMoyenneFrite);
@@ -347,6 +352,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proVinaigretteAHuile);
         em.persist(proSaucePommeFrites);
         em.persist(proKetchup);
+        //******************
         em.persist(proBioABoire);
         em.persist(proPetitDuoRaisins);
         em.persist(proCornetNappageChocolat);
@@ -363,9 +369,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proMcFlurryOreo);
         em.persist(proMcFlurrySpeculoos);
         em.persist(proBerlingoFruitPommePeche);
-        em.persist(proLivre);
-        em.persist(proJouetGarcon);
-        em.persist(proJouetFille);
         em.persist(proVeryParfaitCoulisAbricot);
         em.persist(proVeryParfaitNature);
         em.persist(proVeryParfaitNappageSaveurChocolat);
@@ -374,5 +377,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proFrappeSaveurMarshmallow);
         em.persist(proFrappeSaveurVanille);
         em.persist(proFrappeSaveurMyrtille);
+        //******************
+        em.persist(proLivre);
+        em.persist(proJouetGarcon);
+        em.persist(proJouetFille);
     }
 }
