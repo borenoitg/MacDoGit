@@ -14,7 +14,6 @@ import metiers.CatalogueLocal;
 
 public class CatalogueCtrl implements SousControleurInterface, Serializable {
 
-    CatalogueLocal catalogue = lookupCatalogueLocal();
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {

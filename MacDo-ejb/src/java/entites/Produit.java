@@ -3,7 +3,6 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,11 +10,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Produit implements Serializable {
+    @NamedQueries({
+    @NamedQuery(name = "entites.Produit.liste", query = "select p from Produit p"),
 
+    })
+public class Produit implements Serializable {
+ 
     private static final long serialVersionUID = 1L;
     
     // propriétés
@@ -193,6 +198,18 @@ public class Produit implements Serializable {
 
     public Collection<Allergene> getAllergenes() {
         return allergenes;
+    }
+
+    public void setLignesDeCommande(Collection<LigneDeCommande> lignesDeCommande) {
+        this.lignesDeCommande = lignesDeCommande;
+    }
+
+    public void setItemARajoutes(Collection<ItemARajoute> itemARajoutes) {
+        this.itemARajoutes = itemARajoutes;
+    }
+
+    public void setItemARetires(Collection<ItemARetire> itemARetires) {
+        this.itemARetires = itemARetires;
     }
 
     public void setAllergenes(Collection<Allergene> allergenes) {

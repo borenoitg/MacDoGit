@@ -1,16 +1,14 @@
 package metiers;
 
+import entites.Abonne;
 import entites.Allergene;
-import entites.Infos;
-import entites.Ingredient;
 import entites.ItemARajoute;
 import entites.ItemARetire;
-import entites.LigneDeCommande;
 import entites.Menu;
 import entites.Produit;
 import entites.Promotion;
-import entites.SousType;
 import entites.Tva;
+import entites.Type;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -40,28 +38,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Promotion p03 = new Promotion("2 Menus HappyMeal pour 6 Euros");
         Promotion p04 = new Promotion("1 MacCafé pour 1 Euro pour tout menu acheté !");
 
-        SousType st01 = new SousType("Coca Zero");
-        SousType st02 = new SousType("Coca Cola");
-        SousType st03 = new SousType("Sprite Zero");
-        SousType st04 = new SousType("Evian");
-        SousType st05 = new SousType("Badoit");
-        SousType st06 = new SousType("Lipton Ice Tea");
-        SousType st07 = new SousType("Minute Maid Orange");
-        SousType st08 = new SousType("Fanta");
-        SousType st09 = new SousType("Deluxe Potatoes");
-        SousType st10 = new SousType("Frites");
-        SousType st11 = new SousType("Crousties");
-        SousType st12 = new SousType("Ketchup");
-        SousType st13 = new SousType("Sauce Pomme-Frites");
-        SousType st14 = new SousType("Sauce Creamy-Deluxe");
-        SousType st15 = new SousType("Sauce Classic Moutarde");
-        SousType st16 = new SousType("Sauce Curry");
-        SousType st17 = new SousType("Sauce Chinoise");
-        SousType st18 = new SousType("Sauce Classic Barbecue");
-        SousType st19 = new SousType("Sauce Allégée");
-        SousType st20 = new SousType("Sauce Vinaigrette Huile d'olive et Vinaigre Balsamique");
-        SousType st21 = new SousType("Sauce  sCesar");
-
         //Associations
         //Persist
         em.persist(menuHappyMeal);
@@ -81,7 +57,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         // ********* Les Produits *********
         Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
         Produit proPoissonRanch = new Produit("Poisson Ranch", 3.5F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "./Images/poissonRanch.png");
-        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.5F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "Normal", 0, "./Images/boeufRanch.png");
+        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.5F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "Normal", 0, "./Images/bouefRanch.png");
         Produit proPouletRanch = new Produit("Poulet Ranch Ketchup", 3.5F, "Pain spécial aux graines de sésame et de pavot, spécialité panée au poulet, cheddar fondu, oignons, cornichons, salade, ketchup, sauce Ranch.", "Normal", 0, "./Images/pouletRanch.png");
         Produit proChickenMcNuggets4 = new Produit("Chicken McNuggets x4", 3.1F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x4", 0, "./Images/chicken-nuggets.jpg");
         Produit proChickenMcNuggets6 = new Produit("Chicken McNuggets x6", 4.2F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x6", 0, "./Images/chicken-nuggets.jpg");
@@ -181,8 +157,65 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 // ---------------------------------Nourdine------------------------------------
         //Creation des objets
         
+        // Les types
+        Type typPrincipal = new Type ("principal");
+        Type typAccompagnement = new Type ("Accompagnement");
+        Type typBoisson = new Type ("Boisson");
+        Type typDessert = new Type ("Dessert");
+        Type typSauce = new Type ("Sauce");
+        
+        // Les abonnés
+        Abonne aboNourdine = new Abonne("BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
+        Abonne aboThierry = new Abonne("MARTINEZ", 5, "Thierry", "thierry@thierry.com");
+        Abonne aboEdem = new Abonne("ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
+        Abonne aboAlex = new Abonne("CHARBIT", 80, "Alex", "alex@alex.com");
+        Abonne aboMomo = new Abonne("EL MASTOUR", 35, "Momo", "momo@momo.com");
+        
+        // Les allergènes
+        Allergene allAnhydride = new Allergene("Anhydride sulfureux et sulfites");
+        Allergene allArachide = new Allergene("Arachides");
+        Allergene allCeleri = new Allergene("Céleri");
+        Allergene allCrustaces = new Allergene("Crustacés");
+        Allergene allFruitsACoques = new Allergene("Fruits à coques");
+        Allergene allGluten = new Allergene("Gluten (blé)");
+        Allergene allGraineDeSesame = new Allergene("Graine de sésame");
+        Allergene allLait = new Allergene("Lait");
+        Allergene allLupin = new Allergene("Lupin");
+        Allergene allMollusques = new Allergene("Mollusques");
+        Allergene allMoutarde = new Allergene("Moutarde");
+        Allergene allOeufs = new Allergene("Oeufs");
+        Allergene allPoissons = new Allergene("Poissons");
+        Allergene allSoja = new Allergene("Soja");
+        
+       
         //Associations
         //Persist
+        em.persist(typPrincipal);
+        em.persist(typAccompagnement);
+        em.persist(typBoisson);
+        em.persist(typDessert);
+        em.persist(typSauce);
+        em.persist(aboNourdine);
+        em.persist(aboThierry);
+        em.persist(aboEdem);
+        em.persist(aboAlex);
+        em.persist(aboMomo);
+        em.persist(allAnhydride);
+        em.persist(allArachide);
+        em.persist(allCrustaces);
+        em.persist(allFruitsACoques);
+        em.persist(allGluten);
+        em.persist(allGraineDeSesame);
+        em.persist(allLait);
+        em.persist(allLupin);
+        em.persist(allMollusques);
+        em.persist(allMoutarde);
+        em.persist(allOeufs);
+        em.persist(allPoissons);
+        em.persist(allSoja);
+        
+        
+        
 // ----------------------------------- Edem ------------------------------------
         // ************************ Creation des objets ************************
         // ********* Les Produits *********
