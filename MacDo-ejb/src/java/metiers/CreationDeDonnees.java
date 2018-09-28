@@ -279,12 +279,26 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARetire itaeTomate = new ItemARetire("Tomate");
         ItemARetire itaePoisson = new ItemARetire("Poisson");
         ItemARetire itaePoulet = new ItemARetire("Poulet");
-        ItemARetire itaeBacon = new ItemARetire("Bacon", null);
+        ItemARetire itaeBacon = new ItemARetire("Bacon");
         ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes");
 
         // ************************** Associations *****************************
+        //// ********* McFleury vers Items à rajouter *********
+        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageAbricot);
+        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageCaramel);
+        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageChocolat);
+        proMcFlurryDaim.getItemARajoutes().add(itARaNappageAbricot);
+        proMcFlurryDaim.getItemARajoutes().add(itARaNappageCaramel);
+        proMcFlurryDaim.getItemARajoutes().add(itARaNappageChocolat);
+        proMcFlurryOreo.getItemARajoutes().add(itARaNappageAbricot);
+        proMcFlurryOreo.getItemARajoutes().add(itARaNappageCaramel);
+        proMcFlurryOreo.getItemARajoutes().add(itARaNappageChocolat);
+        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageAbricot);
+        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageCaramel);
+        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageChocolat);
+        
         // ****************************** Persist ******************************
-         // ********* Les ItemsARetirer *********
+        // ********* Les ItemsARetirer *********
         em.persist(itaeSteak);
         em.persist(itaeFrommage);
         em.persist(itaeSalade);
