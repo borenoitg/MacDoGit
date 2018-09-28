@@ -3,6 +3,7 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +36,7 @@ public class ItemARajoute implements Serializable {
     @ManyToOne
     private SousLigneDeCommande sousLigneDeCommande;
     
-    @ManyToMany 
+    @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     private Collection<Produit> produits;
     
     @ManyToOne
@@ -55,6 +56,10 @@ public class ItemARajoute implements Serializable {
     // getters et setters
     public Long getId() {
         return id;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public void setId(Long id) {
