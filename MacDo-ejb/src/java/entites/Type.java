@@ -4,6 +4,7 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,13 +34,13 @@ public class Type implements Serializable {
     @ManyToMany(mappedBy = "types")
     private Collection <Abonne> abonnes;
     
-    @ManyToMany
+    @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection <Menu> menus;
     
     @OneToMany(mappedBy = "type")
     private Collection <SousType> sousTypes;
         
-    @ManyToMany
+    @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Promotion> promotions;
     
     //-------------------CONSTRUCTEURS------------------------------------------
@@ -61,9 +62,7 @@ public class Type implements Serializable {
         this.nom = nom;
     }
 //----------------------------ACCESSEURS----------------------------------------
-    public void setId(Long id) {
-        this.id = id;
-    }
+
     
     public String getNom() {
         return nom;
@@ -83,10 +82,6 @@ public class Type implements Serializable {
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
-    }
-    
-    public Long getId() {
-        return id;
     }
 
     public Collection<Abonne> getAbonnes() {

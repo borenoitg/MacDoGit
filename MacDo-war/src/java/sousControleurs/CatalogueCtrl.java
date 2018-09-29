@@ -14,11 +14,10 @@ import metiers.CatalogueLocal;
 
 public class CatalogueCtrl implements SousControleurInterface, Serializable {
 
-    
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        
+
         CatalogueLocal catalogue = lookupCatalogueLocal();
         List<Produit> produits = catalogue.listeProduit();
         request.setAttribute("catalogue", produits);

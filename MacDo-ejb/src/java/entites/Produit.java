@@ -3,7 +3,6 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +20,9 @@ import javax.persistence.OneToMany;
 })
 public class Produit implements Serializable {
 
+    })
+public class Produit implements Serializable {
+ 
     private static final long serialVersionUID = 1L;
     
     // propriétés
@@ -98,31 +100,18 @@ public class Produit implements Serializable {
         this.nom = nom;
     }
 
-    public Produit(String nom, String imageUrl) {
-        this();
-        this.nom = nom;
-        this.imageUrl = imageUrl;
-    }
-
     public Produit(String nom, Float prix) {
         this();
         this.nom = nom;
         this.prix = prix;
     }
 
-    public Produit(String nom, Float prix, String imageUrl) {
+    public Produit(String nom, Float prix, String description) {
         this();
         this.nom = nom;
         this.prix = prix;
-        this.imageUrl = imageUrl;
+        this.description = description;
     }
-
-//    public Produit(String nom, Float prix, String description) {
-//        this();
-//        this.nom = nom;
-//        this.prix = prix;
-//        this.description = description;
-//    }
 
     public Produit(String nom, Float prix, String description
             , String taille, int volume, String imageUrl) {
@@ -212,6 +201,18 @@ public class Produit implements Serializable {
         return allergenes;
     }
 
+    public void setLignesDeCommande(Collection<LigneDeCommande> lignesDeCommande) {
+        this.lignesDeCommande = lignesDeCommande;
+    }
+
+    public void setItemARajoutes(Collection<ItemARajoute> itemARajoutes) {
+        this.itemARajoutes = itemARajoutes;
+    }
+
+    public void setItemARetires(Collection<ItemARetire> itemARetires) {
+        this.itemARetires = itemARetires;
+    }
+
     public void setAllergenes(Collection<Allergene> allergenes) {
         this.allergenes = allergenes;
     }
@@ -288,22 +289,6 @@ public class Produit implements Serializable {
         this.tva = tva;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public void setLignesDeCommande(Collection<LigneDeCommande> lignesDeCommande) {
-        this.lignesDeCommande = lignesDeCommande;
-    }
-
-    public void setItemARajoutes(Collection<ItemARajoute> itemARajoutes) {
-        this.itemARajoutes = itemARajoutes;
-    }
-
-    public void setItemARetires(Collection<ItemARetire> itemARetires) {
-        this.itemARetires = itemARetires;
-    }
-
     // Autres Methodes
     @Override
     public int hashCode() {
@@ -325,6 +310,8 @@ public class Produit implements Serializable {
         return true;
     }
 
+        
+        
     @Override
     public String toString() {
         return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" 

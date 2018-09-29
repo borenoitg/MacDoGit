@@ -1,15 +1,15 @@
 package metiers;
 
+import entites.Abonne;
 import entites.Allergene;
-import entites.Infos;
 import entites.Ingredient;
 import entites.ItemARajoute;
 import entites.ItemARetire;
-import entites.LigneDeCommande;
 import entites.Menu;
 import entites.Produit;
 import entites.Promotion;
 import entites.SousType;
+import entites.Statut;
 import entites.Tva;
 import java.util.Collection;
 import java.util.List;
@@ -29,6 +29,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         
         // ************************ CREATION DES OBJETS ************************
 // -------------------------------- Thierry ------------------------------------
+        // ************************ Creation des objets ************************
+        //*********************** Ingredient
+        Ingredient pain = new Ingredient("pain");
+
         // ********* Les ItemsARajoute *********
         ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0.2F);
         ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
@@ -37,7 +41,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         // ********* Les Produits *********
         Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
         Produit proPoissonRanch = new Produit("Poisson Ranch", 3.5F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "./Images/poissonRanch.png");
-        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.5F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "Normal", 0, "./Images/boeufRanch.png");
+        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.5F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "Normal", 0, "./Images/bouefRanch.png");
         Produit proPouletRanch = new Produit("Poulet Ranch Ketchup", 3.5F, "Pain spécial aux graines de sésame et de pavot, spécialité panée au poulet, cheddar fondu, oignons, cornichons, salade, ketchup, sauce Ranch.", "Normal", 0, "./Images/pouletRanch.png");
         Produit proChickenMcNuggets4 = new Produit("Chicken McNuggets x4", 3.1F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x4", 0, "./Images/chicken-nuggets.jpg");
         Produit proChickenMcNuggets6 = new Produit("Chicken McNuggets x6", 4.2F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x6", 0, "./Images/chicken-nuggets.jpg");

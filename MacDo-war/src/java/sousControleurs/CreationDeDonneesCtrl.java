@@ -15,6 +15,7 @@ import metiers.CreationDeDonneesLocal;
 
 public class CreationDeDonneesCtrl implements SousControleurInterface, Serializable {
 
+
     @Override
     public String execute(HttpServletRequest request,
              HttpServletResponse response) {
@@ -23,7 +24,7 @@ public class CreationDeDonneesCtrl implements SousControleurInterface, Serializa
 
         creationDeDonnees.creationDonnees();
 
-        CatalogueLocal catalogue = lookupCatalogueLocal();
+        CatalogueLocal catalogue = lookupCatalogueLocal();       
         List<Produit> produits = catalogue.listeProduit();
         request.setAttribute("catalogue", produits);
 

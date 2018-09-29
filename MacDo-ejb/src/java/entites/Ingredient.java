@@ -2,6 +2,7 @@
 package entites;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Ingredient implements Serializable {
     @ManyToOne
     private Statut statut;
     
-    @ManyToOne
+    @ManyToOne (cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     private Produit produit;
     
 //-------------------------------- Constructeur --------------------------------    
@@ -46,6 +47,14 @@ public class Ingredient implements Serializable {
 //--------------------------------- Accesseurs ---------------------------------
     public Long getId() {
         return id;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
     }
     
     public void setId(Long id) {

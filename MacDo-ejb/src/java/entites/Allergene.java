@@ -4,12 +4,14 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -28,7 +30,8 @@ public class Allergene implements Serializable {
     private String description;
 
     //------ gestion des associations ------
-    @ManyToMany
+    @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+
     private Collection<Produit> produits;
     
 //-------------------------------- Constructeur --------------------------------    

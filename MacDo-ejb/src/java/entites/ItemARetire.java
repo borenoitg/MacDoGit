@@ -1,9 +1,9 @@
-
 package entites;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +35,7 @@ public class ItemARetire implements Serializable {
     @ManyToOne
     private Statut statut;
     
-    @ManyToMany
+    @ManyToMany //(cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     private Collection<Produit> produits;
 
 //-------------------------------- Constructeur --------------------------------
@@ -78,6 +78,30 @@ public class ItemARetire implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public SousLigneDeCommande getSousLigneDeCommande() {
+        return sousLigneDeCommande;
+    }
+
+    public void setSousLigneDeCommande(SousLigneDeCommande sousLigneDeCommande) {
+        this.sousLigneDeCommande = sousLigneDeCommande;
+    }
+
+    public Statut getStatut() {
+        return statut;
+    }
+
+    public void setStatut(Statut statut) {
+        this.statut = statut;
+    }
+
+    public Collection<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(Collection<Produit> produits) {
+        this.produits = produits;
     }
 
 //------------------------------ Autres Methodes -------------------------------
