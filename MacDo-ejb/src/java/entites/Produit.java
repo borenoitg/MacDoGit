@@ -109,11 +109,18 @@ public class Produit implements Serializable {
         this.prix = prix;
     }
 
-    public Produit(String nom, Float prix, String description) {
+//    public Produit(String nom, Float prix, String description) {
+//        this();
+//        this.nom = nom;
+//        this.prix = prix;
+//        this.description = description;
+//    }
+
+    public Produit(String nom, Float prix, String imageUrl) {
         this();
         this.nom = nom;
         this.prix = prix;
-        this.description = description;
+        this.imageUrl = imageUrl;
     }
 
     public Produit(String nom, Float prix, String description
