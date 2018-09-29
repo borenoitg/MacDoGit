@@ -21,7 +21,7 @@
         <c:forEach items = "${catalogue}" var = "c">
             <h3 class="produits"><center>${c.nom}</center></h3>
 
-        <center class="image"><img class="img-thumbnail" src ="${c.imageUrl}" width = 200px ></center>
+        <center class="image"><img class="img-thumbnail" src ="${c.imageUrl}"  width = 200px ></center>
 
 
         <center>${c.description}</center>
