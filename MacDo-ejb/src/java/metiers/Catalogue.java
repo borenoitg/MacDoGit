@@ -18,7 +18,7 @@ public class Catalogue implements CatalogueLocal {
     @Override
     public List<Produit> listeProduit() {
 
-        TypedQuery<Produit> qr01 = em.createNamedQuery("entites.Produit.liste", Produit.class);
+        TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectAll", Produit.class);
         List<Produit> produits = qr01.getResultList();
         return produits;
     }

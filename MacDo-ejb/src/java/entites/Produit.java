@@ -16,13 +16,10 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "entities.Produit.selectAll", query = "SELECT p FROM Produit p")
+    @NamedQuery(name = "entities.Produit.selectAll", query = "SELECT p FROM Produit p"),
 })
 public class Produit implements Serializable {
 
-    })
-public class Produit implements Serializable {
- 
     private static final long serialVersionUID = 1L;
     
     // propriétés
@@ -98,6 +95,12 @@ public class Produit implements Serializable {
     public Produit(String nom) {
         this();
         this.nom = nom;
+    }
+
+    public Produit(String nom, String imageUrl) {
+        this();
+        this.nom = nom;
+        this.imageUrl = imageUrl;
     }
 
     public Produit(String nom, Float prix) {
