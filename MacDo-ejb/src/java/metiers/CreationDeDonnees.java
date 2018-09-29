@@ -12,9 +12,11 @@ import entites.Promotion;
 import entites.SousType;
 import entites.Tva;
 import java.util.Collection;
+import java.util.List;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 @Singleton
 public class CreationDeDonnees implements CreationDeDonneesLocal {
@@ -24,56 +26,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
     @Override
     public void creationDonnees() {
-// ----------------------------------- Alexandre -------------------------------
-        //Creation des objets
-        Menu menuHappyMeal = new Menu("Menu HappyMeal", 5.50F);
-        Menu menuBigMac = new Menu("Menu BigMac", 8.90f);
-        Menu menuBigMacMaxi = new Menu("Menu BigMac Maxi Best Of", 8.00F);
-        Menu menuSalade = new Menu("Menu Salade", 6.50F);
-        Menu m05 = new Menu("Menu ChickenMcNuggets", 7.50F);
-        Menu m06 = new Menu("Menu GrandChickenClassic", 7.30F);
-        Menu m07 = new Menu("Menu GrandChickenClassic", 8.30F);
-        Menu m08 = new Menu("Menu QuarterPounder", 8.00F);
-        Menu m09 = new Menu("Menu QuarterPounder", 8.90F);
-
-        Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
-        Promotion p02 = new Promotion("2 Menus MaxiBestOf  pour 12 Euros");
-        Promotion p03 = new Promotion("2 Menus HappyMeal pour 6 Euros");
-        Promotion p04 = new Promotion("1 MacCafé pour 1 Euro pour tout menu acheté !");
-
-        SousType st01 = new SousType("Coca Zero");
-        SousType st02 = new SousType("Coca Cola");
-        SousType st03 = new SousType("Sprite Zero");
-        SousType st04 = new SousType("Evian");
-        SousType st05 = new SousType("Badoit");
-        SousType st06 = new SousType("Lipton Ice Tea");
-        SousType st07 = new SousType("Minute Maid Orange");
-        SousType st08 = new SousType("Fanta");
-        SousType st09 = new SousType("Deluxe Potatoes");
-        SousType st10 = new SousType("Frites");
-        SousType st11 = new SousType("Crousties");
-        SousType st12 = new SousType("Ketchup");
-        SousType st13 = new SousType("Sauce Pomme-Frites");
-        SousType st14 = new SousType("Sauce Creamy-Deluxe");
-        SousType st15 = new SousType("Sauce Classic Moutarde");
-        SousType st16 = new SousType("Sauce Curry");
-        SousType st17 = new SousType("Sauce Chinoise");
-        SousType st18 = new SousType("Sauce Classic Barbecue");
-        SousType st19 = new SousType("Sauce Allégée");
-        SousType st20 = new SousType("Sauce Vinaigrette Huile d'olive et Vinaigre Balsamique");
-        SousType st21 = new SousType("Sauce  sCesar");
-
-        //Associations
-        //Persist
-        em.persist(menuHappyMeal);
-        em.persist(menuBigMac);
-        em.persist(menuBigMacMaxi);
-// ----------------------------------- Momo ------------------------------------
-        //Creation des objets
-        //Associations
-        //Persist
+        
+        // ************************ CREATION DES OBJETS ************************
 // -------------------------------- Thierry ------------------------------------
-        // ************************ Creation des objets ************************
         // ********* Les ItemsARajoute *********
         ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0.2F);
         ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
@@ -126,66 +81,23 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proFanta40 = new Produit("Fanta", 2.3F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Moyen", 40, "./Images/fanta.jpg");
         Produit proFanta50 = new Produit("Fanta", 2.8F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Grand", 50, "./Images/fanta.jpg");
 
-        // ************************** Associations *****************************
-        
-        //**************************** Persist *********************************
-        em.persist(itARaNappageChocolat);
-        em.persist(itARaNappageCaramel);
-        em.persist(itARaNappageAbricot);
-        // ********* Les Produits *********
-        em.persist(proBigMac);
-        em.persist(proPoissonRanch);
-        em.persist(proPouletRanch);
-        em.persist(proBoeufRanch);
-        em.persist(proChickenMcNuggets4);
-        em.persist(proChickenMcNuggets6);
-        em.persist(proChickenMcNuggets9);
-        em.persist(proChickenMcNuggets20);
-        em.persist(proSummer);
-        em.persist(proNewYorkCaesar);
-        em.persist(proManhattanPouletFrit);
-        em.persist(proManhattanVeggie);
-        em.persist(proManhattan);
-        em.persist(proManhattanPouletCroustillant);
-        em.persist(proSignature280OriginalBeef);
-        em.persist(proDoubleBlueCheese);
-        em.persist(proBeefBbq);
-        em.persist(proChickenBbq);
-        em.persist(proRoyalDeLuxe);
-        em.persist(proMcWrap);
-        em.persist(proMcFish);
-        em.persist(proCroqueMcDo);
-        em.persist(proHamburger);
-        em.persist(proCheeseBurger);
-        em.persist(proCocaCola25);
-        em.persist(proCocaCola40);
-        em.persist(proCocaCola50);
-        em.persist(proCocaColaZéro25);
-        em.persist(proCocaColaZéro40);
-        em.persist(proCocaColaZéro50);
-        em.persist(proCocaColaLight25);
-        em.persist(proCocaColaLight40);
-        em.persist(proCocaColaLight50);
-        em.persist(proSpriteZero25);
-        em.persist(proSpriteZero40);
-        em.persist(proSpriteZero50);
-        em.persist(proEvian33);
-        em.persist(proEvian50);
-        em.persist(proBadoit33);
-        em.persist(proBadoit50);
-        em.persist(proLiptonIceTea25);
-        em.persist(proMinuteMaid20);
-        em.persist(proFanta25);
-        em.persist(proFanta40);
-        em.persist(proFanta50);
-
-// ---------------------------------Nourdine------------------------------------
-        //Creation des objets
-        
-        //Associations
-        //Persist
 // ----------------------------------- Edem ------------------------------------
-        // ************************ Creation des objets ************************
+        // ********* La TVA *********
+        Tva tvaEmporter = new Tva(0.1F);
+        //Tva tvaSurPlace = new Tva(0.2F);
+        
+        // ********* Les ItemsARetirer *********
+        ItemARetire itaeSteak = new ItemARetire("Steak", "./Images/");
+        ItemARetire itaeFrommage = new ItemARetire("Frommage", "./Images/");
+        ItemARetire itaeSalade = new ItemARetire("Salade", "./Images/");
+        ItemARetire itaeOignon = new ItemARetire("Oignon", "./Images/");
+        ItemARetire itaeCornichon = new ItemARetire("Cornichon", "./Images/");
+        ItemARetire itaeTomate = new ItemARetire("Tomate", "./Images/");
+        ItemARetire itaePoisson = new ItemARetire("Poisson", "./Images/");
+        ItemARetire itaePoulet = new ItemARetire("Poulet", "./Images/");
+        ItemARetire itaeBacon = new ItemARetire("Bacon", "./Images/");
+        ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes", "./Images/");
+        
         // ********* Les Produits *********
         Produit proTheRouge = new Produit("THÉ FRUITS ROUGES GRAND FORMAT", 2.70F, "./Images/theFruitRouge.png");
         Produit proTheVertGrand = new Produit("THÉ VERT A LA MENTHE GRAND FORMAT", 2.70F, "./Images/theMenthe.png");
@@ -263,24 +175,18 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proJouetGarcon = new Produit("JOUET GARCON", 2.5F, "./Images/jouet.png");
         Produit proJouetFille = new Produit("JOUET FILLE", 2.5F, "./Images/jouet.png");
         
-        // ********* La TVA *********
-        Tva tvaEmporter = new Tva(0.1F);
-        Tva tvaSurPlace = new Tva(0.2F);
+// ---------------------------------Nourdine------------------------------------
         
-        // ********* Les ItemsARetirer *********
-        ItemARetire itaeSteak = new ItemARetire("Steak", "./Images/");
-        ItemARetire itaeFrommage = new ItemARetire("Frommage", "./Images/");
-        ItemARetire itaeSalade = new ItemARetire("Salade", "./Images/");
-        ItemARetire itaeOignon = new ItemARetire("Oignon", "./Images/");
-        ItemARetire itaeCornichon = new ItemARetire("Cornichon", "./Images/");
-        ItemARetire itaeTomate = new ItemARetire("Tomate", "./Images/");
-        ItemARetire itaePoisson = new ItemARetire("Poisson", "./Images/");
-        ItemARetire itaePoulet = new ItemARetire("Poulet", "./Images/");
-        ItemARetire itaeBacon = new ItemARetire("Bacon", "./Images/");
-        ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes", "./Images/");
-
-        // ************************** Associations *****************************
-        //// ********* McFleury vers Items à rajouter *********
+// ----------------------------------- Momo ------------------------------------
+        
+// ----------------------------------- Alexandre -------------------------------
+        
+        
+        // ******************** ASSOCIATION DES DONNEES ************************
+// -------------------------------- Thierry ------------------------------------
+        
+// ----------------------------------- Edem ------------------------------------
+        // ********* McFleury vers Items à rajouter *********
         //proMcFlurryKitKat.getItemARajoutes().add(itARaNappageAbricot);
         Collection<ItemARajoute> itemsARajouterKitKat = proMcFlurryKitKat
                 .getItemARajoutes();
@@ -303,7 +209,77 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itemsARajouterSpeculoos.add(itARaNappageCaramel);
         itemsARajouterSpeculoos.add(itARaNappageChocolat);
         
-        // ****************************** Persist ******************************
+        // ********* TVA vers Produits *********
+        TypedQuery<Produit> querryProduit = em.createNamedQuery("entities.Produit.selectAll", Produit.class);
+        List<Produit> listProduit = querryProduit.getResultList();
+        System.out.println("Size listProduit >>>>> "+ listProduit.size());
+        for( Produit p: listProduit){
+            tvaEmporter.getProduits().add(p);
+            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaEmporter.getProduits().size());
+        }
+        
+        // ********* TVA vers Menu *********
+        
+        
+// ---------------------------------Nourdine------------------------------------
+        
+// ----------------------------------- Momo ------------------------------------
+        
+// ----------------------------------- Alexandre -------------------------------
+        
+        //**************************** PERSIST *********************************
+// -------------------------------- Thierry ------------------------------------
+        em.persist(itARaNappageChocolat);
+        em.persist(itARaNappageCaramel);
+        em.persist(itARaNappageAbricot);
+        // ********* Les Produits *********
+        em.persist(proBigMac);
+        em.persist(proPoissonRanch);
+        em.persist(proPouletRanch);
+        em.persist(proBoeufRanch);
+        em.persist(proChickenMcNuggets4);
+        em.persist(proChickenMcNuggets6);
+        em.persist(proChickenMcNuggets9);
+        em.persist(proChickenMcNuggets20);
+        em.persist(proSummer);
+        em.persist(proNewYorkCaesar);
+        em.persist(proManhattanPouletFrit);
+        em.persist(proManhattanVeggie);
+        em.persist(proManhattan);
+        em.persist(proManhattanPouletCroustillant);
+        em.persist(proSignature280OriginalBeef);
+        em.persist(proDoubleBlueCheese);
+        em.persist(proBeefBbq);
+        em.persist(proChickenBbq);
+        em.persist(proRoyalDeLuxe);
+        em.persist(proMcWrap);
+        em.persist(proMcFish);
+        em.persist(proCroqueMcDo);
+        em.persist(proHamburger);
+        em.persist(proCheeseBurger);
+        em.persist(proCocaCola25);
+        em.persist(proCocaCola40);
+        em.persist(proCocaCola50);
+        em.persist(proCocaColaZéro25);
+        em.persist(proCocaColaZéro40);
+        em.persist(proCocaColaZéro50);
+        em.persist(proCocaColaLight25);
+        em.persist(proCocaColaLight40);
+        em.persist(proCocaColaLight50);
+        em.persist(proSpriteZero25);
+        em.persist(proSpriteZero40);
+        em.persist(proSpriteZero50);
+        em.persist(proEvian33);
+        em.persist(proEvian50);
+        em.persist(proBadoit33);
+        em.persist(proBadoit50);
+        em.persist(proLiptonIceTea25);
+        em.persist(proMinuteMaid20);
+        em.persist(proFanta25);
+        em.persist(proFanta40);
+        em.persist(proFanta50);
+        
+// ----------------------------------- Edem ------------------------------------
         // ********* Les ItemsARetirer *********
         em.persist(itaeSteak);
         em.persist(itaeFrommage);
@@ -319,7 +295,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         
         // ********* La TVA *********
         em.persist(tvaEmporter);
-        em.persist(tvaSurPlace);
+        //em.persist(tvaSurPlace);
         
         // ********* Les Produits *********
         em.persist(proTheRouge);
@@ -381,5 +357,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proLivre);
         em.persist(proJouetGarcon);
         em.persist(proJouetFille);
+        
+// ---------------------------------Nourdine------------------------------------
+        
+// ----------------------------------- Momo ------------------------------------
+        
+// ----------------------------------- Alexandre -------------------------------
     }
 }
