@@ -11,6 +11,7 @@ import entites.Promotion;
 import entites.SousType;
 import entites.Statut;
 import entites.Tva;
+import entites.Type;
 import java.util.Collection;
 import java.util.List;
 import javax.ejb.Singleton;
@@ -29,8 +30,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         
         // ************************ CREATION DES OBJETS ************************
 // -------------------------------- Thierry ------------------------------------
-        // ************************ Creation des objets ************************
-        //*********************** Ingredient
+        //*********************** Ingredient *********************** 
         Ingredient pain = new Ingredient("pain");
 
         // ********* Les ItemsARajoute *********
@@ -87,7 +87,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
 // ----------------------------------- Edem ------------------------------------
         // ********* La TVA *********
-        Tva tvaEmporter = new Tva(0.1F);
+        Tva tvaNormal = new Tva(0.1F);
         //Tva tvaSurPlace = new Tva(0.2F);
         
         // ********* Les ItemsARetirer *********
@@ -180,6 +180,35 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proJouetFille = new Produit("JOUET FILLE", 2.5F, "./Images/jouet.png");
         
 // ---------------------------------Nourdine------------------------------------
+        // ********* Les types *********
+        Type typPrincipal = new Type("principal");
+        Type typAccompagnement = new Type("Accompagnement");
+        Type typBoisson = new Type("Boisson");
+        Type typDessert = new Type("Dessert");
+        Type typSauce = new Type("Sauce");
+
+        //********* Les abonnés *********
+        Abonne aboNourdine = new Abonne("nourdine@nourdine.com", "BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
+        Abonne aboThierry = new Abonne("thierry@thierry.com", "MARTINEZ", 5, "Thierry", "thierry@thierry.com");
+        Abonne aboEdem = new Abonne("edem@edem.com", "ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
+        Abonne aboAlex = new Abonne("alex@alex.com", "CHARBIT", 80, "Alex", "alex@alex.com");
+        Abonne aboMomo = new Abonne("momo@momo.com", "EL MASTOUR", 33, "Momo", "momo@momo.com");
+
+        // ********* Les allergènes *********
+        Allergene allAnhydride = new Allergene("Anhydride sulfureux et sulfites");
+        Allergene allArachide = new Allergene("Arachides");
+        Allergene allCeleri = new Allergene("Céleri");
+        Allergene allCrustaces = new Allergene("Crustacés");
+        Allergene allFruitsACoques = new Allergene("Fruits à coques");
+        Allergene allGluten = new Allergene("Gluten (blé)");
+        Allergene allGraineDeSesame = new Allergene("Graine de sésame");
+        Allergene allLait = new Allergene("Lait");
+        Allergene allLupin = new Allergene("Lupin");
+        Allergene allMollusques = new Allergene("Mollusques");
+        Allergene allMoutarde = new Allergene("Moutarde");
+        Allergene allOeufs = new Allergene("Oeufs");
+        Allergene allPoissons = new Allergene("Poissons");
+        Allergene allSoja = new Allergene("Soja");
         
 // ----------------------------------- Momo ------------------------------------
         
@@ -218,15 +247,17 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         List<Produit> listProduit = querryProduit.getResultList();
         System.out.println("Size listProduit >>>>> "+ listProduit.size());
         for( Produit p: listProduit){
-            tvaEmporter.getProduits().add(p);
-            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaEmporter.getProduits().size());
+            tvaNormal.getProduits().add(p);
+            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaNormal.getProduits().size());
         }
         
         // ********* TVA vers Menu *********
         
         
 // ---------------------------------Nourdine------------------------------------
-        
+        // *********  *********
+//        Statut s = new Statut(01L, "trtyt");
+//        aboMomo.setStatut(s);
 // ----------------------------------- Momo ------------------------------------
         
 // ----------------------------------- Alexandre -------------------------------
@@ -298,7 +329,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(itaeCacahuètes);
         
         // ********* La TVA *********
-        em.persist(tvaEmporter);
+        em.persist(tvaNormal);
         //em.persist(tvaSurPlace);
         
         // ********* Les Produits *********
@@ -363,6 +394,34 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proJouetFille);
         
 // ---------------------------------Nourdine------------------------------------
+        em.persist(typPrincipal);
+        em.persist(typAccompagnement);
+        em.persist(typBoisson);
+        em.persist(typDessert);
+        em.persist(typSauce);
+        //******************
+        em.persist(aboNourdine);
+        em.persist(aboThierry);
+        em.persist(aboEdem);
+        em.persist(aboAlex);
+        em.persist(aboMomo);
+        //******************
+        em.persist(allAnhydride);
+        em.persist(allArachide);
+        em.persist(allCeleri);
+        em.persist(allCrustaces);
+        em.persist(allFruitsACoques);
+        em.persist(allGluten);
+        em.persist(allGraineDeSesame);
+        em.persist(allLait);
+        em.persist(allLupin);
+        em.persist(allMollusques);
+        em.persist(allMoutarde);
+        em.persist(allOeufs);
+        em.persist(allPoissons);
+        em.persist(allSoja);
+        //******************
+        em.persist(pain);
         
 // ----------------------------------- Momo ------------------------------------
         
