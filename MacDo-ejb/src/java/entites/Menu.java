@@ -44,8 +44,8 @@ public class Menu implements Serializable {
     @OneToMany(mappedBy = "menu")
     private Collection<LigneDeCommande> lignesDeCommande;
    
-    @ManyToMany(mappedBy = "menus")
-    private Collection<Tva> tvas;
+    @ManyToOne
+    private Tva tva;
     
     @ManyToOne  
     private Statut statut;
@@ -55,7 +55,6 @@ public class Menu implements Serializable {
         types = new ArrayList();
         abonnes = new ArrayList();
         lignesDeCommande = new ArrayList();
-        tvas = new ArrayList();
     }
 
     public Menu(String nom, Float prix) {
@@ -137,14 +136,18 @@ public class Menu implements Serializable {
         this.lignesDeCommande = lignesDeCommande;
     }
 
-    public Collection<Tva> getTvas() {
-        return tvas;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public void setTvas(Collection<Tva> tvas) {
-        this.tvas = tvas;
+    public Tva getTva() {
+        return tva;
     }
 
+    public void setTva(Tva tva) {
+        this.tva = tva;
+    }
+    
     public Statut getStatut() {
         return statut;
     }

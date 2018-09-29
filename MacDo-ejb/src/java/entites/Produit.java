@@ -11,9 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "entities.Produit.selectAll", query = "SELECT p FROM Produit p")
+})
 public class Produit implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,7 +49,7 @@ public class Produit implements Serializable {
     private Promotion promotion;
 
     @ManyToOne
-    private Collection<Tva> tvas;
+    private Tva tva;
 
     @OneToMany(mappedBy = "produit")
     private Collection<Ingredient> ingredients;
@@ -86,7 +91,6 @@ public class Produit implements Serializable {
         itemARajoutes = new ArrayList();
         itemARetires = new ArrayList();
         abonnes = new ArrayList();
-        tvas = new ArrayList();
     }
 
     public Produit(String nom) {
@@ -276,12 +280,12 @@ public class Produit implements Serializable {
         this.abonnes = abonnes;
     }
 
-    public Collection<Tva> getTvas() {
-        return tvas;
+    public Tva getTva() {
+        return tva;
     }
 
-    public void setTvas(Collection<Tva> tvas) {
-        this.tvas = tvas;
+    public void setTva(Tva tva) {
+        this.tva = tva;
     }
 
     public static long getSerialVersionUID() {
@@ -326,7 +330,7 @@ public class Produit implements Serializable {
         return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" 
                 + prix + ", description=" + description + ", taille=" 
                 + taille + ", volume=" + volume + ", imageUrl=" + imageUrl 
-                + ", promo=" + promotion + ", tva=" + tvas + ", ingredients=" 
+                + ", promo=" + promotion + ", tva=" + tva + ", ingredients=" 
                 + ingredients + ", allergenes=" + allergenes + ", statut=" 
                 + statut + ", infos=" + infos + ", soustype=" + soustype + '}';
     }

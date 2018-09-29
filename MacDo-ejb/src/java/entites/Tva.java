@@ -24,16 +24,17 @@ public class Tva implements Serializable {
     private Float taux;
 
     // dépendances pour les associations
-    @ManyToMany
+    @OneToMany(mappedBy = "tva")
     private Collection<Menu> menus;
 
-    @OneToMany(mappedBy = "tvas")
-    private Produit produits;
+    @OneToMany(mappedBy = "tva")
+    private Collection<Produit> produits;
 
     // Constructeurs
 
     public Tva() {
         menus = new ArrayList<>();
+        produits = new ArrayList<>(); 
     }
 
     public Tva(Float taux) {
@@ -66,12 +67,16 @@ public class Tva implements Serializable {
         this.menus = menus;
     }
 
-    public Produit getProduits() {
+    public Collection<Produit> getProduits() {
         return produits;
     }
 
-    public void setProduits(Produit produits) {
+    public void setProduits(Collection<Produit> produits) {
         this.produits = produits;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     @Override
