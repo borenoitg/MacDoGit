@@ -238,6 +238,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         SousType souFruits = new SousType("Fruits");
         SousType souGateau = new SousType("Gateau");
         SousType souPommeDeTerre = new SousType("Pommes de Terre");
+        
+        /***************************************************************************************************************************/
+        /***************************************************************************************************************************/
+        /***************************************************************************************************************************/
+        
 
         // ******************** ASSOCIATION DES DONNEES ************************
 // ----------------------------------- Edem ------------------------------------
@@ -274,6 +279,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         }
 
         // ********* TVA vers Menu *********
+        
 // ---------------------------------Nourdine------------------------------------
 
 // ----------------------------------- Momo ------------------------------------
@@ -572,8 +578,12 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         menSignature.getTypes().add(typAccompagnement);
         menSignature.getTypes().add(typBoisson);
         menSignature.getTypes().add(typPrincipal);
-
+        
+        
+        /***************************************************************************************/
+        /***************************************************************************************/
         //**************************** PERSIST *********************************
+        
 // -------------------------------- Thierry ------------------------------------
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
@@ -625,6 +635,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proFanta25);
         em.persist(proFanta40);
         em.persist(proFanta50);
+        
+        
 
 // ----------------------------------- Edem ------------------------------------
         // ********* Les ItemsARetirer *********
