@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "entities.Produit.selectAll", query = "SELECT p FROM Produit p"),
+    @NamedQuery(name = "entities.Produit.selectAll", query = "SELECT p FROM Produit p")
 })
 public class Produit implements Serializable {
 

@@ -247,39 +247,21 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         // ******************** ASSOCIATION DES DONNEES ************************
 // ----------------------------------- Edem ------------------------------------
         // ********* McFleury vers Items à rajouter *********
-        //proMcFlurryKitKat.getItemARajoutes().add(itARaNappageAbricot);
-        Collection<ItemARajoute> itemsARajouterKitKat = proMcFlurryKitKat
-                .getItemARajoutes();
-        itemsARajouterKitKat.add(itARaNappageAbricot);
-        itemsARajouterKitKat.add(itARaNappageCaramel);
-        itemsARajouterKitKat.add(itARaNappageChocolat);
-        Collection<ItemARajoute> itemsARajouterDaim = proMcFlurryDaim
-                .getItemARajoutes();
-        itemsARajouterDaim.add(itARaNappageAbricot);
-        itemsARajouterDaim.add(itARaNappageCaramel);
-        itemsARajouterDaim.add(itARaNappageChocolat);
-        Collection<ItemARajoute> itemsARajouterOreo = proMcFlurryOreo
-                .getItemARajoutes();
-        itemsARajouterOreo.add(itARaNappageAbricot);
-        itemsARajouterOreo.add(itARaNappageCaramel);
-        itemsARajouterOreo.add(itARaNappageChocolat);
-        Collection<ItemARajoute> itemsARajouterSpeculoos = proMcFlurrySpeculoos
-                .getItemARajoutes();
-        itemsARajouterSpeculoos.add(itARaNappageAbricot);
-        itemsARajouterSpeculoos.add(itARaNappageCaramel);
-        itemsARajouterSpeculoos.add(itARaNappageChocolat);
+        itARaNappageAbricot.getProduits().add(proMcFlurryDaim);
+        itARaNappageAbricot.getProduits().add(proMcFlurryKitKat);
+        itARaNappageAbricot.getProduits().add(proMcFlurryOreo);
+        itARaNappageAbricot.getProduits().add(proMcFlurrySpeculoos);
+        //******************
+        itARaNappageCaramel.getProduits().add(proMcFlurryDaim);
+        itARaNappageCaramel.getProduits().add(proMcFlurryKitKat);
+        itARaNappageCaramel.getProduits().add(proMcFlurryOreo);
+        itARaNappageCaramel.getProduits().add(proMcFlurrySpeculoos);
+        //******************
+        itARaNappageChocolat.getProduits().add(proMcFlurryDaim);
+        itARaNappageChocolat.getProduits().add(proMcFlurryKitKat);
+        itARaNappageChocolat.getProduits().add(proMcFlurryOreo);
+        itARaNappageChocolat.getProduits().add(proMcFlurrySpeculoos);
 
-        // ********* TVA vers Produits *********
-        TypedQuery<Produit> querryProduit = em.createNamedQuery("entities.Produit.selectAll", Produit.class);
-        List<Produit> listProduit = querryProduit.getResultList();
-        System.out.println("Size listProduit >>>>> " + listProduit.size());
-        for (Produit p : listProduit) {
-            tvaNormal.getProduits().add(p);
-            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaNormal.getProduits().size());
-        }
-
-        // ********* TVA vers Menu *********
-        
 // ---------------------------------Nourdine------------------------------------
 
 // ----------------------------------- Momo ------------------------------------
@@ -772,5 +754,26 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(souPommeDeTerre);
         em.persist(souSalade);
         em.persist(souSauce);
+        
+        // ******************** ASSOCIATION DES DONNEES ************************
+// ----------------------------------- Edem ------------------------------------
+        // ********* TVA vers Produits *********
+        TypedQuery<Produit> querryProduit = em.createNamedQuery("entities.Produit.selectAll", Produit.class);
+        List<Produit> listProduit = querryProduit.getResultList();
+        System.out.println("Size listProduit >>>>> " + listProduit.size());
+        for (Produit p : listProduit) {
+            p.setTva(tvaNormal);
+            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaNormal.getProduits().size());
+        }
+
+        // ********* TVA vers Menu *********
+        TypedQuery<Menu> querryMenu = em.createNamedQuery("entities.Menu.selectAll", Menu.class);
+        List<Menu> listMenu = querryMenu.getResultList();
+        System.out.println("Size listMenu >>>>> " + listMenu.size());
+        for (Menu m : listMenu) {
+            m.setTva(tvaNormal);
+            //System.out.println("Taille collection tvaMenus >>>>>>>> "+ tvaNormal.getMenus.size());
+        }
     }
+    
 }
