@@ -1,8 +1,21 @@
 .produits{
- text-transform: uppercase;   
+    text-transform: uppercase;   
 }
-/*.image{
-        display: flex;
+.navbar-brand {
+    position: relative;
+    /*background: url(../Images/logos/logo56x50.png);*/
+    left: 10px;
+}
 
-    
-}*/
+.bg-light {
+    background-color: #004413!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: /*rgba(0,0,0,.5);*/ #fdc600;
+}
+
+navbar-light .navbar-nav .nav-link.disabled {
+    color: /*rgba(0,0,0,.3);*/ #fceebe;
+}
+
