@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class ItemARajoute implements Serializable {
@@ -33,8 +34,8 @@ public class ItemARajoute implements Serializable {
 
     // dépendances pour les associations
     
-    @ManyToOne
-    private SousLigneDeCommande sousLigneDeCommande;
+    @OneToMany(mappedBy = "ItemARajoutes")
+    private Collection<SousLigneDeCommande> sousLigneDeCommandes;
     
     @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     private Collection<Produit> produits;
@@ -44,6 +45,7 @@ public class ItemARajoute implements Serializable {
     
     // constructeurs
     public ItemARajoute() {
+        sousLigneDeCommandes = new ArrayList<>();
         produits = new ArrayList<>();
     }
 
@@ -90,13 +92,11 @@ public class ItemARajoute implements Serializable {
         this.imageUrl = imageUrl;
     }
 
-    public SousLigneDeCommande getSousLigneDeCommande() {
-        return sousLigneDeCommande;
+    public ItemARajoute(Collection<SousLigneDeCommande> sousLigneDeCommandes) {
+        this.sousLigneDeCommandes = sousLigneDeCommandes;
     }
 
-    public void setSousLigneDeCommande(SousLigneDeCommande sousLigneDeCommande) {
-        this.sousLigneDeCommande = sousLigneDeCommande;
-    }
+   
 
     public Collection<Produit> getProduits() {
         return produits;
@@ -112,6 +112,14 @@ public class ItemARajoute implements Serializable {
 
     public void setStatut(Statut statut) {
         this.statut = statut;
+    }
+
+    public Collection<SousLigneDeCommande> getSousLigneDeCommandes() {
+        return sousLigneDeCommandes;
+    }
+
+    public void setSousLigneDeCommandes(Collection<SousLigneDeCommande> sousLigneDeCommandes) {
+        this.sousLigneDeCommandes = sousLigneDeCommandes;
     }
 
     // Autres Methodes
@@ -137,7 +145,7 @@ public class ItemARajoute implements Serializable {
 
     @Override
     public String toString() {
-        return "ItemARajoute{" + "nom=" + nom + ", prix=" + prix + ", sousLigneDeCommande=" + sousLigneDeCommande + ", statut=" + statut + '}';
+        return "ItemARajoute{" + "nom=" + nom + ", prix=" + prix + ", statut=" + statut + '}';
     }
 
 

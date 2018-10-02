@@ -68,8 +68,8 @@ public class Produit implements Serializable {
     @OneToMany(mappedBy = "produit")              // pas obligatoire ...
     private Collection<LigneDeCommande> lignesDeCommande;
 
-    @ManyToOne
-    private SousLigneDeCommande sousLigneDeCommande;
+    @OneToMany(mappedBy = "produit")
+    private Collection<SousLigneDeCommande> sousLigneDeCommandes;
 
     @ManyToMany(mappedBy = "produits")
     private Collection<ItemARajoute> itemARajoutes;
@@ -87,6 +87,7 @@ public class Produit implements Serializable {
         allergenes = new ArrayList();
         infos = new ArrayList();
         lignesDeCommande = new ArrayList();
+        sousLigneDeCommandes = new ArrayList();
         itemARajoutes = new ArrayList();
         itemARetires = new ArrayList();
         abonnes = new ArrayList();
@@ -137,6 +138,10 @@ public class Produit implements Serializable {
     // getters et setters
     public Long getId() {
         return id;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public void setId(Long id) {
@@ -259,13 +264,15 @@ public class Produit implements Serializable {
         this.lignesDeCommande = lignesDeCommande;
     }
 
-    public SousLigneDeCommande getSousLigneDeCommande() {
-        return sousLigneDeCommande;
+    public Collection<SousLigneDeCommande> getSousLigneDeCommandes() {
+        return sousLigneDeCommandes;
     }
 
-    public void setSousLigneDeCommande(SousLigneDeCommande sousLigneDeCommande) {
-        this.sousLigneDeCommande = sousLigneDeCommande;
+    public void setSousLigneDeCommandes(Collection<SousLigneDeCommande> sousLigneDeCommandes) {
+        this.sousLigneDeCommandes = sousLigneDeCommandes;
     }
+
+   
 
     public Collection<ItemARajoute> getItemARajoutes() {
         return itemARajoutes;

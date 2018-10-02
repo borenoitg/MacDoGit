@@ -21,26 +21,26 @@ public class SousLigneDeCommande implements Serializable {
     private Long id;
 
     //------ gestion des associations ------
-    @ManyToOne
-    private Commande commande;
+    
 
-    @OneToMany(mappedBy = "sousLigneDeCommande")
-    private Collection<ItemARajoute> ItemARajoutes;
+    @ManyToOne()
+    private ItemARajoute ItemARajoutes;
 
     @OneToMany(mappedBy = "sousLigneDeCommande")
     private Collection<ItemARetire> ItemARetires;
 
-    @OneToMany(mappedBy = "sousLigneDeCommande")
-    private Collection<Produit> produits;
+    @ManyToOne()
+    private Produit produit;
 
     @ManyToOne
     private LigneDeCommande ligneCommande;
 
+    
 //-------------------------------- Constructeurs -------------------------------    
     public SousLigneDeCommande() {
-        ItemARajoutes = new ArrayList<>();
+        
         ItemARetires = new ArrayList<>();
-        produits = new ArrayList<>();
+        
     }
 
     public SousLigneDeCommande(Commande commande
@@ -48,10 +48,21 @@ public class SousLigneDeCommande implements Serializable {
             , Collection<ItemARetire> ItemARetires
             , Collection<Produit> produits, LigneDeCommande ligneCommande) {
         this();
-        this.commande = commande;
-        this.ItemARajoutes = ItemARajoutes;
         this.ItemARetires = ItemARetires;
-        this.produits = produits;
+        
+        this.ligneCommande = ligneCommande;
+    }
+
+    public SousLigneDeCommande(ItemARajoute ItemARajoutes, LigneDeCommande ligneCommande) {
+        this();
+        this.ItemARajoutes = ItemARajoutes;
+        this.ligneCommande = ligneCommande;
+    }
+
+    public SousLigneDeCommande(ItemARajoute ItemARajoutes, Produit produits, LigneDeCommande ligneCommande) {
+        this();
+        this.ItemARajoutes = ItemARajoutes;
+        this.produit = produits;
         this.ligneCommande = ligneCommande;
     }
 
@@ -60,25 +71,28 @@ public class SousLigneDeCommande implements Serializable {
         return id;
     }
 
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Commande getCommande() {
-        return commande;
-    }
-
-    public void setCommande(Commande commande) {
-        this.commande = commande;
-    }
-
-    public Collection<ItemARajoute> getItemARajoutes() {
+    public ItemARajoute getItemARajoutes() {
         return ItemARajoutes;
     }
 
-    public void setItemARajoutes(Collection<ItemARajoute> ItemARajoutes) {
+    public void setItemARajoutes(ItemARajoute ItemARajoutes) {
         this.ItemARajoutes = ItemARajoutes;
     }
+
+
+  
 
     public Collection<ItemARetire> getItemARetires() {
         return ItemARetires;
@@ -88,13 +102,7 @@ public class SousLigneDeCommande implements Serializable {
         this.ItemARetires = ItemARetires;
     }
 
-    public Collection<Produit> getProduits() {
-        return produits;
-    }
-
-    public void setProduits(Collection<Produit> produits) {
-        this.produits = produits;
-    }
+  
 
     public LigneDeCommande getLigneCommande() {
         return ligneCommande;
@@ -102,6 +110,14 @@ public class SousLigneDeCommande implements Serializable {
 
     public void setLigneCommande(LigneDeCommande ligneCommande) {
         this.ligneCommande = ligneCommande;
+    }
+
+    public Produit getProduits() {
+        return produit;
+    }
+
+    public void setProduits(Produit produits) {
+        this.produit = produits;
     }
 
 //------------------------------ Autres Methodes -------------------------------
@@ -128,9 +144,9 @@ public class SousLigneDeCommande implements Serializable {
     @Override
     public String toString() {
         return "SousLigneDeCommande{" + "id=" + id 
-                + ", commande=" + commande 
+               
                 + ", ItemARajoutes=" + ItemARajoutes + ", ItemARetires=" 
-                + ItemARetires + ", produits=" + produits + ", ligneCommande=" 
+                + ItemARetires + ", produits=" + produit + ", ligneCommande=" 
                 + ligneCommande + '}';
     }
 
