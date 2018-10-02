@@ -11,6 +11,10 @@
             <param-name>CatalogueCtrl</param-name>
             <param-value>sousControleurs.CatalogueCtrl</param-value>
         </init-param>
+        <init-param>
+            <param-name>MainMenuCtrl</param-name>
+            <param-value>sousControleurs.MainMenuCtrl</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontControleur</servlet-name>
