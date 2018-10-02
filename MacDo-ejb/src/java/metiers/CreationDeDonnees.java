@@ -2,20 +2,22 @@ package metiers;
 
 import entites.Abonne;
 import entites.Allergene;
+import entites.Commande;
 import entites.Ingredient;
 import entites.ItemARajoute;
 import entites.ItemARetire;
+import entites.LigneDeCommande;
 import entites.Menu;
 import entites.Produit;
-import entites.Promotion;
+import entites.SousLigneDeCommande;
 import entites.SousType;
 import entites.Statut;
 import entites.Tva;
 import entites.Type;
-import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.ejb.Singleton;
-import javax.mail.FetchProfile;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -214,6 +216,15 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Allergene allPoissons = new Allergene("Poissons");
         Allergene allSoja = new Allergene("Soja");
 
+// ----------------------------------- Alexandre -------------------------------
+        //Creation des objets
+        Menu menHappyMeal = new Menu("Menu HappyMeal", 5.50F);
+        Menu menBigMac = new Menu("Menu BigMac", 8.90f);
+        Menu menBigMacMaxi = new Menu("Menu BigMac Maxi Best Of", 8.00F);
+        Menu menSalade = new Menu("Menu Salade", 6.50F);
+        Menu menChickMacNug = new Menu("Menu ChickenMcNuggets", 7.50F);
+        Menu menPtitDej = new Menu("Menu P'tit f", 7.30F);
+        Menu menSignature = new Menu("Menu GrandChickenClassic", 8.30F);
 // ----------------------------------- Momo ------------------------------------
  //Creation des objets
         
@@ -325,15 +336,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
        em.persist(souLigne2);
        em.persist(co1);
 //        System.out.println(" souligne1 "+souLigne1.getProduits().size());
-// ----------------------------------- Alexandre -------------------------------
-        //Creation des objets
-        Menu menHappyMeal = new Menu("Menu HappyMeal", 5.50F);
-        Menu menBigMac = new Menu("Menu BigMac", 8.90f);
-        Menu menBigMacMaxi = new Menu("Menu BigMac Maxi Best Of", 8.00F);
-        Menu menSalade = new Menu("Menu Salade", 6.50F);
-        Menu menChickMacNug = new Menu("Menu ChickenMcNuggets", 7.50F);
-        Menu menPtitDej = new Menu("Menu P'tit f", 7.30F);
-        Menu menSignature = new Menu("Menu GrandChickenClassic", 8.30F);
+
 //
 
 //        Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
