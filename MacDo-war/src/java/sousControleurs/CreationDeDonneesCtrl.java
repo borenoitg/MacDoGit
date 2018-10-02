@@ -30,8 +30,8 @@ public class CreationDeDonneesCtrl implements SousControleurInterface, Serializa
         
         request.setAttribute("menu", "createdata");
 
-        //return "/WEB-INF/Home.jsp";
-        return "/WEB-INF/home2.jsp";
+        return "/WEB-INF/Home.jsp";
+//        return "/WEB-INF/home2.jsp";
     }
 
     private CreationDeDonneesLocal lookupCreationDeDonneesLocal() {
