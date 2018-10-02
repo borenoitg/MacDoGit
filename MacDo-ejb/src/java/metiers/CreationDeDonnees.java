@@ -41,7 +41,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
         ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0.2F);
         ItemARajoute i = new ItemARajoute();
-
+Menu mb = new Menu();
         // ********* Les Produits *********
         Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
         Produit proPoissonRanch = new Produit("Poisson Ranch", 3.5F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "./Images/poissonRanch.png");
@@ -216,6 +216,15 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Allergene allPoissons = new Allergene("Poissons");
         Allergene allSoja = new Allergene("Soja");
 
+// ----------------------------------- Alexandre -------------------------------
+        //Creation des objets
+        Menu menHappyMeal = new Menu("Menu HappyMeal", 5.50F);
+        Menu menBigMac = new Menu("Menu BigMac", 8.90f);
+        Menu menBigMacMaxi = new Menu("Menu BigMac Maxi Best Of", 8.00F);
+        Menu menSalade = new Menu("Menu Salade", 6.50F);
+        Menu menChickMacNug = new Menu("Menu ChickenMcNuggets", 7.50F);
+        Menu menPtitDej = new Menu("Menu P'tit f", 7.30F);
+        Menu menSignature = new Menu("Menu GrandChickenClassic", 8.30F);
 // ----------------------------------- Momo ------------------------------------
  //Creation des objets
         
@@ -327,15 +336,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
        em.persist(souLigne2);
        em.persist(co1);
 //        System.out.println(" souligne1 "+souLigne1.getProduits().size());
-// ----------------------------------- Alexandre -------------------------------
-        //Creation des objets
-        Menu menHappyMeal = new Menu("Menu HappyMeal", 5.50F);
-        Menu menBigMac = new Menu("Menu BigMac", 8.90f);
-        Menu menBigMacMaxi = new Menu("Menu BigMac Maxi Best Of", 8.00F);
-        Menu menSalade = new Menu("Menu Salade", 6.50F);
-        Menu menChickMacNug = new Menu("Menu ChickenMcNuggets", 7.50F);
-        Menu menPtitDej = new Menu("Menu P'tit f", 7.30F);
-        Menu menSignature = new Menu("Menu GrandChickenClassic", 8.30F);
+
 //
 
 //        Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
