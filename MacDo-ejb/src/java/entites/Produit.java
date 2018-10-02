@@ -83,13 +83,13 @@ public class Produit implements Serializable {
     // Constructeurs
 
     public Produit() {
-        ingredients = new ArrayList();
-        allergenes = new ArrayList();
-        infos = new ArrayList();
-        lignesDeCommande = new ArrayList();
-        itemARajoutes = new ArrayList();
-        itemARetires = new ArrayList();
-        abonnes = new ArrayList();
+        ingredients = new ArrayList<>();
+        allergenes = new ArrayList<>();
+        infos = new ArrayList<>();
+        lignesDeCommande = new ArrayList<>();
+        itemARajoutes = new ArrayList<>();
+        itemARetires = new ArrayList<>();
+        abonnes = new ArrayList<>();
     }
 
     public Produit(String nom) {

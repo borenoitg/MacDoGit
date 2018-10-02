@@ -4,7 +4,7 @@
     <jta-data-source>jdbc/MacDo</jta-data-source>
     <class>entites.Abonne</class>
     <class>entites.Allergene</class>
-    <class>entites.Commande</class>
+    <class>entites.Commande</class> 
     <class>entites.Infos</class>
     <class>entites.Ingredient</class>
     <class>entites.ItemARajoute</class>
