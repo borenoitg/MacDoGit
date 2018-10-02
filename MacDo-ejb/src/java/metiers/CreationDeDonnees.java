@@ -256,29 +256,16 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 //        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
 //        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
         
-       
-        
         //sousligne de commande
         SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
         SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
         SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
-        
-        
-        
         
         //commande
         Date d = new GregorianCalendar(2018,2,15).getTime();
         Commande co1 = new Commande(d,true);
         
         Commande co2 = new Commande(d,true);
-        
-        
-        
-        
-        
-         
-        
-        
         //Associations
         ligMenuHappyMeal.setMenu(menHappyMeal);
         ligBigMac.setProduit(proBigMac);
@@ -306,9 +293,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proBigMac.setSousLigneDeCommande(souLigne2);
 //      
        
-  
-        
-        
         //Persist
         //statut
         em.persist(staAllergene);
