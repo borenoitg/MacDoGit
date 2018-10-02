@@ -88,7 +88,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proFanta25 = new Produit("Fanta", 1.9F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Normal", 25, "./Images/fanta.jpg");
         Produit proFanta40 = new Produit("Fanta", 2.3F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Moyen", 40, "./Images/fanta.jpg");
         Produit proFanta50 = new Produit("Fanta", 2.8F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Grand", 50, "./Images/fanta.jpg");
-        Produit proPtiteSalade = new Produit("La P'tite Salade", 3L, "./Images/PtiteSalade.png");
+        Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
 
 // ----------------------------------- Edem ------------------------------------
         // ********* La TVA *********
@@ -256,18 +256,17 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 //        LigneDeCommande ligMenuPetitDej = new LigneDeCommande(20f,1,7.3f);
 //        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
 //        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
-
+        
         //sousligne de commande
         SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
         SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
         SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
-
+        
         //commande
-        Date d = new GregorianCalendar(2018, 2, 15).getTime();
-        Commande co1 = new Commande(d, true);
-
-        Commande co2 = new Commande(d, true);
-
+        Date d = new GregorianCalendar(2018,2,15).getTime();
+        Commande co1 = new Commande(d,true);
+        
+        Commande co2 = new Commande(d,true);
         //Associations
         ligMenuHappyMeal.setMenu(menHappyMeal);
         ligBigMac.setProduit(proBigMac);
@@ -291,7 +290,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         souLigne2.setCommande(co1);
         proBigMac.setSousLigneDeCommande(souLigne2);
 //      
-
+       
         //Persist
         //statut
         em.persist(staAllergene);
