@@ -620,6 +620,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proHamburger.getAllergenes().add(allLait);
         proHamburger.getAllergenes().add(allMoutarde);
 
+        Menu hb = new Menu();
         proHamburger.getIngredients().add(pain);
 
         proHamburger.getItemARetires().add(itaeSteak);
