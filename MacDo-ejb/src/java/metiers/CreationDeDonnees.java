@@ -227,6 +227,13 @@ Menu mb = new Menu();
         Menu menChickMacNug = new Menu("Menu ChickenMcNuggets", 7.50F);
         Menu menPtitDej = new Menu("Menu P'tit f", 7.30F);
         Menu menSignature = new Menu("Menu GrandChickenClassic", 8.30F);
+        
+        
+        
+        
+        
+        
+        
 // ----------------------------------- Momo ------------------------------------
  //Creation des objets
         
@@ -779,41 +786,7 @@ Menu mb = new Menu();
         proCheeseBurger.getItemARetires().add(itaeFrommage);
 // ----------------------------------- Alexandre -------------------------------
         //Associations
-        menBigMac.getTypes().add(typPrincipal);
-        menBigMac.getTypes().add(typAccompagnement);
-        menBigMac.getTypes().add(typBoisson);
-
-        menBigMacMaxi.getTypes().add(typPrincipal);
-        menBigMacMaxi.getTypes().add(typAccompagnement);
-        menBigMacMaxi.getTypes().add(typBoisson);
-
-        menChickMacNug.getTypes().add(typPrincipal);
-        menBigMacMaxi.getTypes().add(typAccompagnement);
-        menBigMacMaxi.getTypes().add(typBoisson);
-
-        menChickMacNug.getTypes().add(typSauce);
-        menChickMacNug.getTypes().add(typPrincipal);
-        menChickMacNug.getTypes().add(typAccompagnement);
-        menChickMacNug.getTypes().add(typBoisson);
-
-        menHappyMeal.getTypes().add(typPrincipal);
-        menHappyMeal.getTypes().add(typBoisson);
-        menHappyMeal.getTypes().add(typAccompagnement);
-        menHappyMeal.getTypes().add(typDessert);
-        menHappyMeal.getTypes().add(typCadeauEnfant);
-
-        menPtitDej.getTypes().add(typPrincipal);
-        menPtitDej.getTypes().add(typAccompagnement);
-        menPtitDej.getTypes().add(typBoisson);
-
-        menSalade.getTypes().add(typPrincipal);
-        menSalade.getTypes().add(typBoisson);
-        menSalade.getTypes().add(typSauce);
-
-        menSignature.getTypes().add(typAccompagnement);
-        menSignature.getTypes().add(typBoisson);
-        menSignature.getTypes().add(typPrincipal);
-
+       
         /**
          * ************************************************************************************
          */
