@@ -15,6 +15,7 @@ import entites.Type;
 import java.util.Collection;
 import java.util.List;
 import javax.ejb.Singleton;
+import javax.mail.FetchProfile;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -37,6 +38,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0.2F);
         ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
         ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0.2F);
+        ItemARajoute i = new ItemARajoute();
 
         // ********* Les Produits *********
         Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
