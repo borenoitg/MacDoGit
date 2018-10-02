@@ -41,7 +41,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
         ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0.2F);
         ItemARajoute i = new ItemARajoute();
-
+Menu mb = new Menu();
         // ********* Les Produits *********
         Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
         Produit proPoissonRanch = new Produit("Poisson Ranch", 3.5F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "./Images/poissonRanch.png");
