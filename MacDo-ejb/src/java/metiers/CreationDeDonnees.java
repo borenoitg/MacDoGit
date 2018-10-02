@@ -31,7 +31,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         // ************************ CREATION DES OBJETS ************************
 // -------------------------------- Thierry ------------------------------------
         //*********************** Ingredient *********************** 
-        Ingredient pain = new Ingredient("pain");
+        Ingredient ingPain = new Ingredient("pain");
 
         // ********* Les ItemsARajoute *********
         ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0.2F);
@@ -211,6 +211,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Allergene allOeufs = new Allergene("Oeufs");
         Allergene allPoissons = new Allergene("Poissons");
         Allergene allSoja = new Allergene("Soja");
+        
+        
 
 // ----------------------------------- Momo ------------------------------------
 // ----------------------------------- Alexandre -------------------------------
@@ -238,12 +240,16 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         SousType souFruits = new SousType("Fruits");
         SousType souGateau = new SousType("Gateau");
         SousType souPommeDeTerre = new SousType("Pommes de Terre");
-        
-        /***************************************************************************************************************************/
-        /***************************************************************************************************************************/
-        /***************************************************************************************************************************/
-        
 
+        /**
+         * ************************************************************************************************************************
+         */
+        /**
+         * ************************************************************************************************************************
+         */
+        /**
+         * ************************************************************************************************************************
+         */
         // ******************** ASSOCIATION DES DONNEES ************************
 // ----------------------------------- Edem ------------------------------------
         // ********* McFleury vers Items à rajouter *********
@@ -279,269 +285,246 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         }
 
         // ********* TVA vers Menu *********
-        
 // ---------------------------------Nourdine------------------------------------
-
 // ----------------------------------- Momo ------------------------------------
 // -------------------------------- Thierry ------------------------------------
-        proBigMac.getAllergenes().add(allAnhydride);
-        proBigMac.getAllergenes().add(allGluten);
-        proBigMac.getAllergenes().add(allGraineDeSesame);
-        proBigMac.getAllergenes().add(allLait);
-        proBigMac.getAllergenes().add(allMoutarde);
-        proBigMac.getAllergenes().add(allOeufs);
+        //***********association  produit vers Ingredient
+        ingPain.setProduit(proBigMac);
+        ingPain.setProduit(proPoissonRanch);
+        ingPain.setProduit(proPouletRanch);
+        ingPain.setProduit(proBoeufRanch);
+        ingPain.setProduit(proSignature280OriginalBeef);
+        ingPain.setProduit(proDoubleBlueCheese);
+        ingPain.setProduit(proBeefBbq);
+        ingPain.setProduit(proChickenBbq);
+        ingPain.setProduit(proRoyalDeLuxe);
+        ingPain.setProduit(proMcWrap);
+        ingPain.setProduit(proMcFish);
+        ingPain.setProduit(proCroqueMcDo);
+        ingPain.setProduit(proHamburger);
+        ingPain.setProduit(proCheeseBurger);
 
-        proBigMac.getIngredients().add(pain);
+        //***********association produit vers Allergenes
 
-        proBigMac.getItemARetires().add(itaeSteak);
-        proBigMac.getItemARetires().add(itaeSalade);
-        proBigMac.getItemARetires().add(itaeFrommage);
-        proBigMac.getItemARetires().add(itaeOignon);
-        proBigMac.getItemARetires().add(itaeCornichon);
+        allAnhydride.getProduits().add(proBigMac);
+        allAnhydride.getProduits().add(proPouletRanch);
+        allAnhydride.getProduits().add(proBoeufRanch);
+        allAnhydride.getProduits().add(proSummer);
+        allAnhydride.getProduits().add(proNewYorkCaesar);
+        allAnhydride.getProduits().add(proManhattanVeggie);
+        allAnhydride.getProduits().add(proSignature280OriginalBeef);
+        allAnhydride.getProduits().add(proHamburger);
+        allAnhydride.getProduits().add(proCheeseBurger);
 
-        proPoissonRanch.getAllergenes().add(allGluten);
-        proPoissonRanch.getAllergenes().add(allGraineDeSesame);
-        proPoissonRanch.getAllergenes().add(allLait);
-        proPoissonRanch.getAllergenes().add(allOeufs);
-        proPoissonRanch.getAllergenes().add(allPoissons);
+        allGluten.getProduits().add(proBigMac);
+        allGluten.getProduits().add(proPoissonRanch);
+        allGluten.getProduits().add(proPouletRanch);
+        allGluten.getProduits().add(proBoeufRanch);
+        allGluten.getProduits().add(proChickenMcNuggets4);
+        allGluten.getProduits().add(proChickenMcNuggets6);
+        allGluten.getProduits().add(proChickenMcNuggets9);
+        allGluten.getProduits().add(proChickenMcNuggets20);
+        allGluten.getProduits().add(proSummer);
+        allGluten.getProduits().add(proNewYorkCaesar);
+        allGluten.getProduits().add(proManhattanVeggie);
+        allGluten.getProduits().add(proManhattan);
+        allGluten.getProduits().add(proManhattanPouletCroustillant);
+        allGluten.getProduits().add(proSignature280OriginalBeef);
+        allGluten.getProduits().add(proDoubleBlueCheese);
+        allGluten.getProduits().add(proBeefBbq);
+        allGluten.getProduits().add(proChickenBbq);
+        allGluten.getProduits().add(proRoyalDeLuxe);
+        allGluten.getProduits().add(proMcWrap);
+        allGluten.getProduits().add(proMcFish);
+        allGluten.getProduits().add(proCroqueMcDo);
+        allGluten.getProduits().add(proHamburger);
+        allGluten.getProduits().add(proCheeseBurger);
 
-        proPoissonRanch.getIngredients().add(pain);
+        allGraineDeSesame.getProduits().add(proBigMac);
+        allGraineDeSesame.getProduits().add(proPoissonRanch);
+        allGraineDeSesame.getProduits().add(proPouletRanch);
+        allGraineDeSesame.getProduits().add(proBoeufRanch);
+        allGraineDeSesame.getProduits().add(proSummer);
+        allGraineDeSesame.getProduits().add(proNewYorkCaesar);
+        allGraineDeSesame.getProduits().add(proManhattanVeggie);
+        allGraineDeSesame.getProduits().add(proManhattanPouletCroustillant);
+        allGraineDeSesame.getProduits().add(proSignature280OriginalBeef);
+        allGraineDeSesame.getProduits().add(proDoubleBlueCheese);
+        allGraineDeSesame.getProduits().add(proBeefBbq);
+        allGraineDeSesame.getProduits().add(proChickenBbq);
+        allGraineDeSesame.getProduits().add(proRoyalDeLuxe);
+        allGraineDeSesame.getProduits().add(proMcFish);
+        allGraineDeSesame.getProduits().add(proCroqueMcDo);
+        allGraineDeSesame.getProduits().add(proHamburger);
+        allGraineDeSesame.getProduits().add(proCheeseBurger);
 
-        proPoissonRanch.getItemARetires().add(itaeFrommage);
-        proPoissonRanch.getItemARetires().add(itaeSalade);
-        proPoissonRanch.getItemARetires().add(itaeTomate);
-        proPoissonRanch.getItemARetires().add(itaePoisson);
+        allArachide.getProduits().add(proManhattanPouletFrit);
+        allArachide.getProduits().add(proManhattanPouletCroustillant);
 
-        proPouletRanch.getAllergenes().add(allGluten);
-        proPouletRanch.getAllergenes().add(allCeleri);
-        proPouletRanch.getAllergenes().add(allAnhydride);
-        proPouletRanch.getAllergenes().add(allGraineDeSesame);
-        proPouletRanch.getAllergenes().add(allLait);
-        proPouletRanch.getAllergenes().add(allMoutarde);
-        proPouletRanch.getAllergenes().add(allOeufs);
+        allCeleri.getProduits().add(proPouletRanch);
+        allCeleri.getProduits().add(proChickenMcNuggets4);
+        allCeleri.getProduits().add(proChickenMcNuggets6);
+        allCeleri.getProduits().add(proChickenMcNuggets9);
+        allCeleri.getProduits().add(proChickenMcNuggets20);
+        allCeleri.getProduits().add(proSummer);
+        allCeleri.getProduits().add(proManhattanVeggie);
+        allCeleri.getProduits().add(proManhattan);
+        allCeleri.getProduits().add(proManhattanPouletCroustillant);
+        allCeleri.getProduits().add(proChickenBbq);
+        allCeleri.getProduits().add(proMcWrap);
+        allCeleri.getProduits().add(proMcFish);
 
-        proPouletRanch.getIngredients().add(pain);
+        allCrustaces.getProduits().add(proMcFish);
 
-        proPouletRanch.getItemARetires().add(itaeFrommage);
-        proPouletRanch.getItemARetires().add(itaeSalade);
-        proPouletRanch.getItemARetires().add(itaeOignon);
-        proPouletRanch.getItemARetires().add(itaeCornichon);
-        proPouletRanch.getItemARetires().add(itaePoulet);
+        allFruitsACoques.getProduits().add(proNewYorkCaesar);
+        allFruitsACoques.getProduits().add(proManhattanPouletFrit);
+        allFruitsACoques.getProduits().add(proManhattanPouletCroustillant);
 
-        proBoeufRanch.getAllergenes().add(allGluten);
-        proBoeufRanch.getAllergenes().add(allAnhydride);
-        proBoeufRanch.getAllergenes().add(allGraineDeSesame);
-        proBoeufRanch.getAllergenes().add(allLait);
-        proBoeufRanch.getAllergenes().add(allMoutarde);
-        proBoeufRanch.getAllergenes().add(allOeufs);
+        allLait.getProduits().add(proBigMac);
+        allLait.getProduits().add(proPoissonRanch);
+        allLait.getProduits().add(proPouletRanch);
+        allLait.getProduits().add(proBoeufRanch);
+        allLait.getProduits().add(proChickenMcNuggets4);
+        allLait.getProduits().add(proChickenMcNuggets6);
+        allLait.getProduits().add(proChickenMcNuggets9);
+        allLait.getProduits().add(proChickenMcNuggets20);
+        allLait.getProduits().add(proSummer);
+        allLait.getProduits().add(proNewYorkCaesar);
+        allLait.getProduits().add(proManhattanPouletFrit);
+        allLait.getProduits().add(proManhattanVeggie);
+        allLait.getProduits().add(proManhattan);
+        allLait.getProduits().add(proSignature280OriginalBeef);
+        allLait.getProduits().add(proDoubleBlueCheese);
+        allLait.getProduits().add(proBeefBbq);
+        allLait.getProduits().add(proChickenBbq);
+        allLait.getProduits().add(proRoyalDeLuxe);
+        allLait.getProduits().add(proMcWrap);
+        allLait.getProduits().add(proMcFish);
+        allLait.getProduits().add(proCroqueMcDo);
+        allLait.getProduits().add(proHamburger);
+        allLait.getProduits().add(proCheeseBurger);
 
-        proBoeufRanch.getIngredients().add(pain);
+        allMoutarde.getProduits().add(proBigMac);
+        allMoutarde.getProduits().add(proPouletRanch);
+        allMoutarde.getProduits().add(proBoeufRanch);
+        allMoutarde.getProduits().add(proChickenMcNuggets4);
+        allMoutarde.getProduits().add(proChickenMcNuggets6);
+        allMoutarde.getProduits().add(proChickenMcNuggets9);
+        allMoutarde.getProduits().add(proChickenMcNuggets20);
+        allMoutarde.getProduits().add(proSummer);
+        allMoutarde.getProduits().add(proNewYorkCaesar);
+        allMoutarde.getProduits().add(proManhattanPouletFrit);
+        allMoutarde.getProduits().add(proManhattanVeggie);
+        allMoutarde.getProduits().add(proManhattan);
+        allMoutarde.getProduits().add(proManhattanPouletCroustillant);
+        allMoutarde.getProduits().add(proSignature280OriginalBeef);
+        allMoutarde.getProduits().add(proChickenBbq);
+        allMoutarde.getProduits().add(proRoyalDeLuxe);
+        allMoutarde.getProduits().add(proMcWrap);
+        allMoutarde.getProduits().add(proHamburger);
+        allMoutarde.getProduits().add(proCheeseBurger);
+        
+        allOeufs.getProduits().add(proBigMac);
+        allOeufs.getProduits().add(proPoissonRanch);
+        allOeufs.getProduits().add(proPouletRanch);
+        allOeufs.getProduits().add(proBoeufRanch);
+        allOeufs.getProduits().add(proChickenMcNuggets4);
+        allOeufs.getProduits().add(proChickenMcNuggets6);
+        allOeufs.getProduits().add(proChickenMcNuggets9);
+        allOeufs.getProduits().add(proChickenMcNuggets20);
+        allOeufs.getProduits().add(proSummer);
+        allOeufs.getProduits().add(proNewYorkCaesar);
+        allOeufs.getProduits().add(proManhattanPouletFrit);
+        allOeufs.getProduits().add(proManhattanVeggie);
+        allOeufs.getProduits().add(proManhattan);
+        allOeufs.getProduits().add(proManhattanPouletCroustillant);
+        allOeufs.getProduits().add(proSignature280OriginalBeef);
+        allOeufs.getProduits().add(proDoubleBlueCheese);
+        allOeufs.getProduits().add(proBeefBbq);
+        allOeufs.getProduits().add(proChickenBbq);
+        allOeufs.getProduits().add(proRoyalDeLuxe);
+        allOeufs.getProduits().add(proMcWrap);
+       
+        allPoissons.getProduits().add(proPoissonRanch);
+        allPoissons.getProduits().add(proNewYorkCaesar);
+        allPoissons.getProduits().add(proMcFish);
 
-        proBoeufRanch.getItemARetires().add(itaeSteak);
-        proBoeufRanch.getItemARetires().add(itaeSalade);
-        proBoeufRanch.getItemARetires().add(itaeFrommage);
-        proBoeufRanch.getItemARetires().add(itaeOignon);
-        proBoeufRanch.getItemARetires().add(itaeTomate);
+        allSoja.getProduits().add(proSummer);
+        allSoja.getProduits().add(proNewYorkCaesar);
+        allSoja.getProduits().add(proManhattanVeggie);
+        allSoja.getProduits().add(proManhattan);
+        allSoja.getProduits().add(proBeefBbq);
+        allSoja.getProduits().add(proChickenBbq);
+        allSoja.getProduits().add(proMcWrap);
+        
+        //***********association ItemARetires vers produit
 
-        proChickenMcNuggets4.getAllergenes().add(allGluten);
-        proChickenMcNuggets4.getAllergenes().add(allCeleri);
-        proChickenMcNuggets4.getAllergenes().add(allLait);
-        proChickenMcNuggets4.getAllergenes().add(allMoutarde);
-        proChickenMcNuggets4.getAllergenes().add(allOeufs);
+        itaeSteak.getProduits().add(proBigMac);
+        itaeSteak.getProduits().add(proBoeufRanch);
+        itaeSteak.getProduits().add(proSignature280OriginalBeef);
+        itaeSteak.getProduits().add(proDoubleBlueCheese);
+        itaeSteak.getProduits().add(proBeefBbq);
+        itaeSteak.getProduits().add(proRoyalDeLuxe);
+        itaeSteak.getProduits().add(proHamburger);
+        itaeSteak.getProduits().add(proCheeseBurger);
+        
+        itaeFrommage.getProduits().add(proBigMac);
+        itaeFrommage.getProduits().add(proPoissonRanch);
+        itaeFrommage.getProduits().add(proPouletRanch);
+        itaeFrommage.getProduits().add(proBoeufRanch);
+        itaeFrommage.getProduits().add(proSignature280OriginalBeef);
+        itaeFrommage.getProduits().add(proDoubleBlueCheese);
+        itaeFrommage.getProduits().add(proBeefBbq);
+        itaeFrommage.getProduits().add(proChickenBbq);
+        itaeFrommage.getProduits().add(proRoyalDeLuxe);
+        itaeFrommage.getProduits().add(proMcWrap);
+        itaeFrommage.getProduits().add(proCroqueMcDo);
+        itaeFrommage.getProduits().add(proCheeseBurger);
+        
+        itaeSalade.getProduits().add(proBigMac);
+        itaeSalade.getProduits().add(proPoissonRanch);
+        itaeSalade.getProduits().add(proPouletRanch);
+        itaeSalade.getProduits().add(proBoeufRanch);
+        itaeSalade.getProduits().add(proSignature280OriginalBeef);
+        itaeSalade.getProduits().add(proChickenBbq);
+        itaeSalade.getProduits().add(proBeefBbq);
+        itaeSalade.getProduits().add(proRoyalDeLuxe);
+        itaeSalade.getProduits().add(proMcWrap);
 
-        proChickenMcNuggets6.getAllergenes().add(allGluten);
-        proChickenMcNuggets6.getAllergenes().add(allCeleri);
-        proChickenMcNuggets6.getAllergenes().add(allLait);
-        proChickenMcNuggets6.getAllergenes().add(allMoutarde);
-        proChickenMcNuggets6.getAllergenes().add(allOeufs);
+        itaeOignon.getProduits().add(proBigMac);
+        itaeOignon.getProduits().add(proPouletRanch);
+        itaeOignon.getProduits().add(proBoeufRanch);
+        itaeOignon.getProduits().add(proSignature280OriginalBeef);
+        itaeOignon.getProduits().add(proDoubleBlueCheese);
+        itaeOignon.getProduits().add(proBeefBbq);
+        itaeOignon.getProduits().add(proChickenBbq);
+        itaeOignon.getProduits().add(proRoyalDeLuxe);
+        itaeOignon.getProduits().add(proMcWrap);
+        itaeOignon.getProduits().add(proHamburger);
+        itaeOignon.getProduits().add(proCheeseBurger);
 
-        proChickenMcNuggets9.getAllergenes().add(allGluten);
-        proChickenMcNuggets9.getAllergenes().add(allCeleri);
-        proChickenMcNuggets9.getAllergenes().add(allLait);
-        proChickenMcNuggets9.getAllergenes().add(allMoutarde);
-        proChickenMcNuggets9.getAllergenes().add(allOeufs);
+        itaeCornichon.getProduits().add(proBigMac);
+        itaeCornichon.getProduits().add(proPouletRanch);
+        itaeCornichon.getProduits().add(proSignature280OriginalBeef);
+        itaeCornichon.getProduits().add(proHamburger);
+        itaeCornichon.getProduits().add(proCheeseBurger);
 
-        proChickenMcNuggets20.getAllergenes().add(allGluten);
-        proChickenMcNuggets20.getAllergenes().add(allCeleri);
-        proChickenMcNuggets20.getAllergenes().add(allLait);
-        proChickenMcNuggets20.getAllergenes().add(allMoutarde);
-        proChickenMcNuggets20.getAllergenes().add(allOeufs);
+        itaeTomate.getProduits().add(proPoissonRanch);
+        itaeTomate.getProduits().add(proBoeufRanch);
+        itaeTomate.getProduits().add(proRoyalDeLuxe);
+        itaeTomate.getProduits().add(proMcWrap);
 
-        proSummer.getAllergenes().add(allAnhydride);
-        proSummer.getAllergenes().add(allCeleri);
-        proSummer.getAllergenes().add(allGluten);
-        proSummer.getAllergenes().add(allGraineDeSesame);
-        proSummer.getAllergenes().add(allLait);
-        proSummer.getAllergenes().add(allMoutarde);
-        proSummer.getAllergenes().add(allOeufs);
-        proSummer.getAllergenes().add(allSoja);
+        itaePoisson.getProduits().add(proPoissonRanch);
+        itaePoisson.getProduits().add(proMcFish);
+        
+        itaePoulet.getProduits().add(proPouletRanch);
+        itaePoulet.getProduits().add(proChickenBbq);
 
-        proNewYorkCaesar.getAllergenes().add(allAnhydride);
-        proNewYorkCaesar.getAllergenes().add(allFruitsACoques);
-        proNewYorkCaesar.getAllergenes().add(allGluten);
-        proNewYorkCaesar.getAllergenes().add(allGraineDeSesame);
-        proNewYorkCaesar.getAllergenes().add(allLait);
-        proNewYorkCaesar.getAllergenes().add(allMoutarde);
-        proNewYorkCaesar.getAllergenes().add(allOeufs);
-        proNewYorkCaesar.getAllergenes().add(allPoissons);
-        proNewYorkCaesar.getAllergenes().add(allSoja);
-
-        proManhattanPouletFrit.getAllergenes().add(allArachide);
-        proManhattanPouletFrit.getAllergenes().add(allFruitsACoques);
-        proManhattanPouletFrit.getAllergenes().add(allLait);
-        proManhattanPouletFrit.getAllergenes().add(allMoutarde);
-        proManhattanPouletFrit.getAllergenes().add(allOeufs);
-
-        proManhattanVeggie.getAllergenes().add(allAnhydride);
-        proManhattanVeggie.getAllergenes().add(allCeleri);
-        proManhattanVeggie.getAllergenes().add(allGluten);
-        proManhattanVeggie.getAllergenes().add(allGraineDeSesame);
-        proManhattanVeggie.getAllergenes().add(allLait);
-        proManhattanVeggie.getAllergenes().add(allMoutarde);
-        proManhattanVeggie.getAllergenes().add(allOeufs);
-        proManhattanVeggie.getAllergenes().add(allSoja);
-
-        proManhattan.getAllergenes().add(allCeleri);
-        proManhattan.getAllergenes().add(allGluten);
-        proManhattan.getAllergenes().add(allLait);
-        proManhattan.getAllergenes().add(allMoutarde);
-        proManhattan.getAllergenes().add(allOeufs);
-        proManhattan.getAllergenes().add(allSoja);
-
-        proManhattanPouletCroustillant.getAllergenes().add(allArachide);
-        proManhattanPouletCroustillant.getAllergenes().add(allCeleri);
-        proManhattanPouletCroustillant.getAllergenes().add(allFruitsACoques);
-        proManhattanPouletCroustillant.getAllergenes().add(allGluten);
-        proManhattanPouletCroustillant.getAllergenes().add(allGraineDeSesame);
-        proManhattanPouletCroustillant.getAllergenes().add(allMoutarde);
-        proManhattanPouletCroustillant.getAllergenes().add(allOeufs);
-
-        proSignature280OriginalBeef.getAllergenes().add(allGluten);
-        proSignature280OriginalBeef.getAllergenes().add(allAnhydride);
-        proSignature280OriginalBeef.getAllergenes().add(allGraineDeSesame);
-        proSignature280OriginalBeef.getAllergenes().add(allLait);
-        proSignature280OriginalBeef.getAllergenes().add(allMoutarde);
-        proSignature280OriginalBeef.getAllergenes().add(allOeufs);
-
-        proSignature280OriginalBeef.getIngredients().add(pain);
-
-        proSignature280OriginalBeef.getItemARetires().add(itaeSteak);
-        proSignature280OriginalBeef.getItemARetires().add(itaeFrommage);
-        proSignature280OriginalBeef.getItemARetires().add(itaeSalade);
-        proSignature280OriginalBeef.getItemARetires().add(itaeOignon);
-        proSignature280OriginalBeef.getItemARetires().add(itaeCornichon);
-
-        proDoubleBlueCheese.getAllergenes().add(allGluten);
-        proDoubleBlueCheese.getAllergenes().add(allGraineDeSesame);
-        proDoubleBlueCheese.getAllergenes().add(allLait);
-        proDoubleBlueCheese.getAllergenes().add(allOeufs);
-
-        proDoubleBlueCheese.getIngredients().add(pain);
-
-        proDoubleBlueCheese.getItemARetires().add(itaeSteak);
-        proDoubleBlueCheese.getItemARetires().add(itaeFrommage);
-        proDoubleBlueCheese.getItemARetires().add(itaeOignon);
-        proDoubleBlueCheese.getItemARetires().add(itaeBacon);
-
-        proBeefBbq.getAllergenes().add(allGluten);
-        proBeefBbq.getAllergenes().add(allGraineDeSesame);
-        proBeefBbq.getAllergenes().add(allLait);
-        proBeefBbq.getAllergenes().add(allOeufs);
-        proBeefBbq.getAllergenes().add(allSoja);
-
-        proBeefBbq.getIngredients().add(pain);
-
-        proBeefBbq.getItemARetires().add(itaeSteak);
-        proBeefBbq.getItemARetires().add(itaeFrommage);
-        proBeefBbq.getItemARetires().add(itaeOignon);
-        proBeefBbq.getItemARetires().add(itaeBacon);
-
-        proChickenBbq.getAllergenes().add(allCeleri);
-        proChickenBbq.getAllergenes().add(allGluten);
-        proChickenBbq.getAllergenes().add(allGraineDeSesame);
-        proChickenBbq.getAllergenes().add(allLait);
-        proChickenBbq.getAllergenes().add(allMoutarde);
-        proChickenBbq.getAllergenes().add(allOeufs);
-        proChickenBbq.getAllergenes().add(allSoja);
-
-        proChickenBbq.getIngredients().add(pain);
-
-        proChickenBbq.getItemARetires().add(itaePoulet);
-        proChickenBbq.getItemARetires().add(itaeFrommage);
-        proChickenBbq.getItemARetires().add(itaeSalade);
-        proChickenBbq.getItemARetires().add(itaeOignon);
-
-        proRoyalDeLuxe.getAllergenes().add(allGluten);
-        proRoyalDeLuxe.getAllergenes().add(allGraineDeSesame);
-        proRoyalDeLuxe.getAllergenes().add(allLait);
-        proRoyalDeLuxe.getAllergenes().add(allMoutarde);
-        proRoyalDeLuxe.getAllergenes().add(allOeufs);
-
-        proRoyalDeLuxe.getIngredients().add(pain);
-
-        proRoyalDeLuxe.getItemARetires().add(itaeSteak);
-        proRoyalDeLuxe.getItemARetires().add(itaeFrommage);
-        proRoyalDeLuxe.getItemARetires().add(itaeSalade);
-        proRoyalDeLuxe.getItemARetires().add(itaeOignon);
-        proRoyalDeLuxe.getItemARetires().add(itaeTomate);
-
-        proMcWrap.getAllergenes().add(allCeleri);
-        proMcWrap.getAllergenes().add(allGluten);
-        proMcWrap.getAllergenes().add(allLait);
-        proMcWrap.getAllergenes().add(allMoutarde);
-        proMcWrap.getAllergenes().add(allOeufs);
-        proMcWrap.getAllergenes().add(allSoja);
-
-        proMcWrap.getItemARetires().add(itaeFrommage);
-        proMcWrap.getItemARetires().add(itaeSalade);
-        proMcWrap.getItemARetires().add(itaeOignon);
-        proMcWrap.getItemARetires().add(itaeTomate);
-
-        proMcFish.getAllergenes().add(allCeleri);
-        proMcFish.getAllergenes().add(allCrustaces);
-        proMcFish.getAllergenes().add(allGluten);
-        proMcFish.getAllergenes().add(allGraineDeSesame);
-        proMcFish.getAllergenes().add(allLait);
-        proMcFish.getAllergenes().add(allPoissons);
-        proMcFish.getAllergenes().add(allSoja);
-
-        proMcFish.getIngredients().add(pain);
-
-        proMcFish.getItemARetires().add(itaePoisson);
-
-        proCroqueMcDo.getAllergenes().add(allGluten);
-        proCroqueMcDo.getAllergenes().add(allGraineDeSesame);
-        proCroqueMcDo.getAllergenes().add(allLait);
-
-        proCroqueMcDo.getIngredients().add(pain);
-
-        proCroqueMcDo.getItemARetires().add(itaeFrommage);
-        proCroqueMcDo.getItemARetires().add(itaeJambon);
-
-        proHamburger.getAllergenes().add(allAnhydride);
-        proHamburger.getAllergenes().add(allGluten);
-        proHamburger.getAllergenes().add(allGraineDeSesame);
-        proHamburger.getAllergenes().add(allLait);
-        proHamburger.getAllergenes().add(allMoutarde);
-
-        proHamburger.getIngredients().add(pain);
-
-        proHamburger.getItemARetires().add(itaeSteak);
-        proHamburger.getItemARetires().add(itaeOignon);
-        proHamburger.getItemARetires().add(itaeCornichon);
-
-        proCheeseBurger.getAllergenes().add(allAnhydride);
-        proCheeseBurger.getAllergenes().add(allGluten);
-        proCheeseBurger.getAllergenes().add(allGraineDeSesame);
-        proCheeseBurger.getAllergenes().add(allLait);
-        proCheeseBurger.getAllergenes().add(allMoutarde);
-
-        proCheeseBurger.getIngredients().add(pain);
-
-        proCheeseBurger.getItemARetires().add(itaeSteak);
-        proCheeseBurger.getItemARetires().add(itaeOignon);
-        proCheeseBurger.getItemARetires().add(itaeCornichon);
-        proCheeseBurger.getItemARetires().add(itaeFrommage);
+        itaeBacon.getProduits().add(proDoubleBlueCheese);
+        itaeBacon.getProduits().add(proBeefBbq);
+        
+        itaeJambon.getProduits().add(proCroqueMcDo);
+       
 // ----------------------------------- Alexandre -------------------------------
         //Associations
         menBigMac.getTypes().add(typPrincipal);
@@ -578,18 +561,20 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         menSignature.getTypes().add(typAccompagnement);
         menSignature.getTypes().add(typBoisson);
         menSignature.getTypes().add(typPrincipal);
-        
-        
-        /***************************************************************************************/
-        /***************************************************************************************/
+
+        /**
+         * ************************************************************************************
+         */
+        /**
+         * ************************************************************************************
+         */
         //**************************** PERSIST *********************************
-        
 // -------------------------------- Thierry ------------------------------------
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
         em.persist(itARaNappageAbricot);
         // ********* Les Produits *********
-        em.persist(pain);
+        em.persist(ingPain);
         em.persist(proBigMac);
         em.persist(proPoissonRanch);
         em.persist(proPouletRanch);
@@ -635,8 +620,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proFanta25);
         em.persist(proFanta40);
         em.persist(proFanta50);
-        
-        
 
 // ----------------------------------- Edem ------------------------------------
         // ********* Les ItemsARetirer *********
@@ -748,7 +731,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(allPoissons);
         em.persist(allSoja);
         //******************
-        em.persist(pain);
+        em.persist(ingPain);
 
 // ----------------------------------- Momo ------------------------------------
 // ----------------------------------- Alexandre Persist-------------------------------
