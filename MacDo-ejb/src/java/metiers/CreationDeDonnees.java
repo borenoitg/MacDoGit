@@ -2,17 +2,20 @@ package metiers;
 
 import entites.Abonne;
 import entites.Allergene;
+import entites.Commande;
 import entites.Ingredient;
 import entites.ItemARajoute;
 import entites.ItemARetire;
+import entites.LigneDeCommande;
 import entites.Menu;
 import entites.Produit;
-import entites.Promotion;
+import entites.SousLigneDeCommande;
 import entites.SousType;
 import entites.Statut;
 import entites.Tva;
 import entites.Type;
-import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
@@ -37,6 +40,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0.2F);
         ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
         ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0.2F);
+        ItemARajoute i = new ItemARajoute();
 
         // ********* Les Produits *********
         Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
@@ -212,7 +216,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Allergene allPoissons = new Allergene("Poissons");
         Allergene allSoja = new Allergene("Soja");
 
-// ----------------------------------- Momo ------------------------------------
 // ----------------------------------- Alexandre -------------------------------
         //Creation des objets
         Menu menHappyMeal = new Menu("Menu HappyMeal", 5.50F);
@@ -222,6 +225,118 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Menu menChickMacNug = new Menu("Menu ChickenMcNuggets", 7.50F);
         Menu menPtitDej = new Menu("Menu P'tit f", 7.30F);
         Menu menSignature = new Menu("Menu GrandChickenClassic", 8.30F);
+// ----------------------------------- Momo ------------------------------------
+ //Creation des objets
+        
+        //satut
+        Statut staDisponible = new Statut(1L,"disponible");
+        
+        Statut staEpuise = new Statut(2L,"epuisé");
+        Statut staQuaniteLimte = new Statut(3L,"quantité limité");
+        Statut staNouveau = new Statut(4L,"nouveau");
+        Statut staReaprovisionnement = new Statut(5L,"en réapprovisionnement");
+        Statut statAnnuler = new Statut(6L,"Annuler");
+        Statut staValider = new Statut(7L,"Valider");
+        Statut staEnPreparation = new Statut(8L,"en préparation");
+        Statut staPayerAccepter = new Statut(10L,"paiment accepté");
+        Statut staPayerRefuser = new Statut(11L,"paiment refusé");
+        Statut staEnAttente = new Statut(12L,"En attente");
+        Statut staAllergene = new Statut(13L,"Allergene");
+        Statut staCompteAbonne = new Statut(14L,"Compte valide");
+        Statut staIndisponible = new Statut(15L,"indisponible");
+        
+        //ligne de commande
+        LigneDeCommande ligMenuHappyMeal = new LigneDeCommande(20f,1,5.5f);
+        LigneDeCommande ligBigMac = new LigneDeCommande(20f,1,4.3f);
+        
+        LigneDeCommande ligBigMac1 = new LigneDeCommande(20f,1,4.3f);
+//        LigneDeCommande ligMenuBigMacMaxi = new LigneDeCommande(20f,2,8f);
+//        LigneDeCommande ligMenuSalade = new LigneDeCommande(20f,1,6.5f);
+//        LigneDeCommande ligMenuPetitDej = new LigneDeCommande(20f,1,7.3f);
+//        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
+//        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
+        
+       
+        
+        //sousligne de commande
+        SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
+        SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
+        SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
+        
+        
+        
+        
+        //commande
+        Date d = new GregorianCalendar(2018,2,15).getTime();
+        Commande co1 = new Commande(d,true);
+        
+        Commande co2 = new Commande(d,true);
+        
+        
+        
+        
+        
+         
+        
+        
+        //Associations
+        ligMenuHappyMeal.setMenu(menHappyMeal);
+        ligBigMac.setProduit(proBigMac);
+        ligBigMac1.setProduit(proBigMac);
+        
+        souLigne1.setLigneCommande(ligMenuHappyMeal);
+        souLigne1.setCommande(co1);
+        proMcFish.setSousLigneDeCommande(souLigne1);
+        proCocaCola25.setSousLigneDeCommande(souLigne1);
+        proPetiteFrite.setSousLigneDeCommande(souLigne1);
+        proSundaeCaramel.setSousLigneDeCommande(souLigne1);
+        
+        
+        itaeSalade.setSousLigneDeCommande(souLigne1);
+        itARaNappageAbricot.setSousLigneDeCommande(souLigne1);
+        
+        
+//        proBigMac.setSousLigneDeCommande(souLigne1);
+        co1.setStatut(staEnPreparation);
+//        System.out.println(" souligne1 "+souLigne1.getProduits().size());
+        
+        
+        souLigne2.setLigneCommande(ligBigMac);
+        souLigne2.setCommande(co1);
+        proBigMac.setSousLigneDeCommande(souLigne2);
+//      
+       
+  
+        
+        
+        //Persist
+        //statut
+        em.persist(staAllergene);
+        em.persist(staCompteAbonne);
+        em.persist(staDisponible);
+        em.persist(staEnAttente);
+        em.persist(staEnPreparation);
+        em.persist(staEpuise);
+        em.persist(staIndisponible);
+        em.persist(staIndisponible);
+        em.persist(staNouveau);
+        em.persist(staPayerAccepter);
+        em.persist(staPayerRefuser);
+        em.persist(staQuaniteLimte);
+        em.persist(staReaprovisionnement);
+        em.persist(staValider);
+        em.persist(statAnnuler);
+        
+     
+        em.persist(ligMenuHappyMeal);
+//        ;
+        em.persist(ligBigMac);
+//     
+       em.persist(souLigne1);
+       em.persist(souLigne2);
+       em.persist(co1);
+//        System.out.println(" souligne1 "+souLigne1.getProduits().size());
+
 //
 
 //        Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
