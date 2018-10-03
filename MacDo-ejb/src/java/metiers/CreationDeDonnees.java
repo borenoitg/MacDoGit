@@ -660,7 +660,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         //****************association soustype vers Produit 
     
         
-// 
         /**
          * ************************************************************************************
          */
