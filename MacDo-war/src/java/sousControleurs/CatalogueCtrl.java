@@ -14,7 +14,6 @@ import metiers.CatalogueLocal;
 
 public class CatalogueCtrl implements SousControleurInterface, Serializable {
 
-
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
@@ -22,7 +21,8 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         List<Produit> produits = catalogue.listeProduit();
         request.setAttribute("catalogue", produits);
 
-        return "/WEB-INF/Acceuil.jsp";
+        return "/WEB-INF/Home.jsp";
+//        return "/WEB-INF/home2.jsp";
 
     }
 

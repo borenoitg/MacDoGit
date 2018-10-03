@@ -272,7 +272,7 @@ public class Produit implements Serializable {
         this.sousLigneDeCommandes = sousLigneDeCommandes;
     }
 
-   
+    
 
     public Collection<ItemARajoute> getItemARajoutes() {
         return itemARajoutes;

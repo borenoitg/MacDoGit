@@ -30,8 +30,7 @@ public class Allergene implements Serializable {
     private String description;
 
     //------ gestion des associations ------
-    @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
-
+    @ManyToMany
     private Collection<Produit> produits;
     
 //-------------------------------- Constructeur --------------------------------    

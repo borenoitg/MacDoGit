@@ -27,8 +27,11 @@ public class CreationDeDonneesCtrl implements SousControleurInterface, Serializa
         CatalogueLocal catalogue = lookupCatalogueLocal();       
         List<Produit> produits = catalogue.listeProduit();
         request.setAttribute("catalogue", produits);
+        
+        request.setAttribute("menu", "createdata");
 
-        return "/WEB-INF/Acceuil.jsp";
+        return "/WEB-INF/Home.jsp";
+//        return "/WEB-INF/home2.jsp";
     }
 
     private CreationDeDonneesLocal lookupCreationDeDonneesLocal() {
