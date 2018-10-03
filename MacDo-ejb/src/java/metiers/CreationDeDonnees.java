@@ -663,7 +663,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         typCadeauEnfant.getMenus().add(menHappyMeal);
 
         //****************association soustype vers Produit
-        proSignature280OriginalBeef.setSoustype(souNouveaute);
         proBeefBbq.setSoustype(souBurger);
         proBigMac.setSoustype(souBurger);
         proBoeufRanch.setSoustype(souBurger);
