@@ -194,8 +194,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Type typDessert = new Type("Dessert", "./Images/NosDesserts.png");
         Type typSauce = new Type("Sauce", "./Images/NosFrites&Sauces.png");
         Type typCadeauEnfant = new Type("Cadeau Enfant", "./Images/");
-        
-        
+
         //********* Les abonnés *********
         Abonne aboNourdine = new Abonne("nourdine@nourdine.com", "BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
         Abonne aboThierry = new Abonne("thierry@thierry.com", "MARTINEZ", 5, "Thierry", "thierry@thierry.com");
@@ -221,16 +220,16 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
 // ----------------------------------- Alexandre -------------------------------
         //Creation des objets
-        Menu menHappyMeal = new Menu("Menu HappyMeal", 5.50F);
-        Menu menBigMac = new Menu("Menu BigMac", 8.90f);
-        Menu menBigMacMaxi = new Menu("Menu BigMac Maxi Best Of", 8.00F);
-        Menu menSalade = new Menu("Menu Salade", 6.50F);
-        Menu menChickMacNug = new Menu("Menu ChickenMcNuggets", 7.50F);
-        Menu menPtitDej = new Menu("Menu P'tit f", 7.30F);
-        Menu menSignature = new Menu("Menu GrandChickenClassic", 8.30F);
+        Menu menHappyMeal = new Menu("Menu HappyMeal", "Best", "./Images/", 5.50F);
+        Menu menBigMacBest = new Menu("Menu BigMac", "Best", "./Images/", 8.90f);
+        Menu menBigMacMaxiBest = new Menu("Menu BigMac Maxi Best Of", "Maxi", "./Images/", 8.00F);
+        Menu menSalade = new Menu("Menu Salade", "Normal", "./Images/", 6.50F);
+        Menu menChickMacNugx6 = new Menu("Menu ChickenMcNuggets", "x6", "./Images/", 7.50F);
+        Menu menPtitDej = new Menu("Menu P'tit Déj", "Normal", "./Images/", 7.30F);
+        Menu menSignatureBest = new Menu("Menu Signature 280", "Best", "./Images/", 8.30F);
+// ----------------------------------- Momo ------------------------------------
+        //Creation des objets
 
-        //-------------- Momo ------------------------------------
-    //Creation des objets
         //statut
         Statut staDisponible = new Statut(1L, "disponible");
         Statut staEpuise = new Statut(2L, "epuisé");
@@ -652,11 +651,15 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         typAccompagnement.getMenus().add(menSalade);
         typAccompagnement.getMenus().add(menSignatureBest);
 
-        
-       
-        typSauce.getMenus().add(menChickMacNugx6);
+        typAccompagnement.getMenus().add(menBigMacBest);
+        typAccompagnement.getMenus().add(menBigMacMaxiBest);
+        typAccompagnement.getMenus().add(menChickMacNugx6);
+        typAccompagnement.getMenus().add(menHappyMeal);
+        typAccompagnement.getMenus().add(menPtitDej);
+        typAccompagnement.getMenus().add(menSalade);
+        typAccompagnement.getMenus().add(menSignatureBest);
 
-        typDessert.getMenus().add(menHappyMeal);
+        typSauce.getMenus().add(menChickMacNugx6);
 
         typCadeauEnfant.getMenus().add(menHappyMeal);
 
@@ -687,6 +690,117 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proNewYorkCaesar.setSoustype(souSalade);
         proSummer.setSoustype(souSalade);
         proPtiteSalade.setSoustype(souSalade);
+
+        //****************association soustype vers Produit 
+    
+        
+//        souBurger.getProduits().add(proBeefBbq);
+//        souBurger.getProduits().add(proBigMac);
+//        souBurger.getProduits().add(proBoeufRanch);
+//        souBurger.getProduits().add(proCheeseBurger);
+//        souBurger.getProduits().add(proChickenBbq);
+//        souBurger.getProduits().add(proChickenMcNuggets20);
+//        souBurger.getProduits().add(proChickenMcNuggets9);
+//        souBurger.getProduits().add(proChickenMcNuggets6);
+//        souBurger.getProduits().add(proChickenMcNuggets4);
+//        souBurger.getProduits().add(proCroqueMcDo);
+//        souBurger.getProduits().add(proDoubleBlueCheese);
+//        souBurger.getProduits().add(proHamburger);
+//        souBurger.getProduits().add(proMcFish);
+//        souBurger.getProduits().add(proMcWrap);
+//        souBurger.getProduits().add(proPoissonRanch);
+//        souBurger.getProduits().add(proPouletRanch);
+//        souBurger.getProduits().add(proRoyalDeLuxe);
+//        souBurger.getProduits().add(proSignature280OriginalBeef);
+//
+//        souSalade.getProduits().add(proManhattan);
+//        souSalade.getProduits().add(proManhattanPouletCroustillant);
+//        souSalade.getProduits().add(proManhattanPouletFrit);
+//        souSalade.getProduits().add(proManhattanVeggie);
+//        souSalade.getProduits().add(proNewYorkCaesar);
+//        souSalade.getProduits().add(proSummer);
+//        souSalade.getProduits().add(proPtiteSalade);
+//
+//        souFroide.getProduits().add(proBadoit33);
+//        souFroide.getProduits().add(proBadoit50);
+//        souFroide.getProduits().add(proCocaCola25);
+//        souFroide.getProduits().add(proCocaCola40);
+//        souFroide.getProduits().add(proCocaCola50);
+//        souFroide.getProduits().add(proCocaColaLight25);
+//        souFroide.getProduits().add(proCocaColaLight40);
+//        souFroide.getProduits().add(proCocaColaLight50);
+//        souFroide.getProduits().add(proCocaColaZéro25);
+//        souFroide.getProduits().add(proCocaColaZéro40);
+//        souFroide.getProduits().add(proCocaColaZéro50);
+//        souFroide.getProduits().add(proEvian33);
+//        souFroide.getProduits().add(proEvian50);
+//        souFroide.getProduits().add(proFanta25);
+//        souFroide.getProduits().add(proFanta40);
+//        souFroide.getProduits().add(proFanta50);
+//        souFroide.getProduits().add(proLiptonIceTea25);
+//        souFroide.getProduits().add(proMinuteMaid20);
+//        souFroide.getProduits().add(proSpriteZero25);
+//        souFroide.getProduits().add(proSpriteZero40);
+//        souFroide.getProduits().add(proSpriteZero50);
+//        
+
+//        souChaude.getProduits().add(proCappuccinDaimoGrand);
+//        souChaude.getProduits().add(proCappuccino);
+//        souChaude.getProduits().add(proCappuccinoDaim);
+//        souChaude.getProduits().add(proCappuccinoGrand);
+//        souChaude.getProduits().add(proChocolatChaud);
+//        souChaude.getProduits().add(proDoubleLatte);
+//        souChaude.getProduits().add(proExpresso);
+//        souChaude.getProduits().add(proGrandCafe);
+//        souChaude.getProduits().add(proGrandCafeGrand);
+//        souChaude.getProduits().add(proLatteMacchiato);
+//        souChaude.getProduits().add(proNoisette);
+//        souChaude.getProduits().add(proTheGrey);
+//        souChaude.getProduits().add(proTheGreyGrand);
+//        souChaude.getProduits().add(proTheRouge);
+//        souChaude.getProduits().add(proTheVert);
+//        souChaude.getProduits().add(proTheVertGrand);
+//        souChaude.getProduits().add(proproDoubleLatteGrand);
+//        
+//        souSauce.getProduits().add(proKetchup);
+//        souSauce.getProduits().add(proSauceBarbecue);
+//        souSauce.getProduits().add(proSauceChinoise);
+//        souSauce.getProduits().add(proSauceCurry);
+//        souSauce.getProduits().add(proSaucePommeFrites);
+//        souSauce.getProduits().add(proVinaigretteAHuile);
+//        
+//        souGlace.getProduits().add(proCornetNappageChocolat);
+//        souGlace.getProduits().add(proFrappeSaveurChocolat);
+//        souGlace.getProduits().add(proFrappeSaveurMarshmallow);
+//        souGlace.getProduits().add(proFrappeSaveurMyrtille);
+//        souGlace.getProduits().add(proFrappeSaveurVanille);
+//        souGlace.getProduits().add(proLeSundaeAbricot);
+//        souGlace.getProduits().add(proSundaeCaramel);
+//        souGlace.getProduits().add(proSundaeChocolat);
+//        souGlace.getProduits().add(proSundaeNature);
+//        souGlace.getProduits().add(proMcFlurryDaim);
+//        souGlace.getProduits().add(proMcFlurryKitKat);
+//        souGlace.getProduits().add(proMcFlurryOreo);
+//        souGlace.getProduits().add(proMcFlurrySpeculoos);
+//        souGlace.getProduits().add(proVeryParfaitCoulisAbricot);
+//        souGlace.getProduits().add(proVeryParfaitNappageSaveurCaramel);
+//        souGlace.getProduits().add(proVeryParfaitNappageSaveurChocolat);
+//        souGlace.getProduits().add(proVeryParfaitNature);
+//
+//        souFruits.getProduits().add(proPetitDuoRaisins);
+//
+//        souGateau.getProduits().add(proBrownieChocolatNoisettes);
+//        souGateau.getProduits().add(proDonnutNature);
+//        souGateau.getProduits().add(proDonutSaveurChocolat);
+//        souGateau.getProduits().add(proLePetitMuffinPepiteChocolat);
+//        souGateau.getProduits().add(pro);
+//        souGateau.getProduits().add(pro);
+//        souGateau.getProduits().add(pro);
+//        
+//        
+//        souPommeDeTerre.getProduits().add(pro);
+//        souGarcon.getProduits().add(pro);
+//        souFille.getProduits().add(pro);
 
         proBadoit33.setSoustype(souFroide);
         proBadoit50.setSoustype(souFroide);
@@ -970,7 +1084,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         System.out.println("Size listProduit >>>>> " + listProduit.size());
         for (Produit p : listProduit) {
             p.setTva(tvaNormal);
-            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaNormal.getProduits().size());
         }
 
         // ********* TVA vers Menu *********
