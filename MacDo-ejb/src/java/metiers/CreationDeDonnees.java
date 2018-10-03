@@ -709,6 +709,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 //        souFroide.getProduits().add(proSpriteZero40);
 //        souFroide.getProduits().add(proSpriteZero50);
 //        
+
 //        souChaude.getProduits().add(proCappuccinDaimoGrand);
 //        souChaude.getProduits().add(proCappuccino);
 //        souChaude.getProduits().add(proCappuccinoDaim);
