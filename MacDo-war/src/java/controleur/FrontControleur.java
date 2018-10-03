@@ -51,7 +51,7 @@ public class FrontControleur extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
             
-        String url = "/WEB-INF/Home.jsp";
+        String url = "/WEB-INF/home.jsp";
 //        String url = "/WEB-INF/home2.jsp";
 
         if(request.getParameter("section") != null){
