@@ -89,7 +89,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proFanta40 = new Produit("Fanta", 2.3F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Moyen", 40, "./Images/fanta.jpg");
         Produit proFanta50 = new Produit("Fanta", 2.8F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Grand", 50, "./Images/fanta.jpg");
         Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
-
+        
+System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "+ proBigMac.getPrix());
 // ----------------------------------- Edem ------------------------------------
         // ********* La TVA *********
         Tva tvaNormal = new Tva(0.1F);
@@ -283,6 +284,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itARaNappageAbricot.setSousLigneDeCommande(souLigne1);
 
 //        proBigMac.setSousLigneDeCommande(souLigne1);
+        
         co1.setStatut(staEnPreparation);
 //        System.out.println(" souligne1 "+souLigne1.getProduits().size());
 
@@ -975,6 +977,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
             m.setTva(tvaNormal);
             //System.out.println("Taille collection tvaMenus >>>>>>>> "+ tvaNormal.getMenus.size());
         }
+        System.out.println("BigMac >>>>>>>>>>>>>>>> Apres Persist et la boucle >>>>>> "+ proBigMac.getPrix());
     }
 
 }
