@@ -65,7 +65,7 @@ public class Produit implements Serializable {
     @ManyToOne
     private SousType soustype;
 
-    @OneToMany(mappedBy = "produit")              // pas obligatoire ...
+    @OneToMany(mappedBy = "produit")            
     private Collection<LigneDeCommande> lignesDeCommande;
 
     @ManyToOne

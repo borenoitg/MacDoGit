@@ -41,7 +41,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
         ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0.2F);
         ItemARajoute i = new ItemARajoute();
-Menu mb = new Menu();
+        Menu mb = new Menu();
         // ********* Les Produits *********
         Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
         Produit proPoissonRanch = new Produit("Poisson Ranch", 3.5F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "./Images/poissonRanch.png");
@@ -88,6 +88,7 @@ Menu mb = new Menu();
         Produit proFanta25 = new Produit("Fanta", 1.9F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Normal", 25, "./Images/fanta.jpg");
         Produit proFanta40 = new Produit("Fanta", 2.3F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Moyen", 40, "./Images/fanta.jpg");
         Produit proFanta50 = new Produit("Fanta", 2.8F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Grand", 50, "./Images/fanta.jpg");
+        Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
 
 // ----------------------------------- Edem ------------------------------------
         // ********* La TVA *********
@@ -106,6 +107,7 @@ Menu mb = new Menu();
         ItemARetire itaeBacon = new ItemARetire("Bacon", "./Images/");
         ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes", "./Images/");
         ItemARetire itaeJambon = new ItemARetire("Jambon", "./Images/");
+        ItemARetire itaeSauce = new ItemARetire("Sauce", "./Images/");
 
         // ********* Les Produits *********
         Produit proTheRouge = new Produit("THÉ FRUITS ROUGES GRAND FORMAT", 2.70F, "./Images/theFruitRouge.png");
@@ -186,13 +188,14 @@ Menu mb = new Menu();
 
 // ---------------------------------Nourdine------------------------------------
         // ********* Les types *********
-        Type typPrincipal = new Type("principal");
-        Type typAccompagnement = new Type("Accompagnement");
-        Type typBoisson = new Type("Boisson");
-        Type typDessert = new Type("Dessert");
-        Type typSauce = new Type("Sauce");
-        Type typCadeauEnfant = new Type("Cadeau Enfant");
-
+        Type typPrincipal = new Type("principal", "./Images/");
+        Type typAccompagnement = new Type("Accompagnement", "./Images/");
+        Type typBoisson = new Type("Boisson", "./Images/NosBoisons.png");
+        Type typDessert = new Type("Dessert", "./Images/NosDesserts.png");
+        Type typSauce = new Type("Sauce", "./Images/NosFrites&Sauces.png");
+        Type typCadeauEnfant = new Type("Cadeau Enfant", "./Images/");
+        
+        
         //********* Les abonnés *********
         Abonne aboNourdine = new Abonne("nourdine@nourdine.com", "BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
         Abonne aboThierry = new Abonne("thierry@thierry.com", "MARTINEZ", 5, "Thierry", "thierry@thierry.com");
@@ -215,8 +218,6 @@ Menu mb = new Menu();
         Allergene allOeufs = new Allergene("Oeufs");
         Allergene allPoissons = new Allergene("Poissons");
         Allergene allSoja = new Allergene("Soja");
-        
-        
 
 // ----------------------------------- Alexandre -------------------------------
         //Creation des objets
@@ -227,81 +228,70 @@ Menu mb = new Menu();
         Menu menChickMacNug = new Menu("Menu ChickenMcNuggets", 7.50F);
         Menu menPtitDej = new Menu("Menu P'tit f", 7.30F);
         Menu menSignature = new Menu("Menu GrandChickenClassic", 8.30F);
-        
-        
-        
-        
-        
-        
-        
-// ----------------------------------- Momo ------------------------------------
- //Creation des objets
-        
-        //satut
-        Statut staDisponible = new Statut(1L,"disponible");
-        
-        Statut staEpuise = new Statut(2L,"epuisé");
-        Statut staQuaniteLimte = new Statut(3L,"quantité limité");
-        Statut staNouveau = new Statut(4L,"nouveau");
-        Statut staReaprovisionnement = new Statut(5L,"en réapprovisionnement");
-        Statut statAnnuler = new Statut(6L,"Annuler");
-        Statut staValider = new Statut(7L,"Valider");
-        Statut staEnPreparation = new Statut(8L,"en préparation");
-        Statut staPayerAccepter = new Statut(10L,"paiment accepté");
-        Statut staPayerRefuser = new Statut(11L,"paiment refusé");
-        Statut staEnAttente = new Statut(12L,"En attente");
-        Statut staAllergene = new Statut(13L,"Allergene");
-        Statut staCompteAbonne = new Statut(14L,"Compte valide");
-        Statut staIndisponible = new Statut(15L,"indisponible");
-        
+
+        //-------------- Momo ------------------------------------
+    //Creation des objets
+        //statut
+        Statut staDisponible = new Statut(1L, "disponible");
+        Statut staEpuise = new Statut(2L, "epuisé");
+        Statut staQuaniteLimte = new Statut(3L, "quantité limité");
+        Statut staNouveau = new Statut(4L, "nouveau");
+        Statut staReaprovisionnement = new Statut(5L, "en réapprovisionnement");
+        Statut statAnnuler = new Statut(6L, "Annuler");
+        Statut staValider = new Statut(7L, "Valider");
+        Statut staEnPreparation = new Statut(8L, "en préparation");
+        Statut staPayerAccepter = new Statut(10L, "paiment accepté");
+        Statut staPayerRefuser = new Statut(11L, "paiment refusé");
+        Statut staEnAttente = new Statut(12L, "En attente");
+        Statut staAllergene = new Statut(13L, "Allergene");
+        Statut staCompteAbonne = new Statut(14L, "Compte valide");
+        Statut staIndisponible = new Statut(15L, "indisponible");
+
         //ligne de commande
-        LigneDeCommande ligMenuHappyMeal = new LigneDeCommande(20f,1,5.5f);
-        LigneDeCommande ligBigMac = new LigneDeCommande(20f,1,4.3f);
-        
-        LigneDeCommande ligBigMac1 = new LigneDeCommande(20f,1,4.3f);
+        LigneDeCommande ligMenuHappyMeal = new LigneDeCommande(20f, 1, 5.5f);
+        LigneDeCommande ligBigMac = new LigneDeCommande(20f, 1, 4.3f);
+
+        LigneDeCommande ligBigMac1 = new LigneDeCommande(20f, 1, 4.3f);
 //        LigneDeCommande ligMenuBigMacMaxi = new LigneDeCommande(20f,2,8f);
 //        LigneDeCommande ligMenuSalade = new LigneDeCommande(20f,1,6.5f);
 //        LigneDeCommande ligMenuPetitDej = new LigneDeCommande(20f,1,7.3f);
 //        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
 //        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
-        
+
         //sousligne de commande
         SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
         SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
         SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
-        
+
         //commande
-        Date d = new GregorianCalendar(2018,2,15).getTime();
-        Commande co1 = new Commande(d,true);
-        
-        Commande co2 = new Commande(d,true);
+        Date d = new GregorianCalendar(2018, 2, 15).getTime();
+        Commande co1 = new Commande(d, true);
+
+        Commande co2 = new Commande(d, true);
         //Associations
         ligMenuHappyMeal.setMenu(menHappyMeal);
         ligBigMac.setProduit(proBigMac);
         ligBigMac1.setProduit(proBigMac);
-        
+
         souLigne1.setLigneCommande(ligMenuHappyMeal);
         souLigne1.setCommande(co1);
         proMcFish.setSousLigneDeCommande(souLigne1);
         proCocaCola25.setSousLigneDeCommande(souLigne1);
         proPetiteFrite.setSousLigneDeCommande(souLigne1);
         proSundaeCaramel.setSousLigneDeCommande(souLigne1);
-        
-        
+
         itaeSalade.setSousLigneDeCommande(souLigne1);
         itARaNappageAbricot.setSousLigneDeCommande(souLigne1);
-        
-        
+
 //        proBigMac.setSousLigneDeCommande(souLigne1);
         co1.setStatut(staEnPreparation);
 //        System.out.println(" souligne1 "+souLigne1.getProduits().size());
-        
-        
+
         souLigne2.setLigneCommande(ligBigMac);
         souLigne2.setCommande(co1);
         proBigMac.setSousLigneDeCommande(souLigne2);
 //      
-       
+
         //Persist
         //statut
         em.persist(staAllergene);
@@ -319,40 +309,34 @@ Menu mb = new Menu();
         em.persist(staReaprovisionnement);
         em.persist(staValider);
         em.persist(statAnnuler);
-        
-     
+
         em.persist(ligMenuHappyMeal);
 //        ;
         em.persist(ligBigMac);
 //     
-       em.persist(souLigne1);
-       em.persist(souLigne2);
-       em.persist(co1);
+        em.persist(souLigne1);
+        em.persist(souLigne2);
+        em.persist(co1);
 //        System.out.println(" souligne1 "+souLigne1.getProduits().size());
 
 //
-
 //        Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
 //        Promotion p02 = new Promotion("2 Menus MaxiBestOf  pour 12 Euros");
 //        Promotion p03 = new Promotion("2 Menus HappyMeal pour 6 Euros");
 //        Promotion p04 = new Promotion("1 MacCafé pour 1 Euro pour tout menu acheté !");
-        SousType souBurger = new SousType("Burger");
-        SousType souSalade = new SousType("Salade");
-        SousType souFroide = new SousType("Froide");
-        SousType souChaude = new SousType("Chaude");
-        SousType souSauce = new SousType("Sauce");
-        SousType souAboire = new SousType("A Boire");
-        SousType souGlace = new SousType("Glace");
-        SousType souFruits = new SousType("Fruits");
-        SousType souGateau = new SousType("Gateau");
-        SousType souPommeDeTerre = new SousType("Pommes de Terre");
-
-        /**
-         * ************************************************************************************************************************
-         */
-        /**
-         * ************************************************************************************************************************
-         */
+        SousType souBurger = new SousType("Burger", "./Images/NosBurger.png");
+        SousType souSalade = new SousType("Salade", "./Images/NosSalades.png");
+        SousType souFroide = new SousType("Froide", "./Images/");
+        SousType souChaude = new SousType("Chaude", "./Images/");
+        SousType souSauce = new SousType("Sauce", "./Images/NosFrites&Sauces.png");
+        SousType souAboire = new SousType("A Boire", "./Images/NosDessert.png");
+        SousType souGlace = new SousType("Glace", "./Images/");
+        SousType souFruits = new SousType("Fruits", "./Images/");
+        SousType souGateau = new SousType("Gateau", "./Images/");
+        SousType souPommeDeTerre = new SousType("Pommes de Terre", "./Images/");
+        SousType souGarcon = new SousType("Garçon", "./Images/");
+        SousType souFille = new SousType("Fille", "./Images/"); 
+        SousType souNouveaute = new SousType("Nouveaute", "./Images/");
         /**
          * ************************************************************************************************************************
          */
@@ -373,8 +357,6 @@ Menu mb = new Menu();
         itARaNappageChocolat.getProduits().add(proMcFlurryKitKat);
         itARaNappageChocolat.getProduits().add(proMcFlurryOreo);
         itARaNappageChocolat.getProduits().add(proMcFlurrySpeculoos);
-
-     
 
         // ********* TVA vers Menu *********
 // ---------------------------------Nourdine------------------------------------
@@ -397,7 +379,6 @@ Menu mb = new Menu();
         ingPain.setProduit(proCheeseBurger);
 
         //***********association produit vers Allergenes
-
         allAnhydride.getProduits().add(proBigMac);
         allAnhydride.getProduits().add(proPouletRanch);
         allAnhydride.getProduits().add(proBoeufRanch);
@@ -515,7 +496,7 @@ Menu mb = new Menu();
         allMoutarde.getProduits().add(proMcWrap);
         allMoutarde.getProduits().add(proHamburger);
         allMoutarde.getProduits().add(proCheeseBurger);
-        
+
         allOeufs.getProduits().add(proBigMac);
         allOeufs.getProduits().add(proPoissonRanch);
         allOeufs.getProduits().add(proPouletRanch);
@@ -536,7 +517,7 @@ Menu mb = new Menu();
         allOeufs.getProduits().add(proChickenBbq);
         allOeufs.getProduits().add(proRoyalDeLuxe);
         allOeufs.getProduits().add(proMcWrap);
-       
+
         allPoissons.getProduits().add(proPoissonRanch);
         allPoissons.getProduits().add(proNewYorkCaesar);
         allPoissons.getProduits().add(proMcFish);
@@ -548,9 +529,8 @@ Menu mb = new Menu();
         allSoja.getProduits().add(proBeefBbq);
         allSoja.getProduits().add(proChickenBbq);
         allSoja.getProduits().add(proMcWrap);
-        
-        //***********association ItemARetires vers produit
 
+        //***********association ItemARetires vers produit
         itaeSteak.getProduits().add(proBigMac);
         itaeSteak.getProduits().add(proBoeufRanch);
         itaeSteak.getProduits().add(proSignature280OriginalBeef);
@@ -559,7 +539,7 @@ Menu mb = new Menu();
         itaeSteak.getProduits().add(proRoyalDeLuxe);
         itaeSteak.getProduits().add(proHamburger);
         itaeSteak.getProduits().add(proCheeseBurger);
-        
+
         itaeFrommage.getProduits().add(proBigMac);
         itaeFrommage.getProduits().add(proPoissonRanch);
         itaeFrommage.getProduits().add(proPouletRanch);
@@ -572,7 +552,7 @@ Menu mb = new Menu();
         itaeFrommage.getProduits().add(proMcWrap);
         itaeFrommage.getProduits().add(proCroqueMcDo);
         itaeFrommage.getProduits().add(proCheeseBurger);
-        
+
         itaeSalade.getProduits().add(proBigMac);
         itaeSalade.getProduits().add(proPoissonRanch);
         itaeSalade.getProduits().add(proPouletRanch);
@@ -607,198 +587,196 @@ Menu mb = new Menu();
         itaeTomate.getProduits().add(proMcWrap);
 
         itaePoisson.getProduits().add(proPoissonRanch);
-        itaePoisson.getProduits().add(proMcFish);
-        
+
         itaePoulet.getProduits().add(proPouletRanch);
         itaePoulet.getProduits().add(proChickenBbq);
 
         itaeBacon.getProduits().add(proDoubleBlueCheese);
         itaeBacon.getProduits().add(proBeefBbq);
-        
+
         itaeJambon.getProduits().add(proCroqueMcDo);
-       
-        proNewYorkCaesar.getAllergenes().add(allAnhydride);
-        proNewYorkCaesar.getAllergenes().add(allFruitsACoques);
-        proNewYorkCaesar.getAllergenes().add(allGluten);
-        proNewYorkCaesar.getAllergenes().add(allGraineDeSesame);
-        proNewYorkCaesar.getAllergenes().add(allLait);
-        proNewYorkCaesar.getAllergenes().add(allMoutarde);
-        proNewYorkCaesar.getAllergenes().add(allOeufs);
-        proNewYorkCaesar.getAllergenes().add(allPoissons);
-        proNewYorkCaesar.getAllergenes().add(allSoja);
 
-        proManhattanPouletFrit.getAllergenes().add(allArachide);
-        proManhattanPouletFrit.getAllergenes().add(allFruitsACoques);
-        proManhattanPouletFrit.getAllergenes().add(allLait);
-        proManhattanPouletFrit.getAllergenes().add(allMoutarde);
-        proManhattanPouletFrit.getAllergenes().add(allOeufs);
+        itaeSauce.getProduits().add(proBigMac);
+        itaeSauce.getProduits().add(proPouletRanch);
+        itaeSauce.getProduits().add(proBoeufRanch);
+        itaeSauce.getProduits().add(proPoissonRanch);
+        itaeSauce.getProduits().add(proSignature280OriginalBeef);
+        itaeSauce.getProduits().add(proDoubleBlueCheese);
+        itaeSauce.getProduits().add(proBeefBbq);
+        itaeSauce.getProduits().add(proChickenBbq);
+        itaeSauce.getProduits().add(proRoyalDeLuxe);
+        itaeSauce.getProduits().add(proMcWrap);
+        itaeSauce.getProduits().add(proMcFish);
+        itaeSauce.getProduits().add(proCroqueMcDo);
+        itaeSauce.getProduits().add(proHamburger);
+        itaeSauce.getProduits().add(proCheeseBurger);
 
-        proManhattanVeggie.getAllergenes().add(allAnhydride);
-        proManhattanVeggie.getAllergenes().add(allCeleri);
-        proManhattanVeggie.getAllergenes().add(allGluten);
-        proManhattanVeggie.getAllergenes().add(allGraineDeSesame);
-        proManhattanVeggie.getAllergenes().add(allLait);
-        proManhattanVeggie.getAllergenes().add(allMoutarde);
-        proManhattanVeggie.getAllergenes().add(allOeufs);
-        proManhattanVeggie.getAllergenes().add(allSoja);
-
-        proManhattan.getAllergenes().add(allCeleri);
-        proManhattan.getAllergenes().add(allGluten);
-        proManhattan.getAllergenes().add(allLait);
-        proManhattan.getAllergenes().add(allMoutarde);
-        proManhattan.getAllergenes().add(allOeufs);
-        proManhattan.getAllergenes().add(allSoja);
-
-        proManhattanPouletCroustillant.getAllergenes().add(allArachide);
-        proManhattanPouletCroustillant.getAllergenes().add(allCeleri);
-        proManhattanPouletCroustillant.getAllergenes().add(allFruitsACoques);
-        proManhattanPouletCroustillant.getAllergenes().add(allGluten);
-        proManhattanPouletCroustillant.getAllergenes().add(allGraineDeSesame);
-        proManhattanPouletCroustillant.getAllergenes().add(allMoutarde);
-        proManhattanPouletCroustillant.getAllergenes().add(allOeufs);
-
-        proSignature280OriginalBeef.getAllergenes().add(allGluten);
-        proSignature280OriginalBeef.getAllergenes().add(allAnhydride);
-        proSignature280OriginalBeef.getAllergenes().add(allGraineDeSesame);
-        proSignature280OriginalBeef.getAllergenes().add(allLait);
-        proSignature280OriginalBeef.getAllergenes().add(allMoutarde);
-        proSignature280OriginalBeef.getAllergenes().add(allOeufs);
-
-        proSignature280OriginalBeef.getIngredients().add(pain);
-
-        proSignature280OriginalBeef.getItemARetires().add(itaeSteak);
-        proSignature280OriginalBeef.getItemARetires().add(itaeFrommage);
-        proSignature280OriginalBeef.getItemARetires().add(itaeSalade);
-        proSignature280OriginalBeef.getItemARetires().add(itaeOignon);
-        proSignature280OriginalBeef.getItemARetires().add(itaeCornichon);
-
-        proDoubleBlueCheese.getAllergenes().add(allGluten);
-        proDoubleBlueCheese.getAllergenes().add(allGraineDeSesame);
-        proDoubleBlueCheese.getAllergenes().add(allLait);
-        proDoubleBlueCheese.getAllergenes().add(allOeufs);
-
-        proDoubleBlueCheese.getIngredients().add(pain);
-
-        proDoubleBlueCheese.getItemARetires().add(itaeSteak);
-        proDoubleBlueCheese.getItemARetires().add(itaeFrommage);
-        proDoubleBlueCheese.getItemARetires().add(itaeOignon);
-        proDoubleBlueCheese.getItemARetires().add(itaeBacon);
-
-        proBeefBbq.getAllergenes().add(allGluten);
-        proBeefBbq.getAllergenes().add(allGraineDeSesame);
-        proBeefBbq.getAllergenes().add(allLait);
-        proBeefBbq.getAllergenes().add(allOeufs);
-        proBeefBbq.getAllergenes().add(allSoja);
-
-        proBeefBbq.getIngredients().add(pain);
-
-        proBeefBbq.getItemARetires().add(itaeSteak);
-        proBeefBbq.getItemARetires().add(itaeFrommage);
-        proBeefBbq.getItemARetires().add(itaeOignon);
-        proBeefBbq.getItemARetires().add(itaeBacon);
-
-        proChickenBbq.getAllergenes().add(allCeleri);
-        proChickenBbq.getAllergenes().add(allGluten);
-        proChickenBbq.getAllergenes().add(allGraineDeSesame);
-        proChickenBbq.getAllergenes().add(allLait);
-        proChickenBbq.getAllergenes().add(allMoutarde);
-        proChickenBbq.getAllergenes().add(allOeufs);
-        proChickenBbq.getAllergenes().add(allSoja);
-
-        proChickenBbq.getIngredients().add(pain);
-
-        proChickenBbq.getItemARetires().add(itaePoulet);
-        proChickenBbq.getItemARetires().add(itaeFrommage);
-        proChickenBbq.getItemARetires().add(itaeSalade);
-        proChickenBbq.getItemARetires().add(itaeOignon);
-
-        proRoyalDeLuxe.getAllergenes().add(allGluten);
-        proRoyalDeLuxe.getAllergenes().add(allGraineDeSesame);
-        proRoyalDeLuxe.getAllergenes().add(allLait);
-        proRoyalDeLuxe.getAllergenes().add(allMoutarde);
-        proRoyalDeLuxe.getAllergenes().add(allOeufs);
-
-        proRoyalDeLuxe.getIngredients().add(pain);
-
-        proRoyalDeLuxe.getItemARetires().add(itaeSteak);
-        proRoyalDeLuxe.getItemARetires().add(itaeFrommage);
-        proRoyalDeLuxe.getItemARetires().add(itaeSalade);
-        proRoyalDeLuxe.getItemARetires().add(itaeOignon);
-        proRoyalDeLuxe.getItemARetires().add(itaeTomate);
-
-        proMcWrap.getAllergenes().add(allCeleri);
-        proMcWrap.getAllergenes().add(allGluten);
-        proMcWrap.getAllergenes().add(allLait);
-        proMcWrap.getAllergenes().add(allMoutarde);
-        proMcWrap.getAllergenes().add(allOeufs);
-        proMcWrap.getAllergenes().add(allSoja);
-
-        proMcWrap.getItemARetires().add(itaeFrommage);
-        proMcWrap.getItemARetires().add(itaeSalade);
-        proMcWrap.getItemARetires().add(itaeOignon);
-        proMcWrap.getItemARetires().add(itaeTomate);
-
-        proMcFish.getAllergenes().add(allCeleri);
-        proMcFish.getAllergenes().add(allCrustaces);
-        proMcFish.getAllergenes().add(allGluten);
-        proMcFish.getAllergenes().add(allGraineDeSesame);
-        proMcFish.getAllergenes().add(allLait);
-        proMcFish.getAllergenes().add(allPoissons);
-        proMcFish.getAllergenes().add(allSoja);
-
-        proMcFish.getIngredients().add(pain);
-
-        proMcFish.getItemARetires().add(itaePoisson);
-
-        proCroqueMcDo.getAllergenes().add(allGluten);
-        proCroqueMcDo.getAllergenes().add(allGraineDeSesame);
-        proCroqueMcDo.getAllergenes().add(allLait);
-
-        proCroqueMcDo.getIngredients().add(pain);
-
-        proCroqueMcDo.getItemARetires().add(itaeFrommage);
-        proCroqueMcDo.getItemARetires().add(itaeJambon);
-
-        proHamburger.getAllergenes().add(allAnhydride);
-        proHamburger.getAllergenes().add(allGluten);
-        proHamburger.getAllergenes().add(allGraineDeSesame);
-        proHamburger.getAllergenes().add(allLait);
-        proHamburger.getAllergenes().add(allMoutarde);
-
-        Menu hb = new Menu();
-        proHamburger.getIngredients().add(pain);
-
-        proHamburger.getItemARetires().add(itaeSteak);
-        proHamburger.getItemARetires().add(itaeOignon);
-        proHamburger.getItemARetires().add(itaeCornichon);
-
-        proCheeseBurger.getAllergenes().add(allAnhydride);
-        proCheeseBurger.getAllergenes().add(allGluten);
-        proCheeseBurger.getAllergenes().add(allGraineDeSesame);
-        proCheeseBurger.getAllergenes().add(allLait);
-        proCheeseBurger.getAllergenes().add(allMoutarde);
-
-        proCheeseBurger.getIngredients().add(pain);
-
-        proCheeseBurger.getItemARetires().add(itaeSteak);
-        proCheeseBurger.getItemARetires().add(itaeOignon);
-        proCheeseBurger.getItemARetires().add(itaeCornichon);
-        proCheeseBurger.getItemARetires().add(itaeFrommage);
 // ----------------------------------- Alexandre -------------------------------
         //Associations
+        //****************association type vers soustype 
+        souBurger.setType(typPrincipal);
+        souSalade.setType(typPrincipal);
+        souFroide.setType(typBoisson);
+        souChaude.setType(typBoisson);
+        souSauce.setType(typSauce);
+        souAboire.setType(typDessert);
+        souGlace.setType(typDessert);
+        souFruits.setType(typDessert);
+        souGateau.setType(typDessert);
+        souPommeDeTerre.setType(typAccompagnement);
+        souGarcon.setType(typCadeauEnfant);
+        souFille.setType(typCadeauEnfant);
+        souNouveaute.setProduits();
+        //****************association type vers Menu 
+        typPrincipal.getMenus().add(menBigMacBest);
+        typPrincipal.getMenus().add(menBigMacMaxiBest);
+        typPrincipal.getMenus().add(menChickMacNugx6);
+        typPrincipal.getMenus().add(menHappyMeal);
+        typPrincipal.getMenus().add(menPtitDej);
+        typPrincipal.getMenus().add(menSalade);
+        typPrincipal.getMenus().add(menSignatureBest);
+
+        typBoisson.getMenus().add(menBigMacBest);
+        typBoisson.getMenus().add(menBigMacMaxiBest);
+        typBoisson.getMenus().add(menChickMacNugx6);
+        typBoisson.getMenus().add(menHappyMeal);
+        typBoisson.getMenus().add(menPtitDej);
+        typBoisson.getMenus().add(menSalade);
+        typBoisson.getMenus().add(menSignatureBest);
+
+        typAccompagnement.getMenus().add(menBigMacBest);
+        typAccompagnement.getMenus().add(menBigMacMaxiBest);
+        typAccompagnement.getMenus().add(menChickMacNugx6);
+        typAccompagnement.getMenus().add(menHappyMeal);
+        typAccompagnement.getMenus().add(menPtitDej);
+        typAccompagnement.getMenus().add(menSalade);
+        typAccompagnement.getMenus().add(menSignatureBest);
+
+        
        
-        /**
-         * ************************************************************************************
-         */
-        /**
-         * ************************************************************************************
-         */
-        //**************************** PERSIST *********************************
-// -------------------------------- Thierry ------------------------------------
+        typSauce.getMenus().add(menChickMacNugx6);
+
+        typDessert.getMenus().add(menHappyMeal);
+
+        typCadeauEnfant.getMenus().add(menHappyMeal);
+
+        //****************association soustype vers Produit 
+        proBeefBbq.setSoustype(souBurger);
+        proBigMac.setSoustype(souBurger);
+        proBoeufRanch.setSoustype(souBurger);
+        proCheeseBurger.setSoustype(souBurger);
+        proChickenBbq.setSoustype(souBurger);
+        proChickenMcNuggets20.setSoustype(souBurger);
+        proChickenMcNuggets9.setSoustype(souBurger);
+        proChickenMcNuggets6.setSoustype(souBurger);
+        proChickenMcNuggets4.setSoustype(souBurger);
+        proCroqueMcDo.setSoustype(souBurger);
+        proDoubleBlueCheese.setSoustype(souBurger);
+        proHamburger.setSoustype(souBurger);
+        proMcFish.setSoustype(souBurger);
+        proMcWrap.setSoustype(souBurger);
+        proPoissonRanch.setSoustype(souBurger);
+        proPouletRanch.setSoustype(souBurger);
+        proRoyalDeLuxe.setSoustype(souBurger);
+        proSignature280OriginalBeef.setSoustype(souBurger);
+
+        proManhattan.setSoustype(souSalade);
+        proManhattanPouletCroustillant.setSoustype(souSalade);
+        proManhattanPouletFrit.setSoustype(souSalade);
+        proManhattanVeggie.setSoustype(souSalade);
+        proNewYorkCaesar.setSoustype(souSalade);
+        proSummer.setSoustype(souSalade);
+        proPtiteSalade.setSoustype(souSalade);
+
+        proBadoit33.setSoustype(souFroide);
+        proBadoit50.setSoustype(souFroide);
+        proCocaCola25.setSoustype(souFroide);
+        proCocaCola40.setSoustype(souFroide);
+        proCocaCola50.setSoustype(souFroide);
+        proCocaColaLight25.setSoustype(souFroide);
+        proCocaColaLight40.setSoustype(souFroide);
+        proCocaColaLight50.setSoustype(souFroide);
+        proCocaColaZéro25.setSoustype(souFroide);
+        proCocaColaZéro40.setSoustype(souFroide);
+        proCocaColaZéro50.setSoustype(souFroide);
+        proEvian33.setSoustype(souFroide);
+        proEvian50.setSoustype(souFroide);
+        proFanta25.setSoustype(souFroide);
+        proFanta40.setSoustype(souFroide);
+        proFanta50.setSoustype(souFroide);
+        proLiptonIceTea25.setSoustype(souFroide);
+        proMinuteMaid20.setSoustype(souFroide);
+        proSpriteZero25.setSoustype(souFroide);
+        proSpriteZero40.setSoustype(souFroide);
+        proSpriteZero50.setSoustype(souFroide);
+
+        proCappuccinDaimoGrand.setSoustype(souChaude);
+        proCappuccino.setSoustype(souChaude);
+        proCappuccinoDaim.setSoustype(souChaude);
+        proCappuccinoGrand.setSoustype(souChaude);
+        proChocolatChaud.setSoustype(souChaude);
+        proDoubleLatte.setSoustype(souChaude);
+        proExpresso.setSoustype(souChaude);
+        proGrandCafe.setSoustype(souChaude);
+        proGrandCafeGrand.setSoustype(souChaude);
+        proLatteMacchiato.setSoustype(souChaude);
+        proNoisette.setSoustype(souChaude);
+        proTheGrey.setSoustype(souChaude);
+        proTheGreyGrand.setSoustype(souChaude);
+        proTheRouge.setSoustype(souChaude);
+        proTheVert.setSoustype(souChaude);
+        proTheVertGrand.setSoustype(souChaude);
+        proproDoubleLatteGrand.setSoustype(souChaude);
+                
+        proKetchup.setSoustype(souSauce);
+        proSauceBarbecue.setSoustype(souSauce);
+        proSauceChinoise.setSoustype(souSauce);
+        proSauceCurry.setSoustype(souSauce);
+        proSaucePommeFrites.setSoustype(souSauce);
+        proVinaigretteAHuile.setSoustype(souSauce);
+                
+        proCornetNappageChocolat.setSoustype(souGlace);
+        proFrappeSaveurChocolat.setSoustype(souGlace);
+        proFrappeSaveurMarshmallow.setSoustype(souGlace);
+        proFrappeSaveurMyrtille.setSoustype(souGlace);
+        proFrappeSaveurVanille.setSoustype(souGlace);
+        proLeSundaeAbricot.setSoustype(souGlace);
+        proSundaeCaramel.setSoustype(souGlace);
+        proSundaeChocolat.setSoustype(souGlace);
+        proSundaeNature.setSoustype(souGlace);
+        proMcFlurryDaim.setSoustype(souGlace);
+        proMcFlurryKitKat.setSoustype(souGlace);
+        proMcFlurryOreo.setSoustype(souGlace);
+        proMcFlurrySpeculoos.setSoustype(souGlace);
+        proVeryParfaitCoulisAbricot.setSoustype(souGlace);
+        proVeryParfaitNappageSaveurCaramel.setSoustype(souGlace);
+        proVeryParfaitNappageSaveurChocolat.setSoustype(souGlace);
+        proVeryParfaitNature.setSoustype(souGlace);
+        
+        proPetitDuoRaisins.setSoustype(souFruits);
+        
+        proBrownieChocolatNoisettes.setSoustype(souGateau);
+        proDonnutNature.setSoustype(souGateau);
+        proDonutSaveurChocolat.setSoustype(souGateau);
+        proLePetitMuffinPepiteChocolat.setSoustype(souGateau);
+       proGrandeFrite.setSoustype(souPommeDeTerre);
+       proMoyenneFrite.setSoustype(souPommeDeTerre);
+       proPetiteFrite.setSoustype(souPommeDeTerre);
+       proGrandesCrousties.setSoustype(souPommeDeTerre);
+       proMoyenneCrousties.setSoustype(souPommeDeTerre);
+       proJouetGarcon.setSoustype(souGarcon);
+       proJouetFille.setSoustype(souFille);
+       
+                /**
+                 * ************************************************************************************
+                 */
+                //**************************** PERSIST *********************************
+                // -------------------------------- Thierry ------------------------------------
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
         em.persist(itARaNappageAbricot);
         // ********* Les Produits *********
+        em.persist(proPtiteSalade);
         em.persist(ingPain);
         em.persist(proBigMac);
         em.persist(proPoissonRanch);
@@ -860,6 +838,7 @@ Menu mb = new Menu();
         em.persist(itaeBacon);
         em.persist(itaeCacahuètes);
         em.persist(itaeJambon);
+        em.persist(itaeSauce);
 
         // ********* La TVA *********
         em.persist(tvaNormal);
@@ -961,13 +940,13 @@ Menu mb = new Menu();
 // ----------------------------------- Momo ------------------------------------
 // ----------------------------------- Alexandre Persist-------------------------------
         // Menu
-        em.persist(menBigMac);
-        em.persist(menBigMacMaxi);
-        em.persist(menChickMacNug);
+        em.persist(menBigMacBest);
+        em.persist(menBigMacMaxiBest);
+        em.persist(menChickMacNugx6);
         em.persist(menHappyMeal);
         em.persist(menPtitDej);
         em.persist(menSalade);
-        em.persist(menSignature);
+        em.persist(menSignatureBest);
 
         //sousTypes
         em.persist(souBurger);
@@ -980,7 +959,9 @@ Menu mb = new Menu();
         em.persist(souPommeDeTerre);
         em.persist(souSalade);
         em.persist(souSauce);
-        
+        em.persist(souGarcon);
+        em.persist(souFille);
+
         // ******************** ASSOCIATION DES DONNEES ************************
 // ----------------------------------- Edem ------------------------------------
         // ********* TVA vers Produits *********
@@ -1001,5 +982,5 @@ Menu mb = new Menu();
             //System.out.println("Taille collection tvaMenus >>>>>>>> "+ tvaNormal.getMenus.size());
         }
     }
-    
+
 }
