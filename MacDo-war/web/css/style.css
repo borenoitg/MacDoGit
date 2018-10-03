@@ -17,5 +17,9 @@
 
 navbar-light .navbar-nav .nav-link.disabled {
     color: /*rgba(0,0,0,.3);*/ #fceebe;
-}
+} 
 
+.img-fluid {
+  width: 900px;
+  height: 340px;
+}

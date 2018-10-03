@@ -14,24 +14,20 @@ import metiers.CatalogueLocal;
 import metiers.CreationDeDonneesLocal;
 
 public class CreationDeDonneesCtrl implements SousControleurInterface, Serializable {
-
-
+    
     @Override
     public String execute(HttpServletRequest request,
              HttpServletResponse response) {
 
         CreationDeDonneesLocal creationDeDonnees = lookupCreationDeDonneesLocal();
+        CatalogueLocal catalogue = lookupCatalogueLocal();
 
         creationDeDonnees.creationDonnees();
-
-        CatalogueLocal catalogue = lookupCatalogueLocal();       
-        List<Produit> produits = catalogue.listeProduit();
-        request.setAttribute("catalogue", produits);
         
-        request.setAttribute("menu", "createdata");
-
-        return "/WEB-INF/Home.jsp";
-//        return "/WEB-INF/home2.jsp";
+        List<Produit> produits = catalogue.listeProduit();
+        request.setAttribute("catalogue", produits); 
+        
+        return "/WEB-INF/home.jsp";
     }
 
     private CreationDeDonneesLocal lookupCreationDeDonneesLocal() {
