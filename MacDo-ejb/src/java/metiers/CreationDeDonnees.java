@@ -336,7 +336,7 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         SousType souGateau = new SousType("Gateau", "./Images/");
         SousType souPommeDeTerre = new SousType("Pommes de Terre", "./Images/");
         SousType souGarcon = new SousType("Garçon", "./Images/");
-        SousType souFille = new SousType("Fille", "./Images/"); 
+        SousType souFille = new SousType("Fille", "./Images/");
         SousType souNouveaute = new SousType("Nouveaute", "./Images/");
         /**
          * ************************************************************************************************************************
@@ -627,7 +627,6 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         souPommeDeTerre.setType(typAccompagnement);
         souGarcon.setType(typCadeauEnfant);
         souFille.setType(typCadeauEnfant);
-        
         //****************association type vers Menu 
         typPrincipal.getMenus().add(menBigMacBest);
         typPrincipal.getMenus().add(menBigMacMaxiBest);
@@ -657,7 +656,7 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
 
         typCadeauEnfant.getMenus().add(menHappyMeal);
 
-        //****************association soustype vers Produit 
+        //****************association soustype vers Produit
         proBeefBbq.setSoustype(souBurger);
         proBigMac.setSoustype(souBurger);
         proBoeufRanch.setSoustype(souBurger);
@@ -726,14 +725,14 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         proTheVert.setSoustype(souChaude);
         proTheVertGrand.setSoustype(souChaude);
         proproDoubleLatteGrand.setSoustype(souChaude);
-                
+
         proKetchup.setSoustype(souSauce);
         proSauceBarbecue.setSoustype(souSauce);
         proSauceChinoise.setSoustype(souSauce);
         proSauceCurry.setSoustype(souSauce);
         proSaucePommeFrites.setSoustype(souSauce);
         proVinaigretteAHuile.setSoustype(souSauce);
-                
+
         proCornetNappageChocolat.setSoustype(souGlace);
         proFrappeSaveurChocolat.setSoustype(souGlace);
         proFrappeSaveurMarshmallow.setSoustype(souGlace);
@@ -751,26 +750,26 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         proVeryParfaitNappageSaveurCaramel.setSoustype(souGlace);
         proVeryParfaitNappageSaveurChocolat.setSoustype(souGlace);
         proVeryParfaitNature.setSoustype(souGlace);
-        
+
         proPetitDuoRaisins.setSoustype(souFruits);
-        
+
         proBrownieChocolatNoisettes.setSoustype(souGateau);
         proDonnutNature.setSoustype(souGateau);
         proDonutSaveurChocolat.setSoustype(souGateau);
         proLePetitMuffinPepiteChocolat.setSoustype(souGateau);
-       proGrandeFrite.setSoustype(souPommeDeTerre);
-       proMoyenneFrite.setSoustype(souPommeDeTerre);
-       proPetiteFrite.setSoustype(souPommeDeTerre);
-       proGrandesCrousties.setSoustype(souPommeDeTerre);
-       proMoyenneCrousties.setSoustype(souPommeDeTerre);
-       proJouetGarcon.setSoustype(souGarcon);
-       proJouetFille.setSoustype(souFille);
-       
-                /**
-                 * ************************************************************************************
-                 */
-                //**************************** PERSIST *********************************
-                // -------------------------------- Thierry ------------------------------------
+        proGrandeFrite.setSoustype(souPommeDeTerre);
+        proMoyenneFrite.setSoustype(souPommeDeTerre);
+        proPetiteFrite.setSoustype(souPommeDeTerre);
+        proGrandesCrousties.setSoustype(souPommeDeTerre);
+        proMoyenneCrousties.setSoustype(souPommeDeTerre);
+        proJouetGarcon.setSoustype(souGarcon);
+        proJouetFille.setSoustype(souFille);
+
+        /**
+         * ************************************************************************************
+         */
+        //**************************** PERSIST *********************************
+        // -------------------------------- Thierry ------------------------------------
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
         em.persist(itARaNappageAbricot);
