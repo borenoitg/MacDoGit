@@ -257,17 +257,17 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
 //        LigneDeCommande ligMenuPetitDej = new LigneDeCommande(20f,1,7.3f);
 //        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
 //        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
-        
+
         //sousligne de commande
         SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
         SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
         SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
-        
+
         //commande
-        Date d = new GregorianCalendar(2018,2,15).getTime();
-        Commande co1 = new Commande(d,true);
-        
-        Commande co2 = new Commande(d,true);
+        Date d = new GregorianCalendar(2018, 2, 15).getTime();
+        Commande co1 = new Commande(d, true);
+
+        Commande co2 = new Commande(d, true);
         //Associations
         ligMenuHappyMeal.setMenu(menHappyMeal);
         ligBigMac.setProduit(proBigMac);
@@ -292,7 +292,7 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         souLigne2.setCommande(co1);
         proBigMac.setSousLigneDeCommande(souLigne2);
 //      
-       
+
         //Persist
         //statut
         em.persist(staAllergene);
@@ -336,8 +336,11 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         SousType souGateau = new SousType("Gateau", "./Images/");
         SousType souPommeDeTerre = new SousType("Pommes de Terre", "./Images/");
         SousType souGarcon = new SousType("Garçon", "./Images/");
-        SousType souFille = new SousType("Fille", "./Images/");
-
+        SousType souFille = new SousType("Fille", "./Images/"); 
+        SousType souNouveaute = new SousType("Nouveaute", "./Images/");
+        /**
+         * ************************************************************************************************************************
+         */
         // ******************** ASSOCIATION DES DONNEES ************************
 // ----------------------------------- Edem ------------------------------------
         // ********* McFleury vers Items à rajouter *********
@@ -624,7 +627,7 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         souPommeDeTerre.setType(typAccompagnement);
         souGarcon.setType(typCadeauEnfant);
         souFille.setType(typCadeauEnfant);
-
+        souNouveaute.setProduits();
         //****************association type vers Menu 
         typPrincipal.getMenus().add(menBigMacBest);
         typPrincipal.getMenus().add(menBigMacMaxiBest);
@@ -650,11 +653,45 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         typAccompagnement.getMenus().add(menSalade);
         typAccompagnement.getMenus().add(menSignatureBest);
 
+        typAccompagnement.getMenus().add(menBigMacBest);
+        typAccompagnement.getMenus().add(menBigMacMaxiBest);
+        typAccompagnement.getMenus().add(menChickMacNugx6);
+        typAccompagnement.getMenus().add(menHappyMeal);
+        typAccompagnement.getMenus().add(menPtitDej);
+        typAccompagnement.getMenus().add(menSalade);
+        typAccompagnement.getMenus().add(menSignatureBest);
+
         typSauce.getMenus().add(menChickMacNugx6);
 
-        typDessert.getMenus().add(menHappyMeal);
-
         typCadeauEnfant.getMenus().add(menHappyMeal);
+
+        //****************association soustype vers Produit 
+        proBeefBbq.setSoustype(souBurger);
+        proBigMac.setSoustype(souBurger);
+        proBoeufRanch.setSoustype(souBurger);
+        proCheeseBurger.setSoustype(souBurger);
+        proChickenBbq.setSoustype(souBurger);
+        proChickenMcNuggets20.setSoustype(souBurger);
+        proChickenMcNuggets9.setSoustype(souBurger);
+        proChickenMcNuggets6.setSoustype(souBurger);
+        proChickenMcNuggets4.setSoustype(souBurger);
+        proCroqueMcDo.setSoustype(souBurger);
+        proDoubleBlueCheese.setSoustype(souBurger);
+        proHamburger.setSoustype(souBurger);
+        proMcFish.setSoustype(souBurger);
+        proMcWrap.setSoustype(souBurger);
+        proPoissonRanch.setSoustype(souBurger);
+        proPouletRanch.setSoustype(souBurger);
+        proRoyalDeLuxe.setSoustype(souBurger);
+        proSignature280OriginalBeef.setSoustype(souBurger);
+
+        proManhattan.setSoustype(souSalade);
+        proManhattanPouletCroustillant.setSoustype(souSalade);
+        proManhattanPouletFrit.setSoustype(souSalade);
+        proManhattanVeggie.setSoustype(souSalade);
+        proNewYorkCaesar.setSoustype(souSalade);
+        proSummer.setSoustype(souSalade);
+        proPtiteSalade.setSoustype(souSalade);
 
         //****************association soustype vers Produit 
     
@@ -708,6 +745,7 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
 //        souFroide.getProduits().add(proSpriteZero40);
 //        souFroide.getProduits().add(proSpriteZero50);
 //        
+
 //        souChaude.getProduits().add(proCappuccinDaimoGrand);
 //        souChaude.getProduits().add(proCappuccino);
 //        souChaude.getProduits().add(proCappuccinoDaim);
@@ -766,8 +804,90 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
 //        souGarcon.getProduits().add(pro);
 //        souFille.getProduits().add(pro);
 
-        //**************************** PERSIST *********************************
-// -------------------------------- Thierry ------------------------------------
+        proBadoit33.setSoustype(souFroide);
+        proBadoit50.setSoustype(souFroide);
+        proCocaCola25.setSoustype(souFroide);
+        proCocaCola40.setSoustype(souFroide);
+        proCocaCola50.setSoustype(souFroide);
+        proCocaColaLight25.setSoustype(souFroide);
+        proCocaColaLight40.setSoustype(souFroide);
+        proCocaColaLight50.setSoustype(souFroide);
+        proCocaColaZéro25.setSoustype(souFroide);
+        proCocaColaZéro40.setSoustype(souFroide);
+        proCocaColaZéro50.setSoustype(souFroide);
+        proEvian33.setSoustype(souFroide);
+        proEvian50.setSoustype(souFroide);
+        proFanta25.setSoustype(souFroide);
+        proFanta40.setSoustype(souFroide);
+        proFanta50.setSoustype(souFroide);
+        proLiptonIceTea25.setSoustype(souFroide);
+        proMinuteMaid20.setSoustype(souFroide);
+        proSpriteZero25.setSoustype(souFroide);
+        proSpriteZero40.setSoustype(souFroide);
+        proSpriteZero50.setSoustype(souFroide);
+
+        proCappuccinDaimoGrand.setSoustype(souChaude);
+        proCappuccino.setSoustype(souChaude);
+        proCappuccinoDaim.setSoustype(souChaude);
+        proCappuccinoGrand.setSoustype(souChaude);
+        proChocolatChaud.setSoustype(souChaude);
+        proDoubleLatte.setSoustype(souChaude);
+        proExpresso.setSoustype(souChaude);
+        proGrandCafe.setSoustype(souChaude);
+        proGrandCafeGrand.setSoustype(souChaude);
+        proLatteMacchiato.setSoustype(souChaude);
+        proNoisette.setSoustype(souChaude);
+        proTheGrey.setSoustype(souChaude);
+        proTheGreyGrand.setSoustype(souChaude);
+        proTheRouge.setSoustype(souChaude);
+        proTheVert.setSoustype(souChaude);
+        proTheVertGrand.setSoustype(souChaude);
+        proproDoubleLatteGrand.setSoustype(souChaude);
+                
+        proKetchup.setSoustype(souSauce);
+        proSauceBarbecue.setSoustype(souSauce);
+        proSauceChinoise.setSoustype(souSauce);
+        proSauceCurry.setSoustype(souSauce);
+        proSaucePommeFrites.setSoustype(souSauce);
+        proVinaigretteAHuile.setSoustype(souSauce);
+                
+        proCornetNappageChocolat.setSoustype(souGlace);
+        proFrappeSaveurChocolat.setSoustype(souGlace);
+        proFrappeSaveurMarshmallow.setSoustype(souGlace);
+        proFrappeSaveurMyrtille.setSoustype(souGlace);
+        proFrappeSaveurVanille.setSoustype(souGlace);
+        proLeSundaeAbricot.setSoustype(souGlace);
+        proSundaeCaramel.setSoustype(souGlace);
+        proSundaeChocolat.setSoustype(souGlace);
+        proSundaeNature.setSoustype(souGlace);
+        proMcFlurryDaim.setSoustype(souGlace);
+        proMcFlurryKitKat.setSoustype(souGlace);
+        proMcFlurryOreo.setSoustype(souGlace);
+        proMcFlurrySpeculoos.setSoustype(souGlace);
+        proVeryParfaitCoulisAbricot.setSoustype(souGlace);
+        proVeryParfaitNappageSaveurCaramel.setSoustype(souGlace);
+        proVeryParfaitNappageSaveurChocolat.setSoustype(souGlace);
+        proVeryParfaitNature.setSoustype(souGlace);
+        
+        proPetitDuoRaisins.setSoustype(souFruits);
+        
+        proBrownieChocolatNoisettes.setSoustype(souGateau);
+        proDonnutNature.setSoustype(souGateau);
+        proDonutSaveurChocolat.setSoustype(souGateau);
+        proLePetitMuffinPepiteChocolat.setSoustype(souGateau);
+       proGrandeFrite.setSoustype(souPommeDeTerre);
+       proMoyenneFrite.setSoustype(souPommeDeTerre);
+       proPetiteFrite.setSoustype(souPommeDeTerre);
+       proGrandesCrousties.setSoustype(souPommeDeTerre);
+       proMoyenneCrousties.setSoustype(souPommeDeTerre);
+       proJouetGarcon.setSoustype(souGarcon);
+       proJouetFille.setSoustype(souFille);
+       
+                /**
+                 * ************************************************************************************
+                 */
+                //**************************** PERSIST *********************************
+                // -------------------------------- Thierry ------------------------------------
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
         em.persist(itARaNappageAbricot);
@@ -966,7 +1086,6 @@ System.out.println("BigMac >>>>>>>>>>>>>>>> Apres la creation de donnee >>>>>> "
         System.out.println("Size listProduit >>>>> " + listProduit.size());
         for (Produit p : listProduit) {
             p.setTva(tvaNormal);
-            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaNormal.getProduits().size());
         }
 
         // ********* TVA vers Menu *********
