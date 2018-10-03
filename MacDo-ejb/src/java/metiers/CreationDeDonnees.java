@@ -248,7 +248,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
 //        //ligne de commande
 ////      LigneDeCommande ligMenuHappyMeal = new LigneDeCommande(20f,1,5.5f);
-        LigneDeCommande ligBigMac = new LigneDeCommande();
+//        LigneDeCommande ligBigMac = new LigneDeCommande();
 //        ligBigMac.setProduit(proBigMac);
 ////        ligBigMac.setTva(ligBigMac.getProduit().getTva().getTaux());
 ////        ligBigMac.setQuantite(1);
@@ -257,21 +257,21 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 ////        LigneDeCommande ligBigMac1 = new LigneDeCommande(20f,1,4.3f);
 ////        LigneDeCommande ligMenuBigMacMaxi = new LigneDeCommande(20f,2,8f);
 ////        LigneDeCommande ligMenuSalade = new LigneDeCommande(20f,1,6.5f);
-////        LigneDeCommande ligMenuPetitDej = new LigneDeCommande(20f,1,7.3f);
-////        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
-////        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
-//        //sousligne de commande
-        SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
-////        SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
-////        SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
-////        SousLigneDeCommande souLigne4 = new SousLigneDeCommande();
-////        SousLigneDeCommande souLigne5 = new SousLigneDeCommande();
-////        SousLigneDeCommande souLigne6 = new SousLigneDeCommande();
-////        SousLigneDeCommande souLigne7 = new SousLigneDeCommande();
-//
-//        //commande
-        Date d = new GregorianCalendar(2018, 2, 15).getTime();
-        Commande co1 = new Commande(d, true);
+//////        LigneDeCommande ligMenuPetitDej = new LigneDeCommande(20f,1,7.3f);
+//////        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
+//////        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
+////        //sousligne de commande
+//        SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
+//////        SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
+//////        SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
+//////        SousLigneDeCommande souLigne4 = new SousLigneDeCommande();
+//////        SousLigneDeCommande souLigne5 = new SousLigneDeCommande();
+//////        SousLigneDeCommande souLigne6 = new SousLigneDeCommande();
+//////        SousLigneDeCommande souLigne7 = new SousLigneDeCommande();
+////
+////        //commande
+//        Date d = new GregorianCalendar(2018, 2, 15).getTime();
+//        Commande co1 = new Commande(d, true);
 //
 ////        Commande co2 = new Commande(d,true);
 //        //Associations
@@ -315,16 +315,16 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
 //        em.persist(ligMenuHappyMeal);
 //        
-        em.persist(ligBigMac);
-////     
-        em.persist(souLigne1);
-////       em.persist(souLigne2);
-////       em.persist(souLigne3);
-////       em.persist(souLigne4);
-////       em.persist(souLigne5);
-////       em.persist(souLigne6);
-////       em.persist(souLigne7);
-        em.persist(co1);
+////        em.persist(ligBigMac);
+////////     
+////        em.persist(souLigne1);
+////////       em.persist(souLigne2);
+////////       em.persist(souLigne3);
+////////       em.persist(souLigne4);
+////////       em.persist(souLigne5);
+////////       em.persist(souLigne6);
+////////       em.persist(souLigne7);
+////        em.persist(co1);
 //        System.out.println(" souligne1 "+souLigne1.getProduits().size());
 //------------------------------------------------------------------------------------------------------------
 //
