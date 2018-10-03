@@ -229,7 +229,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Menu menSignatureBest = new Menu("Menu Signature 280", "Best", "./Images/", 8.30F);
 // ----------------------------------- Momo ------------------------------------
         //Creation des objets
-
         //statut
         Statut staDisponible = new Statut(1L, "disponible");
         Statut staEpuise = new Statut(2L, "epuisé");
@@ -316,13 +315,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(souLigne1);
         em.persist(souLigne2);
         em.persist(co1);
-//        System.out.println(" souligne1 "+souLigne1.getProduits().size());
 
-//
-//        Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
-//        Promotion p02 = new Promotion("2 Menus MaxiBestOf  pour 12 Euros");
-//        Promotion p03 = new Promotion("2 Menus HappyMeal pour 6 Euros");
-//        Promotion p04 = new Promotion("1 MacCafé pour 1 Euro pour tout menu acheté !");
         SousType souBurger = new SousType("Burger", "./Images/NosBurger.png");
         SousType souSalade = new SousType("Salade", "./Images/NosSalades.png");
         SousType souFroide = new SousType("Froide", "./Images/");

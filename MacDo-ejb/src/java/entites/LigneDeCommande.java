@@ -46,6 +46,7 @@ public class LigneDeCommande implements Serializable {
     }
 
     public LigneDeCommande(Float tva, int quantite, Float prix) {
+        this();
         this.tva = tva;
         this.quantite = quantite;
         this.prix = prix;
