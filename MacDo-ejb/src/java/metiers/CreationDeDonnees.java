@@ -186,9 +186,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         SousType souNouveaute = new SousType("Nouveaute", "./Images/");
         
         //---------- ITEMS A RAJOUTER ----------
-        ItemARajouter itARaNappageChocolat = new ItemARajouter("Nappage Chocolat", 0.2F);
-        ItemARajouter itARaNappageCaramel = new ItemARajouter("Nappage Caramel", 0.2F);
-        ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F);
+        ItemARajouter itARaNappageChocolat = new ItemARajouter("Nappage Chocolat", 0.2F,"./Images/SundaeAbricot.png");
+        ItemARajouter itARaNappageCaramel = new ItemARajouter("Nappage Caramel", 0.2F,"./Images/SundaeCaramel.png");
+        ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F,"./Images/SundaeChocolat.png");
         
         //---------- ITEMS A RETIRER ----------
         ItemARetirer itaeSteak = new ItemARetirer("Steak", "./Images/");
@@ -913,23 +913,17 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         // ********* TVA vers Produits *********
         TypedQuery<Produit> querryProduit = em.createNamedQuery("entities.Produit.selectAll", Produit.class);
         List<Produit> listProduit = querryProduit.getResultList();
-        System.out.println("Size listProduit >>>>> " + listProduit.size());
         for (Produit p : listProduit) {
             p.setTva(tvaNormal);
-            System.out.println("tva >>>>>>>>>"+p.getTva());
-            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaNormal.getProduits().size());
         }
 
         // ********* TVA vers Menu *********
         TypedQuery<Menu> querryMenu = em.createNamedQuery("entities.Menu.selectAll", Menu.class);
         List<Menu> listMenu = querryMenu.getResultList();
-        System.out.println("Size listMenu >>>>> " + listMenu.size());
         for (Menu m : listMenu) {
             m.setTva(tvaNormal);
-            System.out.println("tva >>>>>>>>>"+m.getTva());
-
-            //System.out.println("Taille collection tvaMenus >>>>>>>> "+ tvaNormal.getMenus.size());
         }
+
 
 // ------------------------------- Commentaires --------------------------------
         

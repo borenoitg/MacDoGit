@@ -23,7 +23,7 @@ import javax.persistence.OneToMany;
 public class ItemARajouter implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     // propriétés
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,16 +39,15 @@ public class ItemARajouter implements Serializable {
     private String imageUrl;
 
     // dépendances pour les associations
-    
     @OneToMany(mappedBy = "ItemsARajouter")
     private Collection<SousLigneDeCommande> sousLigneDeCommandes;
-    
-    @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+
+    @ManyToMany
     private Collection<Produit> produits;
-    
+
     @ManyToOne
     private Statut statut;
-    
+
     // constructeurs
     public ItemARajouter() {
         sousLigneDeCommandes = new ArrayList<>();
@@ -60,7 +59,14 @@ public class ItemARajouter implements Serializable {
         this.nom = nom;
         this.prix = prix;
     }
-    
+
+    public ItemARajouter(String nom, Float prix, String imageUrl) {
+        this();
+        this.nom = nom;
+        this.prix = prix;
+        this.imageUrl = imageUrl;
+    }
+
     // getters et setters
     public Long getId() {
         return id;
@@ -102,8 +108,6 @@ public class ItemARajouter implements Serializable {
         this.sousLigneDeCommandes = sousLigneDeCommandes;
     }
 
-   
-
     public Collection<Produit> getProduits() {
         return produits;
     }
@@ -129,7 +133,6 @@ public class ItemARajouter implements Serializable {
     }
 
     // Autres Methodes
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -153,6 +156,5 @@ public class ItemARajouter implements Serializable {
     public String toString() {
         return "ItemARajoute{" + "nom=" + nom + ", prix=" + prix + ", statut=" + statut + '}';
     }
-
 
 }

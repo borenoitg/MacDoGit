@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="FrontControleur?section=ItemARajouterCtrl">Nappage</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Services</a>
@@ -83,12 +83,12 @@
                         <c:forEach items="${catalogue}" var="c">
                             <c:if test="${c == catalogue[0]}">
                                <div class="carousel-item active">
-                                    <img class="d-block img-fluid" width="900" height="350" src="${c.imageUrl}">
+                                    <img class="d-block img-fluid" width="900" src="${c.imageUrl}">
                                 </div> 
                             </c:if>
                             <c:if test="${c != catalogue[0]}">
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid" width="900" height="350" src="${c.imageUrl}" alt="${c.nom}">
+                                    <img class="d-block img-fluid" width="900"  src="${c.imageUrl}" alt="${c.nom}">
                                 </div>
                             </c:if>
                         </c:forEach>

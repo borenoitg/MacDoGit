@@ -1,4 +1,4 @@
- package entites;
+package entites;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import javax.persistence.OneToMany;
 public class Produit implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     // propriétés
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,7 +65,7 @@ public class Produit implements Serializable {
     @ManyToOne
     private SousType soustype;
 
-    @OneToMany(mappedBy = "produit")            
+    @OneToMany(mappedBy = "produit")
     private Collection<LigneDeCommande> lignesDeCommande;
 
     @OneToMany(mappedBy = "produit")
@@ -81,7 +81,6 @@ public class Produit implements Serializable {
     private Collection<Abonne> abonnes;
 
     // Constructeurs
-
     public Produit() {
         ingredients = new ArrayList();
         allergenes = new ArrayList();
@@ -94,6 +93,7 @@ public class Produit implements Serializable {
     }
 
     public Produit(String nom, Float prix, String taille, String imageUrl) {
+        this();
         this.nom = nom;
         this.prix = prix;
         this.taille = taille;
@@ -123,7 +123,6 @@ public class Produit implements Serializable {
 //        this.prix = prix;
 //        this.description = description;
 //    }
-
     public Produit(String nom, Float prix, String imageUrl) {
         this();
         this.nom = nom;
@@ -131,8 +130,8 @@ public class Produit implements Serializable {
         this.imageUrl = imageUrl;
     }
 
-    public Produit(String nom, Float prix, String description
-            , String taille, int volume, String imageUrl) {
+    public Produit(String nom, Float prix, String description,
+             String taille, int volume, String imageUrl) {
         this();
         this.nom = nom;
         this.prix = prix;
@@ -141,7 +140,7 @@ public class Produit implements Serializable {
         this.volume = volume;
         this.imageUrl = imageUrl;
     }
-    
+
     // getters et setters
     public Long getId() {
         return id;
@@ -279,8 +278,6 @@ public class Produit implements Serializable {
         this.sousLigneDeCommandes = sousLigneDeCommandes;
     }
 
-    
-
     public Collection<ItemARajouter> getItemARajoutes() {
         return itemsARajouter;
     }
@@ -327,22 +324,20 @@ public class Produit implements Serializable {
             return false;
         }
         Produit other = (Produit) object;
-        if ((this.id == null && other.id != null) || (this.id 
+        if ((this.id == null && other.id != null) || (this.id
                 != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
 
-        
-        
     @Override
     public String toString() {
-        return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" 
-                + prix + ", description=" + description + ", taille=" 
-                + taille + ", volume=" + volume + ", imageUrl=" + imageUrl 
-                + ", promo=" + promotion + ", tva=" + tva + ", ingredients=" 
-                + ingredients + ", allergenes=" + allergenes + ", statut=" 
+        return "Produit{" + "id=" + id + ", nom=" + nom + ", prix="
+                + prix + ", description=" + description + ", taille="
+                + taille + ", volume=" + volume + ", imageUrl=" + imageUrl
+                + ", promo=" + promotion + ", tva=" + tva + ", ingredients="
+                + ingredients + ", allergenes=" + allergenes + ", statut="
                 + statut + ", infos=" + infos + ", soustype=" + soustype + '}';
     }
 }
