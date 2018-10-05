@@ -27,7 +27,7 @@ public class Statut implements Serializable {
     private Collection<Menu> menus;
 
     @OneToMany(mappedBy = "statut")
-    private Collection<ItemARetire> itemAretires;
+    private Collection<ItemARetirer> itemAretires;
 
     @OneToMany(mappedBy = "statut")
     private Collection<Commande> commandes;
@@ -45,7 +45,7 @@ public class Statut implements Serializable {
     private Collection<Promotion> promotions;
 
     @OneToMany(mappedBy = "statut")
-    private Collection<ItemARajoute> itemARajoutes;
+    private Collection<ItemARajouter> itemARajoutes;
 
 //-------------------------------- Constructeurs -------------------------------
     public Statut() {
@@ -90,11 +90,11 @@ public class Statut implements Serializable {
         this.menus = menus;
     }
 
-    public Collection<ItemARetire> getItemAretires() {
+    public Collection<ItemARetirer> getItemAretires() {
         return itemAretires;
     }
 
-    public void setItemAretires(Collection<ItemARetire> itemAretires) {
+    public void setItemAretires(Collection<ItemARetirer> itemAretires) {
         this.itemAretires = itemAretires;
     }
 
@@ -138,11 +138,11 @@ public class Statut implements Serializable {
         this.promotions = promotions;
     }
 
-    public Collection<ItemARajoute> getItemARajoutes() {
+    public Collection<ItemARajouter> getItemARajoutes() {
         return itemARajoutes;
     }
 
-    public void setItemARajoutes(Collection<ItemARajoute> itemARajoutes) {
+    public void setItemARajoutes(Collection<ItemARajouter> itemARajoutes) {
         this.itemARajoutes = itemARajoutes;
     }
 

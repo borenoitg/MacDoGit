@@ -21,37 +21,48 @@ public class SousLigneDeCommande implements Serializable {
     private Long id;
 
     //------ gestion des associations ------
-    @ManyToOne
-    private Commande commande;
+    
+
+    @ManyToOne()
+    private ItemARajouter ItemsARajouter;
 
     @OneToMany(mappedBy = "sousLigneDeCommande")
-    private Collection<ItemARajoute> ItemARajoutes;
+    private Collection<ItemARetirer> ItemsARetirer;
 
-    @OneToMany(mappedBy = "sousLigneDeCommande")
-    private Collection<ItemARetire> ItemARetires;
-
-    @OneToMany(mappedBy = "sousLigneDeCommande")
-    private Collection<Produit> produits;
+    @ManyToOne()
+    private Produit produit;
 
     @ManyToOne
     private LigneDeCommande ligneCommande;
 
+    
 //-------------------------------- Constructeurs -------------------------------    
     public SousLigneDeCommande() {
-        ItemARajoutes = new ArrayList<>();
-        ItemARetires = new ArrayList<>();
-        produits = new ArrayList<>();
+        
+        ItemsARetirer = new ArrayList<>();
+        
     }
 
     public SousLigneDeCommande(Commande commande
-            , Collection<ItemARajoute> ItemARajoutes
-            , Collection<ItemARetire> ItemARetires
+            , Collection<ItemARajouter> ItemARajoutes
+            , Collection<ItemARetirer> ItemsARetirer
             , Collection<Produit> produits, LigneDeCommande ligneCommande) {
         this();
-        this.commande = commande;
-        this.ItemARajoutes = ItemARajoutes;
-        this.ItemARetires = ItemARetires;
-        this.produits = produits;
+        this.ItemsARetirer = ItemsARetirer;
+        
+        this.ligneCommande = ligneCommande;
+    }
+
+    public SousLigneDeCommande(ItemARajouter ItemARajoutes, LigneDeCommande ligneCommande) {
+        this();
+        this.ItemsARajouter = ItemARajoutes;
+        this.ligneCommande = ligneCommande;
+    }
+
+    public SousLigneDeCommande(ItemARajouter ItemARajoutes, Produit produits, LigneDeCommande ligneCommande) {
+        this();
+        this.ItemsARajouter = ItemARajoutes;
+        this.produit = produits;
         this.ligneCommande = ligneCommande;
     }
 
@@ -60,41 +71,38 @@ public class SousLigneDeCommande implements Serializable {
         return id;
     }
 
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Commande getCommande() {
-        return commande;
+    public ItemARajouter getItemsARajouter() {
+        return ItemsARajouter;
     }
 
-    public void setCommande(Commande commande) {
-        this.commande = commande;
+    public void setItemsARajouter(ItemARajouter ItemsARajouter) {
+        this.ItemsARajouter = ItemsARajouter;
     }
 
-    public Collection<ItemARajoute> getItemARajoutes() {
-        return ItemARajoutes;
+
+  
+
+    public Collection<ItemARetirer> getItemsARetirer() {
+        return ItemsARetirer;
     }
 
-    public void setItemARajoutes(Collection<ItemARajoute> ItemARajoutes) {
-        this.ItemARajoutes = ItemARajoutes;
+    public void setItemsARetirer(Collection<ItemARetirer> ItemsARetirer) {
+        this.ItemsARetirer = ItemsARetirer;
     }
 
-    public Collection<ItemARetire> getItemARetires() {
-        return ItemARetires;
-    }
-
-    public void setItemARetires(Collection<ItemARetire> ItemARetires) {
-        this.ItemARetires = ItemARetires;
-    }
-
-    public Collection<Produit> getProduits() {
-        return produits;
-    }
-
-    public void setProduits(Collection<Produit> produits) {
-        this.produits = produits;
-    }
+  
 
     public LigneDeCommande getLigneCommande() {
         return ligneCommande;
@@ -102,6 +110,14 @@ public class SousLigneDeCommande implements Serializable {
 
     public void setLigneCommande(LigneDeCommande ligneCommande) {
         this.ligneCommande = ligneCommande;
+    }
+
+    public Produit getProduits() {
+        return produit;
+    }
+
+    public void setProduits(Produit produits) {
+        this.produit = produits;
     }
 
 //------------------------------ Autres Methodes -------------------------------
@@ -128,9 +144,9 @@ public class SousLigneDeCommande implements Serializable {
     @Override
     public String toString() {
         return "SousLigneDeCommande{" + "id=" + id 
-                + ", commande=" + commande 
-                + ", ItemARajoutes=" + ItemARajoutes + ", ItemARetires=" 
-                + ItemARetires + ", produits=" + produits + ", ligneCommande=" 
+               
+                + ", ItemARajoutes=" + ItemsARajouter + ", ItemsARetirer=" 
+                + ItemsARetirer + ", produits=" + produit + ", ligneCommande=" 
                 + ligneCommande + '}';
     }
 

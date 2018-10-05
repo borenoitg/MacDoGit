@@ -21,9 +21,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         List<Produit> produits = catalogue.listeProduit();
         request.setAttribute("catalogue", produits);
 
-        return "/WEB-INF/Home.jsp";
-//        return "/WEB-INF/home2.jsp";
-
+        return "/WEB-INF/home.jsp";
     }
 
     private CatalogueLocal lookupCatalogueLocal() {

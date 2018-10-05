@@ -36,12 +36,14 @@ public class Commande implements Serializable {
     @ManyToOne
     private Statut statut;
     
-    @OneToMany(mappedBy = "commande")
-    private Collection<SousLigneDeCommande> sousLignesDeCommande;
+    
+    
+@OneToMany(mappedBy = "commande")
+private Collection<LigneDeCommande> ligneDeCommandes;
 
 //-------------------------------- Constructeur --------------------------------
     public Commande() {
-        sousLignesDeCommande = new ArrayList<>();
+       ligneDeCommandes = new ArrayList<>();
     }
 
     public Commande(Date dateCommande, boolean paiementBorne) {
@@ -83,13 +85,16 @@ public class Commande implements Serializable {
         this.statut = statut;
     }
 
-    public Collection<SousLigneDeCommande> getSousLignesDeCommande() {
-        return sousLignesDeCommande;
+    public Collection<LigneDeCommande> getLigneDeCommandes() {
+        return ligneDeCommandes;
     }
 
-    public void setSousLignesDeCommande(Collection<SousLigneDeCommande> sousLignesDeCommande) {
-        this.sousLignesDeCommande = sousLignesDeCommande;
+    public void setLigneDeCommandes(Collection<LigneDeCommande> ligneDeCommandes) {
+        this.ligneDeCommandes = ligneDeCommandes;
     }
+
+    
+
 
 //------------------------------ Autres Methodes -------------------------------
     @Override

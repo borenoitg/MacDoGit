@@ -68,14 +68,14 @@ public class Produit implements Serializable {
     @OneToMany(mappedBy = "produit")            
     private Collection<LigneDeCommande> lignesDeCommande;
 
-    @ManyToOne
-    private SousLigneDeCommande sousLigneDeCommande;
+    @OneToMany(mappedBy = "produit")
+    private Collection<SousLigneDeCommande> sousLigneDeCommandes;
 
     @ManyToMany(mappedBy = "produits")
-    private Collection<ItemARajoute> itemARajoutes;
+    private Collection<ItemARajouter> itemsARajouter;
 
     @ManyToMany(mappedBy = "produits")
-    private Collection<ItemARetire> itemARetires;
+    private Collection<ItemARetirer> itemsARetirer;
 
     @ManyToMany(mappedBy = "produits")
     private Collection<Abonne> abonnes;
@@ -83,13 +83,21 @@ public class Produit implements Serializable {
     // Constructeurs
 
     public Produit() {
-        ingredients = new ArrayList<>();
-        allergenes = new ArrayList<>();
-        infos = new ArrayList<>();
-        lignesDeCommande = new ArrayList<>();
-        itemARajoutes = new ArrayList<>();
-        itemARetires = new ArrayList<>();
-        abonnes = new ArrayList<>();
+        ingredients = new ArrayList();
+        allergenes = new ArrayList();
+        infos = new ArrayList();
+        lignesDeCommande = new ArrayList();
+        sousLigneDeCommandes = new ArrayList();
+        itemsARajouter = new ArrayList();
+        itemsARetirer = new ArrayList();
+        abonnes = new ArrayList();
+    }
+
+    public Produit(String nom, Float prix, String taille, String imageUrl) {
+        this.nom = nom;
+        this.prix = prix;
+        this.taille = taille;
+        this.imageUrl = imageUrl;
     }
 
     public Produit(String nom) {
@@ -137,6 +145,10 @@ public class Produit implements Serializable {
     // getters et setters
     public Long getId() {
         return id;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public void setId(Long id) {
@@ -215,12 +227,12 @@ public class Produit implements Serializable {
         this.lignesDeCommande = lignesDeCommande;
     }
 
-    public void setItemARajoutes(Collection<ItemARajoute> itemARajoutes) {
-        this.itemARajoutes = itemARajoutes;
+    public void setItemARajoutes(Collection<ItemARajouter> itemARajoutes) {
+        this.itemsARajouter = itemARajoutes;
     }
 
-    public void setItemARetires(Collection<ItemARetire> itemARetires) {
-        this.itemARetires = itemARetires;
+    public void setItemARetires(Collection<ItemARetirer> itemARetires) {
+        this.itemsARetirer = itemARetires;
     }
 
     public void setAllergenes(Collection<Allergene> allergenes) {
@@ -259,28 +271,30 @@ public class Produit implements Serializable {
         this.lignesDeCommande = lignesDeCommande;
     }
 
-    public SousLigneDeCommande getSousLigneDeCommande() {
-        return sousLigneDeCommande;
+    public Collection<SousLigneDeCommande> getSousLigneDeCommandes() {
+        return sousLigneDeCommandes;
     }
 
-    public void setSousLigneDeCommande(SousLigneDeCommande sousLigneDeCommande) {
-        this.sousLigneDeCommande = sousLigneDeCommande;
+    public void setSousLigneDeCommandes(Collection<SousLigneDeCommande> sousLigneDeCommandes) {
+        this.sousLigneDeCommandes = sousLigneDeCommandes;
     }
 
-    public Collection<ItemARajoute> getItemARajoutes() {
-        return itemARajoutes;
+    
+
+    public Collection<ItemARajouter> getItemARajoutes() {
+        return itemsARajouter;
     }
 
-    public void setItemRajoutes(Collection<ItemARajoute> itemARajoutes) {
-        this.itemARajoutes = itemARajoutes;
+    public void setItemRajoutes(Collection<ItemARajouter> itemARajoutes) {
+        this.itemsARajouter = itemARajoutes;
     }
 
-    public Collection<ItemARetire> getItemARetires() {
-        return itemARetires;
+    public Collection<ItemARetirer> getItemARetires() {
+        return itemsARetirer;
     }
 
-    public void setItemRetires(Collection<ItemARetire> itemARetires) {
-        this.itemARetires = itemARetires;
+    public void setItemRetires(Collection<ItemARetirer> itemARetires) {
+        this.itemsARetirer = itemARetires;
     }
 
     public Collection<Abonne> getAbonnes() {

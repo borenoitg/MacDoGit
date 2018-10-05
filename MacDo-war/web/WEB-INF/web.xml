@@ -43,4 +43,22 @@
         <local>metiers.CatalogueLocal</local>
         <ejb-link>MacDo-ejb.jar#Catalogue</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>Catalogue2</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.CatalogueLocal</local>
+        <ejb-link>MacDo-ejb.jar#Catalogue</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>Catalogue3</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.CatalogueLocal</local>
+        <ejb-link>MacDo-ejb.jar#Catalogue</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>Catalogue4</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.CatalogueLocal</local>
+        <ejb-link>MacDo-ejb.jar#Catalogue</ejb-link>
+    </ejb-local-ref>
 </web-app>

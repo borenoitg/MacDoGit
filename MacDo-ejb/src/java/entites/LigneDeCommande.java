@@ -39,12 +39,15 @@ public class LigneDeCommande implements Serializable {
 
     @OneToMany(mappedBy = "ligneCommande")
     private Collection<SousLigneDeCommande> sousLignesDeCommande;
-
+    @ManyToOne
+    private Commande commande;
     // Constructeurs
     public LigneDeCommande() {
         sousLignesDeCommande = new ArrayList<>();
     }
 
+   
+    
     public LigneDeCommande(Float tva, int quantite, Float prix) {
         this();
         this.tva = tva;
@@ -52,9 +55,23 @@ public class LigneDeCommande implements Serializable {
         this.prix = prix;
     }
 
+    public LigneDeCommande(Float tva, int quantite, Float prix, Menu menu, Produit produit, Commande commande) {
+        this();
+        this.tva = tva;
+        this.quantite = quantite;
+        this.prix = prix;
+        this.menu = menu;
+        this.produit = produit;
+        this.commande = commande;
+    }
+
     // getters et setters
     public Long getId() {
         return id;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public void setId(Long id) {
@@ -107,6 +124,14 @@ public class LigneDeCommande implements Serializable {
 
     public void setSousLignesDeCommande(Collection<SousLigneDeCommande> sousLignesDeCommande) {
         this.sousLignesDeCommande = sousLignesDeCommande;
+    }
+
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
     }
 
     // Autres Methodes

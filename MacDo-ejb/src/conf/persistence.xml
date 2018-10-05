@@ -4,11 +4,9 @@
     <jta-data-source>jdbc/MacDo</jta-data-source>
     <class>entites.Abonne</class>
     <class>entites.Allergene</class>
-    <class>entites.Commande</class> 
+    <class>entites.Commande</class>
     <class>entites.Infos</class>
     <class>entites.Ingredient</class>
-    <class>entites.ItemARajoute</class>
-    <class>entites.ItemARetire</class>
     <class>entites.LigneDeCommande</class>
     <class>entites.Menu</class>
     <class>entites.Produit</class>
@@ -18,6 +16,8 @@
     <class>entites.Statut</class>
     <class>entites.Tva</class>
     <class>entites.Type</class>
+    <class>entites.ItemARajouter</class>
+    <class>entites.ItemARetirer</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

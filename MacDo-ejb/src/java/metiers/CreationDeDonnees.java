@@ -4,8 +4,8 @@ import entites.Abonne;
 import entites.Allergene;
 import entites.Commande;
 import entites.Ingredient;
-import entites.ItemARajoute;
-import entites.ItemARetire;
+import entites.ItemARajouter;
+import entites.ItemARetirer;
 import entites.LigneDeCommande;
 import entites.Menu;
 import entites.Produit;
@@ -21,150 +21,120 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import metiers.CreationDeDonneesLocal;
 
 @Singleton
 public class CreationDeDonnees implements CreationDeDonneesLocal {
-
+    
     @PersistenceContext(unitName = "MacDo-ejbPU")
     private EntityManager em;
-
+    
     @Override
     public void creationDonnees() {
 
-        // ************************ CREATION DES OBJETS ************************
-// -------------------------------- Thierry ------------------------------------
-        //*********************** Ingredient *********************** 
-        Ingredient ingPain = new Ingredient("pain");
 
-        // ********* Les ItemsARajoute *********
-        ItemARajoute itARaNappageChocolat = new ItemARajoute("Nappage Chocolat", 0.2F);
-        ItemARajoute itARaNappageCaramel = new ItemARajoute("Nappage Caramel", 0.2F);
-        ItemARajoute itARaNappageAbricot = new ItemARajoute("Nappage Abricot", 0.2F);
-        ItemARajoute i = new ItemARajoute();
-        Menu mb = new Menu();
-        // ********* Les Produits *********
-        Produit proBigMac = new Produit("Big Mac", 4.3F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
-        Produit proPoissonRanch = new Produit("Poisson Ranch", 3.5F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "./Images/poissonRanch.png");
-        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.5F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "Normal", 0, "./Images/boeufRanch.png");
-        Produit proPouletRanch = new Produit("Poulet Ranch Ketchup", 3.5F, "Pain spécial aux graines de sésame et de pavot, spécialité panée au poulet, cheddar fondu, oignons, cornichons, salade, ketchup, sauce Ranch.", "Normal", 0, "./Images/pouletRanch.png");
-        Produit proChickenMcNuggets4 = new Produit("Chicken McNuggets x4", 3.1F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x4", 0, "./Images/chicken-nuggets.jpg");
-        Produit proChickenMcNuggets6 = new Produit("Chicken McNuggets x6", 4.2F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x6", 0, "./Images/chicken-nuggets.jpg");
-        Produit proChickenMcNuggets9 = new Produit("Chicken McNuggets x9", 5.3F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x9", 0, "./Images/chicken-nuggets.jpg");
-        Produit proChickenMcNuggets20 = new Produit("Chicken McNuggets x20", 9.9F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x20", 0, "./Images/chicken-nuggets.jpg");
-        Produit proSummer = new Produit("Salade Summer Veggie", 6.3F, "Une délicieuse salade estivale et végétarienne avec ses galettes panées aux légumes 100% français, son duo de poivrons jaunes et rouges confits, son mélange de choux rouge et blanc origine Normandie, ses dés de fromage de brebis, ses tomates fraîches et son mélange de salades.\n\nSalade Summer­ Veggie­ = Salade estivale et végétarienne.", "Normal", 0, "./Images/SaladeManhattanVeggie.jpg");
-        Produit proNewYorkCaesar = new Produit("Salade New York Caesar au Poulet Croustillant", 6.5F, "", "Normal", 0, "./Images/SaladeNewYork.jpg");
-        Produit proManhattanPouletFrit = new Produit("Salade Manhattan au Poulet Mariné et Frit", 6.8F, "", "Normal", 0, "./Images/SaladeManhattanpouletFri.jpg");
-        Produit proManhattanVeggie = new Produit("Salade Manhattan Veggie ", 6.7F, "De délicieuses galettes panées aux légumes 100% français, des tomates cerises, des grains de raisins, des cranberries et un mélange de salades : romaine, batavia et radicchio. Veggie = Végétarien Cranberries = Canneberges. Suggestion de présentation. Durée limitée", "Normal", 0, "./Images/SaladeManhattanVeggie.jpg");
-        Produit proManhattan = new Produit("Salade Manhattan", 6.3F, "Salade composée d'un mélange de romaine, de batavia et de raddichio, de 2 spécialités panées au poulet, de tomates-cerises et de morceaux de pommes et grains de raisins. Proposée avec sa sauce Manhattan. ", "Normal", 0, "./Images/SaladeManhattan.png");
-        Produit proManhattanPouletCroustillant = new Produit("Salade Manhattan au Poulet Croustillant", 6.9F, "", "Normal", 0, "./Images/SaladeManhattanPouletCroustillant.jpg");
+// -----------------------------------------------------------------------------        
+//                          CREATION DES DONNEES
+// -----------------------------------------------------------------------------        
+
+        //---------- MENUS ----------
+        Menu menHappyMeal = new Menu("HappyMeal", "Menu", "./Images/", 5.50F);
+        Menu menBigMacBest = new Menu("Big Mac", " Menu Best Of", "./Images/", 8.90F);
+        Menu menBigMacMaxiBest = new Menu("Big Mac", "Menu Maxi Best Of", "./Images/", 8.00F);
+        Menu menSalade = new Menu("Salade", "Menu", "./Images/", 6.50F);
+        Menu menChickMacNugx6 = new Menu("Chicken McNuggets x6", "Menu Best Of", "./Images/", 7.50F);
+        Menu menPtitDej = new Menu("P'tit Déj", "Menu", "./Images/", 7.30F);
+        Menu menSignatureBest = new Menu("Signature 280", "Menu Best Of", "./Images/", 8.30F);
+        
+        //---------- PRODUITS ----------
+        // Les burgers
+        Produit proBigMac = new Produit("Big Mac", 4.30F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
+        Produit proPoissonRanch = new Produit("Poisson Ranch", 3.50F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "./Images/poissonRanch.png");
+        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.50F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "Normal", 0, "./Images/boeufRanch.png");
+        Produit proPouletRanch = new Produit("Poulet Ranch Ketchup", 3.50F, "Pain spécial aux graines de sésame et de pavot, spécialité panée au poulet, cheddar fondu, oignons, cornichons, salade, ketchup, sauce Ranch.", "Normal", 0, "./Images/pouletRanch.png");
         Produit proSignature280OriginalBeef = new Produit("Signature 280 Original Beef BBQ Burger", 0F, "Laissez-vous tenter par le savoureux 280™ Original. Un pain ciabatta cuit sur pierre, un steak haché 100% pur bœuf *, de l'emmental et du cheddar fondus, des oignons frais, deux rondelles de tomates, du ketchup et une sauce légerement citronnee. Durée limitée.  comme tout steak hache.", "Normal", 0, "./Images/280SignatureBeef.png");
-        Produit proDoubleBlueCheese = new Produit("Double Blue Cheese & Bacon", 5.5F, "Le burger gourmet signé McDonald's™. Découvrez la recette : de la Fourme d'Ambert AOP, de la viande Charolaise, du long bacon fumé au bois de hêtre, des oignons fondants, le tout dans un pain spécial. Durée Limitée. Double Blue Cheese & Bacon = 2 steaks hachés & Fourme d'Ambert AOP", "Normal", 0, "./Images/DoubleBlueCheeseBacon.png");
-        Produit proBeefBbq = new Produit("Beef BQQ", 5.3F, "Découvrez une recette généreuse et des ingrédients de qualité : de la viande charolaise, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Beef BBQ Burger = Steak haché et sauce goût barbecue. ", "Normal", 0, "./Images/BEEFBBQBURGER.png");
-        Produit proChickenBbq = new Produit("Chicken BQQ", 5.4F, "Découvrez une recette généreuse et des ingrédients de qualité : un filet de poulet origine France, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Chicken BBQ = filet de poulet origine France", "Normal", 0, "./Images/CHICKENBBQ.png");
-        Produit proRoyalDeLuxe = new Produit("Royal™ deluxe", 5.6F, "Le luxe de la sauce à la moutarde à l'ancienne. Craquez pour un savoureux steak haché avec du cheddar fondu, de la salade croquante et des oignons frais, le tout accompagné d'une délicieuse sauce à la moutarde à l'ancienne qui lui donne son goût si original. Pain spécial, steak haché, salade, oignon, fromage fondu, tomate, sauce.", "Normal", 0, "./Images/royal-deluxe.png");
+        Produit proDoubleBlueCheese = new Produit("Double Blue Cheese & Bacon", 5.50F, "Le burger gourmet signé McDonald's™. Découvrez la recette : de la Fourme d'Ambert AOP, de la viande Charolaise, du long bacon fumé au bois de hêtre, des oignons fondants, le tout dans un pain spécial. Durée Limitée. Double Blue Cheese & Bacon = 2 steaks hachés & Fourme d'Ambert AOP", "Normal", 0, "./Images/DoubleBlueCheeseBacon.png");
+        Produit proBeefBbq = new Produit("Beef BQQ", 5.30F, "Découvrez une recette généreuse et des ingrédients de qualité : de la viande charolaise, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Beef BBQ Burger = Steak haché et sauce goût barbecue. ", "Normal", 0, "./Images/BEEFBBQBURGER.png");
+        Produit proChickenBbq = new Produit("Chicken BQQ", 5.40F, "Découvrez une recette généreuse et des ingrédients de qualité : un filet de poulet origine France, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Chicken BBQ = filet de poulet origine France", "Normal", 0, "./Images/CHICKENBBQ.png");
+        Produit proRoyalDeLuxe = new Produit("Royal™ deluxe", 5.60F, "Le luxe de la sauce à la moutarde à l'ancienne. Craquez pour un savoureux steak haché avec du cheddar fondu, de la salade croquante et des oignons frais, le tout accompagné d'une délicieuse sauce à la moutarde à l'ancienne qui lui donne son goût si original. Pain spécial, steak haché, salade, oignon, fromage fondu, tomate, sauce.", "Normal", 0, "./Images/royal-deluxe.png");
+        Produit proMcFish = new Produit("McFish", 4.10F, "Le petit frère du Filet-O-Fish. Caché au fond du Happy Meal, le McFish gagne à être connu : un pain lisse autour d'un poisson pané délicieusement croustillant et un peu de ketchup. Idéal pour s'initier au poisson ! Pain spécial, préparation de poisson pané, ketchup.", "Normal", 0, "./Images/McFISH.png");
+        Produit proCroqueMcDo = new Produit("Croque McDo™", 2.10F, "A croquer ! Un croque monsieur tout rond, tout en simplicité : deux tranches d'emmental fondu, une tranche de jambon supérieur, dans un pain retourné et toasté. Il ne lui en faut pas plus pour être bon. Pain spécial, fromage fondu, jambon.", "Normal", 0, "./Images/CROQUEMcDo.png");
+        Produit proHamburger = new Produit("Hamburger", 1.50F, "Un indémodable, tout simplement. Un steak haché, une rondelle de cornichon, des oignons, de la moutarde douce et du ketchup, retrouvez tout l'esprit de McDonald's dans ce classique au goût inimitable. Pain spécial, steack haché, oignon, cornichon, moutarde, ketchup.", "Normal", 0, "./Images/HAMBURGER.png");
+        Produit proCheeseBurger = new Produit("CheeseBurger", 1.90F, "Le « Cheese » pour les intimes. Un steak haché, une tranche de cheddar fondu, une rondelle de cornichon, des oignons, du ketchup et de la moutarde douce dans un pain classique : fondez pour son goût unique et emblématique. Pain spécial, steack haché, fromage fondu, oignon, cornichon, moutarde, ketchup.", "Normal", 0, "./Images/CHEESEBURGER.png");
+        // Les salades
+        Produit proSummer = new Produit("Salade Summer Veggie", 6.30F, "Une délicieuse salade estivale et végétarienne avec ses galettes panées aux légumes 100% français, son duo de poivrons jaunes et rouges confits, son mélange de choux rouge et blanc origine Normandie, ses dés de fromage de brebis, ses tomates fraîches et son mélange de salades.\n\nSalade Summer­ Veggie­ = Salade estivale et végétarienne.", "Normal", 0, "./Images/SaladeManhattanVeggie.jpg");
+        Produit proNewYorkCaesar = new Produit("Salade New York Caesar au Poulet Croustillant", 6.50F, "", "Normal", 0, "./Images/SaladeNewYork.jpg");
+        Produit proManhattanPouletFrit = new Produit("Salade Manhattan au Poulet Mariné et Frit", 6.80F, "", "Normal", 0, "./Images/SaladeManhattanpouletFri.jpg");
+        Produit proManhattanVeggie = new Produit("Salade Manhattan Veggie ", 6.70F, "De délicieuses galettes panées aux légumes 100% français, des tomates cerises, des grains de raisins, des cranberries et un mélange de salades : romaine, batavia et radicchio. Veggie = Végétarien Cranberries = Canneberges. Suggestion de présentation. Durée limitée", "Normal", 0, "./Images/SaladeManhattanVeggie.jpg");
+        Produit proManhattan = new Produit("Salade Manhattan", 6.30F, "Salade composée d'un mélange de romaine, de batavia et de raddichio, de 2 spécialités panées au poulet, de tomates-cerises et de morceaux de pommes et grains de raisins. Proposée avec sa sauce Manhattan. ", "Normal", 0, "./Images/SaladeManhattan.png");
+        Produit proManhattanPouletCroustillant = new Produit("Salade Manhattan au Poulet Croustillant", 6.90F, "", "Normal", 0, "./Images/SaladeManhattanPouletCroustillant.jpg");
+        // Les p'tites faims
         Produit proMcWrap = new Produit("Mc Wrap™ Chèvre", 8F, "Deux chèvres croustillants et chauds, une sauce onctueuse, des oignons frits, des rondelles de tomates, de la salade, le tout enveloppé dans une galette de blé. Chèvre = spécialité panée à base de fromage de chèvre", "Normal", 0, "./Images/McWRAPCHÈVRE.png");
-        Produit proMcFish = new Produit("McFish", 4.1F, "Le petit frère du Filet-O-Fish. Caché au fond du Happy Meal, le McFish gagne à être connu : un pain lisse autour d'un poisson pané délicieusement croustillant et un peu de ketchup. Idéal pour s'initier au poisson ! Pain spécial, préparation de poisson pané, ketchup.", "Normal", 0, "./Images/McFISH.png");
-        Produit proCroqueMcDo = new Produit("Croque McDo™", 2.1F, "A croquer ! Un croque monsieur tout rond, tout en simplicité : deux tranches d'emmental fondu, une tranche de jambon supérieur, dans un pain retourné et toasté. Il ne lui en faut pas plus pour être bon. Pain spécial, fromage fondu, jambon.", "Normal", 0, "./Images/CROQUEMcDo.png");
-        Produit proHamburger = new Produit("Hamburger", 1.5F, "Un indémodable, tout simplement. Un steak haché, une rondelle de cornichon, des oignons, de la moutarde douce et du ketchup, retrouvez tout l'esprit de McDonald's dans ce classique au goût inimitable. Pain spécial, steack haché, oignon, cornichon, moutarde, ketchup.", "Normal", 0, "./Images/HAMBURGER.png");
-        Produit proCheeseBurger = new Produit("CheeseBurger", 1.9F, "Le « Cheese » pour les intimes. Un steak haché, une tranche de cheddar fondu, une rondelle de cornichon, des oignons, du ketchup et de la moutarde douce dans un pain classique : fondez pour son goût unique et emblématique. Pain spécial, steack haché, fromage fondu, oignon, cornichon, moutarde, ketchup.", "Normal", 0, "./Images/CHEESEBURGER.png");
-        Produit proCocaCola25 = new Produit("COCA-COLA® Original", 1.9F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Normal", 25, "./Images/Coca.png");
-        Produit proCocaCola40 = new Produit("COCA-COLA® Original", 2.3F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Moyen", 40, "./Images/Coca.png");
-        Produit proCocaCola50 = new Produit("COCA-COLA® Original", 2.8F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Grand", 50, "./Images/Coca.png");
-        Produit proCocaColaZéro25 = new Produit("COCA-COLA ZÉRO® ", 1.9F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Normal", 25, "./Images/cocacolazero.jpg");
-        Produit proCocaColaZéro40 = new Produit("COCA-COLA ZÉRO® ", 2.3F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Moyen", 40, "./Images/cocacolazero.jpg");
-        Produit proCocaColaZéro50 = new Produit("COCA-COLA ZÉRO® ", 2.8F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Grand", 50, "./Images/cocacolazero.jpg");
-        Produit proCocaColaLight25 = new Produit("COCA-COLA LIGHT® ", 1.9F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Normal", 25, "./Images/Cocalight.png");
-        Produit proCocaColaLight40 = new Produit("COCA-COLA LIGHT® ", 2.3F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Moyen", 40, "./Images/Cocalight.png");
-        Produit proCocaColaLight50 = new Produit("COCA-COLA LIGHT® ", 2.8F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Grand", 50, "./Images/Cocalight.png");
-        Produit proSpriteZero25 = new Produit("Sprite Zéro®", 1.9F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Normal", 25, "./Images/Spritezero.png");
-        Produit proSpriteZero40 = new Produit("Sprite Zéro®", 2.3F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Moyen", 40, "./Images/Spritezero.png");
-        Produit proSpriteZero50 = new Produit("Sprite Zéro®", 2.8F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Grand", 50, "./Images/Spritezero.png");
-        Produit proEvian33 = new Produit("Evian®", 2.3F, "Une petite soif ? Notre corps est constitué  à 60% d'eau. Il est donc essentiel de boire suffisamment d'eau tous les jours. evian®, véritable trésor de pureté, fruit de plus de 15 années de filtration au cœur des Alpes, est une eau faiblement minéralisée qui répond à vos besoins quotidiens. McDonald's s'associe à evian® pour vous proposer les bouteilles 50cl et 33cl afin d'accompagner vos menus de fraîcheur et de légèreté. evian® 50cl vous apporte un tiers de vos besoins quotidiens en eau et vous accompagne partout à la sortie du restaurant. Dans les menus Happy Meal, retrouvez également evian® 33cl, une petite bouteille parfaitement adaptée aux mains des enfants et un format idéal pour les petites soifs. valeur nutritionnelle pour une boisson moyenne", "Normal", 33, "./Images/evian33.jpg");
-        Produit proEvian50 = new Produit("Evian®", 2.7F, "Une petite soif ? Notre corps est constitué  à 60% d'eau. Il est donc essentiel de boire suffisamment d'eau tous les jours. evian®, véritable trésor de pureté, fruit de plus de 15 années de filtration au cœur des Alpes, est une eau faiblement minéralisée qui répond à vos besoins quotidiens. McDonald's s'associe à evian® pour vous proposer les bouteilles 50cl et 33cl afin d'accompagner vos menus de fraîcheur et de légèreté. evian® 50cl vous apporte un tiers de vos besoins quotidiens en eau et vous accompagne partout à la sortie du restaurant. Dans les menus Happy Meal, retrouvez également evian® 33cl, une petite bouteille parfaitement adaptée aux mains des enfants et un format idéal pour les petites soifs. valeur nutritionnelle pour une boisson moyenne", "Moyen", 50, "./Images/evian50.jpg");
-        Produit proBadoit33 = new Produit("Badoit®", 2.3F, "BADOIT® est une eau minérale naturelle gazeuse, appréciée pour sa saveur unique et sa multitude de fines bulles. Reconnue depuis 1778 pour ses vertus, elle jaillit à Saint Galmier, dans la Loire, après un long parcours souterrain qui l'enrichit naturellement de ses sels minéraux essentiels et de sa fine pétillance, renforcée par l'adjonction de gaz carbonique pour le plaisir du palais. Badoit souligne avec élégance et subtilité tous vos repas. Choisissez sa fine pétillance pour faire pétiller vos menus. Badoit est disponible chez McDo en formats 33cl et 50cl. Badoit, buvez de la joie ! valeur nutritionnelle pour une boisson moyenne", "Normal", 33, "./Images/Badoit.jpg");
-        Produit proBadoit50 = new Produit("Badoit®", 2.7F, "BADOIT® est une eau minérale naturelle gazeuse, appréciée pour sa saveur unique et sa multitude de fines bulles. Reconnue depuis 1778 pour ses vertus, elle jaillit à Saint Galmier, dans la Loire, après un long parcours souterrain qui l'enrichit naturellement de ses sels minéraux essentiels et de sa fine pétillance, renforcée par l'adjonction de gaz carbonique pour le plaisir du palais. Badoit souligne avec élégance et subtilité tous vos repas. Choisissez sa fine pétillance pour faire pétiller vos menus. Badoit est disponible chez McDo en formats 33cl et 50cl. Badoit, buvez de la joie ! valeur nutritionnelle pour une boisson moyenne", "Moyen", 50, "./Images/Badoit.jpg");
-        Produit proLiptonIceTea25 = new Produit("Lipton Ice Tea®", 2.3F, "LIPTON ICE TEA® Envie d'une boisson rafraîchissante ? Laissez-vous tenter par la recette délicieusement fruitée de Lipton Ice Tea saveur Pêche et profitez de son association de thé glacé et d'arômes fruités ! Ce parfait équilibre des extraits de thé et du délicieux goût pêche en feront la boisson idéale pour accompagner votre menu et ravir vos papilles ! Comme toute la gamme Lipton Ice Tea, cette recette est sans colorant. Alors n'hésitez plus en venant chez McDonald's, et adoptez l'esprit Drink Positive* de Lipton Ice Tea à n'importe quel moment de la journée ! Retrouvez Lipton Ice Tea sur http://www.liptonicetea.com/fr-FR/products pour tout savoir sur cette boisson ! *Buvez Positif Valeurs nutritionnelles pour une boisson de 25cl", "Normal", 25, "./Images/LiptonIceTea.png");
-        Produit proMinuteMaid20 = new Produit("Minute Maid® Orange", 1.9F, "MINUTE MAID® ORANGE A tout moment de la journée, Minute Maid vous apporte une délicieuse dose de vitalité avec son jus d'orange à base de concentré avec pulpe. Faites-vous plaisir et comblez votre envie de fruits grâce à Minute Maid Orange. Ce jus à base de concentré est 100% teneur en fruits, sans sucres ajoutés, sans colorant et sans conservateur (conformément à la réglementation, contient naturellement le sucre des fruits). Le saviez-vous ? Boire un verre de Minute Maid Orange vous apporte l'équivalent d'une des 5 portions de fruits et légumes recommandées par jour. Minute Maid Orange est un jus à base de concentré. Minute Maid est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 20cl. Jus d'orange à base de jus d'orange concentré", "Normal", 20, "./Images/minute_maid.png");
-        Produit proFanta25 = new Produit("Fanta", 1.9F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Normal", 25, "./Images/fanta.jpg");
-        Produit proFanta40 = new Produit("Fanta", 2.3F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Moyen", 40, "./Images/fanta.jpg");
-        Produit proFanta50 = new Produit("Fanta", 2.8F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Grand", 50, "./Images/fanta.jpg");
-        Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
-
-// ----------------------------------- Edem ------------------------------------
-        // ********* La TVA *********
-        Tva tvaNormal = new Tva(0.1F);
-        //Tva tvaSurPlace = new Tva(0.2F);
-
-        // ********* Les ItemsARetirer *********
-        ItemARetire itaeSteak = new ItemARetire("Steak", "./Images/");
-        ItemARetire itaeFrommage = new ItemARetire("Frommage", "./Images/");
-        ItemARetire itaeSalade = new ItemARetire("Salade", "./Images/");
-        ItemARetire itaeOignon = new ItemARetire("Oignon", "./Images/");
-        ItemARetire itaeCornichon = new ItemARetire("Cornichon", "./Images/");
-        ItemARetire itaeTomate = new ItemARetire("Tomate", "./Images/");
-        ItemARetire itaePoisson = new ItemARetire("Poisson", "./Images/");
-        ItemARetire itaePoulet = new ItemARetire("Poulet", "./Images/");
-        ItemARetire itaeBacon = new ItemARetire("Bacon", "./Images/");
-        ItemARetire itaeCacahuètes = new ItemARetire("Cacahuètes", "./Images/");
-        ItemARetire itaeJambon = new ItemARetire("Jambon", "./Images/");
-        ItemARetire itaeSauce = new ItemARetire("Sauce", "./Images/");
-
-        // ********* Les Produits *********
-        Produit proTheRouge = new Produit("THÉ FRUITS ROUGES GRAND FORMAT", 2.70F, "./Images/theFruitRouge.png");
-        Produit proTheVertGrand = new Produit("THÉ VERT A LA MENTHE GRAND FORMAT", 2.70F, "./Images/theMenthe.png");
-        proTheVertGrand.setTaille("Grande");
+        Produit proChickenMcNuggets4 = new Produit("Chicken McNuggets x4", 3.10F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x4", 0, "./Images/chicken-nuggets.jpg");
+        Produit proChickenMcNuggets6 = new Produit("Chicken McNuggets x6", 4.20F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x6", 0, "./Images/chicken-nuggets.jpg");
+        Produit proChickenMcNuggets9 = new Produit("Chicken McNuggets x9", 5.30F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x9", 0, "./Images/chicken-nuggets.jpg");
+        Produit proChickenMcNuggets20 = new Produit("Chicken McNuggets x20", 9.90F, "À déguster seul ou accompagné. Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir ! Disponibles en portions de 4, 6 ou 9 et 20 Chicken McNuggets™. Valeurs nutritionnelles présentées pour une portion de 4. Spécialités panées au poulet.", "x20", 0, "./Images/chicken-nuggets.jpg");
+        // Les boissons froides
+        Produit proCocaCola25 = new Produit("COCA-COLA® Original", 1.90F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Normal", 25, "./Images/Coca.png");
+        Produit proCocaCola40 = new Produit("COCA-COLA® Original", 2.30F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Moyen", 40, "./Images/Coca.png");
+        Produit proCocaCola50 = new Produit("COCA-COLA® Original", 2.80F, "COCA-COLA® Avec sa recette authentique et son goût unique, Coca-Cola Original Taste nous procure plaisir, rafraîchissement et nous donne au quotidien une énergie positive incomparable... Coca-Cola Original Taste, c'est du bonheur en bouteille ! Rendez-vous chez McDonald's pour redécouvrir le goût original et rafraîchissant de cette boisson unique et vivre un moment de convivialité entre amis ! Coca-Cola est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl. Original Taste = Goût Original", "Grand", 50, "./Images/Coca.png");
+        Produit proCocaColaZero25 = new Produit("COCA-COLA ZERO® ", 1.90F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Normal", 25, "./Images/cocacolazero.jpg");
+        Produit proCocaColaZero40 = new Produit("COCA-COLA ZERO® ", 2.30F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Moyen", 40, "./Images/cocacolazero.jpg");
+        Produit proCocaColaZero50 = new Produit("COCA-COLA ZERO® ", 2.80F, "COCA-COLA ZÉRO® Venez découvrir Coca-Cola zero sucres chez McDonald's. Coca-Cola zero sucres, c'est le goût unique de Coca-Cola avec zero sucres. Notre recette, mélange unique d'ingrédients, d'eau pétillante, avec une touche caramel, recrée le goût de Coca-Cola, sans sucres. Appréciez-le avec plaisir ! Coca-Cola zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl Contient des édulcorants", "Grand", 50, "./Images/cocacolazero.jpg");
+        Produit proCocaColaLight25 = new Produit("COCA-COLA LIGHT® ", 1.90F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Normal", 25, "./Images/Cocalight.png");
+        Produit proCocaColaLight40 = new Produit("COCA-COLA LIGHT® ", 2.30F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Moyen", 40, "./Images/Cocalight.png");
+        Produit proCocaColaLight50 = new Produit("COCA-COLA LIGHT® ", 2.80F, "COCA-COLA LIGHT® Comment concilier plaisir et légèreté ? C'est simple, il suffit de choisir Coca-Cola light taste. Coca-Cola light taste, c'est avant tout le plaisir d'une boisson rafraîchissante au goût intense et léger sans sucres et sans calorie. C'est l'allié de vos pauses plaisir. Coca-Cola light est une marque déposée de The Coca-Cola Company. Valeur nutritionnelles pour une boisson de 25cl Contient des édulcorants Light Taste = Goût Léger", "Grand", 50, "./Images/Cocalight.png");
+        Produit proSpriteZero25 = new Produit("Sprite Zéro®", 1.90F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Normal", 25, "./Images/Spritezero.png");
+        Produit proSpriteZero40 = new Produit("Sprite Zéro®", 2.30F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Moyen", 40, "./Images/Spritezero.png");
+        Produit proSpriteZero50 = new Produit("Sprite Zéro®", 2.80F, "Plus qu'une boisson, un frisson. Vivez l'expérience Sprite zero chez McDonald's et redécouvrez le goût unique de la célèbre boisson rafraîchissante aux arômes naturels de citron et citron vert, maintenant sans sucre ! Sprite, born to refresh ! Créé pour rafraichir ! Sprite zero est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25 cl", "Grand", 50, "./Images/Spritezero.png");
+        Produit proEvian33 = new Produit("Evian®", 2.30F, "Une petite soif ? Notre corps est constitué  à 60% d'eau. Il est donc essentiel de boire suffisamment d'eau tous les jours. evian®, véritable trésor de pureté, fruit de plus de 15 années de filtration au cœur des Alpes, est une eau faiblement minéralisée qui répond à vos besoins quotidiens. McDonald's s'associe à evian® pour vous proposer les bouteilles 50cl et 33cl afin d'accompagner vos menus de fraîcheur et de légèreté. evian® 50cl vous apporte un tiers de vos besoins quotidiens en eau et vous accompagne partout à la sortie du restaurant. Dans les menus Happy Meal, retrouvez également evian® 33cl, une petite bouteille parfaitement adaptée aux mains des enfants et un format idéal pour les petites soifs. valeur nutritionnelle pour une boisson moyenne", "Normal", 33, "./Images/evian33.jpg");
+        Produit proEvian50 = new Produit("Evian®", 2.70F, "Une petite soif ? Notre corps est constitué  à 60% d'eau. Il est donc essentiel de boire suffisamment d'eau tous les jours. evian®, véritable trésor de pureté, fruit de plus de 15 années de filtration au cœur des Alpes, est une eau faiblement minéralisée qui répond à vos besoins quotidiens. McDonald's s'associe à evian® pour vous proposer les bouteilles 50cl et 33cl afin d'accompagner vos menus de fraîcheur et de légèreté. evian® 50cl vous apporte un tiers de vos besoins quotidiens en eau et vous accompagne partout à la sortie du restaurant. Dans les menus Happy Meal, retrouvez également evian® 33cl, une petite bouteille parfaitement adaptée aux mains des enfants et un format idéal pour les petites soifs. valeur nutritionnelle pour une boisson moyenne", "Moyen", 50, "./Images/evian50.jpg");
+        Produit proBadoit33 = new Produit("Badoit®", 2.30F, "BADOIT® est une eau minérale naturelle gazeuse, appréciée pour sa saveur unique et sa multitude de fines bulles. Reconnue depuis 1778 pour ses vertus, elle jaillit à Saint Galmier, dans la Loire, après un long parcours souterrain qui l'enrichit naturellement de ses sels minéraux essentiels et de sa fine pétillance, renforcée par l'adjonction de gaz carbonique pour le plaisir du palais. Badoit souligne avec élégance et subtilité tous vos repas. Choisissez sa fine pétillance pour faire pétiller vos menus. Badoit est disponible chez McDo en formats 33cl et 50cl. Badoit, buvez de la joie ! valeur nutritionnelle pour une boisson moyenne", "Normal", 33, "./Images/Badoit.jpg");
+        Produit proBadoit50 = new Produit("Badoit®", 2.70F, "BADOIT® est une eau minérale naturelle gazeuse, appréciée pour sa saveur unique et sa multitude de fines bulles. Reconnue depuis 1778 pour ses vertus, elle jaillit à Saint Galmier, dans la Loire, après un long parcours souterrain qui l'enrichit naturellement de ses sels minéraux essentiels et de sa fine pétillance, renforcée par l'adjonction de gaz carbonique pour le plaisir du palais. Badoit souligne avec élégance et subtilité tous vos repas. Choisissez sa fine pétillance pour faire pétiller vos menus. Badoit est disponible chez McDo en formats 33cl et 50cl. Badoit, buvez de la joie ! valeur nutritionnelle pour une boisson moyenne", "Moyen", 50, "./Images/Badoit.jpg");
+        Produit proLiptonIceTea25 = new Produit("Lipton Ice Tea®", 2.30F, "LIPTON ICE TEA® Envie d'une boisson rafraîchissante ? Laissez-vous tenter par la recette délicieusement fruitée de Lipton Ice Tea saveur Pêche et profitez de son association de thé glacé et d'arômes fruités ! Ce parfait équilibre des extraits de thé et du délicieux goût pêche en feront la boisson idéale pour accompagner votre menu et ravir vos papilles ! Comme toute la gamme Lipton Ice Tea, cette recette est sans colorant. Alors n'hésitez plus en venant chez McDonald's, et adoptez l'esprit Drink Positive* de Lipton Ice Tea à n'importe quel moment de la journée ! Retrouvez Lipton Ice Tea sur http://www.liptonicetea.com/fr-FR/products pour tout savoir sur cette boisson ! *Buvez Positif Valeurs nutritionnelles pour une boisson de 25cl", "Normal", 25, "./Images/LiptonIceTea.png");
+        Produit proMinuteMaid20 = new Produit("Minute Maid® Orange", 1.90F, "MINUTE MAID® ORANGE A tout moment de la journée, Minute Maid vous apporte une délicieuse dose de vitalité avec son jus d'orange à base de concentré avec pulpe. Faites-vous plaisir et comblez votre envie de fruits grâce à Minute Maid Orange. Ce jus à base de concentré est 100% teneur en fruits, sans sucres ajoutés, sans colorant et sans conservateur (conformément à la réglementation, contient naturellement le sucre des fruits). Le saviez-vous ? Boire un verre de Minute Maid Orange vous apporte l'équivalent d'une des 5 portions de fruits et légumes recommandées par jour. Minute Maid Orange est un jus à base de concentré. Minute Maid est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 20cl. Jus d'orange à base de jus d'orange concentré", "Normal", 20, "./Images/minute_maid.png");
+        Produit proFanta25 = new Produit("Fanta", 1.90F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Normal", 25, "./Images/fanta.jpg");
+        Produit proFanta40 = new Produit("Fanta", 2.30F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Moyen", 40, "./Images/fanta.jpg");
+        Produit proFanta50 = new Produit("Fanta", 2.80F, "FANTA® Profitez d'un moment de plaisir en famille chez McDonald's pour découvrir ou redécouvrir le goût unique si fruité et délicieux de Fanta Orange ! Fanta Orange contient du jus d'orange et des arômes naturels. Pour toute information complémentaire sur ce produit, consultez la page www.fanta.fr Fanta est une marque déposée de The Coca-Cola Company. Valeurs nutritionnelles pour une boisson de 25cl", "Grand", 50, "./Images/fanta.jpg");
+        // Les boissons chaudes
         Produit proTheVert = new Produit("THÉ VERT A LA MENTHE", 2.20F, "./Images/theMenthe.png");
         Produit proTheGrey = new Produit("THÉ EARL GREY", 2.20F, "./Images/theGrey.png");
-        Produit proTheGreyGrand = new Produit("THÉ EARL GREY GRAND FORMAT", 2.70F, "./Images/theGrey.png");
-        //******************
         Produit proGrandCafe = new Produit("GRAND CAFE", 2F, "./Images/grandCafe.png");
-        Produit proGrandCafeGrand = new Produit("GRAND CAFE GRAND FORMAT", 2.5F, "./Images/grandCafeGrandFormat.jpg");
-        proGrandCafeGrand.setTaille("Grande");
-        //******************
         Produit proCappuccino = new Produit("CAPPUCCINO", 2.40F, "./Images/cappuccino.png");
-        Produit proCappuccinoGrand = new Produit("CAPPUCCINO GRAND FORMAT", 2.90F, "./Images/cappuccinoGrand.png");
-        proCappuccinoGrand.setTaille("Grande");
-        //******************
         Produit proCappuccinoDaim = new Produit("CAPPUCCINO DAIM", 2.50F, "./Images/cappuccinoDaim.jpg");
-        Produit proCappuccinDaimoGrand = new Produit("CAPPUCCINO DAIM GRAND FORMAT", 3F, "./Images/cappuccinoDaimGrand.png");
-        proCappuccinDaimoGrand.setTaille("Grande");
-        //******************
         Produit proDoubleLatte = new Produit("DOUBLE LATTE", 2.30F, "./Images/doubleLatte.jpg");
-        Produit proproDoubleLatteGrand = new Produit("DOUBLE LATTE GRAND FORMAT", 2.80F, "./Images/doubleLatteGrand.png");
-        proproDoubleLatteGrand.setTaille("Grande");
-        //******************
-        Produit proLatteMacchiato = new Produit("LATTE MACCHIATO SAVEUR CHOCOLAT", 2.5F, "./Images/LatteMacchiatoSaveurChocolat.png");
-        Produit proExpresso = new Produit("EXPRESSO", 1.5F, "./Images/expresso.jpg");
+        Produit proLatteMacchiato = new Produit("LATTE MACCHIATO SAVEUR CHOCOLAT", 2.50F, "./Images/LatteMacchiatoSaveurChocolat.png");
+        Produit proExpresso = new Produit("EXPRESSO", 1.50F, "./Images/expresso.jpg");
         Produit proNoisette = new Produit("NOISETTE", 1.70F, "./Images/noisette.jpg");
-        Produit proRISTRETTO = new Produit("RISTRETTO", 1.50F, "./Images/ristrtto.jpg");
+        Produit proRistretto = new Produit("RISTRETTO", 1.50F, "./Images/ristrtto.jpg");
         Produit proChocolatChaud = new Produit("CHOCOLAT CHAUD", 2.20F, "./Images/chocolatChaud.jpg");
-        //******************
-        Produit proGrandesCrousties = new Produit("GRANDES CROUSTIES", 2.90F, "./Images/grandesCrousties.png");
-        proGrandesCrousties.setTaille("Grande");
-        Produit proMoyenneCrousties = new Produit("MOYENNE CROUSTIES", 2.5F, "./Images/Croustie.png");
-        proMoyenneCrousties.setTaille("Moyenne");
-        Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.90F, "./Images/moyenneFrite.png");
-        proMoyenneFrite.setTaille("Moyenne");
-        Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.5F, "./Images/grandesFrites.png");
-        proGrandeFrite.setTaille("Grande");
-        Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F, "./Images/petiteFrite.png");
-        proPetiteFrite.setTaille("Petite");
-        //******************
+        
+        Produit proTheRougeGrand = new Produit("THÉ FRUITS ROUGES GRAND FORMAT", 2.70F, "Grande", "./Images/theFruitRouge.png");
+        Produit proTheVertGrand = new Produit("THÉ VERT A LA MENTHE GRAND FORMAT", 2.70F, "Grande", "./Images/theMenthe.png");
+        Produit proTheGreyGrand = new Produit("THÉ EARL GREY GRAND FORMAT", 2.70F, "Grande", "./Images/theGrey.png");
+        Produit proGrandCafeGrand = new Produit("GRAND CAFE GRAND FORMAT", 2.50F, "Grande", "./Images/grandCafeGrandFormat.jpg");
+        Produit proCappuccinoGrand = new Produit("CAPPUCCINO GRAND FORMAT", 2.90F, "Grande", "./Images/cappuccinoGrand.png");
+        Produit proCappuccinDaimGrand = new Produit("CAPPUCCINO DAIM GRAND FORMAT", 3F, "Grande", "./Images/cappuccinoDaimGrand.png");
+        Produit proDoubleLatteGrand = new Produit("DOUBLE LATTE GRAND FORMAT", 2.80F, "Grande", "./Images/doubleLatteGrand.png");
+        // Les accompagnements
+        Produit proGrandesCrousties = new Produit("GRANDES CROUSTIES", 2.90F, "Grande", "./Images/grandesCrousties.png");
+        Produit proMoyenneCrousties = new Produit("MOYENNE CROUSTIES", 2.50F, "Moyenne", "./Images/Croustie.png");
+        Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.50F, "Grande", "./Images/grandesFrites.png");
+        Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.90F, "Moyenne", "./Images/moyenneFrite.png");        
+        Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F, "Petite", "./Images/petiteFrite.png");
+        Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
+        // Les sauces
         Produit proSauceBarbecue = new Produit("SAUCE CLASSIC BARBECUE", 0.20F, "./Images/sauceBbq.png");
         Produit proSauceChinoise = new Produit("SAUCE CHINOISE", 0.20F, "./Images/sauceChinoise.png");
         Produit proSauceCurry = new Produit("SAUCE CURRY", 0.20F, "./Images/sauceCurry.png");
         Produit proVinaigretteAHuile = new Produit("VINAIGRETTE A L'HUILE DE NOISETTE", 0.20F, "./Images/vinaigretteAHuileDeNoisette.png");
-        Produit proSaucePommeFrites = new Produit("SAUCE POMME FRITES", "./Images/saucePommeFrites.png");
-        Produit proKetchup = new Produit("KETCHUP", "./Images/Ketchup.png");
-        //******************
-        Produit proBioABoire = new Produit("BIO A BOIRE FRUITS ROUGES", 1.80F, "./Images/bioFruitRouge.png");
-        Produit proPetitDuoRaisins = new Produit("PETIT DUO DE RAISINS", 2F, "./Images/petitBioRaisin.png");
-        Produit proCornetNappageChocolat = new Produit("LE CORNET NAPPAGE SAVEUR CHOCOLAT", 2F, "./Images/leCornetNappageSaveurChocolat.png");
-        Produit proLePetitMuffinPepiteChocolat = new Produit("P'TIT MUFFIN AUX PÉPITES DE CHOCOLAT", "./Images/muffinChocolat.png");
+        Produit proSaucePommeFrites = new Produit("SAUCE POMME FRITES", 0.05F, "./Images/saucePommeFrites.png");
+        Produit proKetchup = new Produit("KETCHUP", 0.05F, "./Images/Ketchup.png");
+        // Les desserts
         Produit proSundaeNature = new Produit("SUNDAE NATURE", 2.70F, "./Images/sundayNature.png");
         Produit proSundaeChocolat = new Produit("SUNDAE NAPPAGE SAVEUR CHOCOLAT", 2.70F, "./Images/SundaeChocolat.png");
         Produit proSundaeCaramel = new Produit("SUNDAE NAPPAGE SAVEUR CARAMEL", 2.70F, "./Images/SundaeCaramel.png");
-        Produit proLeSundaeAbricot = new Produit("SUNDAE NAPPAGE SAVEUR ABRICOT", 2.70F, "./Images/SundaeAbricot.png");
+        Produit proSundaeAbricot = new Produit("SUNDAE NAPPAGE SAVEUR ABRICOT", 2.70F, "./Images/SundaeAbricot.png");
         Produit proMcFlurryKitKat = new Produit("McFLURRY KIKAT", 3.20F, "./Images/mcFlurryKitKat.png");
         Produit proMcFlurryDaim = new Produit("McFLURRY DAIM", 3.20F, "./Images/mcFlurryDaim.png");
         Produit proMcFlurryOreo = new Produit("McFLURRY OREO", 3.20F, "./Images/mcFlurryOreo.png");
@@ -177,17 +147,22 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proFrappeSaveurMarshmallow = new Produit("FRAPPE SAVEUR MARSHMALLOW", 2F, "./Images/frappeMarshmallow.jpg");
         Produit proFrappeSaveurVanille = new Produit("FRAPPE SAVEUR VANILLE", 2F, "./Images/frappeVanille.png");
         Produit proFrappeSaveurMyrtille = new Produit("FRAPPE ", 2F, "./Images/frapeMyrtille.png");
-        Produit proDonnutNature = new Produit("DONUT NATURE", 1.5F, "./Images/donnutNature.png");
+        Produit proCornetNappageChocolat = new Produit("LE CORNET NAPPAGE SAVEUR CHOCOLAT", 2F, "./Images/leCornetNappageSaveurChocolat.png");
+        
+        Produit proBerlingoFruitPommePeche = new Produit("BERLINGO'FRUITS POMME PÊCHE", 1.60F, "./Images/berlingoPommePeche.jpg");        
+        Produit proBioABoire = new Produit("BIO A BOIRE FRUITS ROUGES", 1.80F, "./Images/bioFruitRouge.png");
+        
+        Produit proPetitDuoRaisins = new Produit("PETIT DUO DE RAISINS", 2F, "./Images/petitBioRaisin.png");
+        Produit proLePetitMuffinPepiteChocolat = new Produit("P'TIT MUFFIN AUX PÉPITES DE CHOCOLAT", "./Images/muffinChocolat.png");
+        Produit proDonnutNature = new Produit("DONUT NATURE", 1.50F, "./Images/donnutNature.png");
         Produit proDonutSaveurChocolat = new Produit("DONUT SAVEUR CHOCOLAT", 2F, "./Images/donnutChocolat.png");
         Produit proBrownieChocolatNoisettes = new Produit("BROWNIE CHOCOLAT NOISETTES", 2F, "./Images/brownieChocolatNoisette.png");
-        Produit proBerlingoFruitPommePeche = new Produit("BERLINGO'FRUITS POMME PÊCHE", 1.60F, "./Images/berlingoPommePeche.jpg");
-        //******************
-        Produit proLivre = new Produit("LIVRE", 0.72F, "./Images/livre.png");
+        
+        Produit proLivre = new Produit("LIVRE", 2.50F, "./Images/livre.png");
         Produit proJouetGarcon = new Produit("JOUET GARCON", 2.5F, "./Images/jouet.png");
         Produit proJouetFille = new Produit("JOUET FILLE", 2.5F, "./Images/jouet.png");
-
-// ---------------------------------Nourdine------------------------------------
-        // ********* Les types *********
+        
+        //---------- TYPES ----------
         Type typPrincipal = new Type("principal", "./Images/");
         Type typAccompagnement = new Type("Accompagnement", "./Images/");
         Type typBoisson = new Type("Boisson", "./Images/NosBoisons.png");
@@ -195,14 +170,45 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Type typSauce = new Type("Sauce", "./Images/NosFrites&Sauces.png");
         Type typCadeauEnfant = new Type("Cadeau Enfant", "./Images/");
 
-        //********* Les abonnés *********
-        Abonne aboNourdine = new Abonne("nourdine@nourdine.com", "BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
-        Abonne aboThierry = new Abonne("thierry@thierry.com", "MARTINEZ", 5, "Thierry", "thierry@thierry.com");
-        Abonne aboEdem = new Abonne("edem@edem.com", "ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
-        Abonne aboAlex = new Abonne("alex@alex.com", "CHARBIT", 80, "Alex", "alex@alex.com");
-        Abonne aboMomo = new Abonne("momo@momo.com", "EL MASTOUR", 33, "Momo", "momo@momo.com");
+        //---------- SOUS TYPES ----------
+        SousType souBurger = new SousType("Burger", "./Images/NosBurger.png");
+        SousType souSalade = new SousType("Salade", "./Images/NosSalades.png");
+        SousType souFroide = new SousType("Froide", "./Images/");
+        SousType souChaude = new SousType("Chaude", "./Images/");
+        SousType souSauce = new SousType("Sauce", "./Images/NosFrites&Sauces.png");
+        SousType souAboire = new SousType("A Boire", "./Images/NosDessert.png");
+        SousType souGlace = new SousType("Glace", "./Images/");
+        SousType souFruits = new SousType("Fruits", "./Images/");
+        SousType souGateau = new SousType("Gateau", "./Images/");
+        SousType souPommeDeTerre = new SousType("Pommes de Terre", "./Images/");
+        SousType souGarcon = new SousType("Garçon", "./Images/");
+        SousType souFille = new SousType("Fille", "./Images/");
+        SousType souNouveaute = new SousType("Nouveaute", "./Images/");
+        
+        //---------- ITEMS A RAJOUTER ----------
+        ItemARajouter itARaNappageChocolat = new ItemARajouter("Nappage Chocolat", 0.2F);
+        ItemARajouter itARaNappageCaramel = new ItemARajouter("Nappage Caramel", 0.2F);
+        ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F);
+        
+        //---------- ITEMS A RETIRER ----------
+        ItemARetirer itaeSteak = new ItemARetirer("Steak", "./Images/");
+        ItemARetirer itaeFrommage = new ItemARetirer("Frommage", "./Images/");
+        ItemARetirer itaeSalade = new ItemARetirer("Salade", "./Images/");
+        ItemARetirer itaeOignon = new ItemARetirer("Oignon", "./Images/");
+        ItemARetirer itaeCornichon = new ItemARetirer("Cornichon", "./Images/");
+        ItemARetirer itaeTomate = new ItemARetirer("Tomate", "./Images/");
+        ItemARetirer itaePoisson = new ItemARetirer("Poisson", "./Images/");
+        ItemARetirer itaePoulet = new ItemARetirer("Poulet", "./Images/");
+        ItemARetirer itaeBacon = new ItemARetirer("Bacon", "./Images/");
+        ItemARetirer itaeCacahuètes = new ItemARetirer("Cacahuètes", "./Images/");
+        ItemARetirer itaeJambon = new ItemARetirer("Jambon", "./Images/");
+        ItemARetirer itaeSauce = new ItemARetirer("Sauce", "./Images/");
 
-        // ********* Les allergènes *********
+        //---------- INGREDIENTS ----------
+        Ingredient ingPain = new Ingredient("pain");
+
+        //---------- ALLERGENES ----------
+        
         Allergene allAnhydride = new Allergene("Anhydride sulfureux et sulfites");
         Allergene allArachide = new Allergene("Arachides");
         Allergene allCeleri = new Allergene("Céleri");
@@ -218,143 +224,55 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Allergene allPoissons = new Allergene("Poissons");
         Allergene allSoja = new Allergene("Soja");
 
-// ----------------------------------- Alexandre -------------------------------
-        //Creation des objets
-        Menu menHappyMeal = new Menu("Menu HappyMeal", "Best", "./Images/", 5.50F);
-        Menu menBigMacBest = new Menu("Menu BigMac", "Best", "./Images/", 8.90f);
-        Menu menBigMacMaxiBest = new Menu("Menu BigMac Maxi Best Of", "Maxi", "./Images/", 8.00F);
-        Menu menSalade = new Menu("Menu Salade", "Normal", "./Images/", 6.50F);
-        Menu menChickMacNugx6 = new Menu("Menu ChickenMcNuggets", "x6", "./Images/", 7.50F);
-        Menu menPtitDej = new Menu("Menu P'tit Déj", "Normal", "./Images/", 7.30F);
-        Menu menSignatureBest = new Menu("Menu Signature 280", "Best", "./Images/", 8.30F);
-// ----------------------------------- Momo ------------------------------------
-        //Creation des objets
-        //statut
-        Statut staDisponible = new Statut(1L, "disponible");
-        Statut staEpuise = new Statut(2L, "epuisé");
-        Statut staQuaniteLimte = new Statut(3L, "quantité limité");
-        Statut staNouveau = new Statut(4L, "nouveau");
-        Statut staReaprovisionnement = new Statut(5L, "en réapprovisionnement");
-        Statut statAnnuler = new Statut(6L, "Annuler");
-        Statut staValider = new Statut(7L, "Valider");
-        Statut staEnPreparation = new Statut(8L, "en préparation");
-        Statut staPayerAccepter = new Statut(10L, "paiment accepté");
-        Statut staPayerRefuser = new Statut(11L, "paiment refusé");
+        //---------- STATUT ----------
+        
+        Statut staDisponible = new Statut(1L, "Disponible");
+        Statut staEpuise = new Statut(2L, "Epuisé");
+        Statut staQuantiteLimitee = new Statut(3L, "Quantité limitée");
+        Statut staNouveau = new Statut(4L, "Nouveau");
+        Statut staReaprovisionnement = new Statut(5L, "En réapprovisionnement");
+        Statut statAnnuler = new Statut(6L, "Annulé");
+        Statut staValider = new Statut(7L, "Validé");
+        Statut staEnPreparation = new Statut(8L, "En préparation");
+        Statut staPayerAccepter = new Statut(10L, "Paiement accepté");
+        Statut staPayerRefuser = new Statut(11L, "Paiement refusé");
         Statut staEnAttente = new Statut(12L, "En attente");
         Statut staAllergene = new Statut(13L, "Allergene");
         Statut staCompteAbonne = new Statut(14L, "Compte valide");
-        Statut staIndisponible = new Statut(15L, "indisponible");
+        Statut staIndisponible = new Statut(15L, "Indisponible");
 
-        //ligne de commande
-        LigneDeCommande ligMenuHappyMeal = new LigneDeCommande(20f, 1, 5.5f);
-        LigneDeCommande ligBigMac = new LigneDeCommande(20f, 1, 4.3f);
+        //---------- TVA ----------
+        
+        Tva tvaNormal = new Tva(0.1F);
+        
+        //---------- ABONNES ----------
+        
+        Abonne aboNourdine = new Abonne("nourdine@nourdine.com", "BOUSSAID", 35, "Nourdine", "nourdine@nourdine.com");
+        Abonne aboThierry = new Abonne("thierry@thierry.com", "MARTINEZ", 5, "Thierry", "thierry@thierry.com");
+        Abonne aboEdem = new Abonne("edem@edem.com", "ANNANI TOULASSI", 0, "Edem", "edem@edem.com");
+        Abonne aboAlex = new Abonne("alex@alex.com", "CHARBIT", 80, "Alex", "alex@alex.com");
+        Abonne aboMomo = new Abonne("momo@momo.com", "EL MASTOUR", 33, "Momo", "momo@momo.com");
 
-        LigneDeCommande ligBigMac1 = new LigneDeCommande(20f, 1, 4.3f);
-//        LigneDeCommande ligMenuBigMacMaxi = new LigneDeCommande(20f,2,8f);
-//        LigneDeCommande ligMenuSalade = new LigneDeCommande(20f,1,6.5f);
-//        LigneDeCommande ligMenuPetitDej = new LigneDeCommande(20f,1,7.3f);
-//        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
-//        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
-
-        //sousligne de commande
-        SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
-        SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
-        SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
-
-        //commande
-        Date d = new GregorianCalendar(2018, 2, 15).getTime();
-        Commande co1 = new Commande(d, true);
-
-        Commande co2 = new Commande(d, true);
-        //Associations
-        ligMenuHappyMeal.setMenu(menHappyMeal);
-        ligBigMac.setProduit(proBigMac);
-        ligBigMac1.setProduit(proBigMac);
-
-        souLigne1.setLigneCommande(ligMenuHappyMeal);
-        souLigne1.setCommande(co1);
-        proMcFish.setSousLigneDeCommande(souLigne1);
-        proCocaCola25.setSousLigneDeCommande(souLigne1);
-        proPetiteFrite.setSousLigneDeCommande(souLigne1);
-        proSundaeCaramel.setSousLigneDeCommande(souLigne1);
-
-        itaeSalade.setSousLigneDeCommande(souLigne1);
-        itARaNappageAbricot.setSousLigneDeCommande(souLigne1);
-
-//        proBigMac.setSousLigneDeCommande(souLigne1);
-        co1.setStatut(staEnPreparation);
-//        System.out.println(" souligne1 "+souLigne1.getProduits().size());
-
-        souLigne2.setLigneCommande(ligBigMac);
-        souLigne2.setCommande(co1);
-        proBigMac.setSousLigneDeCommande(souLigne2);
-//      
-
-        //Persist
-        //statut
-        em.persist(staAllergene);
-        em.persist(staCompteAbonne);
-        em.persist(staDisponible);
-        em.persist(staEnAttente);
-        em.persist(staEnPreparation);
-        em.persist(staEpuise);
-        em.persist(staIndisponible);
-        em.persist(staIndisponible);
-        em.persist(staNouveau);
-        em.persist(staPayerAccepter);
-        em.persist(staPayerRefuser);
-        em.persist(staQuaniteLimte);
-        em.persist(staReaprovisionnement);
-        em.persist(staValider);
-        em.persist(statAnnuler);
-
-        em.persist(ligMenuHappyMeal);
-//        ;
-        em.persist(ligBigMac);
-//     
-        em.persist(souLigne1);
-        em.persist(souLigne2);
-        em.persist(co1);
-
-        SousType souBurger = new SousType("Burger", "./Images/NosBurger.png");
-        SousType souSalade = new SousType("Salade", "./Images/NosSalades.png");
-        SousType souFroide = new SousType("Froide", "./Images/");
-        SousType souChaude = new SousType("Chaude", "./Images/");
-        SousType souSauce = new SousType("Sauce", "./Images/NosFrites&Sauces.png");
-        SousType souAboire = new SousType("A Boire", "./Images/NosDessert.png");
-        SousType souGlace = new SousType("Glace", "./Images/");
-        SousType souFruits = new SousType("Fruits", "./Images/");
-        SousType souGateau = new SousType("Gateau", "./Images/");
-        SousType souPommeDeTerre = new SousType("Pommes de Terre", "./Images/");
-        SousType souGarcon = new SousType("Garçon", "./Images/");
-        SousType souFille = new SousType("Fille", "./Images/");
-        SousType souNouveaute = new SousType("Nouveaute", "./Images/");
-        /**
-         * ************************************************************************************************************************
-         */
-        // ******************** ASSOCIATION DES DONNEES ************************
-// ----------------------------------- Edem ------------------------------------
-        // ********* McFleury vers Items à rajouter *********
+// -----------------------------------------------------------------------------        
+//                            LES ASSOCIATIONS
+// ----------------------------------------------------------------------------- 
+        // Items à rajouter
         itARaNappageAbricot.getProduits().add(proMcFlurryDaim);
         itARaNappageAbricot.getProduits().add(proMcFlurryKitKat);
         itARaNappageAbricot.getProduits().add(proMcFlurryOreo);
         itARaNappageAbricot.getProduits().add(proMcFlurrySpeculoos);
-        //******************
+
         itARaNappageCaramel.getProduits().add(proMcFlurryDaim);
         itARaNappageCaramel.getProduits().add(proMcFlurryKitKat);
         itARaNappageCaramel.getProduits().add(proMcFlurryOreo);
         itARaNappageCaramel.getProduits().add(proMcFlurrySpeculoos);
-        //******************
+
         itARaNappageChocolat.getProduits().add(proMcFlurryDaim);
         itARaNappageChocolat.getProduits().add(proMcFlurryKitKat);
         itARaNappageChocolat.getProduits().add(proMcFlurryOreo);
         itARaNappageChocolat.getProduits().add(proMcFlurrySpeculoos);
 
-        // ********* TVA vers Menu *********
-// ---------------------------------Nourdine------------------------------------
-// ----------------------------------- Momo ------------------------------------
-// -------------------------------- Thierry ------------------------------------
-        //***********association  produit vers Ingredient
+        // Les ingrédients
         ingPain.setProduit(proBigMac);
         ingPain.setProduit(proPoissonRanch);
         ingPain.setProduit(proPouletRanch);
@@ -370,7 +288,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ingPain.setProduit(proHamburger);
         ingPain.setProduit(proCheeseBurger);
 
-        //***********association produit vers Allergenes
+        // Les allergènes
         allAnhydride.getProduits().add(proBigMac);
         allAnhydride.getProduits().add(proPouletRanch);
         allAnhydride.getProduits().add(proBoeufRanch);
@@ -380,7 +298,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allAnhydride.getProduits().add(proSignature280OriginalBeef);
         allAnhydride.getProduits().add(proHamburger);
         allAnhydride.getProduits().add(proCheeseBurger);
-
+        
         allGluten.getProduits().add(proBigMac);
         allGluten.getProduits().add(proPoissonRanch);
         allGluten.getProduits().add(proPouletRanch);
@@ -404,7 +322,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allGluten.getProduits().add(proCroqueMcDo);
         allGluten.getProduits().add(proHamburger);
         allGluten.getProduits().add(proCheeseBurger);
-
+        
         allGraineDeSesame.getProduits().add(proBigMac);
         allGraineDeSesame.getProduits().add(proPoissonRanch);
         allGraineDeSesame.getProduits().add(proPouletRanch);
@@ -422,10 +340,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allGraineDeSesame.getProduits().add(proCroqueMcDo);
         allGraineDeSesame.getProduits().add(proHamburger);
         allGraineDeSesame.getProduits().add(proCheeseBurger);
-
+        
         allArachide.getProduits().add(proManhattanPouletFrit);
         allArachide.getProduits().add(proManhattanPouletCroustillant);
-
+        
         allCeleri.getProduits().add(proPouletRanch);
         allCeleri.getProduits().add(proChickenMcNuggets4);
         allCeleri.getProduits().add(proChickenMcNuggets6);
@@ -438,13 +356,13 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allCeleri.getProduits().add(proChickenBbq);
         allCeleri.getProduits().add(proMcWrap);
         allCeleri.getProduits().add(proMcFish);
-
+        
         allCrustaces.getProduits().add(proMcFish);
-
+        
         allFruitsACoques.getProduits().add(proNewYorkCaesar);
         allFruitsACoques.getProduits().add(proManhattanPouletFrit);
         allFruitsACoques.getProduits().add(proManhattanPouletCroustillant);
-
+        
         allLait.getProduits().add(proBigMac);
         allLait.getProduits().add(proPoissonRanch);
         allLait.getProduits().add(proPouletRanch);
@@ -468,7 +386,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allLait.getProduits().add(proCroqueMcDo);
         allLait.getProduits().add(proHamburger);
         allLait.getProduits().add(proCheeseBurger);
-
+        
         allMoutarde.getProduits().add(proBigMac);
         allMoutarde.getProduits().add(proPouletRanch);
         allMoutarde.getProduits().add(proBoeufRanch);
@@ -509,11 +427,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allOeufs.getProduits().add(proChickenBbq);
         allOeufs.getProduits().add(proRoyalDeLuxe);
         allOeufs.getProduits().add(proMcWrap);
-
+        
         allPoissons.getProduits().add(proPoissonRanch);
         allPoissons.getProduits().add(proNewYorkCaesar);
         allPoissons.getProduits().add(proMcFish);
-
+        
         allSoja.getProduits().add(proSummer);
         allSoja.getProduits().add(proNewYorkCaesar);
         allSoja.getProduits().add(proManhattanVeggie);
@@ -522,7 +440,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allSoja.getProduits().add(proChickenBbq);
         allSoja.getProduits().add(proMcWrap);
 
-        //***********association ItemARetires vers produit
+        // Les items à retirer
         itaeSteak.getProduits().add(proBigMac);
         itaeSteak.getProduits().add(proBoeufRanch);
         itaeSteak.getProduits().add(proSignature280OriginalBeef);
@@ -554,7 +472,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itaeSalade.getProduits().add(proBeefBbq);
         itaeSalade.getProduits().add(proRoyalDeLuxe);
         itaeSalade.getProduits().add(proMcWrap);
-
+        
         itaeOignon.getProduits().add(proBigMac);
         itaeOignon.getProduits().add(proPouletRanch);
         itaeOignon.getProduits().add(proBoeufRanch);
@@ -566,23 +484,23 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itaeOignon.getProduits().add(proMcWrap);
         itaeOignon.getProduits().add(proHamburger);
         itaeOignon.getProduits().add(proCheeseBurger);
-
+        
         itaeCornichon.getProduits().add(proBigMac);
         itaeCornichon.getProduits().add(proPouletRanch);
         itaeCornichon.getProduits().add(proSignature280OriginalBeef);
         itaeCornichon.getProduits().add(proHamburger);
         itaeCornichon.getProduits().add(proCheeseBurger);
-
+        
         itaeTomate.getProduits().add(proPoissonRanch);
         itaeTomate.getProduits().add(proBoeufRanch);
         itaeTomate.getProduits().add(proRoyalDeLuxe);
         itaeTomate.getProduits().add(proMcWrap);
-
+        
         itaePoisson.getProduits().add(proPoissonRanch);
 
         itaePoulet.getProduits().add(proPouletRanch);
         itaePoulet.getProduits().add(proChickenBbq);
-
+        
         itaeBacon.getProduits().add(proDoubleBlueCheese);
         itaeBacon.getProduits().add(proBeefBbq);
 
@@ -603,9 +521,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itaeSauce.getProduits().add(proHamburger);
         itaeSauce.getProduits().add(proCheeseBurger);
 
-// ----------------------------------- Alexandre -------------------------------
-        //Associations
-        //****************association type vers soustype 
+        // Les sous types
         souBurger.setType(typPrincipal);
         souSalade.setType(typPrincipal);
         souFroide.setType(typBoisson);
@@ -618,7 +534,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         souPommeDeTerre.setType(typAccompagnement);
         souGarcon.setType(typCadeauEnfant);
         souFille.setType(typCadeauEnfant);
-        //****************association type vers Menu 
+        
+        // Les types
         typPrincipal.getMenus().add(menBigMacBest);
         typPrincipal.getMenus().add(menBigMacMaxiBest);
         typPrincipal.getMenus().add(menChickMacNugx6);
@@ -643,19 +560,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         typAccompagnement.getMenus().add(menSalade);
         typAccompagnement.getMenus().add(menSignatureBest);
 
-        typAccompagnement.getMenus().add(menBigMacBest);
-        typAccompagnement.getMenus().add(menBigMacMaxiBest);
-        typAccompagnement.getMenus().add(menChickMacNugx6);
-        typAccompagnement.getMenus().add(menHappyMeal);
-        typAccompagnement.getMenus().add(menPtitDej);
-        typAccompagnement.getMenus().add(menSalade);
-        typAccompagnement.getMenus().add(menSignatureBest);
-
         typSauce.getMenus().add(menChickMacNugx6);
 
         typCadeauEnfant.getMenus().add(menHappyMeal);
 
-        //****************association soustype vers Produit
+        // Les produits
         proBeefBbq.setSoustype(souBurger);
         proBigMac.setSoustype(souBurger);
         proBoeufRanch.setSoustype(souBurger);
@@ -682,7 +591,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proNewYorkCaesar.setSoustype(souSalade);
         proSummer.setSoustype(souSalade);
         proPtiteSalade.setSoustype(souSalade);
-
         proBadoit33.setSoustype(souFroide);
         proBadoit50.setSoustype(souFroide);
         proCocaCola25.setSoustype(souFroide);
@@ -691,9 +599,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proCocaColaLight25.setSoustype(souFroide);
         proCocaColaLight40.setSoustype(souFroide);
         proCocaColaLight50.setSoustype(souFroide);
-        proCocaColaZéro25.setSoustype(souFroide);
-        proCocaColaZéro40.setSoustype(souFroide);
-        proCocaColaZéro50.setSoustype(souFroide);
+        proCocaColaZero25.setSoustype(souFroide);
+        proCocaColaZero40.setSoustype(souFroide);
+        proCocaColaZero50.setSoustype(souFroide);
         proEvian33.setSoustype(souFroide);
         proEvian50.setSoustype(souFroide);
         proFanta25.setSoustype(souFroide);
@@ -705,7 +613,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proSpriteZero40.setSoustype(souFroide);
         proSpriteZero50.setSoustype(souFroide);
 
-        proCappuccinDaimoGrand.setSoustype(souChaude);
+        proCappuccinDaimGrand.setSoustype(souChaude);
         proCappuccino.setSoustype(souChaude);
         proCappuccinoDaim.setSoustype(souChaude);
         proCappuccinoGrand.setSoustype(souChaude);
@@ -718,10 +626,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proNoisette.setSoustype(souChaude);
         proTheGrey.setSoustype(souChaude);
         proTheGreyGrand.setSoustype(souChaude);
-        proTheRouge.setSoustype(souChaude);
+        proTheRougeGrand.setSoustype(souChaude);
         proTheVert.setSoustype(souChaude);
         proTheVertGrand.setSoustype(souChaude);
-        proproDoubleLatteGrand.setSoustype(souChaude);
+        proDoubleLatteGrand.setSoustype(souChaude);
 
         proKetchup.setSoustype(souSauce);
         proSauceBarbecue.setSoustype(souSauce);
@@ -735,7 +643,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proFrappeSaveurMarshmallow.setSoustype(souGlace);
         proFrappeSaveurMyrtille.setSoustype(souGlace);
         proFrappeSaveurVanille.setSoustype(souGlace);
-        proLeSundaeAbricot.setSoustype(souGlace);
+        proSundaeAbricot.setSoustype(souGlace);
         proSundaeCaramel.setSoustype(souGlace);
         proSundaeChocolat.setSoustype(souGlace);
         proSundaeNature.setSoustype(souGlace);
@@ -762,15 +670,79 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proJouetGarcon.setSoustype(souGarcon);
         proJouetFille.setSoustype(souFille);
 
-        /**
-         * ************************************************************************************
-         */
-        //**************************** PERSIST *********************************
-        // -------------------------------- Thierry ------------------------------------
+        // Les menus
+        menBigMacBest.getTypes().add(typPrincipal);
+        menBigMacBest.getTypes().add(typAccompagnement);
+        menBigMacBest.getTypes().add(typBoisson);
+        
+        menBigMacMaxiBest.getTypes().add(typPrincipal);
+        menBigMacMaxiBest.getTypes().add(typAccompagnement);
+        menBigMacMaxiBest.getTypes().add(typBoisson);
+        
+        menChickMacNugx6.getTypes().add(typSauce);
+        menChickMacNugx6.getTypes().add(typPrincipal);
+        menChickMacNugx6.getTypes().add(typAccompagnement);
+        menChickMacNugx6.getTypes().add(typBoisson);
+//        
+        menHappyMeal.getTypes().add(typPrincipal);
+        menHappyMeal.getTypes().add(typBoisson);
+        menHappyMeal.getTypes().add(typAccompagnement);
+        menHappyMeal.getTypes().add(typDessert);
+        menHappyMeal.getTypes().add(typCadeauEnfant);
+        
+        menPtitDej.getTypes().add(typPrincipal);
+        menPtitDej.getTypes().add(typAccompagnement);
+        menPtitDej.getTypes().add(typBoisson);
+        
+        menSalade.getTypes().add(typPrincipal);
+        menSalade.getTypes().add(typBoisson);
+        menSalade.getTypes().add(typSauce);
+        
+        menSignatureBest.getTypes().add(typAccompagnement);
+        menSignatureBest.getTypes().add(typBoisson);
+        menSignatureBest.getTypes().add(typPrincipal);
+
+// -----------------------------------------------------------------------------        
+//                              LES PERSIST
+// ----------------------------------------------------------------------------- 
+        // Les statuts
+        em.persist(staAllergene);
+        em.persist(staCompteAbonne);
+        em.persist(staDisponible);
+        em.persist(staEnAttente);
+        em.persist(staEnPreparation);
+        em.persist(staEpuise);
+        em.persist(staIndisponible);
+        em.persist(staIndisponible);
+        em.persist(staNouveau);
+        em.persist(staPayerAccepter);
+        em.persist(staPayerRefuser);
+        em.persist(staQuantiteLimitee);
+        em.persist(staReaprovisionnement);
+        em.persist(staValider);
+        em.persist(statAnnuler);
+        
+        // Les Items à rajouter
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
         em.persist(itARaNappageAbricot);
-        // ********* Les Produits *********
+        
+        // Les items à retirer
+        em.persist(itaeSteak);
+        em.persist(itaeFrommage);
+        em.persist(itaeSalade);
+        em.persist(itaeOignon);
+        em.persist(itaeCornichon);
+        em.persist(itaeTomate);
+        em.persist(itaePoisson);
+        em.persist(itaePoulet);
+        em.persist(itaeCornichon);
+        em.persist(itaeBacon);
+        em.persist(itaeCacahuètes);
+        em.persist(itaeJambon);
+        em.persist(itaeSauce);
+
+        // Les produits
         em.persist(proPtiteSalade);
         em.persist(ingPain);
         em.persist(proBigMac);
@@ -800,9 +772,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proCocaCola25);
         em.persist(proCocaCola40);
         em.persist(proCocaCola50);
-        em.persist(proCocaColaZéro25);
-        em.persist(proCocaColaZéro40);
-        em.persist(proCocaColaZéro50);
+        em.persist(proCocaColaZero25);
+        em.persist(proCocaColaZero40);
+        em.persist(proCocaColaZero50);
         em.persist(proCocaColaLight25);
         em.persist(proCocaColaLight40);
         em.persist(proCocaColaLight50);
@@ -818,29 +790,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proFanta25);
         em.persist(proFanta40);
         em.persist(proFanta50);
-
-// ----------------------------------- Edem ------------------------------------
-        // ********* Les ItemsARetirer *********
-        em.persist(itaeSteak);
-        em.persist(itaeFrommage);
-        em.persist(itaeSalade);
-        em.persist(itaeOignon);
-        em.persist(itaeCornichon);
-        em.persist(itaeTomate);
-        em.persist(itaePoisson);
-        em.persist(itaePoulet);
-        em.persist(itaeCornichon);
-        em.persist(itaeBacon);
-        em.persist(itaeCacahuètes);
-        em.persist(itaeJambon);
-        em.persist(itaeSauce);
-
-        // ********* La TVA *********
-        em.persist(tvaNormal);
-        //em.persist(tvaSurPlace);
-
-        // ********* Les Produits *********
-        em.persist(proTheRouge);
+        em.persist(proTheRougeGrand);
         em.persist(proTheVertGrand);
         em.persist(proTheVert);
         em.persist(proTheGrey);
@@ -850,15 +800,14 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proCappuccino);
         em.persist(proCappuccinoGrand);
         em.persist(proCappuccinoDaim);
-        em.persist(proCappuccinDaimoGrand);
+        em.persist(proCappuccinDaimGrand);
         em.persist(proDoubleLatte);
-        em.persist(proproDoubleLatteGrand);
+        em.persist(proDoubleLatteGrand);
         em.persist(proLatteMacchiato);
         em.persist(proExpresso);
         em.persist(proNoisette);
-        em.persist(proRISTRETTO);
+        em.persist(proRistretto);
         em.persist(proChocolatChaud);
-        //******************
         em.persist(proGrandesCrousties);
         em.persist(proMoyenneCrousties);
         em.persist(proMoyenneFrite);
@@ -870,7 +819,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proVinaigretteAHuile);
         em.persist(proSaucePommeFrites);
         em.persist(proKetchup);
-        //******************
         em.persist(proBioABoire);
         em.persist(proPetitDuoRaisins);
         em.persist(proCornetNappageChocolat);
@@ -879,7 +827,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proSundaeNature);
         em.persist(proSundaeChocolat);
         em.persist(proSundaeCaramel);
-        em.persist(proLeSundaeAbricot);
+        em.persist(proSundaeAbricot);
         em.persist(proMcFlurryKitKat);
         em.persist(proMcFlurryDaim);
         em.persist(proDonutSaveurChocolat);
@@ -895,12 +843,15 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proFrappeSaveurMarshmallow);
         em.persist(proFrappeSaveurVanille);
         em.persist(proFrappeSaveurMyrtille);
-        //******************
         em.persist(proLivre);
         em.persist(proJouetGarcon);
         em.persist(proJouetFille);
 
-// ---------------------------------Nourdine------------------------------------
+        // La TVA
+        em.persist(tvaNormal);
+        //em.persist(tvaSurPlace);
+
+        // Les types
         em.persist(typPrincipal);
         em.persist(typAccompagnement);
         em.persist(typBoisson);
@@ -908,13 +859,14 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(typSauce);
         em.persist(typCadeauEnfant);
 
-        //******************
+        // Les abonnés
         em.persist(aboNourdine);
         em.persist(aboThierry);
         em.persist(aboEdem);
         em.persist(aboAlex);
         em.persist(aboMomo);
-        //******************
+        
+        // Les allergènes
         em.persist(allAnhydride);
         em.persist(allArachide);
         em.persist(allCeleri);
@@ -929,12 +881,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(allOeufs);
         em.persist(allPoissons);
         em.persist(allSoja);
-        //******************
+        
+        // Les ingrédients
         em.persist(ingPain);
 
-// ----------------------------------- Momo ------------------------------------
-// ----------------------------------- Alexandre Persist-------------------------------
-        // Menu
+        // Les menus
         em.persist(menBigMacBest);
         em.persist(menBigMacMaxiBest);
         em.persist(menChickMacNugx6);
@@ -943,7 +894,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(menSalade);
         em.persist(menSignatureBest);
 
-        //sousTypes
+        // Les sous types
+        em.persist(souNouveaute);
         em.persist(souBurger);
         em.persist(souAboire);
         em.persist(souChaude);
@@ -957,7 +909,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(souGarcon);
         em.persist(souFille);
 
-        // ******************** ASSOCIATION DES DONNEES ************************
 // ----------------------------------- Edem ------------------------------------
         // ********* TVA vers Produits *********
         TypedQuery<Produit> querryProduit = em.createNamedQuery("entities.Produit.selectAll", Produit.class);
@@ -965,6 +916,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         System.out.println("Size listProduit >>>>> " + listProduit.size());
         for (Produit p : listProduit) {
             p.setTva(tvaNormal);
+            System.out.println("tva >>>>>>>>>"+p.getTva());
+            //System.out.println("Taille collection tvaProduits >>>>>>>> "+ tvaNormal.getProduits().size());
         }
 
         // ********* TVA vers Menu *********
@@ -973,8 +926,74 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         System.out.println("Size listMenu >>>>> " + listMenu.size());
         for (Menu m : listMenu) {
             m.setTva(tvaNormal);
+            System.out.println("tva >>>>>>>>>"+m.getTva());
+
             //System.out.println("Taille collection tvaMenus >>>>>>>> "+ tvaNormal.getMenus.size());
         }
-    }
 
+// ------------------------------- Commentaires --------------------------------
+        
+ 
+          //ligne de commande
+//        LigneDeCommande ligMenuHappyMeal = new LigneDeCommande(20f, 1, 5.5f);
+//        LigneDeCommande ligBigMac = new LigneDeCommande(20f, 1, 4.3f);
+  
+//        LigneDeCommande ligBigMac1 = new LigneDeCommande(20f, 1, 4.3f);
+//        LigneDeCommande ligMenuBigMacMaxi = new LigneDeCommande(20f,2,8f);
+//        LigneDeCommande ligMenuSalade = new LigneDeCommande(20f,1,6.5f);
+//        LigneDeCommande ligMenuPetitDej = new LigneDeCommande(20f,1,7.3f);
+//        LigneDeCommande ligMenuSignature = new LigneDeCommande(20f,3,8.3f); 
+//        LigneDeCommande ligProChickenMcNuggets6 = new LigneDeCommande(20f,3,4.2f);
+
+          //sousligne de commande
+//        SousLigneDeCommande souLigne1 = new SousLigneDeCommande();
+//        SousLigneDeCommande souLigne2 = new SousLigneDeCommande();
+//        SousLigneDeCommande souLigne3 = new SousLigneDeCommande();
+
+          //commande
+//        Date d = new GregorianCalendar(2018, 2, 15).getTime();
+//        Commande co1 = new Commande(d, true);
+
+//        Commande co2 = new Commande(d, true);
+          //Associations
+//        ligMenuHappyMeal.setMenu(menHappyMeal);
+//        ligBigMac.setProduit(proBigMac);
+//        ligBigMac1.setProduit(proBigMac);
+
+//        souLigne1.setLigneCommande(ligMenuHappyMeal);
+//        souLigne1.setCommande(co1);
+//        proMcFish.setSousLigneDeCommande(souLigne1);
+//        proCocaCola25.setSousLigneDeCommande(souLigne1);
+//        proPetiteFrite.setSousLigneDeCommande(souLigne1);
+//        proSundaeCaramel.setSousLigneDeCommande(souLigne1);
+
+//        itaeSalade.setSousLigneDeCommande(souLigne1);
+//        itARaNappageAbricot.setSousLigneDeCommande(souLigne1);
+
+//        proBigMac.setSousLigneDeCommande(souLigne1);
+        
+//        co1.setStatut(staEnPreparation);
+//        System.out.println(" souligne1 "+souLigne1.getProduits().size());
+
+          //Persist
+          //statut
+        
+//        em.persist(ligMenuHappyMeal);  
+    
+//        em.persist(souLigne1);
+//        em.persist(souLigne2);
+//        em.persist(souLigne3);
+//        em.persist(souLigne4);
+//        em.persist(souLigne5);
+//        em.persist(souLigne6);
+//        em.persist(souLigne7);
+//        em.persist(co1);
+//        System.out.println(" souligne1 "+souLigne1.getProduits().size());
+
+//        Promotion p01 = new Promotion("2 Menus HappyMeal pour 6 Euros");
+//        Promotion p02 = new Promotion("2 Menus MaxiBestOf  pour 12 Euros");
+//        Promotion p03 = new Promotion("2 Menus HappyMeal pour 6 Euros");
+//        Promotion p04 = new Promotion("1 MacCafé pour 1 Euro pour tout menu acheté !");
+
+    }
 }
