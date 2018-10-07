@@ -25,7 +25,7 @@
     <body>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 30px">
             <div class="container">
                 <a class="navbar-brand" href="#">MacDo</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,10 +43,10 @@
                             <a class="nav-link" href="FrontControleur?section=ItemARajouterCtrl">Nappage</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
+                            <a class="nav-link" href="FrontControleur?section=DessertCtrl">Dessert</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="FrontControleur?section=PersonnaliserCtrl">Personnaliser</a>
                         </li>
                     </ul>
                 </div>

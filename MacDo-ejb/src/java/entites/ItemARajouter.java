@@ -19,7 +19,6 @@ import javax.persistence.OneToMany;
 @NamedQueries({
     @NamedQuery(name = "entities.ItemARajouter.selectAll", query = "SELECT i FROM ItemARajouter i")
 })
-
 public class ItemARajouter implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,7 +41,7 @@ public class ItemARajouter implements Serializable {
     @OneToMany(mappedBy = "ItemsARajouter")
     private Collection<SousLigneDeCommande> sousLigneDeCommandes;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Produit> produits;
 
     @ManyToOne

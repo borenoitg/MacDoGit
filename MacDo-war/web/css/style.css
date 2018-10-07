@@ -23,3 +23,8 @@ navbar-light .navbar-nav .nav-link.disabled {
   /*width: 300px;*/
   height: 350px;
 }
+
+.col-auto{
+    font-size: 12px;
+    
+}

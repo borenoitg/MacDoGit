@@ -3,6 +3,7 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,11 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "entities.Produit.selectAll", query = "SELECT p FROM Produit p")
+    ,
+    @NamedQuery(name = "entities.Produit.selectDessert", query = "SELECT p FROM Produit p where p.soustype.type.nom ='Dessert' order by p.soustype.nom asc ")
+    ,
+    @NamedQuery(name = "entities.Produit.selectProduit", query = "SELECT p FROM Produit p where p.nom = :proNom")
+
 })
 public class Produit implements Serializable {
 
@@ -62,7 +68,7 @@ public class Produit implements Serializable {
     @ManyToMany(mappedBy = "produits")
     private Collection<Infos> infos;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private SousType soustype;
 
     @OneToMany(mappedBy = "produit")
@@ -117,12 +123,6 @@ public class Produit implements Serializable {
         this.prix = prix;
     }
 
-//    public Produit(String nom, Float prix, String description) {
-//        this();
-//        this.nom = nom;
-//        this.prix = prix;
-//        this.description = description;
-//    }
     public Produit(String nom, Float prix, String imageUrl) {
         this();
         this.nom = nom;
@@ -131,7 +131,7 @@ public class Produit implements Serializable {
     }
 
     public Produit(String nom, Float prix, String description,
-             String taille, int volume, String imageUrl) {
+            String taille, int volume, String imageUrl) {
         this();
         this.nom = nom;
         this.prix = prix;
@@ -246,6 +246,22 @@ public class Produit implements Serializable {
         this.statut = statut;
     }
 
+    public Collection<ItemARajouter> getItemsARajouter() {
+        return itemsARajouter;
+    }
+
+    public void setItemsARajouter(Collection<ItemARajouter> itemsARajouter) {
+        this.itemsARajouter = itemsARajouter;
+    }
+
+    public Collection<ItemARetirer> getItemsARetirer() {
+        return itemsARetirer;
+    }
+
+    public void setItemsARetirer(Collection<ItemARetirer> itemsARetirer) {
+        this.itemsARetirer = itemsARetirer;
+    }
+
     public Collection<Infos> getInfos() {
         return infos;
     }
@@ -340,4 +356,5 @@ public class Produit implements Serializable {
                 + ingredients + ", allergenes=" + allergenes + ", statut="
                 + statut + ", infos=" + infos + ", soustype=" + soustype + '}';
     }
+
 }

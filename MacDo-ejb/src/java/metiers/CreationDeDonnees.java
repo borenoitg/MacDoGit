@@ -139,10 +139,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proMcFlurryDaim = new Produit("McFLURRY DAIM", 3.20F, "./Images/mcFlurryDaim.png");
         Produit proMcFlurryOreo = new Produit("McFLURRY OREO", 3.20F, "./Images/mcFlurryOreo.png");
         Produit proMcFlurrySpeculoos = new Produit("McFLURRY SPECULOOS", 3.20F, "./Images/mcFlurrySpeculos.png");
-        Produit proVeryParfaitCoulisAbricot = new Produit("VERY PARFAIT COULIS ABRICOT", 3.30F, "./Images/veryParfaitAbricot.jpg");
+//        Produit proVeryParfaitCoulisAbricot = new Produit("VERY PARFAIT COULIS ABRICOT", 3.30F, "./Images/veryParfaitAbricot.jpg");
         Produit proVeryParfaitNature = new Produit("VERY PARFAIT NATURE", 3.30F, "./Images/veryParfaitNature.png");
-        Produit proVeryParfaitNappageSaveurChocolat = new Produit("VERY PARFAIT NAPPAGE SAVEUR CHOCOLAT ", 3.30F, "./Images/veryParfaitChocolat.png");
-        Produit proVeryParfaitNappageSaveurCaramel = new Produit("VERY PARFAIT NAPPAGE SAVEUR CARAMEL", 3.30F, "./Images/veryParfaitCaramel.png");
+//        Produit proVeryParfaitNappageSaveurChocolat = new Produit("VERY PARFAIT NAPPAGE SAVEUR CHOCOLAT ", 3.30F, "./Images/veryParfaitChocolat.png");
+//        Produit proVeryParfaitNappageSaveurCaramel = new Produit("VERY PARFAIT NAPPAGE SAVEUR CARAMEL", 3.30F, "./Images/veryParfaitCaramel.png");
         Produit proFrappeSaveurChocolat = new Produit("FRAPPE SAVEUR CHOCOLAT", 2F, "./Images/frappeSaveurChocolat.png");
         Produit proFrappeSaveurMarshmallow = new Produit("FRAPPE SAVEUR MARSHMALLOW", 2F, "./Images/frappeMarshmallow.jpg");
         Produit proFrappeSaveurVanille = new Produit("FRAPPE SAVEUR VANILLE", 2F, "./Images/frappeVanille.png");
@@ -186,23 +186,23 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         SousType souNouveaute = new SousType("Nouveaute", "./Images/");
         
         //---------- ITEMS A RAJOUTER ----------
-        ItemARajouter itARaNappageChocolat = new ItemARajouter("Nappage Chocolat", 0.2F,"./Images/SundaeAbricot.png");
-        ItemARajouter itARaNappageCaramel = new ItemARajouter("Nappage Caramel", 0.2F,"./Images/SundaeCaramel.png");
-        ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F,"./Images/SundaeChocolat.png");
+        ItemARajouter itARaNappageChocolat = new ItemARajouter("Nappage Chocolat", 0.2F,"./Images/veryParfaitChocolat.png");
+        ItemARajouter itARaNappageCaramel = new ItemARajouter("Nappage Caramel", 0.2F,"./Images/veryParfaitCaramel.png");
+        ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F,"./Images/veryParfaitAbricot.jpg");
         
         //---------- ITEMS A RETIRER ----------
-        ItemARetirer itaeSteak = new ItemARetirer("Steak", "./Images/");
-        ItemARetirer itaeFrommage = new ItemARetirer("Frommage", "./Images/");
-        ItemARetirer itaeSalade = new ItemARetirer("Salade", "./Images/");
-        ItemARetirer itaeOignon = new ItemARetirer("Oignon", "./Images/");
-        ItemARetirer itaeCornichon = new ItemARetirer("Cornichon", "./Images/");
-        ItemARetirer itaeTomate = new ItemARetirer("Tomate", "./Images/");
-        ItemARetirer itaePoisson = new ItemARetirer("Poisson", "./Images/");
-        ItemARetirer itaePoulet = new ItemARetirer("Poulet", "./Images/");
-        ItemARetirer itaeBacon = new ItemARetirer("Bacon", "./Images/");
-        ItemARetirer itaeCacahuètes = new ItemARetirer("Cacahuètes", "./Images/");
-        ItemARetirer itaeJambon = new ItemARetirer("Jambon", "./Images/");
-        ItemARetirer itaeSauce = new ItemARetirer("Sauce", "./Images/");
+        ItemARetirer itaeSteak = new ItemARetirer("Steak","8", "./Images/steak.png");
+        ItemARetirer itaeFrommage = new ItemARetirer("Fromage","6","./Images/cheddar.jpg");
+        ItemARetirer itaeSalade = new ItemARetirer("Salade","2","./Images/Salade.jpg");
+        ItemARetirer itaeOignon = new ItemARetirer("Oignon","4" ,"./Images/oignon.jpg");
+        ItemARetirer itaeCornichon = new ItemARetirer("Cornichon","5", "./Images/cornichon.png");
+        ItemARetirer itaeTomate = new ItemARetirer("Tomate","3", "./Images/tomate.jpg");
+        ItemARetirer itaePoisson = new ItemARetirer("Poisson", "8","./Images/Poissonpane.jpg");
+        ItemARetirer itaePoulet = new ItemARetirer("Poulet", "8","./Images/pouletpane.jpg");
+        ItemARetirer itaeBacon = new ItemARetirer("Bacon", "7","./Images/bacon.jpg");
+        ItemARetirer itaeCacahuètes = new ItemARetirer("Cacahuètes","0", "./Images/cacahuet.jpg");
+        ItemARetirer itaeJambon = new ItemARetirer("Jambon", "8","./Images/jambon.jpg");
+        ItemARetirer itaeSauce = new ItemARetirer("Sauce","9", "./Images/sauceblanche.png");
 
         //---------- INGREDIENTS ----------
         Ingredient ingPain = new Ingredient("pain");
@@ -257,20 +257,13 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 //                            LES ASSOCIATIONS
 // ----------------------------------------------------------------------------- 
         // Items à rajouter
-        itARaNappageAbricot.getProduits().add(proMcFlurryDaim);
-        itARaNappageAbricot.getProduits().add(proMcFlurryKitKat);
-        itARaNappageAbricot.getProduits().add(proMcFlurryOreo);
-        itARaNappageAbricot.getProduits().add(proMcFlurrySpeculoos);
-
-        itARaNappageCaramel.getProduits().add(proMcFlurryDaim);
-        itARaNappageCaramel.getProduits().add(proMcFlurryKitKat);
-        itARaNappageCaramel.getProduits().add(proMcFlurryOreo);
-        itARaNappageCaramel.getProduits().add(proMcFlurrySpeculoos);
-
-        itARaNappageChocolat.getProduits().add(proMcFlurryDaim);
-        itARaNappageChocolat.getProduits().add(proMcFlurryKitKat);
-        itARaNappageChocolat.getProduits().add(proMcFlurryOreo);
-        itARaNappageChocolat.getProduits().add(proMcFlurrySpeculoos);
+        itARaNappageAbricot.getProduits().add(proVeryParfaitNature);
+        itARaNappageCaramel.getProduits().add(proVeryParfaitNature);
+        itARaNappageChocolat.getProduits().add(proVeryParfaitNature);
+        //*********
+        proVeryParfaitNature.getItemARajoutes().add(itARaNappageAbricot);
+        proVeryParfaitNature.getItemARajoutes().add(itARaNappageCaramel);
+        proVeryParfaitNature.getItemARajoutes().add(itARaNappageChocolat);
 
         // Les ingrédients
         ingPain.setProduit(proBigMac);
@@ -287,6 +280,22 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ingPain.setProduit(proCroqueMcDo);
         ingPain.setProduit(proHamburger);
         ingPain.setProduit(proCheeseBurger);
+        //**********
+        proBigMac.getIngredients().add(ingPain);
+        proPoissonRanch.getIngredients().add(ingPain);
+        proPouletRanch.getIngredients().add(ingPain);
+        proBoeufRanch.getIngredients().add(ingPain);
+        proSignature280OriginalBeef.getIngredients().add(ingPain);
+        proDoubleBlueCheese.getIngredients().add(ingPain);
+        proBeefBbq.getIngredients().add(ingPain);
+        proChickenBbq.getIngredients().add(ingPain);
+        proRoyalDeLuxe.getIngredients().add(ingPain);
+        proMcWrap.getIngredients().add(ingPain);
+        proMcFish.getIngredients().add(ingPain);
+        proCroqueMcDo.getIngredients().add(ingPain);
+        proHamburger.getIngredients().add(ingPain);
+        proCheeseBurger.getIngredients().add(ingPain);
+        
 
         // Les allergènes
         allAnhydride.getProduits().add(proBigMac);
@@ -440,7 +449,96 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allSoja.getProduits().add(proChickenBbq);
         allSoja.getProduits().add(proMcWrap);
 
-        // Les items à retirer
+        // Les produit vers items à retirer
+        
+ 
+        proBigMac.getItemARetires().add(itaeSteak);
+        proBigMac.getItemARetires().add(itaeSalade);
+        proBigMac.getItemARetires().add(itaeFrommage);
+        proBigMac.getItemARetires().add(itaeOignon);
+        proBigMac.getItemARetires().add(itaeCornichon);
+        proBigMac.getItemARetires().add(itaeSauce);
+
+        proPoissonRanch.getItemARetires().add(itaeFrommage);
+        proPoissonRanch.getItemARetires().add(itaeSalade);
+        proPoissonRanch.getItemARetires().add(itaeTomate);
+        proPoissonRanch.getItemARetires().add(itaePoisson);
+        proPoissonRanch.getItemARetires().add(itaeSauce);
+
+        proPouletRanch.getItemARetires().add(itaeFrommage);
+        proPouletRanch.getItemARetires().add(itaeSalade);
+        proPouletRanch.getItemARetires().add(itaeOignon);
+        proPouletRanch.getItemARetires().add(itaeCornichon);
+        proPouletRanch.getItemARetires().add(itaePoulet);
+        proPouletRanch.getItemARetires().add(itaeSauce);
+
+        proBoeufRanch.getItemARetires().add(itaeSteak);
+        proBoeufRanch.getItemARetires().add(itaeSalade);
+        proBoeufRanch.getItemARetires().add(itaeFrommage);
+        proBoeufRanch.getItemARetires().add(itaeOignon);
+        proBoeufRanch.getItemARetires().add(itaeTomate);
+        proBoeufRanch.getItemARetires().add(itaeSauce);
+
+        proSignature280OriginalBeef.getItemARetires().add(itaeSteak);
+        proSignature280OriginalBeef.getItemARetires().add(itaeFrommage);
+        proSignature280OriginalBeef.getItemARetires().add(itaeSalade);
+        proSignature280OriginalBeef.getItemARetires().add(itaeOignon);
+        proSignature280OriginalBeef.getItemARetires().add(itaeCornichon);
+        proSignature280OriginalBeef.getItemARetires().add(itaeSauce);
+
+        proDoubleBlueCheese.getItemARetires().add(itaeSteak);
+        proDoubleBlueCheese.getItemARetires().add(itaeFrommage);
+        proDoubleBlueCheese.getItemARetires().add(itaeOignon);
+        proDoubleBlueCheese.getItemARetires().add(itaeBacon);
+        proDoubleBlueCheese.getItemARetires().add(itaeSauce);
+
+        proBeefBbq.getItemARetires().add(itaeSteak);
+        proBeefBbq.getItemARetires().add(itaeFrommage);
+        proBeefBbq.getItemARetires().add(itaeOignon);
+        proBeefBbq.getItemARetires().add(itaeBacon);
+        proBeefBbq.getItemARetires().add(itaeSauce);
+
+        proChickenBbq.getItemARetires().add(itaePoulet);
+        proChickenBbq.getItemARetires().add(itaeFrommage);
+        proChickenBbq.getItemARetires().add(itaeSalade);
+        proChickenBbq.getItemARetires().add(itaeOignon);
+        proChickenBbq.getItemARetires().add(itaeSauce);
+
+        proRoyalDeLuxe.getItemARetires().add(itaeSteak);
+        proRoyalDeLuxe.getItemARetires().add(itaeFrommage);
+        proRoyalDeLuxe.getItemARetires().add(itaeSalade);
+        proRoyalDeLuxe.getItemARetires().add(itaeOignon);
+        proRoyalDeLuxe.getItemARetires().add(itaeTomate);
+        proRoyalDeLuxe.getItemARetires().add(itaeSauce);
+
+        proMcWrap.getItemARetires().add(itaeFrommage);
+        proMcWrap.getItemARetires().add(itaeSalade);
+        proMcWrap.getItemARetires().add(itaeOignon);
+        proMcWrap.getItemARetires().add(itaeTomate);  
+        proMcWrap.getItemARetires().add(itaeSauce);  
+
+        proMcFish.getItemARetires().add(itaePoisson);
+        proMcFish.getItemARetires().add(itaeSauce);
+
+        proCroqueMcDo.getItemARetires().add(itaeFrommage);
+        proCroqueMcDo.getItemARetires().add(itaeJambon);
+        proCroqueMcDo.getItemARetires().add(itaeSauce);
+
+
+        proHamburger.getItemARetires().add(itaeSteak);
+        proHamburger.getItemARetires().add(itaeOignon);
+        proHamburger.getItemARetires().add(itaeCornichon);
+        proHamburger.getItemARetires().add(itaeSauce);
+
+
+        proCheeseBurger.getItemARetires().add(itaeSteak);
+        proCheeseBurger.getItemARetires().add(itaeOignon);
+        proCheeseBurger.getItemARetires().add(itaeCornichon);
+        proCheeseBurger.getItemARetires().add(itaeFrommage);
+        proCheeseBurger.getItemARetires().add(itaeSauce);
+        
+        //**************** itemaretirer vers produit ********************
+
         itaeSteak.getProduits().add(proBigMac);
         itaeSteak.getProduits().add(proBoeufRanch);
         itaeSteak.getProduits().add(proSignature280OriginalBeef);
@@ -619,6 +717,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proCappuccinoGrand.setSoustype(souChaude);
         proChocolatChaud.setSoustype(souChaude);
         proDoubleLatte.setSoustype(souChaude);
+        proRistretto.setSoustype(souChaude);
         proExpresso.setSoustype(souChaude);
         proGrandCafe.setSoustype(souChaude);
         proGrandCafeGrand.setSoustype(souChaude);
@@ -651,12 +750,14 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proMcFlurryKitKat.setSoustype(souGlace);
         proMcFlurryOreo.setSoustype(souGlace);
         proMcFlurrySpeculoos.setSoustype(souGlace);
-        proVeryParfaitCoulisAbricot.setSoustype(souGlace);
-        proVeryParfaitNappageSaveurCaramel.setSoustype(souGlace);
-        proVeryParfaitNappageSaveurChocolat.setSoustype(souGlace);
+//        proVeryParfaitCoulisAbricot.setSoustype(souGlace);
+//        proVeryParfaitNappageSaveurCaramel.setSoustype(souGlace);
+//        proVeryParfaitNappageSaveurChocolat.setSoustype(souGlace);
         proVeryParfaitNature.setSoustype(souGlace);
 
         proPetitDuoRaisins.setSoustype(souFruits);
+        proBioABoire.setSoustype(souAboire);
+        proBerlingoFruitPommePeche.setSoustype(souAboire);
 
         proBrownieChocolatNoisettes.setSoustype(souGateau);
         proDonnutNature.setSoustype(souGateau);
@@ -669,6 +770,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proMoyenneCrousties.setSoustype(souPommeDeTerre);
         proJouetGarcon.setSoustype(souGarcon);
         proJouetFille.setSoustype(souFille);
+        proLivre.setSoustype(souFille);
+        proLivre.setSoustype(souGarcon);
 
         // Les menus
         menBigMacBest.getTypes().add(typPrincipal);
@@ -835,10 +938,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proMcFlurryOreo);
         em.persist(proMcFlurrySpeculoos);
         em.persist(proBerlingoFruitPommePeche);
-        em.persist(proVeryParfaitCoulisAbricot);
+//        em.persist(proVeryParfaitCoulisAbricot);
         em.persist(proVeryParfaitNature);
-        em.persist(proVeryParfaitNappageSaveurChocolat);
-        em.persist(proVeryParfaitNappageSaveurCaramel);
+//        em.persist(proVeryParfaitNappageSaveurChocolat);
+//        em.persist(proVeryParfaitNappageSaveurCaramel);
         em.persist(proFrappeSaveurChocolat);
         em.persist(proFrappeSaveurMarshmallow);
         em.persist(proFrappeSaveurVanille);

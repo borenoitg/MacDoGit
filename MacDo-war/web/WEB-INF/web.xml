@@ -15,9 +15,17 @@
             <param-name>MainMenuCtrl</param-name>
             <param-value>sousControleurs.MainMenuCtrl</param-value>
         </init-param>
-         <init-param>
+        <init-param>
             <param-name>ItemARajouterCtrl</param-name>
             <param-value>sousControleurs.ItemARajouterCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>DessertCtrl</param-name>
+            <param-value>sousControleurs.DessertCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>PersonnaliserCtrl</param-name>
+            <param-value>sousControleurs.PersonnaliserCtrl</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
@@ -67,6 +75,18 @@
     </ejb-local-ref>
     <ejb-local-ref>
         <ejb-ref-name>GererItem</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.GererItemLocal</local>
+        <ejb-link>MacDo-ejb.jar#GererItem</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>Catalogue5</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.CatalogueLocal</local>
+        <ejb-link>MacDo-ejb.jar#Catalogue</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>GererItem1</ejb-ref-name>
         <ejb-ref-type>Session</ejb-ref-type>
         <local>metiers.GererItemLocal</local>
         <ejb-link>MacDo-ejb.jar#GererItem</ejb-link>

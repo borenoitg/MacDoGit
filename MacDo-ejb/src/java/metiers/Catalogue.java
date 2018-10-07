@@ -23,6 +23,14 @@ public class Catalogue implements CatalogueLocal {
         return produits;
     }
 
+    @Override
+    public List<Produit> listeDessert() {
+
+        TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectDessert", Produit.class);
+        List<Produit> produits = qr01.getResultList();
+        return produits;
+    }
+
     public void persist(Object object) {
         em.persist(object);
     }

@@ -8,5 +8,7 @@ import javax.ejb.Local;
 public interface CatalogueLocal {
 
     public List<Produit> listeProduit();
+
+    public List<Produit> listeDessert();
     
 }

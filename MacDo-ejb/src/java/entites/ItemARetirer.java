@@ -14,38 +14,41 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "entities.ItemARetirer.selectAll", query = "SELECT i FROM ItemARetirer i")
+    @NamedQuery(name = "entities.ItemARetirer.selectAll", query = "SELECT i FROM ItemARetirer i ORDER BY i.description ASC")
+    ,
+//    @NamedQuery(name = "entities.ItemARetirer.selectListeProduit", query = "SELECT i FROM ItemARetirer i where i.produits.id = :paramId")
 })
-
 public class ItemARetirer implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
 //---------------------------------- Attributs ---------------------------------    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(length = 100, nullable = false)
     private String nom;
-    
+
     @Column(length = 1000)
     private String description;
-    
+
+    @Column(length = 150, nullable = true)
+    private String imageUrl;
+
     //------ gestion des associations ------
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private SousLigneDeCommande sousLigneDeCommande;
-    
-    @ManyToOne
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Statut statut;
-    
-    @ManyToMany //(cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Produit> produits;
 
 //-------------------------------- Constructeur --------------------------------
-
     public ItemARetirer() {
         produits = new ArrayList<>();
     }
@@ -55,12 +58,19 @@ public class ItemARetirer implements Serializable {
         this.nom = nom;
     }
 
-    public ItemARetirer(String nom, String description) {
+    public ItemARetirer(String nom, String imageUrl) {
+        this();
+        this.nom = nom;
+        this.imageUrl = imageUrl;
+    }
+
+    public ItemARetirer(String nom, String description, String imageUrl) {
         this();
         this.nom = nom;
         this.description = description;
+        this.imageUrl = imageUrl;
     }
-    
+
 //--------------------------------- Accesseurs ---------------------------------
     public Long getId() {
         return id;
@@ -84,6 +94,14 @@ public class ItemARetirer implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public SousLigneDeCommande getSousLigneDeCommande() {
@@ -124,7 +142,7 @@ public class ItemARetirer implements Serializable {
             return false;
         }
         ItemARetirer other = (ItemARetirer) object;
-        if ((this.id == null && other.id != null) 
+        if ((this.id == null && other.id != null)
                 || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

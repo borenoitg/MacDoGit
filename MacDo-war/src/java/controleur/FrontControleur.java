@@ -1,4 +1,3 @@
-
 package controleur;
 
 import java.io.IOException;
@@ -11,56 +10,54 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sousControleurs.SousControleurInterface;
 
-
 public class FrontControleur extends HttpServlet {
-    
+
     HashMap<String, SousControleurInterface> map;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        
+
         map = new HashMap();
-        
-        for(Enumeration<String> e = this.getInitParameterNames(); e.hasMoreElements();){
+
+        for (Enumeration<String> e = this.getInitParameterNames(); e.hasMoreElements();) {
             String name = e.nextElement();
             String value = this.getInitParameter(name);
-            
+
             SousControleurInterface s;
             try {
                 s = (SousControleurInterface) Class.forName(value).newInstance();
                 map.put(name, s);
             } catch (ClassNotFoundException ex) {
-                System.out.println("ClassNotFound : "+ ex.getMessage());
+                System.out.println("ClassNotFound : " + ex.getMessage());
                 ex.getStackTrace();
             } catch (InstantiationException ex) {
-                System.out.println("Instantiation : "+ ex.getMessage());
+                System.out.println("Instantiation : " + ex.getMessage());
                 ex.getStackTrace();
             } catch (IllegalAccessException ex) {
-                System.out.println("IllegalAccess : "+ ex.getMessage());
-                ex.getStackTrace(); 
+                System.out.println("IllegalAccess : " + ex.getMessage());
+                ex.getStackTrace();
             }
-            
+
         }
-        
-        System.out.println("taille hashMap "+ map.size());
+
     }
-    
-    protected void processRequest(HttpServletRequest request
-            , HttpServletResponse response)
+
+    protected void processRequest(HttpServletRequest request,
+             HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            
-        String url = "/WEB-INF/home.jsp"; 
 
-        if(request.getParameter("section") != null){
-             String name = request.getParameter("section");
-            if(map.containsKey(name)){
+        String url = "/WEB-INF/home.jsp";
+  
+        if (request.getParameter("section") != null) {
+            String name = request.getParameter("section");
+            if (map.containsKey(name)) {
                 SousControleurInterface s = map.get(name);
                 url = s.execute(request, response);
             }
         }
-        System.out.println(">>>>>>>>>>>>>>>>>>>>> url : >>"+ url);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>> url : >>" + url);
         request.getRequestDispatcher(url).include(request, response);
     }
 
