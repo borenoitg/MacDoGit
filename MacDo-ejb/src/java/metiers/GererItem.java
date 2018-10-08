@@ -49,8 +49,7 @@ public class GererItem implements GererItemLocal {
         qr02.setParameter("proNom", proId);
         Produit p = qr02.getSingleResult();
         List<ItemARetirer> list = (List) p.getItemARetires();
-        System.out.println(p);
-        System.out.println("c'est là que ça coince !!! " + list);
+        
         return list;
     }
 
