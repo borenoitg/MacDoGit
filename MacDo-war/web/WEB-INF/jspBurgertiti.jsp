@@ -11,7 +11,7 @@
         <link href="http://localhost:8080/MacDo-war/bootstrapv4/css/shop-homepage.css" rel="stylesheet">
         <link rel="stylesheet" href="http://localhost:8080/MacDo-war/css/style.css" />
         <fmt:setLocale value="fr_FR"/>
-        <title>Dessert</title>
+        <title>Burger</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 30px">
@@ -29,11 +29,11 @@
                 </div>
             </div>
         </nav>
-        <h1>Dessert à la carte</h1>
+        <h1>Burger à la carte</h1>
         <div class="row">
             <c:forEach var="n" items="${liste}">
-                <div class="col-auto">
-                    <a href="FrontControleur?section=DessertCtrl&pid = ${n}"><img src="${n.imageUrl}"><br>${n.nom}<br>${n.soustype.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/><br></a>
+                <div class="col-md-2">
+                    <a href="FrontControleur?section=PersonnaliserCtrl&produit = ${n}"><img src="${n.imageUrl}" width="200px"><br>${n.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
                 </div> 
             </c:forEach>
         </div>

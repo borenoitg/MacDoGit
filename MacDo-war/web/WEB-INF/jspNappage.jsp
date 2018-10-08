@@ -37,7 +37,7 @@
         <div class="row">
             <c:forEach var="n" items="${liste}">
            <div class="col-md-auto">
-                    <a href="FrontControleur?section=ItemARajouterCtrl&pid = ${n.id}"><img src="${n.imageUrl}"><br>${n.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
+                    <a href="FrontControleur?section=ItemARajouterCtrl&pid = ${n}"><img src="${n.imageUrl}"><br>${n.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
                 </div>
             </c:forEach>
     </div> 

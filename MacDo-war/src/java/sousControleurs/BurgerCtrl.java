@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import metiers.CatalogueLocal;
 
-public class DessertCtrl implements SousControleurInterface {
+public class BurgerCtrl implements SousControleurInterface {
 
     private CatalogueLocal lookupCatalogueLocal() {
         try {
@@ -28,15 +28,10 @@ public class DessertCtrl implements SousControleurInterface {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         CatalogueLocal catalogue = lookupCatalogueLocal();
         HttpSession session = request.getSession();
-        Produit p;
-        List<Produit> produits = catalogue.listeDessert();
+        
+        List<Produit> produits = catalogue.listeBurger();
         request.setAttribute("liste", produits);
-        p = (Produit) request.getAttribute("pid");
-        session.setAttribute("pid", request.getAttribute("pid"));
-        if (session.getAttribute("pid") != null) {
-                    System.out.println(session.getAttribute("pid"));
-        }
-        return "/WEB-INF/jspDesserttiti.jsp";
+        return "/WEB-INF/jspBurgertiti.jsp";
     }
 
 }

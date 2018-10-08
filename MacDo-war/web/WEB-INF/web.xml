@@ -20,8 +20,8 @@
             <param-value>sousControleurs.ItemARajouterCtrl</param-value>
         </init-param>
         <init-param>
-            <param-name>DessertCtrl</param-name>
-            <param-value>sousControleurs.DessertCtrl</param-value>
+            <param-name>BurgerCtrl</param-name>
+            <param-value>sousControleurs.BurgerCtrl</param-value>
         </init-param>
         <init-param>
             <param-name>PersonnaliserCtrl</param-name>

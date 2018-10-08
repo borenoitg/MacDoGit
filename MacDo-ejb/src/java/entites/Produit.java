@@ -21,6 +21,8 @@ import javax.persistence.OneToMany;
     ,
     @NamedQuery(name = "entities.Produit.selectDessert", query = "SELECT p FROM Produit p where p.soustype.type.nom ='Dessert' order by p.soustype.nom asc ")
     ,
+    @NamedQuery(name = "entities.Produit.selectBurger", query = "SELECT p FROM Produit p where p.soustype.nom ='Burger' order by p.soustype.nom asc ")
+    ,
     @NamedQuery(name = "entities.Produit.selectProduit", query = "SELECT p FROM Produit p where p.nom = :proNom")
 
 })

@@ -1,6 +1,7 @@
 package sousControleurs;
 
 import entites.ItemARetirer;
+import entites.Produit;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,21 +10,29 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import metiers.GererItemLocal;
 
 public class PersonnaliserCtrl implements SousControleurInterface {
-    
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         GererItemLocal gererItem = lookupGererItemLocal();
-        String nom;
-        nom = "Double Blue Cheese & Bacon";
-        List <ItemARetirer> liste = gererItem.ItemARetirerAAfficher("Double Blue Cheese & Bacon");
-        request.setAttribute("nom", nom);
+        HttpSession session = request.getSession();
+        String nom = "";
+        Produit burger = (Produit) request.getAttribute("produit");
+        try {
+            nom = burger.getNom();
+        } catch (Exception e) {
+            System.out.println(nom);
+        }
+
+        List<ItemARetirer> liste = gererItem.ItemARetirerAAfficher("Big Mac");
+        request.setAttribute("nom", "Big Mac");
         request.setAttribute("listepro", liste);
         return "/WEB-INF/jspPersonnaliser.jsp";
     }
-    
+
     private GererItemLocal lookupGererItemLocal() {
         try {
             Context c = new InitialContext();
@@ -33,5 +42,5 @@ public class PersonnaliserCtrl implements SousControleurInterface {
             throw new RuntimeException(ne);
         }
     }
-    
+
 }

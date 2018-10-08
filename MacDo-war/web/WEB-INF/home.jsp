@@ -40,13 +40,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=ItemARajouterCtrl">Nappage</a>
+                            <a class="nav-link" href="FrontControleur?section=ItemARajouterCtrl">Pour essai Nappage</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=DessertCtrl">Dessert</a>
+                            <a class="nav-link" href="FrontControleur?section=BurgerCtrl">Pour essai Burgertiti</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=PersonnaliserCtrl">Personnaliser</a>
+                            <a class="nav-link" href="FrontControleur?section=PersonnaliserCtrl">Pour essai Personnaliser</a>
                         </li>
                     </ul>
                 </div>

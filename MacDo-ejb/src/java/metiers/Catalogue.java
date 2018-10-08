@@ -30,6 +30,15 @@ public class Catalogue implements CatalogueLocal {
         List<Produit> produits = qr01.getResultList();
         return produits;
     }
+    
+    
+    @Override
+    public List<Produit> listeBurger() {
+
+        TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectBurger", Produit.class);
+        List<Produit> produits = qr01.getResultList();
+        return produits;
+    }
 
     public void persist(Object object) {
         em.persist(object);
