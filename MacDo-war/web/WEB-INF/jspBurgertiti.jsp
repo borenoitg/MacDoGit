@@ -33,7 +33,7 @@
         <div class="row">
             <c:forEach var="n" items="${liste}">
                 <div class="col-md-2">
-                    <a href="FrontControleur?section=PersonnaliserCtrl&produit = ${n}"><img src="${n.imageUrl}" width="200px"><br>${n.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
+                    <a href="FrontControleur?section=PersonnaliserCtrl&produit=${n.nom}"><img src="${n.imageUrl}" width="200px"><br>${n.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
                 </div> 
             </c:forEach>
         </div>

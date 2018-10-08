@@ -18,17 +18,13 @@ public class PersonnaliserCtrl implements SousControleurInterface {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         GererItemLocal gererItem = lookupGererItemLocal();
-        HttpSession session = request.getSession();
         String nom = "";
-        Produit burger = (Produit) request.getAttribute("produit");
-        try {
-            nom = burger.getNom();
-        } catch (Exception e) {
-            System.out.println(nom);
-        }
+        nom = (String) request.getParameter("produit");
+        System.out.println("c'est là " + nom);
 
-        List<ItemARetirer> liste = gererItem.ItemARetirerAAfficher("Big Mac");
-        request.setAttribute("nom", "Big Mac");
+        List<ItemARetirer> liste = gererItem.ItemARetirerAAfficher(nom);
+        
+        request.setAttribute("nom", nom);
         request.setAttribute("listepro", liste);
         return "/WEB-INF/jspPersonnaliser.jsp";
     }
