@@ -5,6 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
         <!-- Bootstrap core CSS -->
         <link href="http://localhost:8080/MacDo-war/bootstrapv4/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
@@ -32,14 +33,22 @@
         <h1>Personnaliser</h1>
     <center><h2>${nom}</h2></center>
     <center><img src="./Images/Painburgerhaut.jpg" width="100px"</center>
-        <c:forEach var="n" items="${listepro}">
-        <center> <img src="${n.imageUrl}" width="100px">&nbsp&nbsp&nbsp${n.nom}&nbsp&nbsp&nbsp<a href="FrontControleur?section=PersonnaliserCtrl&pid = ${n.id}">+</a>&nbsp&nbsp&nbsp<a href="FrontControleur?section=PersonnaliserCtrl&pid = ${n.id}">-<br></a></center>
-            </c:forEach>     
-        <img src="./Images/Painburgerbas.jpeg" width="100px">
-         <br><br>
-    <form action="FrontControleur?section=PersonnaliserCtrl&pid= ${n.id}" method="GET">
-        <center> <input type="submit" value="Validez" name="Validez" />&nbsp&nbsp&nbsp  <input type="submit" value="Annulez" name="Annulez" /></center>
-    </form>
 
-</body>
+    <c:forEach var="n" items="${listepro}">
+        <center> <img src="${n.imageUrl}" width="100px">
+
+            <!-- Rounded switch -->
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
+            </label>
+            <br>
+        </c:forEach>     
+        <img src="./Images/Painburgerbas.jpeg" width="100px">
+        <br><br>
+        <form action="FrontControleur?section=PersonnaliserCtrl&pid= ${n.id}" method="GET">
+            <center> <input type="submit" value="Validez" name="Validez" />&nbsp&nbsp&nbsp  <input type="submit" value="Annulez" name="Annulez" /></center>
+        </form>
+
+    </body>
 </html>
