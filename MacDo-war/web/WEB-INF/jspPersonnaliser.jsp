@@ -32,7 +32,15 @@
         </nav>
         <h1>Personnaliser</h1>
     <center><h2>${nom}</h2></center>
+  <c:if test="${(nom != 'Mc Wrap™ Chèvre') && (nom != 'Croque McDo™')}">
     <center><img src="./Images/Painburgerhaut.jpg" width="180px"</center>
+    </c:if>
+    <c:if test="${nom == 'Mc Wrap™ Chèvre'}">
+        <center><img src="./Images/wrap.jpg" width="180px"</center>
+    </c:if>
+    <c:if test="${nom == 'Croque McDo™'}">
+    <center><img src="./Images/croq.png" width="180px"</center>
+    </c:if>
     <form action="FrontControleur" method="GET">
         <c:forEach var="n" items="${listepro}">
             <img src="${n.imageUrl}" width="100px">
@@ -44,7 +52,14 @@
             </label>
             <br>
         </c:forEach>     
-        <img src="./Images/Painburgerbas.jpeg" width="180px">
+  <c:if test="${(nom != 'Mc Wrap™ Chèvre') && (nom != 'Croque McDo™')}">
+    <center><img src="./Images/Painburgerbas.jpeg" width="180px"</center>
+    </c:if>
+    <c:if test="${nom == 'Mc Wrap™ Chèvre'}">
+    </c:if>
+    <c:if test="${nom == 'Croque McDo™'}">
+    <center><img src="./Images/croq.png" width="180px"</center>
+    </c:if>
         <br><br>
         <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
     </form>
