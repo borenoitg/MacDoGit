@@ -31,37 +31,57 @@
             </div>
         </nav>
         <h1>Personnaliser</h1>
-    <center><h2>${nomBurger}</h2></center>
-  <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nomBurger != 'Croque McDo™')}">
-    <center><img src="./Images/Painburgerhaut.jpg" width="180px"</center>
-    </c:if>
-    <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
+    <center><h2>${nomBurger} <c:if test="${nomBurger == 'Chicken McNuggets'}">${objetBurger.taille}</c:if></h2></center>
+
+        <form action="FrontControleur" method="GET">
+        <c:if test="${nomBurger == 'Chicken McNuggets'}">
+            <c:forEach var="n" items="${listesauces}">
+                <center><img src="${n.imageUrl}" width="100px">
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                        <input type="checkbox" name="${n.nom}" value="${n.id}" >
+                        <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
+                    </label></center>
+                <br>
+            </c:forEach>     
+            <br><br>
+            <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
+            </c:if>
+    </form>
+
+    <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nomBurger != 'Croque McDo™')&& (nomBurger != 'Chicken McNuggets')}">
+        <center><img src="./Images/Painburgerhaut.jpg" width="180px"</center>
+        </c:if>
+        <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
         <center><img src="./Images/wrap.jpg" width="180px"</center>
-    </c:if>
-    <c:if test="${nomBurger == 'Croque McDo™'}">
-    <center><img src="./Images/croq.png" width="180px"</center>
-    </c:if>
+        </c:if>
+        <c:if test="${nomBurger == 'Croque McDo™'}">
+        <center><img src="./Images/croq.png" width="180px"</center>
+        </c:if>
     <form action="FrontControleur" method="GET">
         <c:forEach var="n" items="${listepro}">
             <img src="${n.imageUrl}" width="100px">
-
             <!-- Rounded switch -->
             <label class="switch">
                 <input type="checkbox" name="${n.nom}" value="${n.id}" checked>
                 <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
             </label>
             <br>
-        </c:forEach>     
-  <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nom != 'Croque McDo™')}">
-    <center><img src="./Images/Painburgerbas.jpeg" width="180px"</center>
-    </c:if>
-    <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
-    </c:if>
-    <c:if test="${nomBurger == 'Croque McDo™'}">
-    <center><img src="./Images/croq.png" width="180px"</center>
-    </c:if>
-        <br><br>
-        <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
-    </form>
-</body>
+        </c:forEach> 
+
+        <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nom != 'Croque McDo™')&& (nomBurger != 'Chicken McNuggets')}">
+            <center><img src="./Images/Painburgerbas.jpeg" width="180px"</center>
+            </c:if>
+
+        <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
+        </c:if>
+        <c:if test="${nomBurger == 'Croque McDo™'}">
+            <center><img src="./Images/croq.png" width="180px"</center>
+            </c:if>
+            <c:if test="${nomBurger != 'Chicken McNuggets'}">
+                <br><br>
+                <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
+        </c:if>
+     </form>
+    </body>
 </html>

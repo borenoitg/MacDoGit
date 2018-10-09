@@ -20,4 +20,8 @@ public interface GererItemLocal {
 
     public List<ItemARetirer> ItemARetirerAAfficher(Long proId);
 
+    public List<Produit> SaucesNugget();
+
+    public Produit ProduitSelection(Long proId);
+
 }

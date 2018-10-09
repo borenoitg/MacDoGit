@@ -52,7 +52,25 @@ public class GererItem implements GererItemLocal {
         
         return list;
     }
+    
+    @Override
+    public Produit ProduitSelection(Long proId) {
 
+        TypedQuery<Produit> qr02 = em.createNamedQuery("entities.Produit.selectProduit", Produit.class);
+        qr02.setParameter("proId", proId);
+        Produit p = qr02.getSingleResult();
+        
+        return p;
+    }
+    public List<Produit> SaucesNugget() {
+
+        TypedQuery<Produit> qr02 = em.createNamedQuery("entities.Produit.selectSauceNugget", Produit.class);
+        List<Produit> list = qr02.getResultList();
+        
+        return list;
+    }
+
+    
     @Override
     public void ChoixItemARetirer(String id, Produit pro) {
         ItemARetirer item = new ItemARetirer();
