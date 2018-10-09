@@ -33,7 +33,7 @@
         <h1>Personnaliser</h1>
     <center><h2>${nom}</h2></center>
     <center><img src="./Images/Painburgerhaut.jpg" width="180px"</center>
-    <form action="FrontControleur?ItemARajouterCtrl" method="GET">
+    <form action="FrontControleur" method="GET">
         <c:forEach var="n" items="${listepro}">
             <img src="${n.imageUrl}" width="100px">
 

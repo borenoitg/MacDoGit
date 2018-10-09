@@ -202,7 +202,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARetirer itaeBacon = new ItemARetirer("Bacon", "7","./Images/bacon.jpg");
         ItemARetirer itaeCacahuètes = new ItemARetirer("Cacahuètes","0", "./Images/cacahuet.jpg");
         ItemARetirer itaeJambon = new ItemARetirer("Jambon", "8","./Images/jambon.jpg");
-        ItemARetirer itaeSauce = new ItemARetirer("Sauce","9", "./Images/sauceblanche.png");
+        ItemARetirer itaeSauce = new ItemARetirer("Sauce","9", "./Images/Ketchup.png");
 
         //---------- INGREDIENTS ----------
         Ingredient ingPain = new Ingredient("pain");
