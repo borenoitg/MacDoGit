@@ -31,14 +31,14 @@
             </div>
         </nav>
         <h1>Personnaliser</h1>
-    <center><h2>${nom}</h2></center>
-  <c:if test="${(nom != 'Mc Wrap™ Chèvre') && (nom != 'Croque McDo™')}">
+    <center><h2>${nomBurger}</h2></center>
+  <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nomBurger != 'Croque McDo™')}">
     <center><img src="./Images/Painburgerhaut.jpg" width="180px"</center>
     </c:if>
-    <c:if test="${nom == 'Mc Wrap™ Chèvre'}">
+    <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
         <center><img src="./Images/wrap.jpg" width="180px"</center>
     </c:if>
-    <c:if test="${nom == 'Croque McDo™'}">
+    <c:if test="${nomBurger == 'Croque McDo™'}">
     <center><img src="./Images/croq.png" width="180px"</center>
     </c:if>
     <form action="FrontControleur" method="GET">
@@ -52,12 +52,12 @@
             </label>
             <br>
         </c:forEach>     
-  <c:if test="${(nom != 'Mc Wrap™ Chèvre') && (nom != 'Croque McDo™')}">
+  <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nom != 'Croque McDo™')}">
     <center><img src="./Images/Painburgerbas.jpeg" width="180px"</center>
     </c:if>
-    <c:if test="${nom == 'Mc Wrap™ Chèvre'}">
+    <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
     </c:if>
-    <c:if test="${nom == 'Croque McDo™'}">
+    <c:if test="${nomBurger == 'Croque McDo™'}">
     <center><img src="./Images/croq.png" width="180px"</center>
     </c:if>
         <br><br>
