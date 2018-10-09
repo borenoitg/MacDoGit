@@ -32,23 +32,21 @@
         </nav>
         <h1>Personnaliser</h1>
     <center><h2>${nom}</h2></center>
-    <center><img src="./Images/Painburgerhaut.jpg" width="100px"</center>
-
-    <c:forEach var="n" items="${listepro}">
-        <center> <img src="${n.imageUrl}" width="100px">
+    <center><img src="./Images/Painburgerhaut.jpg" width="180px"</center>
+    <form action="FrontControleur?ItemARajouterCtrl" method="GET">
+        <c:forEach var="n" items="${listepro}">
+            <img src="${n.imageUrl}" width="100px">
 
             <!-- Rounded switch -->
             <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox" name="${n.nom}" value="${n.id}" checked>
                 <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
             </label>
             <br>
         </c:forEach>     
-        <img src="./Images/Painburgerbas.jpeg" width="100px">
+        <img src="./Images/Painburgerbas.jpeg" width="180px">
         <br><br>
-        <form action="FrontControleur?section=PersonnaliserCtrl&pid= ${n.id}" method="GET">
-            <center> <input type="submit" value="Validez" name="Validez" />&nbsp&nbsp&nbsp  <input type="submit" value="Annulez" name="Annulez" /></center>
-        </form>
-
-    </body>
+        <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
+    </form>
+</body>
 </html>

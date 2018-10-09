@@ -9,21 +9,21 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import metiers.GererItemLocal;
 
 public class PersonnaliserCtrl implements SousControleurInterface {
 
-  
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-  
 
+        HttpSession session = request.getSession();;
         GererItemLocal gererItem = lookupGererItemLocal();
-        Long id ;
+        Long id;
         id = Long.valueOf(request.getParameter("pid"));
 
         List<ItemARetirer> liste = gererItem.ItemARetirerAAfficher(id);
-        
+        session.setAttribute("produitId", id);
         request.setAttribute("nom", request.getParameter("pnom"));
         request.setAttribute("listepro", liste);
         return "/WEB-INF/jspPersonnaliser.jsp";
