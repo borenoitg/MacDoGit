@@ -14,7 +14,7 @@
         <fmt:setLocale value="fr_FR"/>
         <title>Personnaliser</title>
     </head>
-    <body>
+    <body><%-- nav bar--%>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 30px">
             <div class="container">
                 <a class="navbar-brand" href="#">MacDo</a>
@@ -30,8 +30,11 @@
                 </div>
             </div>
         </nav>
+        <%-- Titre--%>
         <h1>Personnaliser</h1>
     <center><h2>${nomBurger} <c:if test="${nomBurger == 'Chicken McNuggets'}">${objetBurger.taille}</c:if></h2></center>
+
+            <%-- Si ce sont des nuggets alors on affiche les sauces --%>
 
         <form action="FrontControleur" method="GET">
         <c:if test="${nomBurger == 'Chicken McNuggets'}">
@@ -48,40 +51,53 @@
             <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
             </c:if>
     </form>
+        <%-- Si ce pas des nuggets alors on affiche les ingredients --%>
 
-    <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nomBurger != 'Croque McDo™')&& (nomBurger != 'Chicken McNuggets')}">
-        <center><img src="./Images/Painburgerhaut.jpg" width="180px"</center>
-        </c:if>
-        <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
-        <center><img src="./Images/wrap.jpg" width="180px"</center>
-        </c:if>
-        <c:if test="${nomBurger == 'Croque McDo™'}">
-        <center><img src="./Images/croq.png" width="180px"</center>
-        </c:if>
-    <form action="FrontControleur" method="GET">
-        <c:forEach var="n" items="${listepro}">
-            <img src="${n.imageUrl}" width="100px">
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="${n.nom}" value="${n.id}" checked>
-                <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
-            </label>
-            <br>
-        </c:forEach> 
+    <c:if test="${nomBurger != 'Chicken McNuggets'}">
+        
+                <%-- On affiche le pain du haut correspondant au sandwich --%>
 
-        <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nom != 'Croque McDo™')&& (nomBurger != 'Chicken McNuggets')}">
-            <center><img src="./Images/Painburgerbas.jpeg" width="180px"</center>
+        <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nomBurger != 'Croque McDo™')&& (nomBurger != 'Chicken McNuggets')}">
+            <center><img src="./Images/Painburgerhaut.jpg" width="180px"</center>
             </c:if>
-
-        <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
-        </c:if>
-        <c:if test="${nomBurger == 'Croque McDo™'}">
+            <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
+            <center><img src="./Images/wrap.jpg" width="180px"</center>
+            </c:if>
+            <c:if test="${nomBurger == 'Croque McDo™'}">
             <center><img src="./Images/croq.png" width="180px"</center>
             </c:if>
+                 <%-- On affiche les ingredients du sandwich --%>
+   
+        <form action="FrontControleur" method="GET">
+            <c:forEach var="n" items="${listepro}">
+                <img src="${n.imageUrl}" width="100px">
+
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="${n.nom}" value="${n.id}" checked>
+                    <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
+                </label>
+                <br>
+            </c:forEach> 
+                  <%-- On affiche le pain du bas correspondant au sandwich --%>
+
+            <c:if test="${(nomBurger != 'Mc Wrap™ Chèvre') && (nom == 'Croque McDo™')&& (nomBurger != 'Chicken McNuggets')}">
+                <center><img src="./Images/Painburgerbas.jpeg" width="180px"</center>
+                </c:if>
+
+            <c:if test="${nomBurger == 'Mc Wrap™ Chèvre'}">
+            </c:if>
+
+            <c:if test="${nomBurger == 'Croque McDo™'}">
+                <center><img src="./Images/croq.png" width="180px"</center>
+                </c:if>
+                   <%-- On affiche les boutons de validation --%>
+
             <c:if test="${nomBurger != 'Chicken McNuggets'}">
                 <br><br>
                 <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
-        </c:if>
-     </form>
-    </body>
+                </c:if>
+            </c:if>
+    </form>
+</body>
 </html>
