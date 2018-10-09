@@ -37,7 +37,7 @@
             </c:forEach>     
         <img src="./Images/Painburgerbas.jpeg" width="100px">
          <br><br>
-    <form action="FrontControleur?section=PersonnaliserCtrl&pid = ${n.id}" method="GET">
+    <form action="FrontControleur?section=PersonnaliserCtrl&pid= ${n.id}" method="GET">
         <center> <input type="submit" value="Validez" name="Validez" />&nbsp&nbsp&nbsp  <input type="submit" value="Annulez" name="Annulez" /></center>
     </form>
 

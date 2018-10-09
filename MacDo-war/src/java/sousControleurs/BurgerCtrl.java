@@ -27,7 +27,6 @@ public class BurgerCtrl implements SousControleurInterface {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         CatalogueLocal catalogue = lookupCatalogueLocal();
-        HttpSession session = request.getSession();
 
         List<Produit> produits = catalogue.listeBurger();
         request.setAttribute("liste", produits);

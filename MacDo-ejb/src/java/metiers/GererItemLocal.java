@@ -18,6 +18,6 @@ public interface GererItemLocal {
 
     public void ChoixItemARetirer(String id, Produit pro);
 
-    public List<ItemARetirer> ItemARetirerAAfficher(String proId);
+    public List<ItemARetirer> ItemARetirerAAfficher(Long proId);
 
 }

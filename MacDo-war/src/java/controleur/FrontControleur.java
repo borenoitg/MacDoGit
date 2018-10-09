@@ -47,6 +47,7 @@ public class FrontControleur extends HttpServlet {
              HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
         String url = "/WEB-INF/home.jsp";
   

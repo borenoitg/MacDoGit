@@ -43,10 +43,10 @@ public class GererItem implements GererItemLocal {
     }
 
     @Override
-    public List<ItemARetirer> ItemARetirerAAfficher(String proId) {
+    public List<ItemARetirer> ItemARetirerAAfficher(Long proId) {
 
         TypedQuery<Produit> qr02 = em.createNamedQuery("entities.Produit.selectProduit", Produit.class);
-        qr02.setParameter("proNom", proId);
+        qr02.setParameter("proId", proId);
         Produit p = qr02.getSingleResult();
         List<ItemARetirer> list = (List) p.getItemARetires();
         
