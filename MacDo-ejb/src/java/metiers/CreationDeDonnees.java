@@ -193,6 +193,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         //---------- ITEMS A RETIRER ----------
         ItemARetirer itaeSteak = new ItemARetirer("Steak","8", "./Images/steak.png");
         ItemARetirer itaeFrommage = new ItemARetirer("Fromage","6","./Images/cheddar.png");
+        ItemARetirer itaeFrommageChevre = new ItemARetirer("Chèvre","6","./Images/chevre.png");
+        ItemARetirer itaeFrommageBleu = new ItemARetirer("Bleu","6","./Images/fromagebleu.png");
         ItemARetirer itaeSalade = new ItemARetirer("Salade","2","./Images/Salade.jpg");
         ItemARetirer itaeOignon = new ItemARetirer("Oignon","4" ,"./Images/oignon.jpg");
         ItemARetirer itaeCornichon = new ItemARetirer("Cornichon","5", "./Images/cornichon.png");
@@ -517,7 +519,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proSignature280OriginalBeef.getItemARetires().add(itaeSauce);
 
         proDoubleBlueCheese.getItemARetires().add(itaeSteak);
-        proDoubleBlueCheese.getItemARetires().add(itaeFrommage);
+        proDoubleBlueCheese.getItemARetires().add(itaeFrommageBleu);
         proDoubleBlueCheese.getItemARetires().add(itaeOignon);
         proDoubleBlueCheese.getItemARetires().add(itaeBacon);
         proDoubleBlueCheese.getItemARetires().add(itaeSauce);
@@ -541,7 +543,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proRoyalDeLuxe.getItemARetires().add(itaeTomate);
         proRoyalDeLuxe.getItemARetires().add(itaeSauce);
 
-        proMcWrap.getItemARetires().add(itaeFrommage);
+        proMcWrap.getItemARetires().add(itaeFrommageChevre);
         proMcWrap.getItemARetires().add(itaeSalade);
         proMcWrap.getItemARetires().add(itaeOignon);
         proMcWrap.getItemARetires().add(itaeTomate);  
@@ -583,13 +585,15 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itaeFrommage.getProduits().add(proPouletRanch);
         itaeFrommage.getProduits().add(proBoeufRanch);
         itaeFrommage.getProduits().add(proSignature280OriginalBeef);
-        itaeFrommage.getProduits().add(proDoubleBlueCheese);
         itaeFrommage.getProduits().add(proBeefBbq);
         itaeFrommage.getProduits().add(proChickenBbq);
         itaeFrommage.getProduits().add(proRoyalDeLuxe);
-        itaeFrommage.getProduits().add(proMcWrap);
         itaeFrommage.getProduits().add(proCroqueMcDo);
         itaeFrommage.getProduits().add(proCheeseBurger);
+        
+        itaeFrommageBleu.getProduits().add(proDoubleBlueCheese);
+        
+        itaeFrommageChevre.getProduits().add(proMcWrap);
 
         itaeSalade.getProduits().add(proBigMac);
         itaeSalade.getProduits().add(proPoissonRanch);
@@ -874,6 +878,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(itaeCacahuètes);
         em.persist(itaeJambon);
         em.persist(itaeSauce);
+        em.persist(itaeFrommageBleu);
+        em.persist(itaeFrommageChevre);
 
         // Les produits
         em.persist(proPtiteSalade);
