@@ -129,7 +129,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proSauceCurry = new Produit("CURRY", 0.20F,"nuggets","",0, "./Images/sauceCurry.png");
         Produit proVinaigretteAHuile = new Produit("VINAIGRETTE A L'HUILE DE NOISETTE", 0.20F, "./Images/vinaigretteAHuileDeNoisette.png");
         Produit proSaucePommeFrites = new Produit("SAUCE POMME FRITES", 0.05F, "./Images/saucePommeFrites.png");
-        Produit proKetchup = new Produit("KETCHUP", 0.05F,"nuggets","",0, "./Images/Ketchup.png");
+        Produit proKetchup = new Produit("KETCHUP", 0.05F,"","",0, "./Images/Ketchup.png");
         // Les desserts
         Produit proSundaeNature = new Produit("SUNDAE NATURE", 2.70F, "./Images/sundayNature.png");
         Produit proSundaeChocolat = new Produit("SUNDAE NAPPAGE SAVEUR CHOCOLAT", 2.70F, "./Images/SundaeChocolat.png");
