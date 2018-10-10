@@ -163,7 +163,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proJouetFille = new Produit("JOUET FILLE", 2.5F, "./Images/jouet.png");
         
         //---------- TYPES ----------
-        Type typPrincipal = new Type("principal", "./Images/");
+        Type typPrincipal = new Type("Principal", "./Images/");
         Type typAccompagnement = new Type("Accompagnement", "./Images/");
         Type typBoisson = new Type("Boisson", "./Images/NosBoisons.png");
         Type typDessert = new Type("Dessert", "./Images/NosDesserts.png");
@@ -450,7 +450,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allSoja.getProduits().add(proMcWrap);
 
         // Les produit vers items à retirer
-        
  
         proBigMac.getItemARetires().add(itaeSteak);
         proBigMac.getItemARetires().add(itaeSalade);
@@ -632,6 +631,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         souPommeDeTerre.setType(typAccompagnement);
         souGarcon.setType(typCadeauEnfant);
         souFille.setType(typCadeauEnfant);
+        
         
         // Les types
         typPrincipal.getMenus().add(menBigMacBest);
