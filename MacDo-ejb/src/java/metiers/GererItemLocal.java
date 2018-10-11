@@ -14,8 +14,6 @@ public interface GererItemLocal {
 
     public List<ItemARetirer> LesItemsARetirer();
 
-    public void ChoixItemARajouter(String id, Produit pro);
-
     public List<ItemARetirer> ItemARetirerAAfficher(Long proId);
 
     public List<Produit> SaucesNugget();

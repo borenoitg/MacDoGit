@@ -33,6 +33,7 @@
             </div>
         </nav>
         <%-- Titre--%>
+        
         <h1>Personnaliser</h1>
     <center><h2>${nomBurger} <c:if test="${nomBurger == 'Chicken McNuggets'}">${objetBurger.taille}</c:if></h2></center>
 

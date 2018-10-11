@@ -185,7 +185,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         //---------- ITEMS A RAJOUTER ----------
         ItemARajouter itARaNappageChocolat = new ItemARajouter("Nappage Chocolat", 0.2F, "./Images/chocolat.jpg");
         ItemARajouter itARaNappageCaramel = new ItemARajouter("Nappage Caramel", 0.2F, "./Images/caramel.png");
-        ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F, "./Images/coulisabricot.jpg");
+        ItemARajouter itARaNappageAbricot = new ItemARajouter("Coulis Abricot", 0.2F, "./Images/coulisabricot.jpg");
 
         //---------- ITEMS A RETIRER ----------
         ItemARetirer itaeSteak = new ItemARetirer("Steak", "8", "./Images/steak.png");

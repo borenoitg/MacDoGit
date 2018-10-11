@@ -40,8 +40,11 @@
             <form action="FrontControleur?section=ItemARajouterCtrl" method="GET">
                 <center>    <div class="col-form-label">
                     <c:forEach var="n" items="${liste}">
+                        
+                                <%-- Image et checkbox --%>
+
                         <label class="container">
-                            <img src="${n.imageUrl}" width="120px"><br>${n.nom} &nbsp<fmt:formatNumber value="${n.prix}" type = "currency"/>
+                            <img src="${n.imageUrl}" width="110px"><br>${n.nom} &nbsp<fmt:formatNumber value="${n.prix}" type = "currency"/>
                             <input type="radio" name="nappageId" value="${n.id}">
                             <span class="checkmark"></span>
                         </label>
@@ -53,7 +56,7 @@
                         <input type="radio" name="nappageId" value="nature">Nature
                         <span class="checkmark"></span>
                     </label>                     
-                </div> </center> 
+                    </div> </center> <br>
                 <center><input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
             </form>
         </div>

@@ -18,36 +18,24 @@ public class GererItem implements GererItemLocal {
 
     @Override
     public List<ItemARajouter> LesItemsARajouter() {
-        TypedQuery<ItemARajouter> qr01 = em.createNamedQuery("entities.ItemARajouter.selectAll", ItemARajouter.class);
-        List<ItemARajouter> list = qr01.getResultList();
+        TypedQuery<ItemARajouter> qr = em.createNamedQuery("entities.ItemARajouter.selectAll", ItemARajouter.class);
+        List<ItemARajouter> list = qr.getResultList();
         return list;
     }
 
     @Override
     public List<ItemARetirer> LesItemsARetirer() {
-        TypedQuery<ItemARetirer> qr01 = em.createNamedQuery("entities.ItemARetirer.selectAll", ItemARetirer.class);
-        List<ItemARetirer> list = qr01.getResultList();
+        TypedQuery<ItemARetirer> qr = em.createNamedQuery("entities.ItemARetirer.selectAll", ItemARetirer.class);
+        List<ItemARetirer> list = qr.getResultList();
         return list;
-    }
-
-    @Override
-    public void ChoixItemARajouter(String id, Produit pro) {
-        ItemARajouter item = new ItemARajouter();
-        List<ItemARajouter> listItemARa = LesItemsARajouter();
-        for (int i = 0; i < listItemARa.size(); i++) {
-            if (listItemARa.get(i).getId().equals(Long.valueOf(id))) {
-                item = listItemARa.get(i);
-                pro.getItemARajoutes().add(item);
-            }
-        }
     }
 
     @Override
     public List<ItemARetirer> ItemARetirerAAfficher(Long proId) {
 
-        TypedQuery<Produit> qr02 = em.createNamedQuery("entities.Produit.selectProduit", Produit.class);
-        qr02.setParameter("proId", proId);
-        Produit p = qr02.getSingleResult();
+        TypedQuery<Produit> qr = em.createNamedQuery("entities.Produit.selectProduit", Produit.class);
+        qr.setParameter("proId", proId);
+        Produit p = qr.getSingleResult();
         List<ItemARetirer> list = (List) p.getItemARetires();
 
         return list;
@@ -56,32 +44,30 @@ public class GererItem implements GererItemLocal {
     @Override
     public Produit ProduitSelection(Long proId) {
 
-        TypedQuery<Produit> qr02 = em.createNamedQuery("entities.Produit.selectProduit", Produit.class);
-        qr02.setParameter("proId", proId);
-        Produit p = qr02.getSingleResult();
+        TypedQuery<Produit> qr = em.createNamedQuery("entities.Produit.selectProduit", Produit.class);
+        qr.setParameter("proId", proId);
+        Produit p = qr.getSingleResult();
         return p;
     }
 
     @Override
     public List<Produit> SaucesNugget() {
 
-        TypedQuery<Produit> qr02 = em.createNamedQuery("entities.Produit.selectSauceNugget", Produit.class);
-        List<Produit> list = qr02.getResultList();
+        TypedQuery<Produit> qr = em.createNamedQuery("entities.Produit.selectSauceNugget", Produit.class);
+        List<Produit> list = qr.getResultList();
 
         return list;
     }
 
+    @Override
     public ItemARetirer SelectIItemARetirer(Long id) {
 
-        TypedQuery<ItemARetirer> qr02 = em.createNamedQuery("entities.Produit.selectItemARetirer", ItemARetirer.class);
-        qr02.setParameter("proId", id);
-        ItemARetirer item = qr02.getSingleResult();
+        TypedQuery<ItemARetirer> qr = em.createNamedQuery("entities.ItemARetirer.selectItemARetirer", ItemARetirer.class);
+        qr.setParameter("itemId", id);
+        ItemARetirer item = qr.getSingleResult();
         return item;
     }
-
-    
-    
-    
+ 
     
     public void persist(Object object) {
         em.persist(object);
