@@ -295,7 +295,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ingPain.setProduit(proPoissonRanch);
         ingPain.setProduit(proPouletRanch);
         ingPain.setProduit(proBoeufRanch);
-        ingPain.setProduit(proSignature280OriginalBeef);
         ingPain.setProduit(proDoubleBlueCheese);
         ingPain.setProduit(proBeefBbq);
         ingPain.setProduit(proChickenBbq);
@@ -310,7 +309,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proPoissonRanch.getIngredients().add(ingPain);
         proPouletRanch.getIngredients().add(ingPain);
         proBoeufRanch.getIngredients().add(ingPain);
-        proSignature280OriginalBeef.getIngredients().add(ingPain);
         proDoubleBlueCheese.getIngredients().add(ingPain);
         proBeefBbq.getIngredients().add(ingPain);
         proChickenBbq.getIngredients().add(ingPain);
@@ -328,7 +326,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allAnhydride.getProduits().add(proSummer);
         allAnhydride.getProduits().add(proNewYorkCaesar);
         allAnhydride.getProduits().add(proManhattanVeggie);
-        allAnhydride.getProduits().add(proSignature280OriginalBeef);
         allAnhydride.getProduits().add(proHamburger);
         allAnhydride.getProduits().add(proCheeseBurger);
 
@@ -345,7 +342,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allGluten.getProduits().add(proManhattanVeggie);
         allGluten.getProduits().add(proManhattan);
         allGluten.getProduits().add(proManhattanPouletCroustillant);
-        allGluten.getProduits().add(proSignature280OriginalBeef);
         allGluten.getProduits().add(proDoubleBlueCheese);
         allGluten.getProduits().add(proBeefBbq);
         allGluten.getProduits().add(proChickenBbq);
@@ -364,7 +360,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allGraineDeSesame.getProduits().add(proNewYorkCaesar);
         allGraineDeSesame.getProduits().add(proManhattanVeggie);
         allGraineDeSesame.getProduits().add(proManhattanPouletCroustillant);
-        allGraineDeSesame.getProduits().add(proSignature280OriginalBeef);
         allGraineDeSesame.getProduits().add(proDoubleBlueCheese);
         allGraineDeSesame.getProduits().add(proBeefBbq);
         allGraineDeSesame.getProduits().add(proChickenBbq);
@@ -409,7 +404,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allLait.getProduits().add(proManhattanPouletFrit);
         allLait.getProduits().add(proManhattanVeggie);
         allLait.getProduits().add(proManhattan);
-        allLait.getProduits().add(proSignature280OriginalBeef);
         allLait.getProduits().add(proDoubleBlueCheese);
         allLait.getProduits().add(proBeefBbq);
         allLait.getProduits().add(proChickenBbq);
@@ -433,7 +427,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allMoutarde.getProduits().add(proManhattanVeggie);
         allMoutarde.getProduits().add(proManhattan);
         allMoutarde.getProduits().add(proManhattanPouletCroustillant);
-        allMoutarde.getProduits().add(proSignature280OriginalBeef);
         allMoutarde.getProduits().add(proChickenBbq);
         allMoutarde.getProduits().add(proRoyalDeLuxe);
         allMoutarde.getProduits().add(proMcWrap);
@@ -454,7 +447,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         allOeufs.getProduits().add(proManhattanVeggie);
         allOeufs.getProduits().add(proManhattan);
         allOeufs.getProduits().add(proManhattanPouletCroustillant);
-        allOeufs.getProduits().add(proSignature280OriginalBeef);
         allOeufs.getProduits().add(proDoubleBlueCheese);
         allOeufs.getProduits().add(proBeefBbq);
         allOeufs.getProduits().add(proChickenBbq);
@@ -500,13 +492,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proBoeufRanch.getItemARetires().add(itaeTomate);
         proBoeufRanch.getItemARetires().add(itaeFrommage);
         proBoeufRanch.getItemARetires().add(itaeSteak);
-
-        proSignature280OriginalBeef.getItemARetires().add(itaeSauce);
-        proSignature280OriginalBeef.getItemARetires().add(itaeSalade);
-        proSignature280OriginalBeef.getItemARetires().add(itaeOignon);
-        proSignature280OriginalBeef.getItemARetires().add(itaeCornichon);
-        proSignature280OriginalBeef.getItemARetires().add(itaeFrommage);
-        proSignature280OriginalBeef.getItemARetires().add(itaeSteak);
 
         proDoubleBlueCheese.getItemARetires().add(itaeSauce);
         proDoubleBlueCheese.getItemARetires().add(itaeOignon);
@@ -560,7 +545,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         //**************** itemaretirer vers produit ********************
         itaeSteak.getProduits().add(proBigMac);
         itaeSteak.getProduits().add(proBoeufRanch);
-        itaeSteak.getProduits().add(proSignature280OriginalBeef);
         itaeSteak.getProduits().add(proDoubleBlueCheese);
         itaeSteak.getProduits().add(proBeefBbq);
         itaeSteak.getProduits().add(proRoyalDeLuxe);
@@ -571,7 +555,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itaeFrommage.getProduits().add(proPoissonRanch);
         itaeFrommage.getProduits().add(proPouletRanch);
         itaeFrommage.getProduits().add(proBoeufRanch);
-        itaeFrommage.getProduits().add(proSignature280OriginalBeef);
         itaeFrommage.getProduits().add(proBeefBbq);
         itaeFrommage.getProduits().add(proChickenBbq);
         itaeFrommage.getProduits().add(proRoyalDeLuxe);
@@ -586,7 +569,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itaeSalade.getProduits().add(proPoissonRanch);
         itaeSalade.getProduits().add(proPouletRanch);
         itaeSalade.getProduits().add(proBoeufRanch);
-        itaeSalade.getProduits().add(proSignature280OriginalBeef);
         itaeSalade.getProduits().add(proChickenBbq);
         itaeSalade.getProduits().add(proBeefBbq);
         itaeSalade.getProduits().add(proRoyalDeLuxe);
@@ -595,7 +577,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itaeOignon.getProduits().add(proBigMac);
         itaeOignon.getProduits().add(proPouletRanch);
         itaeOignon.getProduits().add(proBoeufRanch);
-        itaeOignon.getProduits().add(proSignature280OriginalBeef);
         itaeOignon.getProduits().add(proDoubleBlueCheese);
         itaeOignon.getProduits().add(proBeefBbq);
         itaeOignon.getProduits().add(proChickenBbq);
@@ -606,7 +587,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 
         itaeCornichon.getProduits().add(proBigMac);
         itaeCornichon.getProduits().add(proPouletRanch);
-        itaeCornichon.getProduits().add(proSignature280OriginalBeef);
         itaeCornichon.getProduits().add(proHamburger);
         itaeCornichon.getProduits().add(proCheeseBurger);
 
@@ -629,7 +609,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itaeSauce.getProduits().add(proPouletRanch);
         itaeSauce.getProduits().add(proBoeufRanch);
         itaeSauce.getProduits().add(proPoissonRanch);
-        itaeSauce.getProduits().add(proSignature280OriginalBeef);
         itaeSauce.getProduits().add(proDoubleBlueCheese);
         itaeSauce.getProduits().add(proBeefBbq);
         itaeSauce.getProduits().add(proChickenBbq);
@@ -701,7 +680,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proPoissonRanch.setSoustype(souBurger);
         proPouletRanch.setSoustype(souBurger);
         proRoyalDeLuxe.setSoustype(souBurger);
-        proSignature280OriginalBeef.setSoustype(souBurger);
 
         proManhattan.setSoustype(souSalade);
         proManhattanPouletCroustillant.setSoustype(souSalade);
@@ -885,7 +863,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(proManhattanVeggie);
         em.persist(proManhattan);
         em.persist(proManhattanPouletCroustillant);
-        em.persist(proSignature280OriginalBeef);
         em.persist(proDoubleBlueCheese);
         em.persist(proBeefBbq);
         em.persist(proChickenBbq);

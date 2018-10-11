@@ -35,7 +35,6 @@
         <form action="FrontControleur?section=ItemARajouterCtrl" method="GET">
             <br><br><br><br>
             <div class="row">
-            
                 <c:forEach var="n" items="${liste}">
                     <div class="col-md-auto">
                         <img src="${n.imageUrl}"><br>${n.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/>
