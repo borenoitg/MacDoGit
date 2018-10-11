@@ -36,7 +36,9 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         List<Statut> statuts = catalogue.listStatut();
 
         String nom = request.getParameter("nom");
+        String detail = request.getParameter("detail");
         System.out.println(">>>>>>>>> NOM : " + nom);
+        System.out.println(">>>>>>>>> DETAIL : " + detail);
 
         //Recupération et envoie des nouveautés
         if (nom.equalsIgnoreCase("Nouveaute")) {
@@ -50,8 +52,11 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
 
         //Récupération et envoie des produits par sousType
         if ((nom.equalsIgnoreCase("Burger")) 
-                || (nom.equalsIgnoreCase("Salade"))) {
+                || (nom.equalsIgnoreCase("Salade")) || (detail != null)) {
             
+            if(detail != null){
+                nom = detail;
+            }
             for (SousType stp : sousTypes) {
                 if (stp.getNom().equalsIgnoreCase(nom)) {
                     produitsBySousTypes = catalogue.listeProduitBySousType(nom);

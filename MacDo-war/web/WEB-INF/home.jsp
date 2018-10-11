@@ -115,94 +115,19 @@
                     <div class="row">
 
                         <!-- Affichage nouveaux produits -->
-                        <c:if test="${nouveauxProduits != null}">
-                            <c:forEach var="p" items="${nouveauxProduits}">
-                                <div class="col-lg-3 col-md-6 mb-4">
-
-                                    <div class="card">
-                                        <img class="card-img-top" src="${p.imageUrl}" alt="${p.nom}">
-                                        <div class="card-body">
-                                            <h4 class="card-title">${p.nom}</h4>
-                                        </div>
-                                        <div class="card-footer">
-                                            <a href="#" class="btn btn-primary">Commander</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </c:if>
+                        <jsp:include page="jspProduit.jsp" flush="true" />
                         
                         <!-- Affichage de nos Menus -->
-                        <c:if test="${menus != null}">
-                            <c:forEach var="m" items="${menus}">
-                                <div class="col-lg-3 col-md-6 mb-4">
-
-                                    <div class="card">
-                                        <img class="card-img-top" src="${m.imageUrl}" alt="${m.nom}">
-                                        <div class="card-body">
-                                            <h4 class="card-title">${m.nom}</h4>
-                                        </div>
-                                        <div class="card-footer">
-                                            <a href="#" class="btn btn-primary">Commander</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </c:if>
+                        <jsp:include page="jspMenu.jsp" flush="true" />
                         
                         <!-- Affichage des produits par sousType -->
-                        <c:if test="${produitsBySousTypes != null}">
-                            <c:forEach var="p" items="${produitsBySousTypes}">
-                                <div class="col-lg-3 col-md-6 mb-4">
-
-                                    <div class="card">
-                                        <img class="card-img-top" src="${p.imageUrl}" alt="${p.nom}">
-                                        <div class="card-body">
-                                            <h4 class="card-title">${p.nom}</h4>
-                                        </div>
-                                        <div class="card-footer">
-                                            <a href="#" class="btn btn-primary">Commander</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </c:if>
+                        <jsp:include page="jspProduit.jsp" flush="true" />
                         
                         <!-- Affichage des sousType par rapport à un type-->
-                        <c:if test="${sousTypeByTypes != null}">
-                            <c:forEach var="s" items="${sousTypeByTypes}">
-                                <div class="col-lg-3 col-md-6 mb-4">
-
-                                    <div class="card">
-                                        <img class="card-img-top" src="${s.imageUrl}" alt="${s.nom}">
-                                        <div class="card-body">
-                                            <h4 class="card-title">${s.nom}</h4>
-                                        </div>
-                                        <div class="card-footer">
-                                            <a href="#" class="btn btn-primary">AFFICHER</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </c:if>
+                        <jsp:include page="jspSousType.jsp" flush="true" />
                         
                         <!-- Affichage des frites et sauces -->
-                        <c:if test="${friteSauce != null}">
-                            <c:forEach var="p" items="${friteSauce}">
-                                <div class="col-lg-3 col-md-6 mb-4">
-
-                                    <div class="card">
-                                        <img class="card-img-top" src="${p.imageUrl}" alt="${p.nom}">
-                                        <div class="card-body">
-                                            <h4 class="card-title">${p.nom}</h4>
-                                        </div>
-                                        <div class="card-footer">
-                                            <a href="#" class="btn btn-primary">AFFICHER</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </c:if>
+                        <jsp:include page="jspProduit.jsp" flush="true" />
 
                         <!--                        <div class="col-lg-3 col-md-6 mb-4">
                                                     <div class="card">
