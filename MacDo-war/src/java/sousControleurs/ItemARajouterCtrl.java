@@ -1,5 +1,7 @@
 package sousControleurs;
 
+import entites.ItemARajouter;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -14,7 +16,10 @@ public class ItemARajouterCtrl implements SousControleurInterface {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         GererItemLocal gererItem = lookupGererItemLocal();
-        request.setAttribute("liste", gererItem.LesItemsARajouter());
+        List<ItemARajouter> liste =  gererItem.LesItemsARajouter();
+//        request.setAttribute("premier", liste.get(0));
+//        liste.remove(0);
+        request.setAttribute("liste", liste);
         request.getParameter("itemarajouterId");
         
         return "/WEB-INF/jspNappage.jsp";
