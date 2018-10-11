@@ -15,7 +15,7 @@
         <title>Nappages</title>
     </head>
     <body>
-        <%-- Navigation --%>
+        <%-- Barre de Navigation --%>
         
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 40px">
             <div class="container">

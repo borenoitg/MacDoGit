@@ -14,7 +14,9 @@
         <fmt:setLocale value="fr_FR"/>
         <title>Personnaliser</title>
     </head>
-    <body><%-- nav bar--%>
+    <body>
+                               <%-- nav bar--%>
+        
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 30px">
             <div class="container">
                 <a class="navbar-brand" href="#">MacDo</a>
@@ -81,7 +83,6 @@
             <br>
         </c:forEach> 
         <%-- On affiche le pain du bas correspondant au sandwich --%>
-        <br>
         <center>     
             <c:if test="${nomBurger == 'Croque McDo™'}">
                 <img src="./Images/croq.png" width="180px"
