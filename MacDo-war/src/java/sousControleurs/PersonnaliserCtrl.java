@@ -24,6 +24,7 @@ public class PersonnaliserCtrl implements SousControleurInterface {
         id = Long.valueOf(request.getParameter("burgerId"));
 
         List<ItemARetirer> liste = gererItem.ItemARetirerAAfficher(id);
+        liste.remove(0);
         List<Produit> sauces = gererItem.SaucesNugget();
         session.setAttribute("burgerId", id);
         Produit p = gererItem.ProduitSelection(id);
