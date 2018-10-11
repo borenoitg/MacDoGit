@@ -15,7 +15,8 @@
         <title>Nappages</title>
     </head>
     <body>
-        <!-- Navigation -->
+        <%-- Navigation --%>
+        
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 40px">
             <div class="container">
                 <a class="navbar-brand" href="FrontControleur">MacDo</a>
@@ -34,11 +35,11 @@
         <div class="marge">
             <h1>Choix Nappage</h1>
             <br>
-            
+                <%-- On affiche les nappages --%>
+                
             <form action="FrontControleur?section=ItemARajouterCtrl" method="GET">
                 <center>    <div class="col-form-label">
                     <c:forEach var="n" items="${liste}">
-
                         <label class="container">
                             <img src="${n.imageUrl}" width="120px"><br>${n.nom} &nbsp<fmt:formatNumber value="${n.prix}" type = "currency"/>
                             <input type="radio" name="nappageId" value="${n.id}">
@@ -46,6 +47,8 @@
                         </label>
                         <br>
                     </c:forEach>
+                                        <%-- On affiche le bouton "nature" --%>
+
                     <label class="container">
                         <input type="radio" name="nappageId" value="nature">Nature
                         <span class="checkmark"></span>
