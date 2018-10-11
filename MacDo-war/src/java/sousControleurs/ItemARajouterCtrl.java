@@ -14,7 +14,7 @@ public class ItemARajouterCtrl implements SousControleurInterface {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         GererItemLocal gererItem = lookupGererItemLocal();
-        request.setAttribute("liste", gererItem.LesItemsARajouter());;
+        request.setAttribute("liste", gererItem.LesItemsARajouter());
         return "/WEB-INF/jspNappage.jsp";
     }
 

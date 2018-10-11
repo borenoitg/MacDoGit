@@ -229,7 +229,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Statut staDisponible = new Statut(1L, "Disponible");
         Statut staEpuise = new Statut(2L, "Epuisé");
         Statut staQuantiteLimitee = new Statut(3L, "Quantité limitée");
-        Statut staNouveau = new Statut(4L, "Nouveau");
+        Statut staNouveau = new Statut(4L, "Nouveaute");
         Statut staReaprovisionnement = new Statut(5L, "En réapprovisionnement");
         Statut statAnnuler = new Statut(6L, "Annulé");
         Statut staValider = new Statut(7L, "Validé");
@@ -804,6 +804,12 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         menSignatureBest.getTypes().add(typAccompagnement);
         menSignatureBest.getTypes().add(typBoisson);
         menSignatureBest.getTypes().add(typPrincipal);
+        
+        // Statut vers Produits
+        proSignature280OriginalBeef.setStatut(staNouveau);
+        proMoyenneCrousties.setStatut(staNouveau);
+        proGrandesCrousties.setStatut(staNouveau);
+        menSignatureBest.setStatut(staNouveau);
 
 // -----------------------------------------------------------------------------        
 //                              LES PERSIST

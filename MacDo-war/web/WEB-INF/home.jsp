@@ -60,11 +60,18 @@
 
                 <div class="col-lg-3">
 
-                    <h1 class="my-4">Shop Name</h1>
+                    <h3 class="my-4">NOTRE CARTE</h3>
                     <div class="list-group">
-                        <a href="#" class="list-group-item">Category 1</a>
-                        <a href="#" class="list-group-item">Category 2</a>
-                        <a href="#" class="list-group-item">Category 3</a>
+
+                        <a href="FrontControleur?section=CatalogueCtrl&nom=Nouveaute" class="list-group-item"><img src="./Images/enCeMoment.png" alt="En ce Moment"/>  En ce Moment</a>
+                        <a href="FrontControleur?section=CatalogueCtrl&nom=Menu" class="list-group-item"><img src="./Images/nosMenus.png" alt="Nos Menus"/>Nos Menus</a>
+                        <a href="FrontControleur?section=CatalogueCtrl&nom=Burger" class="list-group-item"><img src="./Images/nosSandwichs.png" alt="Nos Sandwichs"/>Nos Sandwichs</a>
+                        <a href="FrontControleur?section=CatalogueCtrl&nom=Boisson" class="list-group-item"><img src="./Images/nosBoissons.png" alt="Nos Boissons"/>Nos Boissons</a>
+                        <a href="FrontControleur?section=CatalogueCtrl&nom=Dessert" class="list-group-item"><img src="./Images/nosDessert.png" alt="Nos Desserts"/>Nos Desserts</a>
+                        <a href="FrontControleur?section=CatalogueCtrl&nom=Salade" class="list-group-item"><img src="./Images/nosSalades.png" alt="Nos Salades"/>Nos Salades</a>
+                        <a href="FrontControleur?section=CatalogueCtrl&nom=HappyMeal" class="list-group-item"><img src="./Images/happyMeal.png" alt="Happy Meal"/>Happy Meal</a>
+                        <a href="FrontControleur?section=CatalogueCtrl&nom=FriteSauce" class="list-group-item"><img src="./Images/nosFritesSauces.png" alt="Frites & Sauces"/>Frites & Sauces</a>
+
                     </div>
 
                 </div>
@@ -73,91 +80,181 @@
                 <div class="col-lg-9">
                     <!-- Begin Caroussel -->
                     <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                     
-                    <div class="carousel-inner" role="listbox">
-                        <c:forEach items="${catalogue}" var="c">
-                            <c:if test="${c == catalogue[0]}">
-                               <div class="carousel-item active">
-                                    <img class="d-block img-fluid" width="900" src="${c.imageUrl}">
-                                </div> 
-                            </c:if>
-                            <c:if test="${c != catalogue[0]}">
-                                <div class="carousel-item">
-                                    <img class="d-block img-fluid" width="900"  src="${c.imageUrl}" alt="${c.nom}">
-                                </div>
-                            </c:if>
-                        </c:forEach>
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner" role="listbox">
+                            <c:forEach items="${catalogue}" var="c">
+                                <c:if test="${c == catalogue[0]}">
+                                    <div class="carousel-item active">
+                                        <img class="d-block img-fluid" width="900" src="${c.imageUrl}">
+                                    </div> 
+                                </c:if>
+                                <c:if test="${c != catalogue[0]}">
+                                    <div class="carousel-item">
+                                        <img class="d-block img-fluid" width="900"  src="${c.imageUrl}" alt="${c.nom}">
+                                    </div>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div>
-                    
+
                     <!-- End Caroussel -->
 
                     <div class="row">
 
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="card">
-                                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Affichage nouveaux produits -->
+                        <c:if test="${nouveauxProduits != null}">
+                            <c:forEach var="p" items="${nouveauxProduits}">
+                                <div class="col-lg-3 col-md-6 mb-4">
 
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="card">
-                                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+                                    <div class="card">
+                                        <img class="card-img-top" src="${p.imageUrl}" alt="${p.nom}">
+                                        <div class="card-body">
+                                            <h4 class="card-title">${p.nom}</h4>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary">Commander</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                                </div>
-                            </div>
-                        </div>
+                            </c:forEach>
+                        </c:if>
+                        
+                        <!-- Affichage de nos Menus -->
+                        <c:if test="${menus != null}">
+                            <c:forEach var="m" items="${menus}">
+                                <div class="col-lg-3 col-md-6 mb-4">
 
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="card">
-                                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                                    <div class="card">
+                                        <img class="card-img-top" src="${m.imageUrl}" alt="${m.nom}">
+                                        <div class="card-body">
+                                            <h4 class="card-title">${m.nom}</h4>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary">Commander</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                                </div>
-                            </div>
-                        </div>
+                            </c:forEach>
+                        </c:if>
+                        
+                        <!-- Affichage des produits par sousType -->
+                        <c:if test="${produitsBySousTypes != null}">
+                            <c:forEach var="p" items="${produitsBySousTypes}">
+                                <div class="col-lg-3 col-md-6 mb-4">
 
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="card">
-                                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+                                    <div class="card">
+                                        <img class="card-img-top" src="${p.imageUrl}" alt="${p.nom}">
+                                        <div class="card-body">
+                                            <h4 class="card-title">${p.nom}</h4>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary">Commander</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                            </c:forEach>
+                        </c:if>
+                        
+                        <!-- Affichage des sousType par rapport à un type-->
+                        <c:if test="${sousTypeByTypes != null}">
+                            <c:forEach var="s" items="${sousTypeByTypes}">
+                                <div class="col-lg-3 col-md-6 mb-4">
+
+                                    <div class="card">
+                                        <img class="card-img-top" src="${s.imageUrl}" alt="${s.nom}">
+                                        <div class="card-body">
+                                            <h4 class="card-title">${s.nom}</h4>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary">AFFICHER</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </c:forEach>
+                        </c:if>
+                        
+                        <!-- Affichage des frites et sauces -->
+                        <c:if test="${friteSauce != null}">
+                            <c:forEach var="p" items="${friteSauce}">
+                                <div class="col-lg-3 col-md-6 mb-4">
+
+                                    <div class="card">
+                                        <img class="card-img-top" src="${p.imageUrl}" alt="${p.nom}">
+                                        <div class="card-body">
+                                            <h4 class="card-title">${p.nom}</h4>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary">AFFICHER</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </c:if>
+
+                        <!--                        <div class="col-lg-3 col-md-6 mb-4">
+                                                    <div class="card">
+                                                        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Card title</h4>
+                                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <a href="#" class="btn btn-primary">Find Out More!</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="col-lg-3 col-md-6 mb-4">
+                                                    <div class="card">
+                                                        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Card title</h4>
+                                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <a href="#" class="btn btn-primary">Find Out More!</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="col-lg-3 col-md-6 mb-4">
+                                                    <div class="card">
+                                                        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Card title</h4>
+                                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <a href="#" class="btn btn-primary">Find Out More!</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="col-lg-3 col-md-6 mb-4">
+                                                    <div class="card">
+                                                        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Card title</h4>
+                                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <a href="#" class="btn btn-primary">Find Out More!</a>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
 
                     </div>
                     <!-- /.row -->
