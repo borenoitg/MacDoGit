@@ -31,23 +31,28 @@
                 </div>
             </div>
         </nav>
-        <h1>Choix Nappage</h1>
-        <form action="FrontControleur?section=ItemARajouterCtrl" method="GET">
-            <br><br><br><br>
-            <div class="row">
-                <c:forEach var="n" items="${liste}">
-                    <div class="col-md-auto">
-                        <img src="${n.imageUrl}"><br>${n.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/>
+        <div class="marge">
+            <h1>Choix Nappage</h1>
+            <br>
+            
+            <form action="FrontControleur?section=ItemARajouterCtrl" method="GET">
+                <center>    <div class="col-form-label">
+                    <c:forEach var="n" items="${liste}">
+
                         <label class="container">
-                            <input type="radio" name="nappage" value="${n.id}">
+                            <img src="${n.imageUrl}" width="120px"><br>${n.nom} &nbsp<fmt:formatNumber value="${n.prix}" type = "currency"/>
+                            <input type="radio" name="nappageId" value="${n.id}">
                             <span class="checkmark"></span>
                         </label>
                         <br>
-                    </div>
-                </c:forEach>
-            </div> 
-            <br><br>
-            <center><input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
-        </form>
+                    </c:forEach>
+                    <label class="container">
+                        <input type="radio" name="nappageId" value="nature">Nature
+                        <span class="checkmark"></span>
+                    </label>                     
+                </div> </center> 
+                <center><input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
+            </form>
+        </div>
     </body>
 </html>

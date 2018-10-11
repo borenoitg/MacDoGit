@@ -29,13 +29,15 @@
                 </div>
             </div>
         </nav>
-        <h1>Burger à la carte</h1>
-        <div class="row">
-            <c:forEach var="n" items="${liste}">
-                <div class="col-md-2">
-                    <a href="FrontControleur?section=PersonnaliserCtrl&burgerId=${n.id}&burger=${n.nom}"><img src="${n.imageUrl}" width="200px"><br>${n.nom} ${n.taille}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
-                </div> 
-            </c:forEach>
+        <div class="marge">
+            <h1>Burger à la carte</h1>
+            <div class="row">
+                <c:forEach var="n" items="${liste}">
+                    <div class="col-md-2">
+                        <a href="FrontControleur?section=PersonnaliserCtrl&burgerId=${n.id}&burger=${n.nom}"><img src="${n.imageUrl}" width="200px"><br>${n.nom} ${n.taille}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
+                    </div> 
+                </c:forEach>
+            </div>
         </div>
     </body>
 </html>

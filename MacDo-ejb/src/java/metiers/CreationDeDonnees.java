@@ -136,10 +136,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proMcFlurryDaim = new Produit("McFLURRY DAIM", 3.20F, "./Images/mcFlurryDaim.png");
         Produit proMcFlurryOreo = new Produit("McFLURRY OREO", 3.20F, "./Images/mcFlurryOreo.png");
         Produit proMcFlurrySpeculoos = new Produit("McFLURRY SPECULOOS", 3.20F, "./Images/mcFlurrySpeculos.png");
-//        Produit proVeryParfaitCoulisAbricot = new Produit("VERY PARFAIT COULIS ABRICOT", 3.30F, "./Images/veryParfaitAbricot.jpg");
+        Produit proVeryParfaitCoulisAbricot = new Produit("VERY PARFAIT COULIS ABRICOT", 3.30F, "./Images/veryParfaitAbricot.jpg");
         Produit proVeryParfaitNature = new Produit("VERY PARFAIT NATURE", 3.30F, "./Images/veryParfaitNature.png");
-//        Produit proVeryParfaitNappageSaveurChocolat = new Produit("VERY PARFAIT NAPPAGE SAVEUR CHOCOLAT ", 3.30F, "./Images/veryParfaitChocolat.png");
-//        Produit proVeryParfaitNappageSaveurCaramel = new Produit("VERY PARFAIT NAPPAGE SAVEUR CARAMEL", 3.30F, "./Images/veryParfaitCaramel.png");
+        Produit proVeryParfaitNappageSaveurChocolat = new Produit("VERY PARFAIT NAPPAGE SAVEUR CHOCOLAT ", 3.30F, "./Images/veryParfaitChocolat.png");
+        Produit proVeryParfaitNappageSaveurCaramel = new Produit("VERY PARFAIT NAPPAGE SAVEUR CARAMEL", 3.30F, "./Images/veryParfaitCaramel.png");
         Produit proFrappeSaveurChocolat = new Produit("FRAPPE SAVEUR CHOCOLAT", 2F, "./Images/frappeSaveurChocolat.png");
         Produit proFrappeSaveurMarshmallow = new Produit("FRAPPE SAVEUR MARSHMALLOW", 2F, "./Images/frappeMarshmallow.jpg");
         Produit proFrappeSaveurVanille = new Produit("FRAPPE SAVEUR VANILLE", 2F, "./Images/frappeVanille.png");
@@ -183,9 +183,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         SousType souNouveaute = new SousType("Nouveaute", "./Images/");
 
         //---------- ITEMS A RAJOUTER ----------
-        ItemARajouter itARaNappageChocolat = new ItemARajouter("Nappage Chocolat", 0.2F, "./Images/veryParfaitChocolat.png");
-        ItemARajouter itARaNappageCaramel = new ItemARajouter("Nappage Caramel", 0.2F, "./Images/veryParfaitCaramel.png");
-        ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F, "./Images/veryParfaitAbricot.jpg");
+        ItemARajouter itARaNappageChocolat = new ItemARajouter("Nappage Chocolat", 0.2F, "./Images/chocolat.jpg");
+        ItemARajouter itARaNappageCaramel = new ItemARajouter("Nappage Caramel", 0.2F, "./Images/caramel.png");
+        ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F, "./Images/coulisabricot.jpg");
 
         //---------- ITEMS A RETIRER ----------
         ItemARetirer itaeSteak = new ItemARetirer("Steak", "8", "./Images/steak.png");
@@ -252,28 +252,22 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 //                            LES ASSOCIATIONS
 // ----------------------------------------------------------------------------- 
         // ItemARajouter vers produit
-        itARaNappageAbricot.getProduits().add(proVeryParfaitNature);
         itARaNappageAbricot.getProduits().add(proMcFlurryDaim);
         itARaNappageAbricot.getProduits().add(proMcFlurryKitKat);
         itARaNappageAbricot.getProduits().add(proMcFlurryOreo);
         itARaNappageAbricot.getProduits().add(proMcFlurrySpeculoos);
 
-        itARaNappageCaramel.getProduits().add(proVeryParfaitNature);
         itARaNappageCaramel.getProduits().add(proMcFlurryDaim);
         itARaNappageCaramel.getProduits().add(proMcFlurryKitKat);
         itARaNappageCaramel.getProduits().add(proMcFlurryOreo);
         itARaNappageCaramel.getProduits().add(proMcFlurrySpeculoos);
 
-        itARaNappageChocolat.getProduits().add(proVeryParfaitNature);
         itARaNappageChocolat.getProduits().add(proMcFlurryDaim);
         itARaNappageChocolat.getProduits().add(proMcFlurryKitKat);
         itARaNappageChocolat.getProduits().add(proMcFlurryOreo);
         itARaNappageChocolat.getProduits().add(proMcFlurrySpeculoos);
         // Produit vers ItemARajouter
-        proVeryParfaitNature.getItemARajoutes().add(itARaNappageAbricot);
-        proVeryParfaitNature.getItemARajoutes().add(itARaNappageCaramel);
-        proVeryParfaitNature.getItemARajoutes().add(itARaNappageChocolat);
-
+        
         proMcFlurryDaim.getItemARajoutes().add(itARaNappageAbricot);
         proMcFlurryDaim.getItemARajoutes().add(itARaNappageCaramel);
         proMcFlurryDaim.getItemARajoutes().add(itARaNappageChocolat);
@@ -749,9 +743,9 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proMcFlurryKitKat.setSoustype(souGlace);
         proMcFlurryOreo.setSoustype(souGlace);
         proMcFlurrySpeculoos.setSoustype(souGlace);
-//        proVeryParfaitCoulisAbricot.setSoustype(souGlace);
-//        proVeryParfaitNappageSaveurCaramel.setSoustype(souGlace);
-//        proVeryParfaitNappageSaveurChocolat.setSoustype(souGlace);
+        proVeryParfaitCoulisAbricot.setSoustype(souGlace);
+        proVeryParfaitNappageSaveurCaramel.setSoustype(souGlace);
+        proVeryParfaitNappageSaveurChocolat.setSoustype(souGlace);
         proVeryParfaitNature.setSoustype(souGlace);
 
         proPetitDuoRaisins.setSoustype(souFruits);
@@ -828,6 +822,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(itARaNappageChocolat);
         em.persist(itARaNappageCaramel);
         em.persist(itARaNappageAbricot);
+        
 
         // Les items à retirer
         em.persist(itaeSteak);
@@ -847,6 +842,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(itaeFrommageChevre);
 
         // Les produits
+        
+        em.persist(proVeryParfaitCoulisAbricot);
+        em.persist(proVeryParfaitNappageSaveurCaramel);
+        em.persist(proVeryParfaitNappageSaveurChocolat);
         em.persist(proPtiteSalade);
         em.persist(ingPain);
         em.persist(proBigMac);
