@@ -75,7 +75,8 @@
         <c:forEach var="n" items="${listepro}">
             <img src="${n.imageUrl}" width="100px">
 
-            <!-- Rounded switch -->
+            <%-- Rounded switch --%>
+            
             <label class="switch">
                 <input type="checkbox" name="${n.nom}" value="${n.id}" checked>
                 <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
@@ -83,6 +84,7 @@
             <br>
         </c:forEach> 
         <%-- On affiche le pain du bas correspondant au sandwich --%>
+        
         <center>     
             <c:if test="${nomBurger == 'Croque McDo™'}">
                 <img src="./Images/croq.png" width="180px"
