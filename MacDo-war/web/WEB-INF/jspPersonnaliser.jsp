@@ -98,7 +98,7 @@
         <%-- On affiche les boutons de validation --%>
 
         <c:if test="${nomBurger != 'Chicken McNuggets'}">
-            <br><br>
+            <br>
             <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
             </c:if>
         </c:if>
