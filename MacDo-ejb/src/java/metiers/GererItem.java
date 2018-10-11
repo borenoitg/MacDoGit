@@ -49,34 +49,40 @@ public class GererItem implements GererItemLocal {
         qr02.setParameter("proId", proId);
         Produit p = qr02.getSingleResult();
         List<ItemARetirer> list = (List) p.getItemARetires();
-        
+
         return list;
     }
-    
+
     @Override
     public Produit ProduitSelection(Long proId) {
 
         TypedQuery<Produit> qr02 = em.createNamedQuery("entities.Produit.selectProduit", Produit.class);
         qr02.setParameter("proId", proId);
         Produit p = qr02.getSingleResult();
-        
         return p;
     }
+
+    @Override
     public List<Produit> SaucesNugget() {
 
         TypedQuery<Produit> qr02 = em.createNamedQuery("entities.Produit.selectSauceNugget", Produit.class);
         List<Produit> list = qr02.getResultList();
-        
+
         return list;
     }
 
-    
-    @Override
-    public void ChoixItemARetirer(String id, Produit pro) {
-        ItemARetirer item = new ItemARetirer();
+    public ItemARetirer SelectIItemARetirer(Long id) {
 
+        TypedQuery<ItemARetirer> qr02 = em.createNamedQuery("entities.Produit.selectItemARetirer", ItemARetirer.class);
+        qr02.setParameter("proId", id);
+        ItemARetirer item = qr02.getSingleResult();
+        return item;
     }
 
+    
+    
+    
+    
     public void persist(Object object) {
         em.persist(object);
     }
