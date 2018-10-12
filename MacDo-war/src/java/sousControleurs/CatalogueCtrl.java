@@ -31,38 +31,28 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         List<SousType> sousTypeByTypes = null;
         List<Produit> friteSauce = null;
 
-        List<Type> types = catalogue.listType();
-        List<SousType> sousTypes = catalogue.listSousType();
-        List<Statut> statuts = catalogue.listStatut();
+//        List<Type> types = catalogue.listType();
+//        List<SousType> sousTypes = catalogue.listSousType();
+//        List<Statut> statuts = catalogue.listStatut();
 
         String nom = request.getParameter("nom");
         String detail = request.getParameter("detail");
         System.out.println(">>>>>>>>> NOM : " + nom);
         System.out.println(">>>>>>>>> DETAIL : " + detail);
 
+        
         //Recupération et envoie des nouveautés
         if (nom.equalsIgnoreCase("Nouveaute")) {
             
-            for (Statut st : statuts) {
-                if (st.getDescription().equalsIgnoreCase(nom)) {
-                    nouveauxProduits = catalogue.listeProduitNouveaute();
-                }
-            }
+            nouveauxProduits = catalogue.gestionSideBar(nom, detail);
             request.setAttribute("nouveauxProduits", nouveauxProduits);
         }
-
+        
         //Récupération et envoie des produits par sousType
-        if ((nom.equalsIgnoreCase("Burger")) 
+        else if ((nom.equalsIgnoreCase("Burger")) 
                 || (nom.equalsIgnoreCase("Salade")) || (detail != null)) {
             
-            if(detail != null){
-                nom = detail;
-            }
-            for (SousType stp : sousTypes) {
-                if (stp.getNom().equalsIgnoreCase(nom)) {
-                    produitsBySousTypes = catalogue.listeProduitBySousType(nom);
-                } 
-            }
+            produitsBySousTypes = catalogue.gestionSideBar(nom, detail);
             request.setAttribute("produitsBySousTypes", produitsBySousTypes);
         }
         
@@ -70,24 +60,20 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         else if((nom.equalsIgnoreCase("Boisson")) 
                 || (nom.equalsIgnoreCase("Dessert"))){
             
-            sousTypeByTypes = catalogue.listSousTypeByType(nom);
-
+            sousTypeByTypes = catalogue.gestionSideBar(nom);
             request.setAttribute("sousTypeByTypes", sousTypeByTypes);
         }
                 
         //Récupération et envoie des menus
         else if (nom.equalsIgnoreCase("Menu")) {
-            menus = catalogue.listMenu();
+            menus = catalogue.gestionSideBar();
             request.setAttribute("menus", menus);
         }
         
         //Récupération et envoie des sauces et frites
         else if (nom.equalsIgnoreCase("FriteSauce")) {
             
-            String sousTypeUn = "Pommes de Terre";
-            String sousTypeDeux = "Sauce";
-            friteSauce = catalogue.listeProduitBySousType(sousTypeUn, sousTypeDeux);
-
+            friteSauce = catalogue.gestionSideBar(nom, detail);
             request.setAttribute("friteSauce", friteSauce);
         }
 
