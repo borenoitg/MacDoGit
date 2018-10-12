@@ -43,9 +43,12 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         //Recupération et envoie des nouveautés
         if (nom.equalsIgnoreCase("Nouveaute")) {
             
-            nouveauxProduits = catalogue.listeProduitBySousType(nom);
+            for (Statut st : statuts) {
+                if (st.getDescription().equalsIgnoreCase(nom)) {
+                    nouveauxProduits = catalogue.listeProduitNouveaute();
+                }
+            }
             request.setAttribute("nouveauxProduits", nouveauxProduits);
-
         }
 
         //Récupération et envoie des produits par sousType
@@ -64,7 +67,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         }
         
         //Récupération et envoie des sousTypes par rapport à un type
-        if((nom.equalsIgnoreCase("Boisson")) 
+        else if((nom.equalsIgnoreCase("Boisson")) 
                 || (nom.equalsIgnoreCase("Dessert"))){
             
             sousTypeByTypes = catalogue.listSousTypeByType(nom);
@@ -73,7 +76,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         }
                 
         //Récupération et envoie des menus
-        if (nom.equalsIgnoreCase("Menu")) {
+        else if (nom.equalsIgnoreCase("Menu")) {
             menus = catalogue.listMenu();
             request.setAttribute("menus", menus);
         }

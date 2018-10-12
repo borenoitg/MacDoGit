@@ -115,20 +115,30 @@
                     <div class="row">
 
                         <!-- Affichage nouveaux produits -->
-                        <jsp:include page="jspProduit.jsp" flush="true" />
+                        <c:if test="${nouveauxProduits != null}">
+                            <jsp:include page="jspProduit.jsp" flush="true" />
+                        </c:if>
                         
                         <!-- Affichage de nos Menus -->
-                        <jsp:include page="jspMenu.jsp" flush="true" />
+                        <c:if test="${menus != null}">
+                            <jsp:include page="jspMenu.jsp" flush="true" />
+                        </c:if>
                         
                         <!-- Affichage des produits par sousType -->
-                        <jsp:include page="jspProduit.jsp" flush="true" />
+                        <c:if test="${produitsBySousTypes != null}">
+                            <jsp:include page="jspProduit.jsp" flush="true" />
+                        </c:if>
                         
                         <!-- Affichage des sousType par rapport à un type-->
-                        <jsp:include page="jspSousType.jsp" flush="true" />
+                        <c:if test="${sousTypeByTypes != null}">
+                            <jsp:include page="jspSousType.jsp" flush="true" />
+                        </c:if>
                         
                         <!-- Affichage des frites et sauces -->
-                        <jsp:include page="jspProduit.jsp" flush="true" />
-
+                        <c:if test="${friteSauce != null}">
+                            <jsp:include page="jspProduit.jsp" flush="true" />
+                        </c:if>
+                        
                         <!--                        <div class="col-lg-3 col-md-6 mb-4">
                                                     <div class="card">
                                                         <img class="card-img-top" src="http://placehold.it/500x325" alt="">
