@@ -18,8 +18,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
     @NamedQuery(name = "entities.ItemARetirer.selectAll", query = "SELECT i FROM ItemARetirer i ORDER BY i.description ASC")
     ,
-//    @NamedQuery(name = "entities.ItemARetirer.selectListeProduit", query = "SELECT i FROM ItemARetirer i where i.produits.id = :paramId")
-})
+    @NamedQuery(name = "entities.ItemARetirer.selectItemARetirer", query = "SELECT i FROM ItemARetirer i where i.id = :proId")})
 public class ItemARetirer implements Serializable {
 
     private static final long serialVersionUID = 1L;

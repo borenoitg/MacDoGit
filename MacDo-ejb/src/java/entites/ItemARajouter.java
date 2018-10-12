@@ -31,7 +31,7 @@ public class ItemARajouter implements Serializable {
     @Column(length = 150, nullable = false)
     private String nom;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Float prix;
 
     @Column(length = 150, nullable = true)
@@ -53,10 +53,20 @@ public class ItemARajouter implements Serializable {
         produits = new ArrayList<>();
     }
 
+    public ItemARajouter(String nom) {
+        this.nom = nom;
+    }
+
+    
     public ItemARajouter(String nom, Float prix) {
         this();
         this.nom = nom;
         this.prix = prix;
+    }
+
+    public ItemARajouter(String nom, String imageUrl) {
+        this.nom = nom;
+        this.imageUrl = imageUrl;
     }
 
     public ItemARajouter(String nom, Float prix, String imageUrl) {

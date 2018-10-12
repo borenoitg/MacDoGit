@@ -35,7 +35,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
                             <c:url value="FrontControleur?section=CreationDeDonneesCtrl" var="urlCreateData" />
-                            <a class="nav-link" href="${urlCreateData}">Creation De Donnees
+                            <a class="nav-link" href="${urlCreateData}">Création De Donnees
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>

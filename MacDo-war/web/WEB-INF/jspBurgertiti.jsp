@@ -14,6 +14,8 @@
         <title>Burger</title>
     </head>
     <body>
+                <%-- Barre de Navigation --%>
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 30px">
             <div class="container">
                 <a class="navbar-brand" href="#">MacDo</a>
@@ -29,13 +31,21 @@
                 </div>
             </div>
         </nav>
-        <h1>Burger à la carte</h1>
-        <div class="row">
-            <c:forEach var="n" items="${liste}">
-                <div class="col-md-2">
-                    <a href="FrontControleur?section=PersonnaliserCtrl&produit=${n.nom}"><img src="${n.imageUrl}" width="200px"><br>${n.nom}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
-                </div> 
-            </c:forEach>
+        <div class="marge">
+            
+                    <%-- Titre --%>
+
+            <h1>Burger à la carte</h1>
+            
+                    <%-- Liste de Burger --%>
+
+            <div class="row">
+                <c:forEach var="n" items="${liste}">
+                    <div class="col-md-2">
+                        <a href="FrontControleur?section=PersonnaliserCtrl&burgerId=${n.id}&burger=${n.nom}"><img src="${n.imageUrl}" width="200px"><br>${n.nom} ${n.taille}<br><fmt:formatNumber value="${n.prix}" type = "currency"/></a>
+                    </div> 
+                </c:forEach>
+            </div>
         </div>
     </body>
 </html>

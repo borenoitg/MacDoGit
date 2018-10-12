@@ -14,10 +14,12 @@ public interface GererItemLocal {
 
     public List<ItemARetirer> LesItemsARetirer();
 
-    public void ChoixItemARajouter(String id, Produit pro);
+    public List<ItemARetirer> ItemARetirerAAfficher(Long proId);
 
-    public void ChoixItemARetirer(String id, Produit pro);
+    public List<Produit> SaucesNugget();
 
-    public List<ItemARetirer> ItemARetirerAAfficher(String proId);
+    public Produit ProduitSelection(Long proId);
+
+    public ItemARetirer SelectIItemARetirer(Long id);
 
 }

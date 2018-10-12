@@ -17,15 +17,20 @@ public class PersonnaliserCtrl implements SousControleurInterface {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        GererItemLocal gererItem = lookupGererItemLocal();
-        String nom = "";
-        nom = (String) request.getParameter("produit");
-        System.out.println("c'est là " + nom);
 
-        List<ItemARetirer> liste = gererItem.ItemARetirerAAfficher(nom);
-        
-        request.setAttribute("nom", nom);
+        HttpSession session = request.getSession();;
+        GererItemLocal gererItem = lookupGererItemLocal();
+        Long id;
+        id = Long.valueOf(request.getParameter("burgerId"));
+
+        List<ItemARetirer> liste = gererItem.ItemARetirerAAfficher(id);
+        List<Produit> sauces = gererItem.SaucesNugget();
+        session.setAttribute("burgerId", id);
+        Produit p = gererItem.ProduitSelection(id);
+        request.setAttribute("objetBurger", p);
+        request.setAttribute("nomBurger", request.getParameter("burger"));
         request.setAttribute("listepro", liste);
+        request.setAttribute("listesauces", sauces);
         return "/WEB-INF/jspPersonnaliser.jsp";
     }
 
