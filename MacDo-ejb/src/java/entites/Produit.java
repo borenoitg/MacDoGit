@@ -17,15 +17,25 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
+    @NamedQuery(name = "entities.Produit.selectProduitBySousType", query = "SELECT p FROM Produit p WHERE p.soustype.nom= :paramType")
+    ,
+    
+    @NamedQuery(name = "entities.Produit.selectProduitBySousTypeFriteSauce", query = "SELECT p FROM Produit p WHERE p.soustype.nom= :paramTypeUn OR p.soustype.nom= :paramTypeDeux")
+    ,
+    
+    @NamedQuery(name = "entities.Produit.selectNouveauProduit", query = "SELECT p FROM Produit p WHERE p.statut.description = :paramStatut")
+    ,
+    
     @NamedQuery(name = "entities.Produit.selectAll", query = "SELECT p FROM Produit p")
     ,
+
     @NamedQuery(name = "entities.Produit.selectDessert", query = "SELECT p FROM Produit p where p.soustype.type.nom ='Dessert' order by p.soustype.nom asc ")
     ,
+    
     @NamedQuery(name = "entities.Produit.selectBurger", query = "SELECT p FROM Produit p where p.soustype.nom ='Burger' order by p.soustype.nom asc ")
     ,
-    @NamedQuery(name = "entities.Produit.selectSauceNugget", query = "SELECT p FROM Produit p where p.soustype.nom ='Sauce' AND p.description = 'nuggets' ")
-    ,
-    @NamedQuery(name = "entities.Produit.selectProduit", query = "SELECT p FROM Produit p where p.id = :proId")
+    
+    @NamedQuery(name = "entities.Produit.selectProduit", query = "SELECT p FROM Produit p where p.id= :proId")
 
 })
 public class Produit implements Serializable {

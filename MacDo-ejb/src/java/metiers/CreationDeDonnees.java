@@ -160,7 +160,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proJouetFille = new Produit("JOUET FILLE", 2.5F, "./Images/jouet.png");
 
         //---------- TYPES ----------
-        Type typPrincipal = new Type("principal", "./Images/");
+        Type typPrincipal = new Type("Principal", "./Images/");
         Type typAccompagnement = new Type("Accompagnement", "./Images/");
         Type typBoisson = new Type("Boisson", "./Images/NosBoisons.png");
         Type typDessert = new Type("Dessert", "./Images/NosDesserts.png");
@@ -226,7 +226,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Statut staDisponible = new Statut(1L, "Disponible");
         Statut staEpuise = new Statut(2L, "Epuisé");
         Statut staQuantiteLimitee = new Statut(3L, "Quantité limitée");
-        Statut staNouveau = new Statut(4L, "Nouveau");
+        Statut staNouveau = new Statut(4L, "Nouveaute");
         Statut staReaprovisionnement = new Statut(5L, "En réapprovisionnement");
         Statut statAnnuler = new Statut(6L, "Annulé");
         Statut staValider = new Statut(7L, "Validé");
@@ -797,6 +797,11 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         menSignatureBest.getTypes().add(typAccompagnement);
         menSignatureBest.getTypes().add(typBoisson);
         menSignatureBest.getTypes().add(typPrincipal);
+        
+        // Statut vers Produits
+        proMoyenneCrousties.setStatut(staNouveau);
+        proGrandesCrousties.setStatut(staNouveau);
+        menSignatureBest.setStatut(staNouveau);
 
 // -----------------------------------------------------------------------------        
 //                              LES PERSIST

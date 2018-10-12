@@ -9,9 +9,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
  
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "entities.SousType.selectAll", query = "SELECT s FROM SousType s"),
+    
+    @NamedQuery(name = "entities.SousType.selectSousTypeByType", query = "SELECT s FROM SousType s WHERE s.type.nom = :paramType")
+})
 public class SousType implements Serializable {
 
     private static final long serialVersionUID = 1L;
