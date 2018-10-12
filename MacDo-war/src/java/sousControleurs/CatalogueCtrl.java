@@ -30,11 +30,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         List<Produit> produitsBySousTypes = null;
         List<SousType> sousTypeByTypes = null;
         List<Produit> friteSauce = null;
-
-        List<Type> types = catalogue.listType();
-        List<SousType> sousTypes = catalogue.listSousType();
-        List<Statut> statuts = catalogue.listStatut();
-
+        request.setAttribute("soustype", request.getParameter("soustype"));
         String nom = request.getParameter("nom");
         String detail = request.getParameter("detail");
         System.out.println(">>>>>>>>> NOM : " + nom);
@@ -53,6 +49,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             if (detail != null) {
                 nom = detail;
             }
+            
             produitsBySousTypes = catalogue.listeProduitBySousType(nom);
             request.setAttribute("produitsBySousTypes", produitsBySousTypes);
         }

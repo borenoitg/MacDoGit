@@ -22,4 +22,6 @@ public interface GererItemLocal {
 
     public ItemARetirer SelectIItemARetirer(Long id);
 
+    public List<Produit> SaucesSalade();
+
 }

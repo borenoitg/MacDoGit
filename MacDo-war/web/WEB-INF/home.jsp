@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
+        <fmt:setLocale value="fr_FR"/>
 
     <head>
 
@@ -54,6 +57,7 @@
         </nav>
 
         <!-- Page Content -->
+
         <div class="container">
 
             <div class="row">
@@ -188,7 +192,6 @@
 
         </div>
         <!-- /.row -->
-
     </div>
     <!-- /.container -->
 
