@@ -63,14 +63,11 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         }
 
         //Récupération et envoie des sousTypes par rapport à un type
-        if ((nom.equalsIgnoreCase("Boisson"))
-                || (nom.equalsIgnoreCase("Dessert"))) {
+        if((nom.equalsIgnoreCase("Boisson")) 
+                || (nom.equalsIgnoreCase("Dessert"))){
+            
+            sousTypeByTypes = catalogue.listSousTypeByType(nom);
 
-            for (Type tp : types) {
-                if (tp.getNom().equalsIgnoreCase(nom)) {
-                    sousTypeByTypes = catalogue.listSousTypeByType(nom);
-                }
-            }
             request.setAttribute("sousTypeByTypes", sousTypeByTypes);
         }
 
@@ -84,14 +81,6 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             String sousTypeUn = "Pommes de Terre";
             String sousTypeDeux = "Sauce";
             friteSauce = catalogue.listeProduitBySousType(sousTypeUn, sousTypeDeux);
-            System.out.println(">>>>>>>>> friteSauce: " + friteSauce.size());
-//            for(Produit p : produits){
-//                if((p.getSoustype().getNom().equalsIgnoreCase(sousTypeUn)) 
-//                        || (p.getSoustype().getNom().equalsIgnoreCase(sousTypeDeux))){
-//                    friteSauce = catalogue.listeProduitBySousType(sousTypeUn, sousTypeDeux);
-//                    System.out.println(">>>>>>>>> friteSauce: "+friteSauce.size());
-//                }
-//            }
 
             request.setAttribute("friteSauce", friteSauce);
         }
@@ -109,3 +98,4 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         }
     }
 }
+
