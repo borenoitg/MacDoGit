@@ -50,24 +50,17 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         //Récupération et envoie des produits par sousType
         if ((nom.equalsIgnoreCase("Burger"))
                 || (nom.equalsIgnoreCase("Salade")) || (detail != null)) {
-
             if (detail != null) {
                 nom = detail;
             }
-            for (SousType stp : sousTypes) {
-                if (stp.getNom().equalsIgnoreCase(nom)) {
-                    produitsBySousTypes = catalogue.listeProduitBySousType(nom);
-                }
-            }
+            produitsBySousTypes = catalogue.listeProduitBySousType(nom);
             request.setAttribute("produitsBySousTypes", produitsBySousTypes);
         }
 
         //Récupération et envoie des sousTypes par rapport à un type
-        if((nom.equalsIgnoreCase("Boisson")) 
-                || (nom.equalsIgnoreCase("Dessert"))){
-            
+        if ((nom.equalsIgnoreCase("Boisson"))
+                || (nom.equalsIgnoreCase("Dessert"))) {
             sousTypeByTypes = catalogue.listSousTypeByType(nom);
-
             request.setAttribute("sousTypeByTypes", sousTypeByTypes);
         }
 
@@ -75,6 +68,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         if (nom.equalsIgnoreCase("Menu")) {
             menus = catalogue.listMenu();
             request.setAttribute("menus", menus);
+            
         } //Récupération et envoie des sauces et frites
         else if (nom.equalsIgnoreCase("FriteSauce")) {
 
@@ -98,4 +92,3 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         }
     }
 }
-
