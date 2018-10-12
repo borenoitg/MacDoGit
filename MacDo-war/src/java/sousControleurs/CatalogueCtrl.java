@@ -42,12 +42,10 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
 
         //Recupération et envoie des nouveautés
         if (nom.equalsIgnoreCase("Nouveaute")) {
-            for (Statut st : statuts) {
-                if (st.getDescription().equalsIgnoreCase(nom)) {
-                    nouveauxProduits = catalogue.listeProduitNouveaute();
-                    request.setAttribute("nouveauxProduits", nouveauxProduits);
-                }
-            }
+            
+            nouveauxProduits = catalogue.listeProduitBySousType(nom);
+            request.setAttribute("nouveauxProduits", nouveauxProduits);
+
         }
 
         //Récupération et envoie des produits par sousType
@@ -69,11 +67,8 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         if((nom.equalsIgnoreCase("Boisson")) 
                 || (nom.equalsIgnoreCase("Dessert"))){
             
-            for (Type tp : types) {
-                if (tp.getNom().equalsIgnoreCase(nom)) {
-                    sousTypeByTypes = catalogue.listSousTypeByType(nom);
-                }
-            }
+            sousTypeByTypes = catalogue.listSousTypeByType(nom);
+
             request.setAttribute("sousTypeByTypes", sousTypeByTypes);
         }
                 
@@ -89,15 +84,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             String sousTypeUn = "Pommes de Terre";
             String sousTypeDeux = "Sauce";
             friteSauce = catalogue.listeProduitBySousType(sousTypeUn, sousTypeDeux);
-            System.out.println(">>>>>>>>> friteSauce: "+friteSauce.size());
-//            for(Produit p : produits){
-//                if((p.getSoustype().getNom().equalsIgnoreCase(sousTypeUn)) 
-//                        || (p.getSoustype().getNom().equalsIgnoreCase(sousTypeDeux))){
-//                    friteSauce = catalogue.listeProduitBySousType(sousTypeUn, sousTypeDeux);
-//                    System.out.println(">>>>>>>>> friteSauce: "+friteSauce.size());
-//                }
-//            }
-            
+
             request.setAttribute("friteSauce", friteSauce);
         }
 
