@@ -22,61 +22,42 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
         CatalogueLocal catalogue = lookupCatalogueLocal();
-        List<Produit> produits = catalogue.listeProduit();
-        request.setAttribute("catalogue", produits);
-
-        List<Produit> nouveauxProduits = null;
-        List<Menu> menus = null;
-        List<Produit> produitsBySousTypes = null;
-        List<SousType> sousTypeByTypes = null;
-        List<Produit> friteSauce = null;
-
-//        List<Type> types = catalogue.listType();
-//        List<SousType> sousTypes = catalogue.listSousType();
-//        List<Statut> statuts = catalogue.listStatut();
-
+        
+//        List<Produit> produits = catalogue.listeProduit();
+//        request.setAttribute("catalogue", produits);
+        List<Produit> produitCarroussel = catalogue.listeProduitNouveaute("Nouveaute");
+        request.setAttribute("produitCarroussel", produitCarroussel);
+        
+        
         String nom = request.getParameter("nom");
         String detail = request.getParameter("detail");
         System.out.println(">>>>>>>>> NOM : " + nom);
         System.out.println(">>>>>>>>> DETAIL : " + detail);
 
+        List<SousType> sousTypeTest = null;
+        List<Produit> produitTest = null;
+        List<Menu> menusTest = null;
         
-        //Recupération et envoie des nouveautés
-        if (nom.equalsIgnoreCase("Nouveaute")) {
-            
-            nouveauxProduits = catalogue.gestionSideBar(nom, detail);
-            request.setAttribute("nouveauxProduits", nouveauxProduits);
-        }
-        
-        //Récupération et envoie des produits par sousType
-        else if ((nom.equalsIgnoreCase("Burger")) 
-                || (nom.equalsIgnoreCase("Salade")) || (detail != null)) {
-            
-            produitsBySousTypes = catalogue.gestionSideBar(nom, detail);
-            request.setAttribute("produitsBySousTypes", produitsBySousTypes);
-        }
-        
-        //Récupération et envoie des sousTypes par rapport à un type
-        else if((nom.equalsIgnoreCase("Boisson")) 
-                || (nom.equalsIgnoreCase("Dessert"))){
-            
-            sousTypeByTypes = catalogue.gestionSideBar(nom);
-            request.setAttribute("sousTypeByTypes", sousTypeByTypes);
-        }
-                
         //Récupération et envoie des menus
-        else if (nom.equalsIgnoreCase("Menu")) {
-            menus = catalogue.gestionSideBar();
-            request.setAttribute("menus", menus);
+        if (nom.equalsIgnoreCase("Menu")) {
+            
+            menusTest = catalogue.gestionSideBarMenu();
+            request.setAttribute("menusTest", menusTest);
+        }
+        //Récupération et envoie des sousTypes par rapport à un type
+        else if(((nom.equalsIgnoreCase("Boisson")) 
+                || (nom.equalsIgnoreCase("Dessert"))) && (detail == null)){
+            
+            sousTypeTest = catalogue.gestionSideBarSousType(nom);
+            request.setAttribute("sousTypeTest", sousTypeTest);
+        }
+        //Recupération de produits par SousType
+        else{
+            
+            produitTest = catalogue.gestionSideBar(nom, detail);
+            request.setAttribute("produitTest", produitTest);
         }
         
-        //Récupération et envoie des sauces et frites
-        else if (nom.equalsIgnoreCase("FriteSauce")) {
-            
-            friteSauce = catalogue.gestionSideBar(nom, detail);
-            request.setAttribute("friteSauce", friteSauce);
-        }
-
         return "/WEB-INF/home.jsp";
     }
 

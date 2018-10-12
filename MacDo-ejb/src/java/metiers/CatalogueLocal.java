@@ -33,9 +33,9 @@ public interface CatalogueLocal {
 
     public List<Produit> listeProduitNouveaute(String statut);
 
-    public List<Menu> gestionSideBar();
+    public List<Menu> gestionSideBarMenu();
 
-    public List<SousType> gestionSideBar(String nom);
+    public List<SousType> gestionSideBarSousType(String nom);
 
     public List<Produit> gestionSideBar(String nom, String statut);
 

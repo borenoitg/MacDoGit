@@ -103,7 +103,6 @@ public class Catalogue implements CatalogueLocal {
         TypedQuery<Produit> queryProduitByType = em.createNamedQuery("entities.Produit.selectProduitBySousType", Produit.class);
         queryProduitByType.setParameter("paramType", sousType);
         List<Produit> produitsByType = queryProduitByType.getResultList();
-        
         return produitsByType;
     }
     
@@ -113,7 +112,6 @@ public class Catalogue implements CatalogueLocal {
      * @param sousTypeDeux
      * @return list de produit
      */
-    
     @Override
     public List<Produit> listeProduitBySousType(String sousTypeUn, String sousTypeDeux){
         
@@ -159,7 +157,7 @@ public class Catalogue implements CatalogueLocal {
      * @return une liste de menu
      */
     @Override
-    public List<Menu> gestionSideBar(){
+    public List<Menu> gestionSideBarMenu(){
         List<Menu> menus = null;
         menus = this.listMenu();
         return menus;
@@ -171,9 +169,9 @@ public class Catalogue implements CatalogueLocal {
      * @return une liste de sousType
      */
     @Override
-    public List<SousType> gestionSideBar(String nom){
-        List<SousType> sousTypeByTypes = null;
+    public List<SousType> gestionSideBarSousType(String nom){
         
+        List<SousType> sousTypeByTypes = null;
         sousTypeByTypes = this.listSousTypeByType(nom);
         
         return sousTypeByTypes;
@@ -195,13 +193,15 @@ public class Catalogue implements CatalogueLocal {
         }
         
         //Récupération et envoie des produits par sousType
-        else if ((nom.equalsIgnoreCase("Burger")) 
+        if ((nom.equalsIgnoreCase("Burger")) 
                 || (nom.equalsIgnoreCase("Salade")) || (detail != null)) {
             
             if(detail != null){
-                nom = detail;
+                produits = this.listeProduitBySousType(detail);
             }
-            produits = this.listeProduitBySousType(nom);
+            else{
+                produits = this.listeProduitBySousType(nom);
+            }
         }
         
         //Récupération et envoie des sauces et frites
