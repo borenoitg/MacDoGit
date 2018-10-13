@@ -18,7 +18,7 @@ public class PersonnaliserCtrl implements SousControleurInterface {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
-        HttpSession session = request.getSession();;
+        HttpSession session = request.getSession();
         GererItemLocal gererItem = lookupGererItemLocal();
         Long id;
         id = Long.valueOf(request.getParameter("prodId"));
