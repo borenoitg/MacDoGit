@@ -1,5 +1,6 @@
 package sousControleurs;
 
+import entites.ItemARajouter;
 import entites.ItemARetirer;
 import entites.Produit;
 import java.util.List;
@@ -29,13 +30,23 @@ public class PersonnaliserCtrl implements SousControleurInterface {
         session.setAttribute("prodId", id);
         Produit p = gererItem.ProduitSelection(id);
         request.setAttribute("objetProduit", p);
-        
+
         request.setAttribute("soustype", request.getParameter("soustype"));
         request.setAttribute("produit", request.getParameter("produit"));
         request.setAttribute("listepro", liste);
         request.setAttribute("listeSauces", sauces);
         request.setAttribute("listeSaucesSalade", saucesSalade);
+
         
+        if ((p.getItemsARetirer().isEmpty()) && (p.getItemARajoutes().isEmpty()) && !(request.getParameter("soustype").equals("Burger"))) {
+            return "/WEB-INF/home.jsp";
+        }
+        if ((p.getItemsARetirer().isEmpty()) && !(p.getItemARajoutes().isEmpty())) {
+            request.setAttribute("liste", gererItem.LesItemsARajouter());
+            request.getParameter("itemarajouterId");
+            return "/WEB-INF/jspNappage.jsp";
+        }
+
         return "/WEB-INF/jspPersonnaliser.jsp";
     }
 

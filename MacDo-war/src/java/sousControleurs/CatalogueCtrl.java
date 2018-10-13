@@ -33,6 +33,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         request.setAttribute("soustype", request.getParameter("soustype"));
         String nom = request.getParameter("nom");
         String detail = request.getParameter("detail");
+        
         System.out.println(">>>>>>>>> NOM : " + nom);
         System.out.println(">>>>>>>>> DETAIL : " + detail);
 

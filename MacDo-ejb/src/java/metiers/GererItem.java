@@ -58,8 +58,7 @@ public class GererItem implements GererItemLocal {
 
         return list;
     }
-    
-    
+       
     @Override
     public List<Produit> SaucesSalade() {
 
