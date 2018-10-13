@@ -141,6 +141,10 @@
                         <c:if test="${menusTest != null}">
                             <jsp:include page="jspMenu.jsp" flush="true" />
                         </c:if>
+                        <!-- Affichage des choix du menu -->
+                        <c:if test="${boissons != null}">
+                            <jsp:include page="jspChoixMenu.jsp" flush="true" />
+                        </c:if>
 
                         <!-- Affichage des sousType par rapport à un type-->
                         <c:if test="${sousTypeTest != null}">

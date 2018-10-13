@@ -24,6 +24,10 @@
             <param-value>sousControleurs.BurgerCtrl</param-value>
         </init-param>
         <init-param>
+            <param-name>ChoixMenuCtrl</param-name>
+            <param-value>sousControleurs.ChoixMenuCtrl</param-value>
+        </init-param>
+        <init-param>
             <param-name>PersonnaliserCtrl</param-name>
             <param-value>sousControleurs.PersonnaliserCtrl</param-value>
         </init-param>
