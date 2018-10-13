@@ -58,6 +58,16 @@ public class GererItem implements GererItemLocal {
 
         return list;
     }
+    
+    
+    @Override
+    public List<Produit> SaucesSalade() {
+
+        TypedQuery<Produit> qr = em.createNamedQuery("entities.Produit.selectSauceSalade", Produit.class);
+        List<Produit> list = qr.getResultList();
+
+        return list;
+    }
 
     @Override
     public ItemARetirer SelectIItemARetirer(Long id) {

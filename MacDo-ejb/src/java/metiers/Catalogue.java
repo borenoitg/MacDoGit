@@ -35,7 +35,7 @@ public class Catalogue implements CatalogueLocal {
         return produits;
     }
     
-    
+  
     @Override
     public List<Produit> listeBurger() {
 

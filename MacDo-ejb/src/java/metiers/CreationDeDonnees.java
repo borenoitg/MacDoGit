@@ -48,25 +48,24 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         
         //---------- PRODUITS ----------
         // Les burgers
-        Produit proBigMac = new Produit("Big Mac", 4.30F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "Normal", 0, "./Images/BigMac.jpg");
-        Produit proPoissonRanch = new Produit("Poisson Ranch", 3.50F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "Normal", 0, "./Images/poissonRanch.png");
-        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.50F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "Normal", 0, "./Images/boeufRanch.png");
-        Produit proPouletRanch = new Produit("Poulet Ranch Ketchup", 3.50F, "Pain spécial aux graines de sésame et de pavot, spécialité panée au poulet, cheddar fondu, oignons, cornichons, salade, ketchup, sauce Ranch.", "Normal", 0, "./Images/pouletRanch.png");
-        Produit proSignature280OriginalBeef = new Produit("Signature 280 Original Beef BBQ Burger",5.5F, "Laissez-vous tenter par le savoureux 280™ Original. Un pain ciabatta cuit sur pierre, un steak haché 100% pur bœuf *, de l'emmental et du cheddar fondus, des oignons frais, deux rondelles de tomates, du ketchup et une sauce légerement citronnee. Durée limitée.  comme tout steak hache.", "Normal", 0, "./Images/280SignatureBeef.png");
-        Produit proDoubleBlueCheese = new Produit("Double Blue Cheese & Bacon", 5.50F, "Le burger gourmet signé McDonald's™. Découvrez la recette : de la Fourme d'Ambert AOP, de la viande Charolaise, du long bacon fumé au bois de hêtre, des oignons fondants, le tout dans un pain spécial. Durée Limitée. Double Blue Cheese & Bacon = 2 steaks hachés & Fourme d'Ambert AOP", "Normal", 0, "./Images/DoubleBlueCheeseBacon.png");
-        Produit proBeefBbq = new Produit("Beef BQQ", 5.30F, "Découvrez une recette généreuse et des ingrédients de qualité : de la viande charolaise, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Beef BBQ Burger = Steak haché et sauce goût barbecue. ", "Normal", 0, "./Images/BEEFBBQBURGER.png");
-        Produit proChickenBbq = new Produit("Chicken BQQ", 5.40F, "Découvrez une recette généreuse et des ingrédients de qualité : un filet de poulet origine France, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Chicken BBQ = filet de poulet origine France", "Normal", 0, "./Images/CHICKENBBQ.png");
-        Produit proRoyalDeLuxe = new Produit("Royal™ deluxe", 5.60F, "Le luxe de la sauce à la moutarde à l'ancienne. Craquez pour un savoureux steak haché avec du cheddar fondu, de la salade croquante et des oignons frais, le tout accompagné d'une délicieuse sauce à la moutarde à l'ancienne qui lui donne son goût si original. Pain spécial, steak haché, salade, oignon, fromage fondu, tomate, sauce.", "Normal", 0, "./Images/royal-deluxe.png");
-        Produit proMcFish = new Produit("McFish", 4.10F, "Le petit frère du Filet-O-Fish. Caché au fond du Happy Meal, le McFish gagne à être connu : un pain lisse autour d'un poisson pané délicieusement croustillant et un peu de ketchup. Idéal pour s'initier au poisson ! Pain spécial, préparation de poisson pané, ketchup.", "Normal", 0, "./Images/McFISH.png");
-        Produit proCroqueMcDo = new Produit("Croque McDo™", 2.10F, "A croquer ! Un croque monsieur tout rond, tout en simplicité : deux tranches d'emmental fondu, une tranche de jambon supérieur, dans un pain retourné et toasté. Il ne lui en faut pas plus pour être bon. Pain spécial, fromage fondu, jambon.", "Normal", 0, "./Images/CROQUEMcDo.png");
-        Produit proHamburger = new Produit("Hamburger", 1.50F, "Un indémodable, tout simplement. Un steak haché, une rondelle de cornichon, des oignons, de la moutarde douce et du ketchup, retrouvez tout l'esprit de McDonald's dans ce classique au goût inimitable. Pain spécial, steack haché, oignon, cornichon, moutarde, ketchup.", "Normal", 0, "./Images/HAMBURGER.png");
-        Produit proCheeseBurger = new Produit("CheeseBurger", 1.90F, "Le « Cheese » pour les intimes. Un steak haché, une tranche de cheddar fondu, une rondelle de cornichon, des oignons, du ketchup et de la moutarde douce dans un pain classique : fondez pour son goût unique et emblématique. Pain spécial, steack haché, fromage fondu, oignon, cornichon, moutarde, ketchup.", "Normal", 0, "./Images/CHEESEBURGER.png");
+        Produit proBigMac = new Produit("Big Mac", 4.30F, "Le seul, l'unique\n Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable. Pain spécial, steaks hachés, salade, oignon, cornichon, fromage fondu, sauce.", "", 0, "./Images/BigMac.jpg");
+        Produit proPoissonRanch = new Produit("Poisson Ranch", 3.50F, "Le nouveau McFirst™ Poisson Ranch. Pain spécial aux graines de sésame et de pavot, spécialité panée au poisson, cheddar fondu, oignons, salade, ketchup, sauce Ranch. poisson = préparation de poisson pané. Durée limitée.", "", 0, "./Images/poissonRanch.png");
+        Produit proBoeufRanch = new Produit("Boeuf Ranch Moutarde", 3.50F, "Pain spécial aux graines de sésame et de pavot, steaks hachés, cheddar fondu, oignons, salade, tomate, moutarde, sauce Ranch.", "", 0, "./Images/boeufRanch.png");
+        Produit proPouletRanch = new Produit("Poulet Ranch Ketchup", 3.50F, "Pain spécial aux graines de sésame et de pavot, spécialité panée au poulet, cheddar fondu, oignons, cornichons, salade, ketchup, sauce Ranch.", "", 0, "./Images/pouletRanch.png");
+        Produit proDoubleBlueCheese = new Produit("Double Blue Cheese and Bacon", 5.50F, "Le burger gourmet signé McDonald's™. Découvrez la recette : de la Fourme d'Ambert AOP, de la viande Charolaise, du long bacon fumé au bois de hêtre, des oignons fondants, le tout dans un pain spécial. Durée Limitée. Double Blue Cheese & Bacon = 2 steaks hachés & Fourme d'Ambert AOP", "", 0, "./Images/DoubleBlueCheeseBacon.png");
+        Produit proBeefBbq = new Produit("Beef BQQ", 5.30F, "Découvrez une recette généreuse et des ingrédients de qualité : de la viande charolaise, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Beef BBQ Burger = Steak haché et sauce goût barbecue. ", "", 0, "./Images/BEEFBBQBURGER.png");
+        Produit proChickenBbq = new Produit("Chicken BQQ", 5.40F, "Découvrez une recette généreuse et des ingrédients de qualité : un filet de poulet origine France, des oignons rouges, de la sauce barbecue, du cheddar, le tout dans un pain shiny. Chicken BBQ = filet de poulet origine France", "", 0, "./Images/CHICKENBBQ.png");
+        Produit proRoyalDeLuxe = new Produit("Royal™ deluxe", 5.60F, "Le luxe de la sauce à la moutarde à l'ancienne. Craquez pour un savoureux steak haché avec du cheddar fondu, de la salade croquante et des oignons frais, le tout accompagné d'une délicieuse sauce à la moutarde à l'ancienne qui lui donne son goût si original. Pain spécial, steak haché, salade, oignon, fromage fondu, tomate, sauce.", "", 0, "./Images/royal-deluxe.png");
+        Produit proMcFish = new Produit("McFish", 4.10F, "Le petit frère du Filet-O-Fish. Caché au fond du Happy Meal, le McFish gagne à être connu : un pain lisse autour d'un poisson pané délicieusement croustillant et un peu de ketchup. Idéal pour s'initier au poisson ! Pain spécial, préparation de poisson pané, ketchup.", "", 0, "./Images/McFISH.png");
+        Produit proCroqueMcDo = new Produit("Croque McDo™", 2.10F, "A croquer ! Un croque monsieur tout rond, tout en simplicité : deux tranches d'emmental fondu, une tranche de jambon supérieur, dans un pain retourné et toasté. Il ne lui en faut pas plus pour être bon. Pain spécial, fromage fondu, jambon.", "", 0, "./Images/CROQUEMcDo.png");
+        Produit proHamburger = new Produit("Hamburger", 1.50F, "Un indémodable, tout simplement. Un steak haché, une rondelle de cornichon, des oignons, de la moutarde douce et du ketchup, retrouvez tout l'esprit de McDonald's dans ce classique au goût inimitable. Pain spécial, steack haché, oignon, cornichon, moutarde, ketchup.", "", 0, "./Images/HAMBURGER.png");
+        Produit proCheeseBurger = new Produit("CheeseBurger", 1.90F, "Le « Cheese » pour les intimes. Un steak haché, une tranche de cheddar fondu, une rondelle de cornichon, des oignons, du ketchup et de la moutarde douce dans un pain classique : fondez pour son goût unique et emblématique. Pain spécial, steack haché, fromage fondu, oignon, cornichon, moutarde, ketchup.", "", 0, "./Images/CHEESEBURGER.png");
         // Les salades
-        Produit proSummer = new Produit("Salade Summer Veggie", 6.30F, "Une délicieuse salade estivale et végétarienne avec ses galettes panées aux légumes 100% français, son duo de poivrons jaunes et rouges confits, son mélange de choux rouge et blanc origine Normandie, ses dés de fromage de brebis, ses tomates fraîches et son mélange de salades.\n\nSalade Summer­ Veggie­ = Salade estivale et végétarienne.", "Normal", 0, "./Images/SaladeManhattanVeggie.jpg");
+        Produit proSummer = new Produit("Salade Summer Veggie", 6.30F, "Une délicieuse salade estivale et végétarienne avec ses galettes panées aux légumes 100% français, son duo de poivrons jaunes et rouges confits, son mélange de choux rouge et blanc origine Normandie, ses dés de fromage de brebis, ses tomates fraîches et son mélange de salades.\n\nSalade Summer­ Veggie­ = Salade estivale et végétarienne.", "", 0, "./Images/SaladeManhattanVeggie.jpg");
         Produit proNewYorkCaesar = new Produit("Salade New York Caesar au Poulet Croustillant", 6.50F, "", "Normal", 0, "./Images/SaladeNewYork.jpg");
         Produit proManhattanPouletFrit = new Produit("Salade Manhattan au Poulet Mariné et Frit", 6.80F, "", "Normal", 0, "./Images/SaladeManhattanpouletFri.jpg");
-        Produit proManhattanVeggie = new Produit("Salade Manhattan Veggie ", 6.70F, "De délicieuses galettes panées aux légumes 100% français, des tomates cerises, des grains de raisins, des cranberries et un mélange de salades : romaine, batavia et radicchio. Veggie = Végétarien Cranberries = Canneberges. Suggestion de présentation. Durée limitée", "Normal", 0, "./Images/SaladeManhattanVeggie.jpg");
-        Produit proManhattan = new Produit("Salade Manhattan", 6.30F, "Salade composée d'un mélange de romaine, de batavia et de raddichio, de 2 spécialités panées au poulet, de tomates-cerises et de morceaux de pommes et grains de raisins. Proposée avec sa sauce Manhattan. ", "Normal", 0, "./Images/SaladeManhattan.png");
+        Produit proManhattanVeggie = new Produit("Salade Manhattan Veggie ", 6.70F, "De délicieuses galettes panées aux légumes 100% français, des tomates cerises, des grains de raisins, des cranberries et un mélange de salades : romaine, batavia et radicchio. Veggie = Végétarien Cranberries = Canneberges. Suggestion de présentation. Durée limitée", "", 0, "./Images/SaladeManhattanVeggie.jpg");
+        Produit proManhattan = new Produit("Salade Manhattan", 6.30F, "Salade composée d'un mélange de romaine, de batavia et de raddichio, de 2 spécialités panées au poulet, de tomates-cerises et de morceaux de pommes et grains de raisins. Proposée avec sa sauce Manhattan. ", "", 0, "./Images/SaladeManhattan.png");
         Produit proManhattanPouletCroustillant = new Produit("Salade Manhattan au Poulet Croustillant", 6.90F, "", "Normal", 0, "./Images/SaladeManhattanPouletCroustillant.jpg");
         // Les p'tites faims
         Produit proMcWrap = new Produit("Mc Wrap™ Chèvre", 8F, "Deux chèvres croustillants et chauds, une sauce onctueuse, des oignons frits, des rondelles de tomates, de la salade, le tout enveloppé dans une galette de blé. Chèvre = spécialité panée à base de fromage de chèvre", "Normal", 0, "./Images/McWRAPCHÈVRE.png");
@@ -124,10 +123,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F, "Petite", "./Images/petiteFrite.png");
         Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
         // Les sauces
-        Produit proSauceBarbecue = new Produit("SAUCE CLASSIC BARBECUE", 0.20F, "./Images/sauceBbq.png");
-        Produit proSauceChinoise = new Produit("SAUCE CHINOISE", 0.20F, "./Images/sauceChinoise.png");
-        Produit proSauceCurry = new Produit("SAUCE CURRY", 0.20F, "./Images/sauceCurry.png");
-        Produit proVinaigretteAHuile = new Produit("VINAIGRETTE A L'HUILE DE NOISETTE", 0.20F, "./Images/vinaigretteAHuileDeNoisette.png");
+        Produit proSauceBarbecue = new Produit("BARBECUE", 0.20F, "nuggets", "", 0, "./Images/sauceBbq.png");
+        Produit proSauceChinoise = new Produit("CHINOISE", 0.20F, "nuggets", "", 0, "./Images/sauceChinoise.png");
+        Produit proSauceCurry = new Produit("CURRY", 0.20F, "nuggets", "", 0, "./Images/sauceCurry.png");
+        Produit proVinaigretteAHuile = new Produit("VINAIGRETTE A L'HUILE DE NOISETTE", 0.20F,"sauce salade","",0, "./Images/vinaigretteAHuileDeNoisette.png");
         Produit proSaucePommeFrites = new Produit("SAUCE POMME FRITES", 0.05F, "./Images/saucePommeFrites.png");
         Produit proKetchup = new Produit("KETCHUP", 0.05F, "./Images/Ketchup.png");
         // Les desserts
@@ -191,18 +190,21 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         ItemARajouter itARaNappageAbricot = new ItemARajouter("Nappage Abricot", 0.2F,"./Images/veryParfaitAbricot.jpg");
         
         //---------- ITEMS A RETIRER ----------
-        ItemARetirer itaeSteak = new ItemARetirer("Steak","8", "./Images/steak.png");
-        ItemARetirer itaeFrommage = new ItemARetirer("Fromage","6","./Images/cheddar.jpg");
-        ItemARetirer itaeSalade = new ItemARetirer("Salade","2","./Images/Salade.jpg");
-        ItemARetirer itaeOignon = new ItemARetirer("Oignon","4" ,"./Images/oignon.jpg");
-        ItemARetirer itaeCornichon = new ItemARetirer("Cornichon","5", "./Images/cornichon.png");
-        ItemARetirer itaeTomate = new ItemARetirer("Tomate","3", "./Images/tomate.jpg");
-        ItemARetirer itaePoisson = new ItemARetirer("Poisson", "8","./Images/Poissonpane.jpg");
-        ItemARetirer itaePoulet = new ItemARetirer("Poulet", "8","./Images/pouletpane.jpg");
-        ItemARetirer itaeBacon = new ItemARetirer("Bacon", "7","./Images/bacon.jpg");
-        ItemARetirer itaeCacahuètes = new ItemARetirer("Cacahuètes","0", "./Images/cacahuet.jpg");
-        ItemARetirer itaeJambon = new ItemARetirer("Jambon", "8","./Images/jambon.jpg");
-        ItemARetirer itaeSauce = new ItemARetirer("Sauce","9", "./Images/sauceblanche.png");
+        ItemARetirer itaeSteak = new ItemARetirer("Steak", "8", "./Images/steak.png");
+        ItemARetirer itaeFrommage = new ItemARetirer("Fromage", "6", "./Images/cheddar.png");
+        ItemARetirer itaeFrommageChevre = new ItemARetirer("Chèvre", "6", "./Images/chevre.png");
+        ItemARetirer itaeFrommageBleu = new ItemARetirer("Bleu", "6", "./Images/fromagebleu.png");
+        ItemARetirer itaeSalade = new ItemARetirer("Salade", "2", "./Images/Salade.jpg");
+        ItemARetirer itaeOignon = new ItemARetirer("Oignon", "4", "./Images/oignon.jpg");
+        ItemARetirer itaeCornichon = new ItemARetirer("Cornichon", "5", "./Images/cornichon.png");
+        ItemARetirer itaeTomate = new ItemARetirer("Tomate", "3", "./Images/tomate.jpg");
+        ItemARetirer itaePoisson = new ItemARetirer("Poisson", "8", "./Images/pane2.png");
+        ItemARetirer itaePoulet = new ItemARetirer("Poulet", "8", "./Images/pane2.png");
+        ItemARetirer itaeBacon = new ItemARetirer("Bacon", "7", "./Images/bacon.png");
+        ItemARetirer itaeCacahuètes = new ItemARetirer("Cacahuètes", "0", "./Images/cacahuet.jpg");
+        ItemARetirer itaeJambon = new ItemARetirer("Jambon", "8", "./Images/jambon.jpg");
+        ItemARetirer itaeSauce = new ItemARetirer("Sauce", "9", "./Images/Ketchup.png");
+        
 
         //---------- INGREDIENTS ----------
         Ingredient ingPain = new Ingredient("pain");
@@ -806,7 +808,6 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         menSignatureBest.getTypes().add(typPrincipal);
         
         // Statut vers Produits
-        proSignature280OriginalBeef.setStatut(staNouveau);
         proMoyenneCrousties.setStatut(staNouveau);
         proGrandesCrousties.setStatut(staNouveau);
         menSignatureBest.setStatut(staNouveau);
