@@ -24,8 +24,11 @@ public class CreationDeDonneesCtrl implements SousControleurInterface, Serializa
 
         creationDeDonnees.creationDonnees();
         
-        List<Produit> produits = catalogue.listeProduit();
-        request.setAttribute("catalogue", produits); 
+//        List<Produit> produits = catalogue.listeProduit();
+//        request.setAttribute("catalogue", produits);
+        
+        List<Produit> produitCarroussel = catalogue.listeProduitNouveaute("Nouveaute");
+        request.setAttribute("produitCarroussel", produitCarroussel);
         
         return "/WEB-INF/home.jsp";
     }

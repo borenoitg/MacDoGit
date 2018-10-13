@@ -91,18 +91,32 @@
                         </ol>
 
                         <div class="carousel-inner" role="listbox">
-                            <c:forEach items="${catalogue}" var="c">
-                                <c:if test="${c == catalogue[0]}">
-                                    <div class="carousel-item active">
-                                        <img class="d-block img-fluid" width="900" src="${c.imageUrl}">
-                                    </div> 
-                                </c:if>
-                                <c:if test="${c != catalogue[0]}">
-                                    <div class="carousel-item">
-                                        <img class="d-block img-fluid" width="900"  src="${c.imageUrl}" alt="${c.nom}">
-                                    </div>
-                                </c:if>
-                            </c:forEach>
+                            <c:if test="${produitCarroussel == null}">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid" width="900" src="./Images/boeufRanch.png">
+                                </div> 
+                                <div class="carousel-item ">
+                                    <img class="d-block img-fluid" width="900" src="./Images/DoubleBlueCheeseBacon.png">
+                                </div> 
+                                <div class="carousel-item ">
+                                    <img class="d-block img-fluid" width="900" src="./Images/280SignatureBeef.png">
+                                </div> 
+                            </c:if>
+                            <c:if test="${produitCarroussel != null}">
+                                <c:forEach items="${produitCarroussel}" var="c">
+                                    <c:if test="${c == produitCarroussel[0]}">
+                                        <div class="carousel-item active">
+                                            <img class="d-block img-fluid" width="900" src="${c.imageUrl}">
+                                        </div> 
+                                    </c:if>
+                                    <c:if test="${c != produitCarroussel[0]}">
+                                        <div class="carousel-item">
+                                            <img class="d-block img-fluid" width="900"  src="${c.imageUrl}" alt="${c.nom}">
+                                        </div>
+                                    </c:if>
+                                </c:forEach>
+                            </c:if>
+
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -119,14 +133,19 @@
                     <div class="row">
 
                         <!-- Affichage nouveaux produits -->
-                        <jsp:include page="jspProduit.jsp" flush="true" />
-                        
-                        <!-- Affichage de nos Menus -->
-                        <jsp:include page="jspMenu.jsp" flush="true" />
+                        <c:if test="${produitTest != null}">
+                            <jsp:include page="jspProduit.jsp" flush="true" />
+                        </c:if>
 
-                        
+                        <!-- Affichage de nos Menus -->
+                        <c:if test="${menusTest != null}">
+                            <jsp:include page="jspMenu.jsp" flush="true" />
+                        </c:if>
+
                         <!-- Affichage des sousType par rapport à un type-->
-                        <jsp:include page="jspSousType.jsp" flush="true" />
+                        <c:if test="${sousTypeTest != null}">
+                            <jsp:include page="jspSousType.jsp" flush="true" />
+                        </c:if>
 
 
                         <!--                        <div class="col-lg-3 col-md-6 mb-4">

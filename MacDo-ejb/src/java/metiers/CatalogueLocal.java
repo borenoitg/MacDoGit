@@ -17,8 +17,6 @@ public interface CatalogueLocal {
 
     public List<Produit> listeBurger();
 
-    public List<Produit> listeProduitNouveaute();
-
     public List<Produit> listeProduitBySousType(String sousType);
 
     public List<SousType> listSousType();
@@ -32,5 +30,15 @@ public interface CatalogueLocal {
     public List<SousType> listSousTypeByType(String type);
 
     public List<Produit> listeProduitBySousType(String typeUn, String typeDeux);
+
+    public List<Produit> listeProduitNouveaute(String statut);
+
+    public List<Menu> gestionSideBarMenu();
+
+    public List<SousType> gestionSideBarSousType(String nom);
+
+    public List<Produit> gestionSideBar(String nom, String statut);
+
+    public void persist(Object object);
     
 }

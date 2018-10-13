@@ -103,7 +103,6 @@ public class Catalogue implements CatalogueLocal {
         TypedQuery<Produit> queryProduitByType = em.createNamedQuery("entities.Produit.selectProduitBySousType", Produit.class);
         queryProduitByType.setParameter("paramType", sousType);
         List<Produit> produitsByType = queryProduitByType.getResultList();
-        
         return produitsByType;
     }
     
@@ -113,7 +112,6 @@ public class Catalogue implements CatalogueLocal {
      * @param sousTypeDeux
      * @return list de produit
      */
-    
     @Override
     public List<Produit> listeProduitBySousType(String sousTypeUn, String sousTypeDeux){
         
@@ -127,12 +125,12 @@ public class Catalogue implements CatalogueLocal {
     
     /**
      * Methode permettant de recupérer les nouveaux produits
+     * @param statut
      * @return list de produit
      */
     @Override
-    public List<Produit> listeProduitNouveaute(){
+    public List<Produit> listeProduitNouveaute(String statut){
         
-        String statut = "Nouveaute";
         TypedQuery<Produit> queryNouveauxProduits = em.createNamedQuery("entities.Produit.selectNouveauProduit", Produit.class);
         queryNouveauxProduits.setParameter("paramStatut", statut);
         List<Produit> NouveauxProduits = queryNouveauxProduits.getResultList();
@@ -154,6 +152,74 @@ public class Catalogue implements CatalogueLocal {
         return sousTypeByTypes;
     }
     
+    /**
+     * Permet de récupérer toutes les menus de la BDD
+     * @return une liste de menu
+     */
+    @Override
+    public List<Menu> gestionSideBarMenu(){
+        List<Menu> menus = null;
+        menus = this.listMenu();
+        return menus;
+    }
+    
+    /**
+     * Permet de récupérer les sousType par type
+     * @param nom 
+     * @return une liste de sousType
+     */
+    @Override
+    public List<SousType> gestionSideBarSousType(String nom){
+        
+        List<SousType> sousTypeByTypes = null;
+        sousTypeByTypes = this.listSousTypeByType(nom);
+        
+        return sousTypeByTypes;
+    }
+    
+    /**
+     * Permet de récupérer les produits, par sousType(s)
+     * @param nom
+     * @param detail
+     * @return une liste de produits
+     */
+    @Override
+    public List<Produit> gestionSideBar(String nom, String detail){
+        List<Produit> produits = null;
+        
+        //Recupération et envoie des nouveautés
+        if (nom.equalsIgnoreCase("Nouveaute")) {
+            produits = this.listeProduitNouveaute(nom);
+        }
+        
+        //Récupération et envoie des produits par sousType
+        if ((nom.equalsIgnoreCase("Burger")) 
+                || (nom.equalsIgnoreCase("Salade")) || (detail != null)) {
+            
+            if(detail != null){
+                produits = this.listeProduitBySousType(detail);
+            }
+            else{
+                produits = this.listeProduitBySousType(nom);
+            }
+        }
+        
+        //Récupération et envoie des sauces et frites
+        else if (nom.equalsIgnoreCase("FriteSauce")) {
+            
+            String sousTypeUn = "Pommes de Terre";
+            String sousTypeDeux = "Sauce";
+            produits = this.listeProduitBySousType(sousTypeUn, sousTypeDeux);
+        }
+        
+        return produits;
+    }
+    
+    /**
+     *
+     * @param object
+     */
+    @Override
     public void persist(Object object) {
         em.persist(object);
     }
