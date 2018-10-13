@@ -31,6 +31,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         
         String nom = request.getParameter("nom");
         String detail = request.getParameter("detail");
+        
         System.out.println(">>>>>>>>> NOM : " + nom);
         System.out.println(">>>>>>>>> DETAIL : " + detail);
 
@@ -43,6 +44,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             
             menusTest = catalogue.gestionSideBarMenu();
             request.setAttribute("menusTest", menusTest);
+            System.out.println(menusTest.isEmpty());
         }
         //Récupération et envoie des sousTypes par rapport à un type
         else if(((nom.equalsIgnoreCase("Boisson")) 
