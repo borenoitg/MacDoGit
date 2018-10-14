@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-        <fmt:setLocale value="fr_FR"/>
+    <fmt:setLocale value="fr_FR"/>
 
     <head>
 
@@ -41,15 +41,6 @@
                             <a class="nav-link" href="${urlCreateData}">Création De Donnees
                                 <span class="sr-only">(current)</span>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=ItemARajouterCtrl">Pour essai Nappage</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=BurgerCtrl">Pour essai Burgertiti</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=PersonnaliserCtrl">Pour essai Personnaliser</a>
                         </li>
                     </ul>
                 </div>
