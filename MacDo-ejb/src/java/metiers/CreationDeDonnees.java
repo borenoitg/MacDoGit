@@ -116,8 +116,8 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         // Les accompagnements
         Produit proGrandesCrousties = new Produit("GRANDES CROUSTIES", 2.90F, "Grande", "./Images/grandesCrousties.png");
         Produit proMoyenneCrousties = new Produit("MOYENNE CROUSTIES", 2.50F, "Moyenne", "./Images/Croustie.png");
-        Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.50F, "Grande", "./Images/grandesFrites.png");
-        Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.90F, "Moyenne", "./Images/moyenneFrite.png");
+        Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.90F, "Grande", "./Images/grandesFrites.png");
+        Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.50F, "Moyenne", "./Images/moyenneFrite.png");
         Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F, "Petite", "./Images/petiteFrite.png");
         Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
         // Les sauces
