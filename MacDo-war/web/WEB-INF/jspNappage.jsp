@@ -53,7 +53,7 @@
                                         <%-- On affiche le bouton "nature" --%>
 
                     <label class="container">
-                        <input type="radio" name="nappageId" value="nature">Nature
+                        <input type="radio" name="nappageId" value="nature"checked="checked">Nature
                         <span class="checkmark"></span>
                     </label>                     
                     </div> </center> <br>
