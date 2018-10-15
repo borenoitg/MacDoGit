@@ -17,7 +17,7 @@
     <br>
     <div class="container">
         <div class="card">
-            <div class="card-title">${menu}</div>
+            <div class="card-title">${taille} ${menu}</div>
             </div>
         <br>
         <div class="card">

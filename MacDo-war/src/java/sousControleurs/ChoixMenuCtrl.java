@@ -15,6 +15,7 @@ public class ChoixMenuCtrl implements SousControleurInterface {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
             GererMenuLocal gererMenu = lookupGererMenuLocal();
             request.setAttribute("menu", request.getParameter("menu"));
+            request.setAttribute("taille", request.getParameter("taille"));
             request.setAttribute("boissons", gererMenu.LesBoissons());
             String taille="Moyenne";
             if (request.getParameter("taille").equals("Menu Maxi Best Of")) {
