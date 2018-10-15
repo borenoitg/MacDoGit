@@ -42,15 +42,15 @@
                     <h3 class="my-4">NOTRE CARTE</h3>
                     <div class="list-group">
 
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Nouveaute" class="list-group-item"><img src="./Images/enCeMoment.png" alt="En ce Moment"/>  En ce Moment</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Menu" class="list-group-item"><img src="./Images/nosMenus.png" alt="Nos Menus"/>Nos Menus</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Burger" class="list-group-item"><img src="./Images/nosSandwichs.png" alt="Nos Sandwichs"/>Nos Sandwichs</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Boisson" class="list-group-item"><img src="./Images/nosBoissons.png" alt="Nos Boissons"/>Nos Boissons</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Dessert" class="list-group-item"><img src="./Images/nosDessert.png" alt="Nos Desserts"/>Nos Desserts</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Salade" class="list-group-item"><img src="./Images/nosSalades.png" alt="Nos Salades"/>Nos Salades</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=HappyMeal" class="list-group-item"><img src="./Images/happyMeal.png" alt="Happy Meal"/>Happy Meal</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=FriteSauce" class="list-group-item"><img src="./Images/nosFritesSauces.png" alt="Frites & Sauces"/>Frites & Sauces</a>
-
+                        <CENTER><a href="FrontControleur?section=CatalogueCtrl&nom=Nouveaute" class="list-group-item"><img src="./Images/enCeMoment.png" alt="En ce Moment"/><BR>En ce Moment</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Menu" class="list-group-item"><img src="./Images/nosMenus.png" alt="Nos Menus"/><BR>Nos Menus</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Burger" class="list-group-item"><img src="./Images/nosSandwichs.png" alt="Nos Sandwichs"/><BR>Nos Sandwichs</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Boisson" class="list-group-item"><img src="./Images/nosBoissons.png" alt="Nos Boissons"/><BR>Nos Boissons</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Dessert" class="list-group-item"><img src="./Images/nosDessert.png" alt="Nos Desserts"/><BR>Nos Desserts</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Salade" class="list-group-item"><img src="./Images/nosSalades.png" alt="Nos Salades"/><BR>Nos Salades</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=HappyMeal" class="list-group-item"><img src="./Images/happyMeal.png" alt="Happy Meal"/><BR>Happy Meal</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=FriteSauce" class="list-group-item"><img src="./Images/nosFritesSauces.png" alt="Frites & Sauces"/><BR>Frites & Sauces</a>
+                        </CENTER>
                     </div>
 
                 </div>
