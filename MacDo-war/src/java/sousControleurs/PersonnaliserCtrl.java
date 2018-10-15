@@ -31,6 +31,7 @@ public class PersonnaliserCtrl implements SousControleurInterface {
         Produit p = gererItem.ProduitSelection(id);
         request.setAttribute("objetProduit", p);
 
+        request.setAttribute("nom", request.getParameter("nom"));
         request.setAttribute("soustype", request.getParameter("soustype"));
         request.setAttribute("produit", request.getParameter("produit"));
         request.setAttribute("listepro", liste);

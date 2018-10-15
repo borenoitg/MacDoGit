@@ -20,6 +20,7 @@
 
         <div class="marge">
             <h1>Choix Nappage</h1>
+             <center><h2>${produit}</h2></center>
             <br>
                 <%-- On affiche les nappages --%>
                 
