@@ -39,16 +39,15 @@ public class LigneDeCommande implements Serializable {
 
     @OneToMany(mappedBy = "ligneCommande")
     private Collection<SousLigneDeCommande> sousLignesDeCommande;
+   
     @ManyToOne
     private Commande commande;
     // Constructeurs
     public LigneDeCommande() {
         sousLignesDeCommande = new ArrayList<>();
     }
-
    
-    
-    public LigneDeCommande(Float tva, int quantite, Float prix) {
+        public LigneDeCommande(Float tva, int quantite, Float prix) {
         this();
         this.tva = tva;
         this.quantite = quantite;

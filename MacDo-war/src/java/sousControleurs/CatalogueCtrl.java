@@ -6,6 +6,7 @@ import entites.Menu;
 import entites.Produit;
 import entites.SousType;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -13,7 +14,6 @@ import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -68,9 +68,13 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             Long id;
             id = Long.valueOf(request.getParameter("prodId"));
             Produit p = gererItem.ProduitSelection(id);
+            
             Commande c = new Commande(new Date(), true);
-            LigneDeCommande lc = new LigneDeCommande(0.1F, 1, 5.5F, null, p, c);
-            session.setAttribute("lignesCommandes", lc);
+            LigneDeCommande lc = new LigneDeCommande(0.1F, 1, p.getPrix(), null, p, c);
+            ArrayList <LigneDeCommande> lignesDeCommande = new ArrayList<>();
+            lignesDeCommande.add(lc);
+            c.setLigneDeCommandes(lignesDeCommande);
+            request.setAttribute("Commande", c);
         }
 
         return "/WEB-INF/home.jsp";
