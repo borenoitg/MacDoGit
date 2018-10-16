@@ -15,8 +15,9 @@ public class GererMenu implements GererMenuLocal {
     private EntityManager em;
 
     @Override
-    public List<Produit> LesBoissons() {
+    public List<Produit> LesBoissons(String taille) {
         TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectBoissons", Produit.class);
+                qr01.setParameter("paramTaille", taille);
         List<Produit> list = qr01.getResultList();
         return list;
     }
@@ -32,6 +33,13 @@ public class GererMenu implements GererMenuLocal {
     public List<Produit> LesAccompagnements(String taille) {
         TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectAccompagnements", Produit.class);
         qr01.setParameter("paramTaille", taille);
+        List<Produit> list = qr01.getResultList();
+        return list;
+    }
+    
+    @Override
+    public List<Produit> LesSauces() {
+        TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectSaucesMenu", Produit.class);
         List<Produit> list = qr01.getResultList();
         return list;
     }

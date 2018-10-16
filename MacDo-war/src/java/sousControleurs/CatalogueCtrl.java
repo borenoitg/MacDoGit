@@ -57,21 +57,24 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             request.setAttribute("sousTypeTest", sousTypeTest);
         } //Recupération de produits par SousType
         else {
-
             produitTest = catalogue.gestionSideBar(nom, detail);
             request.setAttribute("produitTest", produitTest);
         }
 
         //panier
-        
         if (request.getParameter("prodId") != null) {
             Long id;
+            Commande c = (Commande) session.getAttribute("panier");
             id = Long.valueOf(request.getParameter("prodId"));
             Produit p = gererItem.ProduitSelection(id);
             
-            Commande c = new Commande(new Date(), true);
-            LigneDeCommande lc = new LigneDeCommande(0.1F, 1, p.getPrix(), null, p, c);
-            ArrayList <LigneDeCommande> lignesDeCommande = new ArrayList<>();
+            if (session.getAttribute("commande") == null) {
+                 c = new Commande(new Date(), true);
+                session.setAttribute("commande",c);
+            }
+            int qty = 1;
+            LigneDeCommande lc = new LigneDeCommande(p.getTva().getTaux(), qty, p.getPrix(), null, p, c);
+            ArrayList<LigneDeCommande> lignesDeCommande = new ArrayList<>();
             lignesDeCommande.add(lc);
             c.setLigneDeCommandes(lignesDeCommande);
             request.setAttribute("Commande", c);
@@ -99,6 +102,5 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             throw new RuntimeException(ne);
         }
     }
-
 
 }

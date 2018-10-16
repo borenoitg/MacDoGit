@@ -79,8 +79,6 @@
 </c:forEach>  
 
 </tr>
-
-
 </table>
 <br>  
 <h3>Total de la commande TTC : <strong><fmt:formatNumber value="${total}" type="currency"/></p></strong></h3>

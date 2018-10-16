@@ -114,19 +114,19 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proCappuccinDaimGrand = new Produit("CAPPUCCINO DAIM GRAND FORMAT", 3F, "Grande", "./Images/cappuccinoDaimGrand.png");
         Produit proDoubleLatteGrand = new Produit("DOUBLE LATTE GRAND FORMAT", 2.80F, "Grande", "./Images/doubleLatteGrand.png");
         // Les accompagnements
-        Produit proGrandesCrousties = new Produit("GRANDES CROUSTIES", 2.90F, "Grande", "./Images/grandesCrousties.png");
-        Produit proMoyenneCrousties = new Produit("MOYENNE CROUSTIES", 2.50F, "Moyenne", "./Images/Croustie.png");
-        Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.90F, "Grande", "./Images/grandesFrites.png");
-        Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.50F, "Moyenne", "./Images/moyenneFrite.png");
-        Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F, "Petite", "./Images/petiteFrite.png");
-        Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
+        Produit proGrandesCrousties = new Produit("GRANDES CROUSTIES", 2.90F, "Grand", "./Images/grandesCrousties.png");
+        Produit proMoyenneCrousties = new Produit("MOYENNE CROUSTIES", 2.50F, "Moyen", "./Images/Croustie.png");
+        Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.90F, "Grand", "./Images/grandesFrites.png");
+        Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.50F, "Moyen", "./Images/moyenneFrite.png");
+        Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F, "Normal", "./Images/petiteFrite.png");
+        Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "Moyen", "./Images/PtiteSalade.png");
         // Les sauces
         Produit proSauceBarbecue = new Produit("BARBECUE", 0.20F, "nuggets", "", 0, "./Images/sauceBbq.png");
         Produit proSauceChinoise = new Produit("CHINOISE", 0.20F, "nuggets", "", 0, "./Images/sauceChinoise.png");
         Produit proSauceCurry = new Produit("CURRY", 0.20F, "nuggets", "", 0, "./Images/sauceCurry.png");
         Produit proVinaigretteAHuile = new Produit("VINAIGRETTE A L'HUILE DE NOISETTE", 0.20F, "sauce salade", "", 0, "./Images/vinaigretteAHuileDeNoisette.png");
         Produit proSaucePommeFrites = new Produit("SAUCE POMME FRITES", 0.05F, "./Images/saucePommeFrites.png");
-        Produit proKetchup = new Produit("KETCHUP", 0.05F, "", "", 0, "./Images/Ketchup.png");
+        Produit proKetchup = new Produit("KETCHUP", 0.05F, "./Images/Ketchup.png");
         // Les desserts
         Produit proSundaeNature = new Produit("SUNDAE NATURE", 2.70F, "./Images/sundayNature.png");
         Produit proSundaeChocolat = new Produit("SUNDAE NAPPAGE SAVEUR CHOCOLAT", 2.70F, "./Images/SundaeChocolat.png");

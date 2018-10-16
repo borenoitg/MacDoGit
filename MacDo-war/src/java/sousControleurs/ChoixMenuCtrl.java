@@ -13,18 +13,21 @@ public class ChoixMenuCtrl implements SousControleurInterface {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-            GererMenuLocal gererMenu = lookupGererMenuLocal();
-            request.setAttribute("menu", request.getParameter("menu"));
-            request.setAttribute("taille", request.getParameter("taille"));
-            request.setAttribute("boissons", gererMenu.LesBoissons());
-            String taille="Moyenne";
-            if (request.getParameter("taille").equals("Menu Maxi Best Of")) {
-                taille="Grande";
-            
-        }
-            request.setAttribute("accompagnements", gererMenu.LesAccompagnements(taille));
+        GererMenuLocal gererMenu = lookupGererMenuLocal();
+        request.setAttribute("menu", request.getParameter("menu"));
+        request.setAttribute("taille", request.getParameter("taille"));
+        request.setAttribute("image", request.getParameter("image"));
+        request.setAttribute("pascaroussel", "OK");
+        String taille = "Moyen";
+        if (request.getParameter("taille").equals("Menu Maxi Best Of")) {
+            taille = "Grand";
 
-            return "WEB-INF/home.jsp";
+        }
+        request.setAttribute("boissons", gererMenu.LesBoissons(taille));
+        request.setAttribute("accompagnements", gererMenu.LesAccompagnements(taille));
+        request.setAttribute("sauces", gererMenu.LesSauces());
+
+        return "WEB-INF/home.jsp";
     }
 
     private GererMenuLocal lookupGererMenuLocal() {
@@ -36,7 +39,5 @@ public class ChoixMenuCtrl implements SousControleurInterface {
             throw new RuntimeException(ne);
         }
     }
-    
-    
-    
+
 }
