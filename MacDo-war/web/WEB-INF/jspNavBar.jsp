@@ -6,6 +6,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="FrontControleur?section=CreationDeDonneesCtrl">Création des données</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FrontControleur?section=SousLigneDeCommandeCtrl">Cuisine</a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -805,6 +805,20 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         proGrandesCrousties.setStatut(staNouveau);
         menSignatureBest.setStatut(staNouveau);
 
+        
+        //Test Ss ligne de commande
+        Date d1 = new GregorianCalendar(1987, 4, 23, 14, 23, 42).getTime();
+        Commande co1 = new Commande(d1);
+        Commande co2 = new Commande(d1);
+        LigneDeCommande ligne1 = new LigneDeCommande(co1);
+        LigneDeCommande ligne2 = new LigneDeCommande(co2);
+        SousLigneDeCommande ss1 = new SousLigneDeCommande(proBigMac,ligne1);
+        SousLigneDeCommande ss2 = new SousLigneDeCommande(proCheeseBurger,ligne2);
+        ss1.getItemsARetirer().add(itaeFrommage);
+        ss1.getItemsARetirer().add(itaeOignon);
+        ss2.getItemsARetirer().add(itaeBacon);
+        
+        
 // -----------------------------------------------------------------------------        
 //                              LES PERSIST
 // ----------------------------------------------------------------------------- 
@@ -1015,7 +1029,13 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         em.persist(souSauce);
         em.persist(souGarcon);
         em.persist(souFille);
-
+//Sous Ligne de commande
+        em.persist(co1);
+        em.persist(co2);
+        em.persist(ligne1);
+        em.persist(ligne2);
+        em.persist(ss1);
+        em.persist(ss2);
 // ----------------------------------- Edem ------------------------------------
         // ********* TVA vers Produits *********
         TypedQuery<Produit> querryProduit = em.createNamedQuery("entities.Produit.selectAll", Produit.class);

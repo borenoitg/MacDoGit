@@ -35,6 +35,10 @@
             <param-name>PanierCtrl</param-name>
             <param-value>sousControleurs.PanierCtrl</param-value>
         </init-param>
+        <init-param>
+            <param-name>SousLigneDeCommandeCtrl</param-name>
+            <param-value>sousControleurs.SousLigneDeCommandeCtrl</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontControleur</servlet-name>
@@ -116,5 +120,17 @@
         <ejb-ref-type>Session</ejb-ref-type>
         <local>metiers.GererItemLocal</local>
         <ejb-link>MacDo-ejb.jar#GererItem</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>GererSousLigneDeCommande</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.GererSousLigneDeCommandeLocal</local>
+        <ejb-link>MacDo-ejb.jar#GererSousLigneDeCommande</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>GererSousLigneDeCommande1</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.GererSousLigneDeCommandeLocal</local>
+        <ejb-link>MacDo-ejb.jar#GererSousLigneDeCommande</ejb-link>
     </ejb-local-ref>
 </web-app>
