@@ -46,6 +46,11 @@ private Collection<LigneDeCommande> ligneDeCommandes;
        ligneDeCommandes = new ArrayList<LigneDeCommande>();
     }
 
+    public Commande(Date dateCommande) {
+        this();
+        this.dateCommande = dateCommande;
+    }
+
     public Commande(Date dateCommande, boolean paiementBorne) {
         this();
         this.dateCommande = dateCommande;
