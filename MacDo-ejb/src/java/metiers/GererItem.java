@@ -22,7 +22,17 @@ public class GererItem implements GererItemLocal {
         List<ItemARajouter> list = qr.getResultList();
         return list;
     }
+    
+    @Override
+    public ItemARajouter ItemARajouterSelection(Long id) {
+        TypedQuery<ItemARajouter> qr = em.createNamedQuery("entities.ItemARajouter.selectOne", ItemARajouter.class);
+        qr.setParameter("itemId", id);
+        ItemARajouter item = qr.getSingleResult();
+        return item;
+    }
 
+    
+    
     @Override
     public List<ItemARetirer> LesItemsARetirer() {
         TypedQuery<ItemARetirer> qr = em.createNamedQuery("entities.ItemARetirer.selectAll", ItemARetirer.class);

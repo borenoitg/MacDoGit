@@ -25,13 +25,17 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-        GererItemLocal gererItem = lookupGererItemLocal();
         CatalogueLocal catalogue = lookupCatalogueLocal();
 
 //        List<Produit> produits = catalogue.listeProduit();
 //        request.setAttribute("catalogue", produits);
         List<Produit> produitCarroussel = catalogue.listeProduitNouveaute("Nouveaute");
         request.setAttribute("produitCarroussel", produitCarroussel);
+        Long id;
+        if (request.getParameter("proId") != null) {
+            id = Long.valueOf(request.getParameter("proId"));
+            session.setAttribute("proId", id);
+        }
 
         String nom = request.getParameter("nom");
         String detail = request.getParameter("detail");
@@ -60,26 +64,6 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             produitTest = catalogue.gestionSideBar(nom, detail);
             request.setAttribute("produitTest", produitTest);
         }
-
-        //panier
-        if (request.getParameter("prodId") != null) {
-            Long id;
-            Commande c = (Commande) session.getAttribute("panier");
-            id = Long.valueOf(request.getParameter("prodId"));
-            Produit p = gererItem.ProduitSelection(id);
-            
-            if (session.getAttribute("commande") == null) {
-                 c = new Commande(new Date(), true);
-                session.setAttribute("commande",c);
-            }
-            int qty = 1;
-            LigneDeCommande lc = new LigneDeCommande(p.getTva().getTaux(), qty, p.getPrix(), null, p, c);
-            ArrayList<LigneDeCommande> lignesDeCommande = new ArrayList<>();
-            lignesDeCommande.add(lc);
-            c.setLigneDeCommandes(lignesDeCommande);
-            request.setAttribute("Commande", c);
-        }
-
         return "/WEB-INF/home.jsp";
     }
 
@@ -87,16 +71,6 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
         try {
             Context c = new InitialContext();
             return (CatalogueLocal) c.lookup("java:global/MacDo/MacDo-ejb/Catalogue!metiers.CatalogueLocal");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
-    }
-
-    private GererItemLocal lookupGererItemLocal() {
-        try {
-            Context c = new InitialContext();
-            return (GererItemLocal) c.lookup("java:global/MacDo/MacDo-ejb/GererItem!metiers.GererItemLocal");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

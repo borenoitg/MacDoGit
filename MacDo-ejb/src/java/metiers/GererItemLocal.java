@@ -24,4 +24,6 @@ public interface GererItemLocal {
 
     public List<Produit> SaucesSalade();
 
+    public ItemARajouter ItemARajouterSelection(Long id);
+
 }

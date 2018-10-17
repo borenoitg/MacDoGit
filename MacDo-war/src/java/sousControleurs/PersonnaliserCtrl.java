@@ -22,14 +22,14 @@ public class PersonnaliserCtrl implements SousControleurInterface {
         HttpSession session = request.getSession();
         GererItemLocal gererItem = lookupGererItemLocal();
         Long id;
-        id = Long.valueOf(request.getParameter("prodId"));
+        id = Long.valueOf(request.getParameter("proId"));
 
         List<ItemARetirer> liste = gererItem.ItemARetirerAAfficher(id);
         List<Produit> sauces = gererItem.SaucesNugget();
         List<Produit> saucesSalade = gererItem.SaucesSalade();
-        session.setAttribute("prodId", id);
+        session.setAttribute("proId", id);
         Produit p = gererItem.ProduitSelection(id);
-        request.setAttribute("objetProduit", p);
+        session.setAttribute("objetProduit", p);
 
         request.setAttribute("nom", request.getParameter("nom"));
         request.setAttribute("soustype", request.getParameter("soustype"));
@@ -38,15 +38,19 @@ public class PersonnaliserCtrl implements SousControleurInterface {
         request.setAttribute("listeSauces", sauces);
         request.setAttribute("listeSaucesSalade", saucesSalade);
 
-        
-        if ((p.getItemsARetirer().isEmpty()) && (p.getItemARajoutes().isEmpty()) 
-                && !((request.getParameter("soustype").equals("Burger")) ||(request.getParameter("soustype").equals("Salade"))) ) {
-            return "/WEB-INF/home.jsp";
+        if (p.getDescription() != null) {
+            if ((p.getDescription().equals("nappage"))) {
+                request.setAttribute("liste", gererItem.LesItemsARajouter());
+                request.setAttribute("proId", request.getParameter("proId"));
+                return "/WEB-INF/jspNappage.jsp";
+            }
         }
-        if ((p.getItemsARetirer().isEmpty()) && !(p.getItemARajoutes().isEmpty())) {
-            request.setAttribute("liste", gererItem.LesItemsARajouter());
-            request.getParameter("itemarajouterId");
-            return "/WEB-INF/jspNappage.jsp";
+        if (request.getParameter("soustype").equals("Pommes de Terre")) {
+            request.setAttribute("proId", request.getParameter("proId"));
+            return "FrontControleur?section=PanierCtrl";
+        } else if ((p.getItemsARetirer().isEmpty() && (p.getItemARajouter() == null) && !(request.getParameter("soustype").equals("Salade") || (request.getParameter("soustype").equals("Burger"))))) {
+            request.setAttribute("proId", request.getParameter("proId"));
+            return "FrontControleur?section=PanierCtrl";
         }
 
         return "/WEB-INF/jspPersonnaliser.jsp";

@@ -132,10 +132,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proSundaeChocolat = new Produit("SUNDAE NAPPAGE SAVEUR CHOCOLAT", 2.70F, "./Images/SundaeChocolat.png");
         Produit proSundaeCaramel = new Produit("SUNDAE NAPPAGE SAVEUR CARAMEL", 2.70F, "./Images/SundaeCaramel.png");
         Produit proSundaeAbricot = new Produit("SUNDAE NAPPAGE SAVEUR ABRICOT", 2.70F, "./Images/SundaeAbricot.png");
-        Produit proMcFlurryKitKat = new Produit("McFLURRY KIKAT", 3.20F, "./Images/mcFlurryKitKat.png");
-        Produit proMcFlurryDaim = new Produit("McFLURRY DAIM", 3.20F, "./Images/mcFlurryDaim.png");
-        Produit proMcFlurryOreo = new Produit("McFLURRY OREO", 3.20F, "./Images/mcFlurryOreo.png");
-        Produit proMcFlurrySpeculoos = new Produit("McFLURRY SPECULOOS", 3.20F, "./Images/mcFlurrySpeculos.png");
+        Produit proMcFlurryKitKat = new Produit("McFLURRY KIKAT", 3.20F,"nappage","",0, "./Images/mcFlurryKitKat.png");
+        Produit proMcFlurryDaim = new Produit("McFLURRY DAIM", 3.20F,"nappage","",0,  "./Images/mcFlurryDaim.png");
+        Produit proMcFlurryOreo = new Produit("McFLURRY OREO", 3.20F,"nappage","",0,  "./Images/mcFlurryOreo.png");
+        Produit proMcFlurrySpeculoos = new Produit("McFLURRY SPECULOOS", 3.20F,"nappage","",0,  "./Images/mcFlurrySpeculos.png");
         Produit proVeryParfaitCoulisAbricot = new Produit("VERY PARFAIT COULIS ABRICOT", 3.30F, "./Images/veryParfaitAbricot.jpg");
         Produit proVeryParfaitNature = new Produit("VERY PARFAIT NATURE", 3.30F, "./Images/veryParfaitNature.png");
         Produit proVeryParfaitNappageSaveurChocolat = new Produit("VERY PARFAIT NAPPAGE SAVEUR CHOCOLAT ", 3.30F, "./Images/veryParfaitChocolat.png");
@@ -268,21 +268,21 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         itARaNappageChocolat.getProduits().add(proMcFlurrySpeculoos);
         // Produit vers ItemARajouter
 
-        proMcFlurryDaim.getItemARajoutes().add(itARaNappageAbricot);
-        proMcFlurryDaim.getItemARajoutes().add(itARaNappageCaramel);
-        proMcFlurryDaim.getItemARajoutes().add(itARaNappageChocolat);
-
-        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageAbricot);
-        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageCaramel);
-        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageChocolat);
-
-        proMcFlurryOreo.getItemARajoutes().add(itARaNappageAbricot);
-        proMcFlurryOreo.getItemARajoutes().add(itARaNappageCaramel);
-        proMcFlurryOreo.getItemARajoutes().add(itARaNappageChocolat);
-
-        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageAbricot);
-        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageCaramel);
-        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageChocolat);
+        proMcFlurryDaim.setItemARajouter(itARaNappageAbricot);
+//        proMcFlurryDaim.getItemARajoutes().add(itARaNappageCaramel);
+//        proMcFlurryDaim.getItemARajoutes().add(itARaNappageChocolat);
+//
+        proMcFlurryKitKat.setItemARajouter(itARaNappageAbricot);
+//        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageCaramel);
+//        proMcFlurryKitKat.getItemARajoutes().add(itARaNappageChocolat);
+//
+        proMcFlurryOreo.setItemARajouter(itARaNappageAbricot);
+//        proMcFlurryOreo.getItemARajoutes().add(itARaNappageCaramel);
+//        proMcFlurryOreo.getItemARajoutes().add(itARaNappageChocolat);
+//
+        proMcFlurrySpeculoos.setItemARajouter(itARaNappageAbricot);
+//        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageCaramel);
+//        proMcFlurrySpeculoos.getItemARajoutes().add(itARaNappageChocolat);
 
         // Les ingrédients
         ingPain.setProduit(proBigMac);

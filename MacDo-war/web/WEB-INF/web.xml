@@ -31,6 +31,10 @@
             <param-name>PersonnaliserCtrl</param-name>
             <param-value>sousControleurs.PersonnaliserCtrl</param-value>
         </init-param>
+        <init-param>
+            <param-name>PanierCtrl</param-name>
+            <param-value>sousControleurs.PanierCtrl</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontControleur</servlet-name>
@@ -97,6 +101,18 @@
     </ejb-local-ref>
     <ejb-local-ref>
         <ejb-ref-name>GererItem2</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.GererItemLocal</local>
+        <ejb-link>MacDo-ejb.jar#GererItem</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>Panier</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.PanierLocal</local>
+        <ejb-link>MacDo-ejb.jar#Panier</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>GererItem3</ejb-ref-name>
         <ejb-ref-type>Session</ejb-ref-type>
         <local>metiers.GererItemLocal</local>
         <ejb-link>MacDo-ejb.jar#GererItem</ejb-link>

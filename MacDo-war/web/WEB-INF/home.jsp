@@ -26,10 +26,8 @@
     </head>
 
     <body>
-
         <!-- Navigation -->
-        <jsp:include page="jspNavBar.jsp" flush="true"/>
-
+        <%@ include file="jspNavBar.jsp" %>
 
         <!-- Page Content -->
 
@@ -58,7 +56,7 @@
 
                 <div class="col-lg-9">
                     <!-- Begin Caroussel -->
-                    
+
                     <c:if test="${pascaroussel != 'OK'}">
                         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -196,13 +194,7 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-        </div>
-        <!-- /.container -->
-    </footer>
-
+    <%@include file="jspFooter.jspf" %>
     <!-- Bootstrap core JavaScript -->
     <script src="http://localhost:8080/MacDo-war/bootstrapv4/vendor/jquery/jquery.min.js"></script>
     <script src="http://localhost:8080/MacDo-war/bootstrapv4/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

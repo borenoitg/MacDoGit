@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -24,7 +24,7 @@
             <br>
                 <%-- On affiche les nappages --%>
                 
-            <form action="FrontControleur?section=ItemARajouterCtrl" method="GET">
+                <form action="FrontControleur?section=PanierCtrl&proId=${proId}" method="POST">
                 <center>    <div class="col-form-label">
                     <c:forEach var="n" items="${liste}">
                         
@@ -47,6 +47,6 @@
                 <center><input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
             </form>
         </div>
-                                                    <%@include file="jspFooter.jspf" %>
+                                                    <%--@include file="jspFooter.jspf" --%>
     </body>
 </html>
