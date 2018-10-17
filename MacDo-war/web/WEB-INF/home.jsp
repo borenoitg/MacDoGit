@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-        <fmt:setLocale value="fr_FR"/>
+    <fmt:setLocale value="fr_FR"/>
 
     <head>
 
@@ -28,33 +28,8 @@
     <body>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 30px">
-            <div class="container">
-                <a class="navbar-brand" href="#">MacDo</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <c:url value="FrontControleur?section=CreationDeDonneesCtrl" var="urlCreateData" />
-                            <a class="nav-link" href="${urlCreateData}">Création De Donnees
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=ItemARajouterCtrl">Pour essai Nappage</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=BurgerCtrl">Pour essai Burgertiti</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur?section=PersonnaliserCtrl">Pour essai Personnaliser</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <jsp:include page="jspNavBar.jsp" flush="true"/>
+
 
         <!-- Page Content -->
 
@@ -67,15 +42,15 @@
                     <h3 class="my-4">NOTRE CARTE</h3>
                     <div class="list-group">
 
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Nouveaute" class="list-group-item"><img src="./Images/enCeMoment.png" alt="En ce Moment"/>  En ce Moment</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Menu" class="list-group-item"><img src="./Images/nosMenus.png" alt="Nos Menus"/>Nos Menus</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Burger" class="list-group-item"><img src="./Images/nosSandwichs.png" alt="Nos Sandwichs"/>Nos Sandwichs</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Boisson" class="list-group-item"><img src="./Images/nosBoissons.png" alt="Nos Boissons"/>Nos Boissons</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Dessert" class="list-group-item"><img src="./Images/nosDessert.png" alt="Nos Desserts"/>Nos Desserts</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=Salade" class="list-group-item"><img src="./Images/nosSalades.png" alt="Nos Salades"/>Nos Salades</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=HappyMeal" class="list-group-item"><img src="./Images/happyMeal.png" alt="Happy Meal"/>Happy Meal</a>
-                        <a href="FrontControleur?section=CatalogueCtrl&nom=FriteSauce" class="list-group-item"><img src="./Images/nosFritesSauces.png" alt="Frites & Sauces"/>Frites & Sauces</a>
-
+                        <CENTER><a href="FrontControleur?section=CatalogueCtrl&nom=Nouveaute" class="list-group-item"><img src="./Images/enCeMoment.png" alt="En ce Moment"/><BR>En ce Moment</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Menu" class="list-group-item"><img src="./Images/nosMenus.png" alt="Nos Menus"/><BR>Nos Menus</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Burger" class="list-group-item"><img src="./Images/nosSandwichs.png" alt="Nos Sandwichs"/><BR>Nos Sandwichs</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Boisson" class="list-group-item"><img src="./Images/nosBoissons.png" alt="Nos Boissons"/><BR>Nos Boissons</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Dessert" class="list-group-item"><img src="./Images/nosDessert.png" alt="Nos Desserts"/><BR>Nos Desserts</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=Salade" class="list-group-item"><img src="./Images/nosSalades.png" alt="Nos Salades"/><BR>Nos Salades</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=HappyMeal" class="list-group-item"><img src="./Images/happyMeal.png" alt="Happy Meal"/><BR>Happy Meal</a>
+                            <a href="FrontControleur?section=CatalogueCtrl&nom=FriteSauce" class="list-group-item"><img src="./Images/nosFritesSauces.png" alt="Frites & Sauces"/><BR>Frites & Sauces</a>
+                        </CENTER>
                     </div>
 
                 </div>

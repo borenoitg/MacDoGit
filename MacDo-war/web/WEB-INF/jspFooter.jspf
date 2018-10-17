@@ -1,0 +1,87 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="fr_FR"/>
+
+<SCRIPT language="JavaScript">
+    <!--
+    function getxmlhttp() {
+        xmlhttp = null;
+        if (window.XMLHttpRequest) { // Mozilla
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            if (window.ActiveXObject) { // IE
+                try {
+                    xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch (e) {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            } else {
+                alert("Votre navigateur ne supporte pas XMLHttpRequest");
+            }
+        }
+        return xmlhttp;
+    }
+
+    function go() {
+        url = "ajaxCP?CP=" + document.formCP.CP.value;
+        // alert( url);
+
+        xmlhttp = getxmlhttp();
+        xmlhttp.onreadystatechange = xmlhttpChange;
+        xmlhttp.open("GET", url, true);
+//      xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send(null);
+    }
+
+    function xmlhttpChange() {
+        if (xmlhttp.readyState == 4) { // if xmlhttp shows "loaded"
+            if (xmlhttp.status == 200) { // if "OK"
+                s = xmlhttp.responseText;
+                // alert( "("+s+")");
+                d = document.getElementById("VILLE");
+                d.innerHTML = s;
+            } else {
+                alert("Problem retrieving XML data");
+            }
+        }
+    }
+    //-->
+</SCRIPT>
+    
+<div id="titi" style="background-color:#004413;">
+<div class="marge">
+<c:set var="total" value="${0}" scope="page" />
+
+    <h2>Commande n° ${comId} du ${date}</h2>
+    <table border="1" style="color: white">
+        <thead>
+            <tr>
+                <th><center>Article</center></th>
+    <th><center>Titre</center></th>
+<th><center>Prix unitaire TTC</center></th>
+<th><center>Quantité</center></th>
+<th><center>&nbsp&nbsp&nbspPrix&nbsp&nbsp TTC&nbsp&nbsp&nbsp</center></th>
+<th><center>Tva</center></th>
+</tr>
+</thead>
+<c:forEach var="lc" items="${lignesCommandes}">
+    <c:set  var="total" value="${(total + (lc.produit.prix*lc.quantite))}" />
+    <tr>
+        <td><a class="" href="FrontController??section=Catalogue&produitId=${lc.produit.id}"><img class="card-img-top mx-auto d-block" style=" width: 30%;" src = "${lc.produit.imageUrl}" alt ="illustration" ></a></td>
+        <td><center><div class = "titre">${lc.produit.nom}</div></center></td>
+    <td><center><strong><fmt:formatNumber value="${lc.produit.prix}" type="currency"/></strong></center></td>
+    <td><center><strong>${lc.quantite}</strong></center></td>
+    <td><center><strong> <fmt:formatNumber value="${lc.produit.prix*lc.quantite}" type="currency"/> </strong></center></td>
+    <td><center>${lc.tva} % </center></td>
+
+</c:forEach>  
+
+</tr>
+
+
+</table>
+<br>  
+<h3>Total de la commande TTC : <strong><fmt:formatNumber value="${total}" type="currency"/></p></strong></h3>
+</div>
+</div>

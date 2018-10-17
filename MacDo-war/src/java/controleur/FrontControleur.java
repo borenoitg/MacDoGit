@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import sousControleurs.SousControleurInterface;
 
 public class FrontControleur extends HttpServlet {
@@ -48,6 +50,7 @@ public class FrontControleur extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+
 
         String url = "/WEB-INF/home.jsp";
   

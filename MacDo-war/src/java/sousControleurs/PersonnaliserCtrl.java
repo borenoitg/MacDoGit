@@ -31,6 +31,7 @@ public class PersonnaliserCtrl implements SousControleurInterface {
         Produit p = gererItem.ProduitSelection(id);
         request.setAttribute("objetProduit", p);
 
+        request.setAttribute("nom", request.getParameter("nom"));
         request.setAttribute("soustype", request.getParameter("soustype"));
         request.setAttribute("produit", request.getParameter("produit"));
         request.setAttribute("listepro", liste);
@@ -38,7 +39,8 @@ public class PersonnaliserCtrl implements SousControleurInterface {
         request.setAttribute("listeSaucesSalade", saucesSalade);
 
         
-        if ((p.getItemsARetirer().isEmpty()) && (p.getItemARajoutes().isEmpty()) && !((request.getParameter("soustype").equals("Burger")) ||(request.getParameter("soustype").equals("Salade"))) ) {
+        if ((p.getItemsARetirer().isEmpty()) && (p.getItemARajoutes().isEmpty()) 
+                && !((request.getParameter("soustype").equals("Burger")) ||(request.getParameter("soustype").equals("Salade"))) ) {
             return "/WEB-INF/home.jsp";
         }
         if ((p.getItemsARetirer().isEmpty()) && !(p.getItemARajoutes().isEmpty())) {

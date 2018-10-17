@@ -95,4 +95,10 @@
         <local>metiers.GererItemLocal</local>
         <ejb-link>MacDo-ejb.jar#GererItem</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>GererItem2</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>metiers.GererItemLocal</local>
+        <ejb-link>MacDo-ejb.jar#GererItem</ejb-link>
+    </ejb-local-ref>
 </web-app>

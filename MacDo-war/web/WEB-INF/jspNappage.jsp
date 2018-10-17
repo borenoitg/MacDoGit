@@ -16,24 +16,11 @@
     </head>
     <body>
         <%-- Barre de Navigation --%>
-        
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 40px">
-            <div class="container">
-                <a class="navbar-brand" href="FrontControleur">MacDo</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="FrontControleur">Accueil</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <jsp:include page="jspNavBar.jsp" flush="true"/>
+
         <div class="marge">
             <h1>Choix Nappage</h1>
+             <center><h2>${produit}</h2></center>
             <br>
                 <%-- On affiche les nappages --%>
                 
@@ -53,12 +40,13 @@
                                         <%-- On affiche le bouton "nature" --%>
 
                     <label class="container">
-                        <input type="radio" name="nappageId" value="nature">Nature
+                        <input type="radio" name="nappageId" value="nature"checked="checked">Nature
                         <span class="checkmark"></span>
                     </label>                     
                     </div> </center> <br>
                 <center><input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
             </form>
         </div>
+                                                    <%@include file="jspFooter.jspf" %>
     </body>
 </html>

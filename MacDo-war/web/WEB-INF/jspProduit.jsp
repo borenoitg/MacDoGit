@@ -9,11 +9,11 @@
     <c:forEach var="p" items="${produitTest}">
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="FrontControleur?section=PersonnaliserCtrl&prodId=${p.id}&produit=${p.nom}&soustype=${p.soustype.nom}"><img class="card-img-top" src="${p.imageUrl}" width="200px"></a>
+              <a href="FrontControleur?section=PersonnaliserCtrl&prodId=${p.id}&produit=${p.nom}&soustype=${p.soustype.nom}"><img class="card-img-top" src="${p.imageUrl}"></a>
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h6 class="card-title">
                         <br>${p.nom} ${p.taille}<br><fmt:formatNumber value="${p.prix}" type = "currency"/>
-                    </h5>
+                    </h6>
                 </div>
                 <div class="card-footer">
                     <a href="FrontControleur?section=PersonnaliserCtrl&prodId=${p.id}&produit=${p.nom}&soustype=${p.soustype.nom}" class="btn btn-primary">Commander</a>

@@ -28,6 +28,14 @@ public class GererMenu implements GererMenuLocal {
         return list;
     }
 
+    @Override
+    public List<Produit> LesAccompagnements(String taille) {
+        TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectAccompagnements", Produit.class);
+        qr01.setParameter("paramTaille", taille);
+        List<Produit> list = qr01.getResultList();
+        return list;
+    }
+    
     public void persist(Object object) {
         em.persist(object);
     }
