@@ -48,7 +48,7 @@
                             <a href="FrontControleur?section=CatalogueCtrl&nom=Boisson" class="list-group-item"><img src="./Images/nosBoissons.png" alt="Nos Boissons"/><BR>Nos Boissons</a>
                             <a href="FrontControleur?section=CatalogueCtrl&nom=Dessert" class="list-group-item"><img src="./Images/nosDessert.png" alt="Nos Desserts"/><BR>Nos Desserts</a>
                             <a href="FrontControleur?section=CatalogueCtrl&nom=Salade" class="list-group-item"><img src="./Images/nosSalades.png" alt="Nos Salades"/><BR>Nos Salades</a>
-                            <a href="FrontControleur?section=CatalogueCtrl&nom=HappyMeal" class="list-group-item"><img src="./Images/happyMeal.png" alt="Happy Meal"/><BR>Happy Meal</a>
+<!--                            <a href="FrontControleur?section=CatalogueCtrl&nom=HappyMeal" class="list-group-item"><img src="./Images/happyMeal.png" alt="Happy Meal"/><BR>Happy Meal</a>-->
                             <a href="FrontControleur?section=CatalogueCtrl&nom=FriteSauce" class="list-group-item"><img src="./Images/nosFritesSauces.png" alt="Frites & Sauces"/><BR>Frites & Sauces</a>
                         </CENTER>
                     </div>

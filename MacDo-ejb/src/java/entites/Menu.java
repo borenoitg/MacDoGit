@@ -16,11 +16,13 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
+    @NamedQuery(name = "entities.Menu.selectUnMenu", query = "SELECT m FROM Menu m WHERE m.nom = :paramNom"),
+    
     @NamedQuery(name = "entities.Menu.selectAllMenus", query = "SELECT m FROM Menu m"),
     
     @NamedQuery(name = "entities.Menu.selectAll", query = "SELECT m FROM Menu m")
 })
-public class Menu implements Serializable {
+public class Menu implements Serializable, Comparable<Menu> {
 
     private static final long serialVersionUID = 1L;
     
@@ -188,6 +190,31 @@ public class Menu implements Serializable {
     public String toString() {
         return "Menu{" + "id=" + id + ", nom=" + nom + ", taille=" + taille
                 + ", imageUrl=" + imageUrl + ", prix=" + prix + '}';
+    }
+
+    @Override
+    public int compareTo(Menu m) {
+        
+        //Test: si les deux elements sont null, ils sont considérés comme egal
+        if((this.nom == null)&&(m.nom == null)){
+            return 0;
+        }
+        
+        //Test: si l'élément en cours est null
+        else if(this.nom == null){
+            return -1;
+        }
+        
+        else if(m.nom == null){
+            return 1;
+        }
+        
+        //Comparaison des deux produit et tri de ces derniers
+        else {
+            int monResultat = this.nom.compareTo(m.nom);
+            
+            return monResultat;
+        }
     }
 
 }

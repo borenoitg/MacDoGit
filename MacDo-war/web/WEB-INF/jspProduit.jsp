@@ -16,7 +16,7 @@
                     </h6>
                 </div>
                 <div class="card-footer">
-                    <a href="FrontControleur?section=PersonnaliserCtrl&prodId=${p.id}&produit=${p.nom}&soustype=${p.soustype.nom}" class="btn btn-primary">Commander</a>
+                    <a href="FrontControleur?section=PersonnaliserCtrl&prodId=${p.id}&produit=${p.nom}&soustype=${p.soustype.nom}" class="btn btn-primary btn-sm">Commander</a>
                 </div>
             </div>
         </div>

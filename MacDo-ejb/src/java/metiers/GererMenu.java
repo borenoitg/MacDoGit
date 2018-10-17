@@ -2,6 +2,7 @@ package metiers;
 
 import entites.Menu;
 import entites.Produit;
+import java.util.Collections;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -18,6 +19,8 @@ public class GererMenu implements GererMenuLocal {
     public List<Produit> LesBoissons() {
         TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectBoissons", Produit.class);
         List<Produit> list = qr01.getResultList();
+        Collections.sort(list);
+        
         return list;
     }
 
@@ -25,6 +28,8 @@ public class GererMenu implements GererMenuLocal {
     public List<Menu> LesMenus() {
         TypedQuery<Menu> qr01 = em.createNamedQuery("entities.Menu.selectAll", Menu.class);
         List<Menu> list = qr01.getResultList();
+        Collections.sort(list);
+        
         return list;
     }
 
@@ -33,6 +38,8 @@ public class GererMenu implements GererMenuLocal {
         TypedQuery<Produit> qr01 = em.createNamedQuery("entities.Produit.selectAccompagnements", Produit.class);
         qr01.setParameter("paramTaille", taille);
         List<Produit> list = qr01.getResultList();
+        Collections.sort(list);
+        
         return list;
     }
     

@@ -55,12 +55,13 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
 
             sousTypeTest = catalogue.gestionSideBarSousType(nom);
             request.setAttribute("sousTypeTest", sousTypeTest);
-        } //Recupération de produits par SousType
+        }//Recupération de produits par SousType
         else {
 
             produitTest = catalogue.gestionSideBar(nom, detail);
             request.setAttribute("produitTest", produitTest);
         }
+        
 
         //panier
         

@@ -4,6 +4,7 @@ import entites.ItemARajouter;
 import entites.ItemARetirer;
 import entites.Produit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -20,6 +21,8 @@ public class GererItem implements GererItemLocal {
     public List<ItemARajouter> LesItemsARajouter() {
         TypedQuery<ItemARajouter> qr = em.createNamedQuery("entities.ItemARajouter.selectAll", ItemARajouter.class);
         List<ItemARajouter> list = qr.getResultList();
+        Collections.sort(list);
+        
         return list;
     }
 
@@ -27,6 +30,8 @@ public class GererItem implements GererItemLocal {
     public List<ItemARetirer> LesItemsARetirer() {
         TypedQuery<ItemARetirer> qr = em.createNamedQuery("entities.ItemARetirer.selectAll", ItemARetirer.class);
         List<ItemARetirer> list = qr.getResultList();
+        Collections.sort(list);
+        
         return list;
     }
 
@@ -55,7 +60,8 @@ public class GererItem implements GererItemLocal {
 
         TypedQuery<Produit> qr = em.createNamedQuery("entities.Produit.selectSauceNugget", Produit.class);
         List<Produit> list = qr.getResultList();
-
+        Collections.sort(list);
+        
         return list;
     }
        
@@ -64,7 +70,8 @@ public class GererItem implements GererItemLocal {
 
         TypedQuery<Produit> qr = em.createNamedQuery("entities.Produit.selectSauceSalade", Produit.class);
         List<Produit> list = qr.getResultList();
-
+        Collections.sort(list);
+        
         return list;
     }
 

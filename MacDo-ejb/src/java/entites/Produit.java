@@ -40,7 +40,7 @@ import javax.persistence.OneToMany;
     @NamedQuery(name = "entities.Produit.selectAccompagnements", query = "SELECT p FROM Produit p WHERE p.soustype.nom ='Pommes de Terre' AND p.taille = :paramTaille")
     
 })
-public class Produit implements Serializable {
+public class Produit implements Serializable, Comparable<Produit> {
 
     private static final long serialVersionUID = 1L;
 
@@ -371,6 +371,32 @@ public class Produit implements Serializable {
                 + ", promo=" + promotion + ", tva=" + tva + ", ingredients="
                 + ingredients + ", allergenes=" + allergenes + ", statut="
                 + statut + ", infos=" + infos + ", soustype=" + soustype + '}';
+    }
+
+    //Trie des produits
+    @Override
+    public int compareTo(Produit p) {
+        
+        //Test: si les deux elements sont null, ils sont considérés comme egal
+        if((this.nom == null)&&(p.nom == null)){
+            return 0;
+        }
+        
+        //Test: si l'élément en cours est null
+        else if(this.nom == null){
+            return -1;
+        }
+        
+        else if(p.nom == null){
+            return 1;
+        }
+        
+        //Comparaison des deux produit et tri de ces derniers
+        else {
+            int monResultat = this.nom.compareTo(p.nom);
+            
+            return monResultat;
+        }
     }
 
 }

@@ -19,7 +19,7 @@ import javax.persistence.NamedQuery;
     @NamedQuery(name = "entities.ItemARetirer.selectAll", query = "SELECT i FROM ItemARetirer i ORDER BY i.description ASC")
     ,
     @NamedQuery(name = "entities.ItemARetirer.selectItemARetirer", query = "SELECT i FROM ItemARetirer i where i.id = :proId")})
-public class ItemARetirer implements Serializable {
+public class ItemARetirer implements Serializable, Comparable<ItemARetirer> {
 
     private static final long serialVersionUID = 1L;
 
@@ -151,5 +151,30 @@ public class ItemARetirer implements Serializable {
     @Override
     public String toString() {
         return "entites.ItemARetire[ id=" + id + " ]";
+    }
+
+    @Override
+    public int compareTo(ItemARetirer itar) {
+        
+        //Test: si les deux elements sont null, ils sont considérés comme egal
+        if((this.nom == null)&&(itar.nom == null)){
+            return 0;
+        }
+        
+        //Test: si l'élément en cours est null
+        else if(this.nom == null){
+            return -1;
+        }
+        
+        else if(itar.nom == null){
+            return 1;
+        }
+        
+        //Comparaison des deux produit et tri de ces derniers
+        else {
+            int monResultat = this.nom.compareTo(itar.nom);
+            
+            return monResultat;
+        }
     }
 }
