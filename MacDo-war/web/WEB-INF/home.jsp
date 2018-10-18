@@ -26,10 +26,8 @@
     </head>
 
     <body>
-
         <!-- Navigation -->
-        <jsp:include page="jspNavBar.jsp" flush="true"/>
-
+        <%@ include file="jspNavBar.jsp" %>
 
         <!-- Page Content -->
 
@@ -58,51 +56,53 @@
 
                 <div class="col-lg-9">
                     <!-- Begin Caroussel -->
-                    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
 
-                        <div class="carousel-inner" role="listbox">
-                            <c:if test="${produitCarroussel == null}">
-                                <div class="carousel-item active">
-                                    <img class="d-block img-fluid" width="900" src="./Images/boeufRanch.png">
-                                </div> 
-                                <div class="carousel-item ">
-                                    <img class="d-block img-fluid" width="900" src="./Images/DoubleBlueCheeseBacon.png">
-                                </div> 
-                                <div class="carousel-item ">
-                                    <img class="d-block img-fluid" width="900" src="./Images/280SignatureBeef.png">
-                                </div> 
-                            </c:if>
-                            <c:if test="${produitCarroussel != null}">
-                                <c:forEach items="${produitCarroussel}" var="c">
-                                    <c:if test="${c == produitCarroussel[0]}">
-                                        <div class="carousel-item active">
-                                            <img class="d-block img-fluid" width="900" src="${c.imageUrl}">
-                                        </div> 
-                                    </c:if>
-                                    <c:if test="${c != produitCarroussel[0]}">
-                                        <div class="carousel-item">
-                                            <img class="d-block img-fluid" width="900"  src="${c.imageUrl}" alt="${c.nom}">
-                                        </div>
-                                    </c:if>
-                                </c:forEach>
-                            </c:if>
+                    <c:if test="${pascaroussel != 'OK'}">
+                        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
 
+                            <div class="carousel-inner" role="listbox">
+                                <c:if test="${produitCarroussel == null}">
+                                    <div class="carousel-item active">
+                                        <img class="d-block img-fluid" width="900" src="./Images/boeufRanch.png">
+                                    </div> 
+                                    <div class="carousel-item ">
+                                        <img class="d-block img-fluid" width="900" src="./Images/DoubleBlueCheeseBacon.png">
+                                    </div> 
+                                    <div class="carousel-item ">
+                                        <img class="d-block img-fluid" width="900" src="./Images/280SignatureBeef.png">
+                                    </div> 
+                                </c:if>
+                                <c:if test="${produitCarroussel != null}">
+                                    <c:forEach items="${produitCarroussel}" var="c">
+                                        <c:if test="${c == produitCarroussel[0]}">
+                                            <div class="carousel-item active">
+                                                <img class="d-block img-fluid" width="900" src="${c.imageUrl}">
+                                            </div> 
+                                        </c:if>
+                                        <c:if test="${c != produitCarroussel[0]}">
+                                            <div class="carousel-item">
+                                                <img class="d-block img-fluid" width="900"  src="${c.imageUrl}" alt="${c.nom}">
+                                            </div>
+                                        </c:if>
+                                    </c:forEach>
+                                </c:if>
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-
+                    </c:if>
                     <!-- End Caroussel -->
 
                     <div class="row">
@@ -194,13 +194,7 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-        </div>
-        <!-- /.container -->
-    </footer>
-
+    <%@include file="jspFooter.jspf" %>
     <!-- Bootstrap core JavaScript -->
     <script src="http://localhost:8080/MacDo-war/bootstrapv4/vendor/jquery/jquery.min.js"></script>
     <script src="http://localhost:8080/MacDo-war/bootstrapv4/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

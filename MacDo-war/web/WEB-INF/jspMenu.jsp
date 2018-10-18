@@ -9,7 +9,7 @@
     <c:forEach var="m" items="${menusTest}">
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="FrontControleur?section=ChoixMenuCtrl&menuid=${m.id}&menu=${m.nom}"><img class="card-img-top" src="${m.imageUrl}" width="200px"></a>
+              <a href="FrontControleur?section=ChoixMenuCtrl&menuid=${m.id}&menu=${m.nom}&image=${m.imageUrl}"><img class="card-img-top" src="${m.imageUrl}" width="200px"></a>
                 <div class="card-body">
                     <h5 class="card-title">
                         <br>${m.nom} ${m.taille}<br><fmt:formatNumber value="${m.prix}" type = "currency"/>

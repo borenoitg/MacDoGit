@@ -21,13 +21,13 @@ public class LigneDeCommande implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Float tva;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int quantite;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Float prix;
 
     // dépendances pour les associations
@@ -39,6 +39,7 @@ public class LigneDeCommande implements Serializable {
 
     @OneToMany(mappedBy = "ligneCommande")
     private Collection<SousLigneDeCommande> sousLignesDeCommande;
+   
     @ManyToOne
     private Commande commande;
     // Constructeurs
@@ -46,9 +47,12 @@ public class LigneDeCommande implements Serializable {
         sousLignesDeCommande = new ArrayList<>();
     }
 
+    public LigneDeCommande(Commande commande) {
+        this();
+        this.commande = commande;
+    }
    
-    
-    public LigneDeCommande(Float tva, int quantite, Float prix) {
+        public LigneDeCommande(Float tva, int quantite, Float prix) {
         this();
         this.tva = tva;
         this.quantite = quantite;

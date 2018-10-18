@@ -35,10 +35,12 @@ import javax.persistence.OneToMany;
     ,
     @NamedQuery(name = "entities.Produit.selectSauceSalade", query = "SELECT p FROM Produit p where p.description = 'sauce salade'")
     ,
-    @NamedQuery(name = "entities.Produit.selectBoissons", query = "SELECT p FROM Produit p where p.soustype.nom ='Froide'")
+    @NamedQuery(name = "entities.Produit.selectBoissons", query = "SELECT p FROM Produit p where p.soustype.nom ='Froide' AND p.taille = :paramTaille")
     ,
     @NamedQuery(name = "entities.Produit.selectAccompagnements", query = "SELECT p FROM Produit p WHERE p.soustype.nom ='Pommes de Terre' AND p.taille = :paramTaille")
-    
+    ,
+    @NamedQuery(name = "entities.Produit.selectSaucesMenu", query = "SELECT p FROM Produit p WHERE p.soustype.nom ='Sauce' AND p.description = null")
+
 })
 public class Produit implements Serializable, Comparable<Produit> {
 
@@ -93,8 +95,8 @@ public class Produit implements Serializable, Comparable<Produit> {
     @OneToMany(mappedBy = "produit")
     private Collection<SousLigneDeCommande> sousLigneDeCommandes;
 
-    @ManyToMany(mappedBy = "produits")
-    private Collection<ItemARajouter> itemsARajouter;
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private ItemARajouter itemARajouter;
 
     @ManyToMany(mappedBy = "produits")
     private Collection<ItemARetirer> itemsARetirer;
@@ -109,7 +111,6 @@ public class Produit implements Serializable, Comparable<Produit> {
         infos = new ArrayList();
         lignesDeCommande = new ArrayList();
         sousLigneDeCommandes = new ArrayList();
-        itemsARajouter = new ArrayList();
         itemsARetirer = new ArrayList();
         abonnes = new ArrayList();
     }
@@ -131,6 +132,15 @@ public class Produit implements Serializable, Comparable<Produit> {
         this();
         this.nom = nom;
         this.imageUrl = imageUrl;
+    }
+
+    public Produit(String nom, Float prix, String imageUrl, Tva tva, ItemARajouter itemsARajouter) {
+        this();
+        this.nom = nom;
+        this.prix = prix;
+        this.imageUrl = imageUrl;
+        this.tva = tva;
+        this.itemARajouter = itemsARajouter;
     }
 
     public Produit(String nom, Float prix) {
@@ -242,10 +252,6 @@ public class Produit implements Serializable, Comparable<Produit> {
         this.lignesDeCommande = lignesDeCommande;
     }
 
-    public void setItemARajoutes(Collection<ItemARajouter> itemARajoutes) {
-        this.itemsARajouter = itemARajoutes;
-    }
-
     public void setItemARetires(Collection<ItemARetirer> itemARetires) {
         this.itemsARetirer = itemARetires;
     }
@@ -260,14 +266,6 @@ public class Produit implements Serializable, Comparable<Produit> {
 
     public void setStatut(Statut statut) {
         this.statut = statut;
-    }
-
-    public Collection<ItemARajouter> getItemsARajouter() {
-        return itemsARajouter;
-    }
-
-    public void setItemsARajouter(Collection<ItemARajouter> itemsARajouter) {
-        this.itemsARajouter = itemsARajouter;
     }
 
     public Collection<ItemARetirer> getItemsARetirer() {
@@ -310,12 +308,12 @@ public class Produit implements Serializable, Comparable<Produit> {
         this.sousLigneDeCommandes = sousLigneDeCommandes;
     }
 
-    public Collection<ItemARajouter> getItemARajoutes() {
-        return itemsARajouter;
+    public ItemARajouter getItemARajouter() {
+        return itemARajouter;
     }
 
-    public void setItemRajoutes(Collection<ItemARajouter> itemARajoutes) {
-        this.itemsARajouter = itemARajoutes;
+    public void setItemARajouter(ItemARajouter itemARajouter) {
+        this.itemARajouter = itemARajouter;
     }
 
     public Collection<ItemARetirer> getItemARetires() {

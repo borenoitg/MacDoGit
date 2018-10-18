@@ -26,7 +26,7 @@
 
             <%-- Si ce sont des salades --%>
 
-            <form action="FrontControleur" method="GET">
+            <form action="FrontControleur?section=PanierCtrl&proId=${proId}" method="POST">
                 <c:if test="${soustype == 'Salade'}">
                     <c:forEach var="n" items="${listeSaucesSalade}">
                         <center><img src="${n.imageUrl}" width="200px"><br>
@@ -44,7 +44,7 @@
             </form>
             <%-- Si ce sont des nuggets alors on affiche les sauces --%>
 
-            <form action="FrontControleur" method="GET">
+            <form action="FrontControleur?section=PanierCtrl&proId=${proId}" method="POST">
                 <c:if test="${produit == 'Chicken McNuggets'}">
                     <c:forEach var="n" items="${listeSauces}">
                         <center><img src="${n.imageUrl}" width="100px">
@@ -77,14 +77,14 @@
                     </c:if>
                     <%-- On affiche les ingredients du sandwich --%>
 
-                <form action="FrontControleur" method="GET">
+                <form action="FrontControleur?section=PanierCtrl&proId=${proId}" method="POST">
                     <c:forEach var="n" items="${listepro}">
                         <img src="${n.imageUrl}" width="100px">
 
                         <%-- Rounded switch --%>
 
                         <label class="switch">
-                            <input type="checkbox" name="${n.nom}" value="${n.id}" checked>
+                            <input type="checkbox" name="${n.nom}" value="${n.id}" >
                             <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
                         </label>
                         <br>

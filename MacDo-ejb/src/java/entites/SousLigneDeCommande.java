@@ -43,6 +43,17 @@ public class SousLigneDeCommande implements Serializable {
         
     }
 
+    public SousLigneDeCommande(Produit produit) {
+        this();
+        this.produit = produit;
+    }
+
+    public SousLigneDeCommande(Produit produit, LigneDeCommande ligneCommande) {
+        this();
+        this.produit = produit;
+        this.ligneCommande = ligneCommande;
+    }
+
     public SousLigneDeCommande(Commande commande
             , Collection<ItemARajouter> ItemARajoutes
             , Collection<ItemARetirer> ItemsARetirer

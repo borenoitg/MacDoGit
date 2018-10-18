@@ -6,6 +6,7 @@ import entites.Menu;
 import entites.Produit;
 import entites.SousType;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -13,7 +14,6 @@ import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,13 +25,17 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-        GererItemLocal gererItem = lookupGererItemLocal();
         CatalogueLocal catalogue = lookupCatalogueLocal();
 
 //        List<Produit> produits = catalogue.listeProduit();
 //        request.setAttribute("catalogue", produits);
         List<Produit> produitCarroussel = catalogue.listeProduitNouveaute("Nouveaute");
         request.setAttribute("produitCarroussel", produitCarroussel);
+        Long id;
+        if (request.getParameter("proId") != null) {
+            id = Long.valueOf(request.getParameter("proId"));
+            session.setAttribute("proId", id);
+        }
 
         String nom = request.getParameter("nom");
         String detail = request.getParameter("detail");
@@ -57,23 +61,9 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             request.setAttribute("sousTypeTest", sousTypeTest);
         }//Recupération de produits par SousType
         else {
-
             produitTest = catalogue.gestionSideBar(nom, detail);
             request.setAttribute("produitTest", produitTest);
         }
-        
-
-        //panier
-        
-        if (request.getParameter("prodId") != null) {
-            Long id;
-            id = Long.valueOf(request.getParameter("prodId"));
-            Produit p = gererItem.ProduitSelection(id);
-            Commande c = new Commande(new Date(), true);
-            LigneDeCommande lc = new LigneDeCommande(0.1F, 1, 5.5F, null, p, c);
-            session.setAttribute("lignesCommandes", lc);
-        }
-
         return "/WEB-INF/home.jsp";
     }
 
@@ -86,16 +76,5 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             throw new RuntimeException(ne);
         }
     }
-
-    private GererItemLocal lookupGererItemLocal() {
-        try {
-            Context c = new InitialContext();
-            return (GererItemLocal) c.lookup("java:global/MacDo/MacDo-ejb/GererItem!metiers.GererItemLocal");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
-    }
-
 
 }

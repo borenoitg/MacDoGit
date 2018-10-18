@@ -43,7 +43,12 @@ private Collection<LigneDeCommande> ligneDeCommandes;
 
 //-------------------------------- Constructeur --------------------------------
     public Commande() {
-       ligneDeCommandes = new ArrayList<>();
+       ligneDeCommandes = new ArrayList<LigneDeCommande>();
+    }
+
+    public Commande(Date dateCommande) {
+        this();
+        this.dateCommande = dateCommande;
     }
 
     public Commande(Date dateCommande, boolean paiementBorne) {
@@ -94,7 +99,6 @@ private Collection<LigneDeCommande> ligneDeCommandes;
     }
 
     
-
 
 //------------------------------ Autres Methodes -------------------------------
     @Override
