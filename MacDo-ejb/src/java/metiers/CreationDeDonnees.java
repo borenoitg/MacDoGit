@@ -41,7 +41,7 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Menu menBigMacMaxiBest = new Menu("Big Mac", "Menu Maxi Best Of", "./Images/", 8.00F);
         Menu menSalade = new Menu("Salade", "Menu", "./Images/", 6.50F);
         Menu menChickMacNugx6 = new Menu("Chicken McNuggets x6", "Menu Best Of", "./Images/", 7.50F);
-        Menu menPtitDej = new Menu("P'tit Déj", "Menu", "./Images/", 7.30F);
+        Menu menPtitDej = new Menu("P'tit Déj", "Menu", "./Images/Dej.png", 7.30F);
         Menu menSignatureBest = new Menu("Signature 280", "Menu Best Of", "./Images/", 8.30F);
 
         //---------- PRODUITS ----------
