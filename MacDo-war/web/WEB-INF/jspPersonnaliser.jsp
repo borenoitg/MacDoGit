@@ -84,7 +84,7 @@
                         <%-- Rounded switch --%>
 
                         <label class="switch">
-                            <input type="checkbox" name="${n.nom}" value="${n.id}" >
+                            <input type="checkbox" name="${n.nom}" value="${n.id}">
                             <span class="slider round"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${n.nom}
                         </label>
                         <br>
