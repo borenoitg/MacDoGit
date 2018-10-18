@@ -43,10 +43,10 @@ public class PanierCtrl implements SousControleurInterface {
 //            ArrayList<String> listR = new ArrayList<>();
 //            List<ItemARetirer> listeARetirer = (List<ItemARetirer>) session.getAttribute("listepro");
 //            
-//            for(ItemARetirer l : listeARetirer){
-//                if(request.getParameter(l.getNom())!= null){
-//                    listR.add(l.getNom());
-//                    SousLigneDeCommandeCtrl n = new SousLigneDeCommandeCtrl();
+//            for(ItemARetirer i : listeARetirer){
+//                if(request.getParameter(i.getNom())!= null){
+//                    
+//                  p.getItemARetires().add(i);
 //                    
 //                }
 //            }
@@ -58,7 +58,7 @@ public class PanierCtrl implements SousControleurInterface {
                 
             int qty = 1;
             LigneDeCommande lc = new LigneDeCommande(p.getTva().getTaux(), qty, p.getPrix(), null, p, c);
-
+            
             lignesDeCommande.add(lc);
             c.setLigneDeCommandes(lignesDeCommande);
             session.setAttribute("lignesdecommande", lignesDeCommande);
