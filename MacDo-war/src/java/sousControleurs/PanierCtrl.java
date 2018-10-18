@@ -41,15 +41,16 @@ public class PanierCtrl implements SousControleurInterface {
             }
             //récupérer liste itemARetirer
 //            ArrayList<String> listR = new ArrayList<>();
-//            List<ItemARetirer> listeARetirer = (List<ItemARetirer>) session.getAttribute("listepro");
-//            
-//            for(ItemARetirer i : listeARetirer){
-//                if(request.getParameter(i.getNom())!= null){
-//                    
-//                  p.getItemARetires().add(i);
-//                    
-//                }
-//            }
+            List<ItemARetirer> listeARetirer = (List<ItemARetirer>) session.getAttribute("listepro");
+            if(!listeARetirer.isEmpty()){
+            for(ItemARetirer i : listeARetirer){
+                if(request.getParameter(i.getNom())!= null){
+                    
+                  p.getItemARetires().add(i);
+                    
+                }
+            }
+            }
             
              
                 

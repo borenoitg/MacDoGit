@@ -42,7 +42,7 @@ public class GererSousLigneDeCommande implements GererSousLigneDeCommandeLocal {
             
             l.setCommande(com);
             SousLigneDeCommande ssL = new SousLigneDeCommande("En cours de préparation",l.getProduit(),l);
-//            ssL.setItemsARetirer(l.getProduit().getItemARetires());
+            ssL.setItemsARetirer(l.getProduit().getItemARetires());
             
             em.persist(l);
             em.persist(ssL);
