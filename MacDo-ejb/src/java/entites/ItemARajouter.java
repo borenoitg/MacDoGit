@@ -22,7 +22,7 @@ import javax.persistence.OneToMany;
     @NamedQuery(name = "entities.ItemARajouter.selectOne", query = "SELECT i FROM ItemARajouter i where i.id = :itemId")
         ,
 })
-public class ItemARajouter implements Serializable {
+public class ItemARajouter implements Serializable, Comparable<ItemARajouter> {
 
     private static final long serialVersionUID = 1L;
 
@@ -167,6 +167,31 @@ public class ItemARajouter implements Serializable {
     @Override
     public String toString() {
         return "ItemARajoute{" + "nom=" + nom + ", prix=" + prix + ", statut=" + statut + '}';
+    }
+
+    @Override
+    public int compareTo(ItemARajouter itaraj) {
+        
+        //Test: si les deux elements sont null, ils sont considérés comme egal
+        if((this.nom == null)&&(itaraj.nom == null)){
+            return 0;
+        }
+        
+        //Test: si l'élément en cours est null
+        else if(this.nom == null){
+            return -1;
+        }
+        
+        else if(itaraj.nom == null){
+            return 1;
+        }
+        
+        //Comparaison des deux produit et tri de ces derniers
+        else {
+            int monResultat = this.nom.compareTo(itaraj.nom);
+            
+            return monResultat;
+        }
     }
 
 }

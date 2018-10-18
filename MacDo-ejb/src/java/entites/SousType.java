@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
     
     @NamedQuery(name = "entities.SousType.selectSousTypeByType", query = "SELECT s FROM SousType s WHERE s.type.nom = :paramType")
 })
-public class SousType implements Serializable {
+public class SousType implements Serializable, Comparable<SousType> {
 
     private static final long serialVersionUID = 1L;
 
@@ -124,4 +124,28 @@ public class SousType implements Serializable {
                 + ", imageUrl=" + imageUrl + '}';
     }
 
+    @Override
+    public int compareTo(SousType stp) {
+        
+        //Test: si les deux elements sont null, ils sont considérés comme egal
+        if((this.nom == null)&&(stp.nom == null)){
+            return 0;
+        }
+        
+        //Test: si l'élément en cours est null
+        else if(this.nom == null){
+            return -1;
+        }
+        
+        else if(stp.nom == null){
+            return 1;
+        }
+        
+        //Comparaison des deux produit et tri de ces derniers
+        else {
+            int monResultat = this.nom.compareTo(stp.nom);
+            
+            return monResultat;
+        }
+    }
 }

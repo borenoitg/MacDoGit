@@ -36,13 +36,13 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 //                          CREATION DES DONNEES
 // -----------------------------------------------------------------------------        
         //---------- MENUS ----------
-        Menu menHappyMeal = new Menu("HappyMeal", "Menu", "./Images/", 5.50F);
-        Menu menBigMacBest = new Menu("Big Mac", " Menu Best Of", "./Images/", 8.90F);
-        Menu menBigMacMaxiBest = new Menu("Big Mac", "Menu Maxi Best Of", "./Images/", 8.00F);
-        Menu menSalade = new Menu("Salade", "Menu", "./Images/", 6.50F);
-        Menu menChickMacNugx6 = new Menu("Chicken McNuggets x6", "Menu Best Of", "./Images/", 7.50F);
+        Menu menHappyMeal = new Menu("HappyMeal", "Menu", "./Images/happyMeal.png", 5.50F);
+        Menu menBigMacBest = new Menu("Big Mac", " Menu Best Of", "./Images/menuBigMac.jpeg", 8.90F);
+        Menu menBigMacMaxiBest = new Menu("Big Mac", "Menu Maxi Best Of", "./Images/menuBigMac.jpeg", 8.00F);
+        Menu menSalade = new Menu("Salade", "Menu", "./Images/menuSalade.png", 6.50F);
+        Menu menChickMacNugx6 = new Menu("Chicken McNuggets x6", "Menu Best Of", "./Images/menuNuget.png", 7.50F);
         Menu menPtitDej = new Menu("P'tit Déj", "Menu", "./Images/Dej.png", 7.30F);
-        Menu menSignatureBest = new Menu("Signature 280", "Menu Best Of", "./Images/", 8.30F);
+        Menu menSignatureBest = new Menu("Signature 280", "Menu Best Of", "./Images/menuSignature.jpg", 8.30F);
 
         //---------- PRODUITS ----------
         // Les burgers
@@ -106,20 +106,20 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         Produit proRistretto = new Produit("RISTRETTO", 1.50F, "./Images/ristrtto.jpg");
         Produit proChocolatChaud = new Produit("CHOCOLAT CHAUD", 2.20F, "./Images/chocolatChaud.jpg");
 
-        Produit proTheRougeGrand = new Produit("THÉ FRUITS ROUGES GRAND FORMAT", 2.70F, "Grande", "./Images/theFruitRouge.png");
+        Produit proTheRougeGrand = new Produit("THÉ FRUITS ROUGES", 2.70F, "Grande", "./Images/theFruitRouge.png");
         Produit proTheVertGrand = new Produit("THÉ VERT A LA MENTHE GRAND FORMAT", 2.70F, "Grande", "./Images/theMenthe.png");
-        Produit proTheGreyGrand = new Produit("THÉ EARL GREY GRAND FORMAT", 2.70F, "Grande", "./Images/theGrey.png");
-        Produit proGrandCafeGrand = new Produit("GRAND CAFE GRAND FORMAT", 2.50F, "Grande", "./Images/grandCafeGrandFormat.jpg");
-        Produit proCappuccinoGrand = new Produit("CAPPUCCINO GRAND FORMAT", 2.90F, "Grande", "./Images/cappuccinoGrand.png");
-        Produit proCappuccinDaimGrand = new Produit("CAPPUCCINO DAIM GRAND FORMAT", 3F, "Grande", "./Images/cappuccinoDaimGrand.png");
-        Produit proDoubleLatteGrand = new Produit("DOUBLE LATTE GRAND FORMAT", 2.80F, "Grande", "./Images/doubleLatteGrand.png");
+        Produit proTheGreyGrand = new Produit("THÉ EARL GREY", 2.70F, "Grande", "./Images/theGrey.png");
+        Produit proGrandCafeGrand = new Produit("CAFE", 2.50F, "Grande", "./Images/grandCafeGrandFormat.jpg");
+        Produit proCappuccinoGrand = new Produit("CAPPUCCINO", 2.90F, "Grande", "./Images/cappuccinoGrand.png");
+        Produit proCappuccinDaimGrand = new Produit("CAPPUCCINO DAIM", 3F, "Grande", "./Images/cappuccinoDaimGrand.png");
+        Produit proDoubleLatteGrand = new Produit("DOUBLE LATTE", 2.80F, "Grande", "./Images/doubleLatteGrand.png");
         // Les accompagnements
-        Produit proGrandesCrousties = new Produit("GRANDES CROUSTIES", 2.90F, "Grand", "./Images/grandesCrousties.png");
-        Produit proMoyenneCrousties = new Produit("MOYENNE CROUSTIES", 2.50F, "Moyen", "./Images/Croustie.png");
-        Produit proGrandeFrite = new Produit("GRANDE FRITE", 2.90F, "Grand", "./Images/grandesFrites.png");
-        Produit proMoyenneFrite = new Produit("MOYENNE FRITE", 2.50F, "Moyen", "./Images/moyenneFrite.png");
-        Produit proPetiteFrite = new Produit("PETITE FRITE", 1.95F, "Normal", "./Images/petiteFrite.png");
-        Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "Moyen", "./Images/PtiteSalade.png");
+        Produit proGrandesCrousties = new Produit("CROUSTIES", 2.90F, "Grande", "./Images/grandesCrousties.png");
+        Produit proMoyenneCrousties = new Produit("CROUSTIES", 2.50F, "Moyenne", "./Images/Croustie.png");
+        Produit proGrandeFrite = new Produit("FRITE", 2.90F, "Grande", "./Images/grandesFrites.png");
+        Produit proMoyenneFrite = new Produit("FRITE", 2.50F, "Moyenne", "./Images/moyenneFrite.png");
+        Produit proPetiteFrite = new Produit("FRITE", 1.95F, "Petite", "./Images/petiteFrite.png");
+        Produit proPtiteSalade = new Produit("La P'tite Salade", 3F, "./Images/PtiteSalade.png");
         // Les sauces
         Produit proSauceBarbecue = new Produit("BARBECUE", 0.20F, "nuggets", "", 0, "./Images/sauceBbq.png");
         Produit proSauceChinoise = new Produit("CHINOISE", 0.20F, "nuggets", "", 0, "./Images/sauceChinoise.png");
@@ -801,9 +801,10 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
         menSignatureBest.getTypes().add(typPrincipal);
 
         // Statut vers Produits
-        proMoyenneCrousties.setStatut(staNouveau);
-        proGrandesCrousties.setStatut(staNouveau);
+        proBoeufRanch.setStatut(staNouveau);
         menSignatureBest.setStatut(staNouveau);
+        proManhattanVeggie.setStatut(staNouveau);
+        proCappuccinDaimGrand.setStatut(staNouveau);
 
         
         //Test Ss ligne de commande

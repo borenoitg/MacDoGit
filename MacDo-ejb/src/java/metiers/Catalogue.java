@@ -6,6 +6,7 @@ import entites.SousType;
 import entites.Statut;
 import entites.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -119,7 +120,7 @@ public class Catalogue implements CatalogueLocal {
         query.setParameter("paramTypeUn", sousTypeUn);
         query.setParameter("paramTypeDeux", sousTypeDeux);
         List<Produit> produitsByType = query.getResultList();
-        System.out.println(">>>>>> produitsByType: "+ produitsByType.size());
+        
         return produitsByType;
     }
     
@@ -160,9 +161,11 @@ public class Catalogue implements CatalogueLocal {
     public List<Menu> gestionSideBarMenu(){
         List<Menu> menus = null;
         menus = this.listMenu();
+        Collections.sort(menus);
+        
         return menus;
     }
-    
+   
     /**
      * Permet de récupérer les sousType par type
      * @param nom 
@@ -173,6 +176,7 @@ public class Catalogue implements CatalogueLocal {
         
         List<SousType> sousTypeByTypes = null;
         sousTypeByTypes = this.listSousTypeByType(nom);
+        Collections.sort(sousTypeByTypes);
         
         return sousTypeByTypes;
     }
@@ -212,7 +216,16 @@ public class Catalogue implements CatalogueLocal {
             produits = this.listeProduitBySousType(sousTypeUn, sousTypeDeux);
         }
         
+        //Tri de la list de produits
+        Collections.sort(produits);
+        
         return produits;
+    }
+    
+    @Override
+    public Produit descriptionProduit(Long productId){
+        Produit produit = em.find(Produit.class, productId);
+        return produit;
     }
     
     /**

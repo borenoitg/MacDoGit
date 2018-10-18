@@ -16,7 +16,9 @@
                     </h6>
                 </div>
                 <div class="card-footer">
-                    <a href="FrontControleur?section=PersonnaliserCtrl&proId=${p.id}&produit=${p.nom}&soustype=${p.soustype.nom}" class="btn btn-primary">Commander</a>
+                    <a href="FrontControleur?section=PersonnaliserCtrl&proId=${p.id}&produit=${p.nom}&soustype=${p.soustype.nom}" class="btn btn-primary btn-sm">Commander</a><br>
+                    <a href="FrontControleur?section=CatalogueCtrl&produitId=${p.id}" class="btn btn-primary btn-sm">Description</a>
+<!--                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="jspDescription.jsp"><i class="fa fa-search" id="${p.id}"></i> Quick View</button>-->
                 </div>
             </div>
         </div>

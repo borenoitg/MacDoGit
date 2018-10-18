@@ -40,5 +40,7 @@ public interface CatalogueLocal {
     public List<Produit> gestionSideBar(String nom, String statut);
 
     public void persist(Object object);
+
+    public Produit descriptionProduit(Long productId);
     
 }

@@ -21,7 +21,7 @@ import javax.persistence.OneToMany;
 @NamedQueries({
     @NamedQuery(name = "entities.Type.selectAll", query = "SELECT t FROM Type t")
 })
-public class Type implements Serializable {
+public class Type implements Serializable, Comparable<Type> {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -144,6 +144,31 @@ public class Type implements Serializable {
     @Override
     public String toString() {
         return "Type{" + "id=" + id + ", nom=" + nom + ", imageUrl=" + imageUrl + '}';
+    }
+
+    @Override
+    public int compareTo(Type t) {
+        
+        //Test: si les deux elements sont null, ils sont considérés comme egal
+        if((this.nom == null)&&(t.nom == null)){
+            return 0;
+        }
+        
+        //Test: si l'élément en cours est null
+        else if(this.nom == null){
+            return -1;
+        }
+        
+        else if(t.nom == null){
+            return 1;
+        }
+        
+        //Comparaison des deux produit et tri de ces derniers
+        else {
+            int monResultat = this.nom.compareTo(t.nom);
+            
+            return monResultat;
+        }
     }
    
 }
