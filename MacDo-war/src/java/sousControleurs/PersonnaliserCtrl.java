@@ -53,7 +53,7 @@ public class PersonnaliserCtrl implements SousControleurInterface {
             return "FrontControleur?section=PanierCtrl";
         }
 
-        return "/WEB-INF/jspPersonnaliser.jsp";
+                return "/WEB-INF/jspPersonnaliser.jsp";
     }
 
     private GererItemLocal lookupGererItemLocal() {
