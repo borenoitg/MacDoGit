@@ -27,7 +27,7 @@
 </c:forEach>  
 </tr>
 </table>
-                    <form action="FrontControleur?section=PanierCtrl&proId=${proId}" method="POST">
+                    <form action="FrontControleur?section=SousLigneDeCommandeCtrl" method="POST">
 
     <br>     <center> <input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center>
 

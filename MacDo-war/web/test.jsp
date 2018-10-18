@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
-        <title>Cuisine</title>
+        <title>resulatDesCoures</title>
     </head>
     <body>
        
@@ -15,51 +15,46 @@
             <table class="table">
                 <thead class="thead-light">
                     <tr>
-                        <th>Number</th>
-                        <th>Burger</th>
-                        <th>Date</th>
+                        <th>Article</th>
+                        <th>Nom</th>
+                        <th>Prix unitaire TCC</th>
                         <th>Quantité</th>
-                        <th>Ingrédients à Retirer</th>
-                        <th></th>
+                        <th>Prix TCC</th>
+                        <th>TVA</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${listCuisine}" var="c">
+                    <c:forEach items="${lignesdecommande}" var="c">
+                        <c:set  var="total" value="${(total + (lc.produit.prix*lc.quantite))}" />
                     <tr>
-                        <td>${c.id}</td>
-                        <td>${c.produit.nom}</td>
+                        <td><img class="card-img-top mx-auto d-block" style=" width: 60px;" src = "${lc.produit.imageUrl}" alt ="illustration" ></td>
+                        <td>${lc.produit.nom}</td>
+                        <td><fmt:formatNumber value="${lc.produit.prix}" type="currency"/></td>
+                        <td>${lc.quantite}</td>
+                        <td>${lc.produit.prix*lc.quantite}</td>
+                        <td>${lc.tva} % </td>
                         <td>
-                            <fmt:formatDate value="${c.ligneCommande.commande.dateCommande}" pattern="EEEE dd MMMM yyyy HH:mm:ss" />
+                            <fmt:formatDate value="${commande.dateCommande}" pattern="EEEE dd MMMM yyyy HH:mm:ss" />
                         </td>
-                        <td>${c.ligneCommande.quantite}</td>
-                        <td><c:forEach items="${c.getItemsARetirer()}" var="var">
-                                <c:out value="${var.nom}"/>
-                                <c:out value=" "/>
-                                
-                            </c:forEach>
-                         
-                            </td>
-                           <td>
-                               <form action="FrontControleur?section=SousLigneDeCommandeCtrl&ligneId=${c.id}" method="POST">
-
-                                <input type="submit" value="en cours de préparation" name="${c.id}" />
-                            <!--<input id="champ$c.id}" type="button" value="En cours de préparation" onClick="doModifie($c.id})"/>-->
-                               </form>
-                        </td>
+                          
                     </tr>
                     </c:forEach>
+                    
                 </tbody>
             </table>
+             <div>  <h2>Total de la commande TTC : <strong><fmt:formatNumber value="${total}" type="currency"/></strong></h2>
+        
+        
+          <form action="FrontControleur?section=PanierCtrl&proId=${proId}" method="POST">
+
+               <center><input type="submit" value="Validez" name="validez"/>&nbsp&nbsp&nbsp<input type="submit" value="Annuler" name="annulez"/></center></form>  
         </div>
         <!-- Optional JavaScript -->
-        <script>
-           <!--  function doModifie(champ) {
-      <!-- document.getElementById('champ'+champ).value= "Ok";
-    }-->
-            </script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
-    </body>
+    
+        </body>
 </html>

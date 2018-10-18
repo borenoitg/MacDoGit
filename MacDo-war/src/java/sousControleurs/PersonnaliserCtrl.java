@@ -34,7 +34,7 @@ public class PersonnaliserCtrl implements SousControleurInterface {
         request.setAttribute("nom", request.getParameter("nom"));
         request.setAttribute("soustype", request.getParameter("soustype"));
         request.setAttribute("produit", request.getParameter("produit"));
-        request.setAttribute("listepro", liste);
+        session.setAttribute("listepro", liste);
         request.setAttribute("listeSauces", sauces);
         request.setAttribute("listeSaucesSalade", saucesSalade);
 

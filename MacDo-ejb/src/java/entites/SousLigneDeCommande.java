@@ -3,6 +3,7 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,9 @@ public class SousLigneDeCommande implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    @Column(nullable = false)
+    private String statut;
     //------ gestion des associations ------
     
 
@@ -43,9 +46,21 @@ public class SousLigneDeCommande implements Serializable {
         
     }
 
+    public SousLigneDeCommande(String statut) {
+        this();
+        this.statut = statut;
+    }
+
     public SousLigneDeCommande(Produit produit) {
         this();
         this.produit = produit;
+    }
+
+    public SousLigneDeCommande(String statut, Produit produit, LigneDeCommande ligneCommande) {
+        this();
+        this.statut = statut;
+        this.produit = produit;
+        this.ligneCommande = ligneCommande;
     }
 
     public SousLigneDeCommande(Produit produit, LigneDeCommande ligneCommande) {
@@ -129,6 +144,14 @@ public class SousLigneDeCommande implements Serializable {
 
     public void setProduits(Produit produits) {
         this.produit = produits;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
     }
 
 //------------------------------ Autres Methodes -------------------------------

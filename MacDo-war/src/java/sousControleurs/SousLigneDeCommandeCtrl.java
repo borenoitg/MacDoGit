@@ -1,8 +1,12 @@
 
 package sousControleurs;
 
+import entites.Commande;
+import entites.Commande_;
+import entites.LigneDeCommande;
 import entites.SousLigneDeCommande;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,6 +15,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import metiers.GererSousLigneDeCommandeLocal;
 
 public class SousLigneDeCommandeCtrl implements SousControleurInterface,Serializable{
@@ -21,11 +26,37 @@ public class SousLigneDeCommandeCtrl implements SousControleurInterface,Serializ
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
+        
+        String url = "/WEB-INF/jspCuisine1.jsp";
         GererSousLigneDeCommandeLocal gererSousLigneDeCommande = lookupGererSousLigneDeCommandeLocal();
         List<SousLigneDeCommande> SsLigne = gererSousLigneDeCommande.listSsLigne();
+        request.setAttribute("listCuisine",SsLigne); 
+        
+        if(request.getParameter("validez")!= null ){
+            url = "/WEB-INF/jspRecapitulatif.jsp";
+        }
+        if(request.getParameter("annuler")!= null){
+            url = "/WEB-INF/jspFooter.jsp";
+        }
+         if(request.getParameter("validez2")!= null){
+             ArrayList<LigneDeCommande> listL = (ArrayList<LigneDeCommande>) session.getAttribute("lignesdecommande");
+             Commande c  = (Commande) session.getAttribute("commande");
+             gererSousLigneDeCommande.creationSsLigne(listL,c);
+            url = "/WEB-INF/jspFinCommande.jsp";
+        }
+        if(request.getParameter("ligneId")!= null){
+            long d = Long.valueOf(request.getParameter("ligneId"));
+            gererSousLigneDeCommande.listSsLigne(d);
+            SsLigne = gererSousLigneDeCommande.listSsLigne();
+            request.setAttribute("listCuisine",SsLigne);
+            
+        }
+         
+         
         
         request.setAttribute("listCuisine",SsLigne);
-        return "/WEB-INF/jspCuisine1.jsp";
+        return url;
     }
 
     private GererSousLigneDeCommandeLocal lookupGererSousLigneDeCommandeLocal() {
