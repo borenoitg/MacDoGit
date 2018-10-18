@@ -5,7 +5,10 @@
  */
 package metiers;
 
+import entites.Commande;
+import entites.LigneDeCommande;
 import entites.SousLigneDeCommande;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,5 +17,9 @@ import javax.ejb.Local;
 public interface GererSousLigneDeCommandeLocal {
 
     public List<SousLigneDeCommande> listSsLigne();
+
+    public void creationSsLigne(ArrayList<LigneDeCommande> ligne, Commande com);
+
+    public void listSsLigne(long id);
     
 }

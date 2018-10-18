@@ -2,10 +2,12 @@ package sousControleurs;
 
 import entites.Commande;
 import entites.ItemARajouter;
+import entites.ItemARetirer;
 import entites.LigneDeCommande;
 import entites.Produit;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -37,9 +39,27 @@ public class PanierCtrl implements SousControleurInterface {
                 c = new Commande(new Date(), true);
                 lignesDeCommande = new ArrayList<>();
             }
+            //récupérer liste itemARetirer
+//            ArrayList<String> listR = new ArrayList<>();
+            List<ItemARetirer> listeARetirer = (List<ItemARetirer>) session.getAttribute("listepro");
+            if(!listeARetirer.isEmpty()){
+            for(ItemARetirer i : listeARetirer){
+                if(request.getParameter(i.getNom())!= null){
+                    
+                  p.getItemARetires().add(i);
+                    
+                }
+            }
+            }
+            
+             
+                
+                
+                
+                
             int qty = 1;
             LigneDeCommande lc = new LigneDeCommande(p.getTva().getTaux(), qty, p.getPrix(), null, p, c);
-
+            
             lignesDeCommande.add(lc);
             c.setLigneDeCommandes(lignesDeCommande);
             session.setAttribute("lignesdecommande", lignesDeCommande);
