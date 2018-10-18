@@ -222,6 +222,12 @@ public class Catalogue implements CatalogueLocal {
         return produits;
     }
     
+    @Override
+    public Produit descriptionProduit(Long productId){
+        Produit produit = em.find(Produit.class, productId);
+        return produit;
+    }
+    
     /**
      *
      * @param object

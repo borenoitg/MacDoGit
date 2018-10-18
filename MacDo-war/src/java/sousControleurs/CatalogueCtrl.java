@@ -36,10 +36,18 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             id = Long.valueOf(request.getParameter("proId"));
             session.setAttribute("proId", id);
         }
+        
+        if(request.getParameter("produitId") != null){
+            Long produitid = Long.valueOf(request.getParameter("produitId"));
+            Produit produit = catalogue.descriptionProduit(produitid);
+            request.setAttribute("produitDescription", produit);
+            
+            return"/WEB-INF/jspDescription.jsp";
+        }
 
         String nom = request.getParameter("nom");
         String detail = request.getParameter("detail");
-
+        
         System.out.println(">>>>>>>>> NOM : " + nom);
         System.out.println(">>>>>>>>> DETAIL : " + detail);
 
@@ -65,6 +73,7 @@ public class CatalogueCtrl implements SousControleurInterface, Serializable {
             request.setAttribute("produitTest", produitTest);
         }
         return "/WEB-INF/home.jsp";
+        
     }
 
     private CatalogueLocal lookupCatalogueLocal() {

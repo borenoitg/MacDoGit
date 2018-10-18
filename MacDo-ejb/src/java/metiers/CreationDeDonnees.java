@@ -36,13 +36,13 @@ public class CreationDeDonnees implements CreationDeDonneesLocal {
 //                          CREATION DES DONNEES
 // -----------------------------------------------------------------------------        
         //---------- MENUS ----------
-        Menu menHappyMeal = new Menu("HappyMeal", "Menu", "./Images/", 5.50F);
-        Menu menBigMacBest = new Menu("Big Mac", " Menu Best Of", "./Images/", 8.90F);
-        Menu menBigMacMaxiBest = new Menu("Big Mac", "Menu Maxi Best Of", "./Images/", 8.00F);
-        Menu menSalade = new Menu("Salade", "Menu", "./Images/", 6.50F);
-        Menu menChickMacNugx6 = new Menu("Chicken McNuggets x6", "Menu Best Of", "./Images/", 7.50F);
+        Menu menHappyMeal = new Menu("HappyMeal", "Menu", "./Images/happyMeal.png", 5.50F);
+        Menu menBigMacBest = new Menu("Big Mac", " Menu Best Of", "./Images/menuBigMac.jpeg", 8.90F);
+        Menu menBigMacMaxiBest = new Menu("Big Mac", "Menu Maxi Best Of", "./Images/menuBigMac.jpeg", 8.00F);
+        Menu menSalade = new Menu("Salade", "Menu", "./Images/menuSalade.png", 6.50F);
+        Menu menChickMacNugx6 = new Menu("Chicken McNuggets x6", "Menu Best Of", "./Images/menuNuget.png", 7.50F);
         Menu menPtitDej = new Menu("P'tit Déj", "Menu", "./Images/", 7.30F);
-        Menu menSignatureBest = new Menu("Signature 280", "Menu Best Of", "./Images/", 8.30F);
+        Menu menSignatureBest = new Menu("Signature 280", "Menu Best Of", "./Images/menuSignature.jpg", 8.30F);
 
         //---------- PRODUITS ----------
         // Les burgers
